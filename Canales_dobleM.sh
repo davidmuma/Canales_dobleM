@@ -40,7 +40,7 @@ GRABBER_ERROR=false #INSTALLED_GRABBER=true
 SERVICE_ERROR=false
 
 
-LOCAL_SCRIPT_VERSION="20191004"
+LOCAL_SCRIPT_VERSION="20200906"
 REMOTE_SCRIPT_VERSION="$(curl -fLs https://github.com/davidmuma/Canales_dobleM/raw/master/version.txt | grep ^"SCRIPT_VERSION" | cut -d'=' -f2)" 2>>Canales_dobleM.log
 URL_SCRIPT="https://github.com/davidmuma/Canales_dobleM/raw/master/Canales_dobleM.sh" 2>>Canales_dobleM.log
 
@@ -635,7 +635,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	sed -i 's/"modules": {/"modules": {\n\t\t"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>Canales_dobleM.log
+	sed -i 's/"modules": {/"modules": {\n\t\t"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>Canales_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
