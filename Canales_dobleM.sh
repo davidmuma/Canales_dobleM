@@ -40,7 +40,7 @@ GRABBER_ERROR=false #INSTALLED_GRABBER=true
 SERVICE_ERROR=false
 
 
-LOCAL_SCRIPT_VERSION="20200906"
+LOCAL_SCRIPT_VERSION="20200909"
 REMOTE_SCRIPT_VERSION="$(curl -fLs https://github.com/davidmuma/Canales_dobleM/raw/master/version.txt | grep ^"SCRIPT_VERSION" | cut -d'=' -f2)" 2>>Canales_dobleM.log
 URL_SCRIPT="https://github.com/davidmuma/Canales_dobleM/raw/master/Canales_dobleM.sh" 2>>Canales_dobleM.log
 
@@ -291,7 +291,7 @@ if [ -f $TVHEADEND_CONFIG_DIR/version.txt ]; then
 		printf "%s$blue%s$end\n\t$blue%s$end%s\t$blue%s$end%s\n" "- " "Lista de canales:" "Versión instalada: " "$LOCAL_LIST_VERSION" "Última versión disponible: " "$REMOTE_LIST_VERSION"
 		if [ $LOCAL_LIST_VERSION -lt $REMOTE_LIST_VERSION ]; then
 			echo -e "\nHay disponible una versión más reciente de la lista de canales, se va a proceder a su descarga y posterior instalación."
-			read -p "¿Desea instalar la lista de canales? [S/n] " REINSTALAR
+			read -p "¿Desea instalar la lista de canales? (OJO, se borrará toda lista anterior) [S/n] " REINSTALAR
 			if [ "$REINSTALAR" = "s" -o "$REINSTALAR" = "S" -o "$REINSTALAR" = "" ]; then
 				INSTALL_LIST=true
 			else
@@ -301,7 +301,7 @@ if [ -f $TVHEADEND_CONFIG_DIR/version.txt ]; then
 			
 		else
 			echo "Su lista de canales ya está actualizada y por tanto no hace falta que se vuelva a instalar."
-			read -p "¿Desea reinstalar la lista de canales? [S/n] " REINSTALAR
+			read -p "¿Desea reinstalar la lista de canales? (OJO, se borrará toda lista anterior) [S/n] " REINSTALAR
 			if [ "$REINSTALAR" = "s" -o "$REINSTALAR" = "S" -o "$REINSTALAR" = "" ]; then
 				INSTALL_LIST=true
 			else
@@ -470,7 +470,7 @@ if [ "$INSTALL_LIST" = true ]; then
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 0,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/Picons",\n\t"piconscheme": 1,/g' $TVHEADEND_CONFIG_DIR/config 2>>Canales_dobleM.log
+	sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/Picons",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>Canales_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
@@ -635,6 +635,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
+	sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>Canales_dobleM.log
 	sed -i 's/"modules": {/"modules": {\n\t\t"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>Canales_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
