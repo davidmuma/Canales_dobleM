@@ -14,5 +14,5 @@ El script es compatible con los sistemas operativos:
   * Linux
 
 ## Parámetros del script
-  * -b / -B: Realiza un backup de su configuración actual (lista de canales, logos y mapeo de la EPG de cada canal).
-  * -g / -G: Instala el grabber y mapea todos los canales con su correspondiente EPG.
+  * -b : Realiza un backup de su configuración actual (lista de canales, logos y mapeo de la EPG de cada canal).
+  * -g : Instala el grabber y mapea todos los canales con su correspondiente EPG.
