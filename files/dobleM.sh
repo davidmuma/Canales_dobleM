@@ -18,8 +18,7 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 # Borramos posibles residuos anteriores
-#	rm -rf dobleM.sh
-#	rm -rf i_linux.sh
+	rm -rf i_linux.sh
 	
 # Arranca script principal
 	echo "\e[36m##############################################################\e[0m" 
@@ -42,11 +41,10 @@ do
 	echo -n "Indica una opción: "
 	read opcion
 	case $opcion in
-		1) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sh i_linux.sh && i_linux.sh; break;;
-		#1) wget -c -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && chmod +x ./nepg43.sh && ./nepg43.sh && rm ./nepg43.sh; break;;
-		2) wget -c -q normandy.es//install/nepgae.sh && chmod +x ./nepgae.sh && ./nepgae.sh && rm ./nepgae.sh; break;;
-		3) wget -c -q normandy.es//install/nepgdk.sh && chmod +x ./nepgdk.sh && ./nepgdk.sh && rm ./nepgdk.sh; break;;
-		4) wget -c -q normandy.es//install/nepge2.sh && chmod +x ./nepge2.sh && ./nepge2.sh && rm ./nepge2.sh; break;;
+		1) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sh i_linux.sh && rm -rf i_linux.sh; break;;
+		2) echo "Esta función todavía no está, no seas impaciente"; break;;
+		3) echo "Esta función todavía no está, no seas impaciente"; break;;
+		4) echo "Esta función todavía no está, no seas impaciente"; break;;
 		5) exit;;		
 		*) echo "$opcion es una opción inválida";
 	esac
