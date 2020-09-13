@@ -3,6 +3,7 @@
 
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
+CARPETA_SCRIPT="$PWD"
 CARPETA_TVH="/home/david/.hts/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
@@ -21,17 +22,16 @@ clear
 backup()
 {
 	echo "Realizando copia de seguridad"
-	CARPETA_SCRIPT="$PWD"
 	cd $CARPETA_TVH
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
 		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
-		echo "Copia de seguridad completada. Pulse intro para continuar..."
+		echo "Copia de seguridad completada. Pulsa intro para continuar..."
 		read CAD
 	else
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
 		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
-		echo "Copia de seguridad completada. Pulse intro para continuar..."
+		echo "Copia de seguridad completada. Pulsa intro para continuar..."
 		read CAD
 	fi
 }
@@ -176,7 +176,7 @@ do
 	case $opcion in
 		1) backup && clear;;
 		2) install; break;;
-		3) clear && sudo sh dobleM.sh; break;;	
+		3) clear && sudo sh $CARPETA_SCRIPT/dobleM.sh; break;;	
 		*) echo "$opcion es una opción inválida";
 	esac
 done
