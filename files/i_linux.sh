@@ -11,7 +11,7 @@ carpeta_channel="$CARPETA_TVH/channel/config/*"
 carpeta_tag="$CARPETA_TVH/channel/tag/*"
 
 ver_local=`cat $CARPETA_TVH/dobleM.ver 2>/dev/null`
-ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.ver 2>/dev/null`
+ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
 
 INFO_SISTEMA="$(uname -a)"
 
