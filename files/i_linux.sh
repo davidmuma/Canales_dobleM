@@ -2,7 +2,7 @@
 #### Script creado por dobleM
 
 # Variables
-NOMBRE_SCRIPT="Linux"
+NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_TVH="/home/david/.hts/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
@@ -17,7 +17,26 @@ INFO_SISTEMA="$(uname -a)"
 
 clear
 
-Install()
+# Copia de seguridad
+backup()
+{
+	echo "Realizando copia de seguridad"
+	CARPETA_SCRIPT="$PWD"
+	cd $CARPETA_TVH
+	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
+		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
+		echo "Copia de seguridad completada. Pulse intro para continuar..."
+		read CAD
+	else
+		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
+		echo "Copia de seguridad completada. Pulse intro para continuar..."
+		read CAD
+	fi
+}
+
+install()
 {
 	echo
 	echo "\e[36m##############################################################\e[0m" 
@@ -132,6 +151,8 @@ done
 }
 
 # Preguntamos si es todo correcto
+while :	
+do
 	echo "\e[36m###############################################################\e[0m" 
 	echo "\e[36m#   \e[38;5;198m¡PRECAUCION!\e[0m   \e[36mComprueba que el sistema y los directorios #\e[0m" 
 	echo "\e[36m# de instalación sean correctos, en caso de duda no continues #\e[0m" 
@@ -143,12 +164,19 @@ done
 	echo "Directorio instalación tvheadend: \e[32m$CARPETA_TVH\e[0m"
 	echo "Directorio instalación grabber: \e[32m$CARPETA_GRABBER\e[0m\n"
 	echo "Versión instalada: \e[31m$ver_local\e[0m ---> Nueva versión: \e[32m$ver_web\e[0m\n"
-
-while true; do
-    read -p "¿Es todo correcto? [S/n]" sn
-    case $sn in
-        [Ss]* ) Install; break;;
-        [Nn]* ) clear && sudo sh dobleM.sh; break;;
-        * ) echo "Por favor, responde si o no";;
-    esac
+	echo "---------------------------------------------------------------\n"
+	echo "1) \e[0;32mHacer copia de seguridad\e[0m"
+	echo
+	echo "2) \e[0;36mInstalar lista de canales, picons, grabber y configurar tvheadend\e[0m"
+	echo 
+    echo "3) \e[31mVolver\e[0m"
+	echo
+	echo -n "Indica una opción: "
+	read opcion
+	case $opcion in
+		1) backup && clear;;
+		2) install; break;;
+		3) clear && sudo sh dobleM.sh; break;;	
+		*) echo "$opcion es una opción inválida";
+	esac
 done
