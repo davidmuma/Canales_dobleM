@@ -4,7 +4,7 @@
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_SCRIPT="$PWD"
-CARPETA_TVH="/home/david/.hts/tvheadend"
+CARPETA_TVH="/home/hts/david/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
@@ -176,7 +176,7 @@ do
 	case $opcion in
 		1) backup && clear;;
 		2) install; break;;
-		3) clear && sudo sh $CARPETA_SCRIPT/dobleM.sh; break;;	
+		3) clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done

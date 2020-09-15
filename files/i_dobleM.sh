@@ -5,9 +5,6 @@
 INFO_SISTEMA="$(uname -a)"
 
 clear
-
-# Borramos posibles residuos anteriores
-	rm -rf i_linux.sh
 	
 # Arranca script principal
 	echo "\e[36m##############################################################\e[0m" 
