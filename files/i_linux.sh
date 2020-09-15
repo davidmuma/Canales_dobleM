@@ -4,10 +4,11 @@
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_SCRIPT="$PWD"
-CARPETA_TVH="/home/hts/.hts/tvheadend"
+CARPETA_TVH="/home/david/.hts/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
+
 carpeta_channel="$CARPETA_TVH/channel/config/*"
 carpeta_tag="$CARPETA_TVH/channel/tag/*"
 
