@@ -4,7 +4,7 @@
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_SCRIPT="$PWD"
-CARPETA_TVH="/home/hts/david/tvheadend"
+CARPETA_TVH="/home/david/.hts/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
