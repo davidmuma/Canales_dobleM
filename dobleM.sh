@@ -12,10 +12,12 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
-# Borramos posibles residuos anteriores
-	rm -rf i_dobleM.sh
-	rm -rf i_linux.sh
-
 echo Descargando instalador...
-sleep 2
+sleep 0.5
+echo 3
+sleep 0.5
+echo 2
+sleep 0.5
+echo 1
+sleep 0.5
 wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleM.sh && sudo sh i_dobleM.sh && rm -rf i_dobleM.sh
