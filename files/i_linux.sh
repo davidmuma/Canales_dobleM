@@ -148,6 +148,10 @@ done
 	echo "\e[36m###                Gracias por usar dobleM                  ###\e[0m" 
 	echo "\e[36m###############################################################\e[0m" 
 	echo
+	
+# Borramos posibles residuos
+	rm -rf dobleM.sh
+	rm -rf i_linux.sh
 }
 
 # Menu instalacion

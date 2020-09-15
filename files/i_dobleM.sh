@@ -31,7 +31,7 @@ do
 		2) echo "Esta función todavía no está, no seas impaciente"; break;;
 		3) echo "Esta función todavía no está, no seas impaciente"; break;;
 		4) echo "Esta función todavía no está, no seas impaciente"; break;;
-		5) exit;;		
+		5) rm -rf i_dobleM.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
