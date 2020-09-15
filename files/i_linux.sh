@@ -46,7 +46,7 @@ install()
 #Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
 	echo "\e[38;5;198m1. Parando servicio tvheadend\e[0m"
-		systemctl stop tvheadend
+		/etc/init.d/tvheadend stop
 				
 # Borramos grabber anterior y carpeta dobleM. Vamos al directorio principal de tvheadend y borramos configuración actual	
 	echo
@@ -130,7 +130,7 @@ done
 # Reiniciamos el servicio de TVH
 	echo
 	echo "\e[38;5;198m9. Iniciando servicio tvheadend\e[0m" 
-	systemctl start tvheadend
+		/etc/init.d/tvheadend start
 
 # Fin instalación
 	echo	
