@@ -4,7 +4,7 @@
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_SCRIPT="$PWD"
-CARPETA_TVH="/home/david/.hts/tvheadend"
+CARPETA_TVH="/home/hts/.hts/tvheadend"
 CARPETA_GRABBER="/usr/local/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
@@ -78,8 +78,7 @@ install()
 # Copiamos el grabber
 	echo			
 	echo "\e[38;5;198m5. Instalando grabber dobleM\e[0m"		
-		cp -r $CARPETA_DOBLEM/grabber/* $CARPETA_GRABBER
-		
+		cp -r $CARPETA_DOBLEM/grabber/* $CARPETA_GRABBER		
 while :	
 do
 	echo "   5a. Eligue si quieres la guía con imágenes tipo posters o fanarts"
@@ -150,7 +149,7 @@ done
 	echo
 }
 
-# Preguntamos si es todo correcto
+# Menu instalacion
 while :	
 do
 	echo "\e[36m###############################################################\e[0m" 
@@ -177,6 +176,6 @@ do
 		1) backup && clear;;
 		2) install; break;;
 		3) clear && sudo sh $CARPETA_SCRIPT/dobleM.sh; break;;	
-		*) echo "$opcion es una opción inválida";
+		*) echo "$opcion es una opción inválida\n";
 	esac
 done

@@ -6,29 +6,18 @@ INFO_SISTEMA="$(uname -a)"
 
 clear
 
-# Comprobamos si se está ejecutando como root
-if [ $(id -u) -ne 0 ]; then
-	printf "\e[31mERROR:\e[0m Por favor, ejecuta el script como root.
-	
-	Puedes hacerlo de diferentes formas:
-	- Mediante el comando \"sudo sh $0\"
-	- Entrando en la sesión del propio root con \"sudo -i\"
-	  y después ejecutando el script con \"sh $0\"\n\n"
-	exit 1
-fi
-
 # Borramos posibles residuos anteriores
 	rm -rf i_linux.sh
 	
 # Arranca script principal
 	echo "\e[36m##############################################################\e[0m" 
-	echo "\e[36m###                      \e[0;32mdobleM\e[0m  v1.0                      \e[36m###\e[0m" 
+	echo "\e[36m###                        \e[0;32mdobleM\e[0m                          \e[36m###\e[0m" 
 	echo "\e[36m###               Telegram: \e[96mt.me/EPG_dobleM\e[0m                \e[36m###\e[0m" 
 	echo "\e[36m##############################################################\e[0m" 
 	echo
 	echo "Se ha detectado el sistema operativo: \e[38;5;198m$INFO_SISTEMA\e[0m\n"
  
-# Menu de instalación de dobleM por sistemas
+# Menu de sistemas
 while :	
 do
 	echo "1) Ejecutar instalador para \e[0;36mLinux en pruebas\e[0m"
@@ -46,6 +35,6 @@ do
 		3) echo "Esta función todavía no está, no seas impaciente"; break;;
 		4) echo "Esta función todavía no está, no seas impaciente"; break;;
 		5) exit;;		
-		*) echo "$opcion es una opción inválida";
+		*) echo "$opcion es una opción inválida\n";
 	esac
 done
