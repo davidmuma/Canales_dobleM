@@ -12,12 +12,14 @@ if [ $(id -u) -ne 0 ]; then
 	exit 1
 fi
 
-echo Descargando instalador...
+echo Descargando última versión del instalador...
+sleep 0.3
+echo ..25%
+sleep 0.3
+echo ....50%
+sleep 0.3
+echo ......75%
+sleep 0.3
+echo ........100%
 sleep 0.5
-echo 3
-sleep 0.5
-echo 2
-sleep 0.5
-echo 1
-sleep 0.5
-wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleM.sh && sudo sh i_dobleM.sh && rm -rf i_dobleM.sh
+wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleM.sh && sudo sh i_dobleM.sh
