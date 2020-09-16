@@ -6,7 +6,7 @@ También cabe destacar que se incluye un grabber que descarga la EPG de todos lo
 Si se decide instalar dicho grabber, todos los canales de la lista también se mapearan con su correspondiente EPG.
 
 
-Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/doble_M.sh
+Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
 
 El script es compatible con los sistemas operativos:
 
