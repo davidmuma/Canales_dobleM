@@ -11,5 +11,5 @@ Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/dobl
 El script es compatible con los sistemas operativos:
 
   * Linux
-
+  * Synology
 
