@@ -6,13 +6,10 @@ También cabe destacar que se incluye un grabber que descarga la EPG de todos lo
 Si se decide instalar dicho grabber, todos los canales de la lista también se mapearan con su correspondiente EPG.
 
 
-Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/Canales_dobleM.sh
+Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/doble_M.sh
 
 El script es compatible con los sistemas operativos:
-  * Synology/XPEnology
-  * LibreELEC/OpenELEC
+
   * Linux
 
-## Parámetros del script
-  * sh Canales_dobleM.sh -b : Realiza un backup de su configuración actual (lista de canales, logos y mapeo de la EPG de cada canal).
-  * sh Canales_dobleM.sh -g : Instala el grabber y mapea todos los canales con su correspondiente EPG.
+
