@@ -2,6 +2,7 @@
 #### Script creado por dobleM
 
 # Variables
+NOMBRE_SCRIPT="i_dobleM.sh"
 INFO_SISTEMA="$(uname -a)"
 
 clear
@@ -17,8 +18,8 @@ clear
 # Menu de sistemas
 while :	
 do
-	echo "1) Ejecutar instalador para \e[0;36mLinux en pruebas\e[0m"
-	echo "2) Ejecutar instalador para \e[0;36mSynology en pruebas\e[0m"
+	echo "1) Ejecutar instalador para \e[0;36mLinux\e[0m"
+	echo "2) Ejecutar instalador para \e[0;36mSynology en desarrollo\e[0m"
 	echo "3) Ejecutar instalador para \e[0;36mPrueba1\e[0m"
     echo "4) Ejecutar instalador para \e[0;36mPrueba2\e[0m"
 	echo 
@@ -31,7 +32,7 @@ do
 		2) echo "Esta función todavía no está, no seas impaciente"; break;;
 		3) echo "Esta función todavía no está, no seas impaciente"; break;;
 		4) echo "Esta función todavía no está, no seas impaciente"; break;;
-		5) rm -rf i_dobleM.sh; exit;;		
+		5) rm -rf $NOMBRE_SCRIPT; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done

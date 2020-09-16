@@ -5,7 +5,7 @@
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_SCRIPT="$PWD"
 CARPETA_TVH="/home/hts/.hts/tvheadend"
-CARPETA_GRABBER="/usr/local/bin"
+CARPETA_GRABBER="/usr/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 
@@ -37,6 +37,7 @@ backup()
 	fi
 }
 
+# Instalador
 install()
 {
 	echo
@@ -48,6 +49,7 @@ install()
 	echo
 	echo "\e[38;5;198m1. Parando servicio tvheadend\e[0m"
 		sudo service tvheadend stop
+		sleep 1
 				
 # Borramos grabber anterior y carpeta dobleM. Vamos al directorio principal de tvheadend y borramos configuración actual	
 	echo
@@ -58,7 +60,7 @@ install()
 	rm -rf picons/
 	rm -rf bouquet/
 	rm -rf channel/
-	rm -rf epggrab/
+	rm -rf epggrab/xmltv/
 	rm -rf input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/
 
 # Descargamos el tar de dobleM y lo descomprimimos en CARPETA_DOBLEM		
@@ -112,10 +114,10 @@ done
 		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config
 		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $CARPETA_TVH/config
 		#picons config tvheadend
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,/g' $CARPETA_TVH/config
-		sed -i 's/"chiconscheme": .*,/"chiconscheme": 2,/g' $CARPETA_TVH/config
-		sed -i 's/"piconpath": .*,/"piconpath": "file:\/\/CARPETA_TVH\/picons",/g' $CARPETA_TVH/config
-		sed -i 's/"piconscheme": .*,/"piconscheme": 0,/g' $CARPETA_TVH/config
+		sed -i '/"chiconscheme": .*,/d' $CARPETA_TVH/config
+		sed -i '/"piconpath": .*,/d' $CARPETA_TVH/config
+		sed -i '/"piconscheme": .*,/d' $CARPETA_TVH/config
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/CARPETA_TVH\/picons",\n\t"piconscheme": 0,/g' $CARPETA_TVH/config
 		sed -i "s,CARPETA_TVH,$CARPETA_TVH,g" $CARPETA_TVH/config
 		#cron y grabber config epggrab
 		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $CARPETA_TVH/epggrab/config
@@ -147,11 +149,7 @@ done
 	echo "\e[36m###############################################################\e[0m" 
 	echo "\e[36m###                Gracias por usar dobleM                  ###\e[0m" 
 	echo "\e[36m###############################################################\e[0m" 
-	echo
-	
-# Borramos posibles residuos
-	rm -rf dobleM.sh
-	rm -rf i_linux.sh
+	echo	
 }
 
 # Menu instalacion
@@ -180,7 +178,7 @@ do
 	case $opcion in
 		1) backup && clear;;
 		2) install; break;;
-		3) clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
+		3) rm -rf $NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
