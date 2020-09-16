@@ -49,7 +49,6 @@ install()
 	echo
 	echo "\e[38;5;198m1. Parando servicio tvheadend\e[0m"
 		sudo service tvheadend stop
-		sleep 1
 				
 # Borramos grabber anterior y carpeta dobleM. Vamos al directorio principal de tvheadend y borramos configuración actual	
 	echo
@@ -132,7 +131,8 @@ done
 	
 # Reiniciamos el servicio de TVH
 	echo
-	echo "\e[38;5;198m9. Iniciando servicio tvheadend\e[0m" 
+	echo "\e[38;5;198m9. Iniciando servicio tvheadend\e[0m"
+		cd $CARPETA_SCRIPT
 		sudo service tvheadend start
 
 # Fin instalación
@@ -149,7 +149,9 @@ done
 	echo "\e[36m###############################################################\e[0m" 
 	echo "\e[36m###                Gracias por usar dobleM                  ###\e[0m" 
 	echo "\e[36m###############################################################\e[0m" 
-	echo	
+	echo
+		rm -rf $CARPETA_SCRIPT/i_dobleM.sh
+		rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT
 }
 
 # Menu instalacion
@@ -178,7 +180,7 @@ do
 	case $opcion in
 		1) backup && clear;;
 		2) install; break;;
-		3) rm -rf $NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
+		3) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
