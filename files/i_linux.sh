@@ -9,8 +9,12 @@ CARPETA_GRABBER="/usr/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 
-carpeta_channel="$CARPETA_TVH/channel/config/*"
-carpeta_tag="$CARPETA_TVH/channel/tag/*"
+USER_TVH=$(stat -c %U $CARPETA_TVH/config)
+GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
+PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
+
+# carpeta_channel="$CARPETA_TVH/channel/config/*"
+# carpeta_tag="$CARPETA_TVH/channel/tag/*"
 
 ver_local=`cat $CARPETA_TVH/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
@@ -97,7 +101,13 @@ done
 
 # Damos permisos a los directorios y al grabber
 	echo
-	echo "\e[38;5;198m6. Estableciendo permisos\e[0m"									
+	echo "\e[38;5;198m6. Aplicando permisos\e[0m"
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/picons
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/bouquet
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input
+
 		chmod +x $CARPETA_TVH/picons/
 		chmod +x $CARPETA_TVH/bouquet/
 		chmod +x $CARPETA_TVH/channel/
