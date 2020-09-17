@@ -107,7 +107,9 @@ done
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input
+chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/service_mapper
 
+chmod +x $CARPETA_TVH/service_mapper/
 		chmod +x $CARPETA_TVH/picons/
 		chmod +x $CARPETA_TVH/bouquet/
 		chmod +x $CARPETA_TVH/channel/
