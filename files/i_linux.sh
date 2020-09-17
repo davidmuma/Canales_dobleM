@@ -182,7 +182,7 @@ do
 	echo "\e[36m###############################################################\e[0m" 
 	echo
 	echo "Se ha detectado el sistema operativo: \e[38;5;198m$INFO_SISTEMA\e[0m\n"
-	echo "Vas a ejecutar el script para el sistema: \e[32m$NOMBRE_SCRIPT\e[0m"
+	echo "Vas a ejecutar el script: \e[32m$NOMBRE_SCRIPT\e[0m"
 	echo "Directorio instalación tvheadend: \e[32m$CARPETA_TVH\e[0m"
 	echo "Directorio instalación grabber: \e[32m$CARPETA_GRABBER\e[0m\n"
 	echo "Versión instalada: \e[31m$ver_local\e[0m ---> Nueva versión: \e[32m$ver_web\e[0m\n"
