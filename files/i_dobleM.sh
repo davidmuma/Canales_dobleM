@@ -18,11 +18,11 @@ clear
 # Menu de sistemas
 while :	
 do
-	echo "1) Ejecutar instalador para \e[0;36mLinux\e[0m"
+	echo "1) Ejecutar instalador para \e[0;36mLinux en pruebas\e[0m"
 	echo
-	echo "2) Ejecutar instalador para \e[0;36mPrueba1\e[0m"
+	echo "2) Ejecutar instalador para \e[0;36mCopia de seguridad de tvheadend con script manuelin\e[0m"
 	echo
-	echo "3) Ejecutar instalador para \e[0;36mSynology script manuelin\e[0m"
+	echo "3) Ejecutar instalador para \e[0;36mInstalar lista y grabber dobleM con script manuelin\e[0m"
 	echo
     echo "4) Ejecutar instalador para \e[0;36mPrueba2\e[0m"
 	echo 
@@ -32,8 +32,8 @@ do
 	read opcion
 	case $opcion in
 		1) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sh i_linux.sh && rm -rf i_linux.sh; break;;
-		2) echo "Esta función todavía no está, no seas impaciente"; break;;
-		3) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/Canales_dobleM.sh && sh Canales_dobleM.sh -g && rm -rf Canales_dobleM.sh; break;;
+		2) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sh i_manuelin.sh -b && rm -rf i_manuelin; break;;
+		3) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sh i_manuelin.sh -g && rm -rf i_manuelin; break;;
 		4) echo "Esta función todavía no está, no seas impaciente"; break;;
 		5) rm -rf $NOMBRE_SCRIPT; exit;;		
 		*) echo "$opcion es una opción inválida\n";

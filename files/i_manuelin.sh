@@ -40,7 +40,7 @@ GRABBER_ERROR=false #INSTALLED_GRABBER=true
 SERVICE_ERROR=false
 
 
-LOCAL_SCRIPT_VERSION="20200917"
+LOCAL_SCRIPT_VERSION="20200918"
 REMOTE_SCRIPT_VERSION="$(curl -fLs https://github.com/davidmuma/Canales_dobleM/raw/master/files/version.txt | grep ^"SCRIPT_VERSION" | cut -d'=' -f2)" 2>>i_manuelin.log
 URL_SCRIPT="https://github.com/davidmuma/Canales_dobleM/raw/master/files/i_manuelin.sh" 2>>i_manuelin.log
 
@@ -165,7 +165,7 @@ if [ "$1" = "-b" -o "$1" = "-B" ]; then
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -201,7 +201,7 @@ if [ "$1" = "-b" -o "$1" = "-B" ]; then
 		2)
 			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -378,7 +378,7 @@ case $SYSTEM in
 	2)
 		systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	3)
-		systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+		service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
 	#4)
 	#	systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 esac
@@ -598,7 +598,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 		2)
 			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
 		#4)
 		#	systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	esac
@@ -616,7 +616,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 		printf "$red%s$end\n\n" "¡No continúe hasta que haga lo siguiente!:"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entre en la interfaz web del Tvheadend y se dirija al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez esté situado aquí, haga lo siguiente:"
-		printf "\t%s$blue%s$end\n" "1- Seleccione el grabber " "\"XMLTV: Movistar+\""
+		printf "\t%s$blue%s$end\n" "1- Seleccione el grabber " "\"XMLTV: EPG_dobleM - Movistar+\""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral marque la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
 		printf "\t%s$blue%s$end\n\t%s\n\n" "3- Finalmente, pulse sobre el botón superior " "\"Guardar\"" "  (en inglés \"Save\")"
 		
@@ -639,7 +639,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
 		#4)
 		#	systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	esac
@@ -681,7 +681,7 @@ case $SYSTEM in
 	2)
 		systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	3)
-		systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+		service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
 	#4)
 	#	systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 esac
