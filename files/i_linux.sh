@@ -9,9 +9,16 @@ CARPETA_GRABBER="/usr/bin"
 
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 
-USER_TVH=$(stat -c %U $CARPETA_TVH/config)
-GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
-PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
+	USER_TVH=$(stat -c %U $CARPETA_TVH/config)
+	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
+	PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
+
+		TVHEADEND_PERMISSIONS = "0755"
+		TVHEADEND_CHANNEL_PERMISSIONS = "0777"
+        TVHEADEND_INPUT_PERMISSIONS = "0755"      
+        TVHEADEND_PICONS_PERMISSIONS = "0755"
+        TVHEADEND_EPGGRAB_PERMISSIONS = "0755"
+		TVHEADEND_BOUQUET_PERMISSIONS = "0755"
 
 # carpeta_channel="$CARPETA_TVH/channel/config/*"
 # carpeta_tag="$CARPETA_TVH/channel/tag/*"
@@ -107,15 +114,14 @@ done
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input
-chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/service_mapper
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM
 
-chmod +x $CARPETA_TVH/service_mapper/
-		chmod +x $CARPETA_TVH/picons/
-		chmod +x $CARPETA_TVH/bouquet/
-		chmod +x $CARPETA_TVH/channel/
-		chmod +x $CARPETA_TVH/epggrab/
-		chmod +x $CARPETA_TVH/input/
-		chmod +x $CARPETA_GRABBER/tv_grab_EPG_dobleM
+		chmod +R $TVHEADEND_PICONS_PERMISSIONS $CARPETA_TVH/picons/
+		chmod +R $TVHEADEND_BOUQUET_PERMISSIONS $CARPETA_TVH/bouquet/
+		chmod +R $TVHEADEND_CHANNEL_PERMISSIONS $CARPETA_TVH/channel/
+		chmod +R $TVHEADEND_EPGGRAB_PERMISSIONS $CARPETA_TVH/epggrab/
+		chmod +R $TVHEADEND_INPUT_PERMISSIONS $CARPETA_TVH/input/
+		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
 	
 # Configuramos tvheadend
 	echo
