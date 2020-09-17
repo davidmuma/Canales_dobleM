@@ -20,9 +20,9 @@ while :
 do
 	echo "1) Ejecutar instalador para \e[0;36mLinux en pruebas\e[0m"
 	echo
-	echo "2) Ejecutar instalador para \e[0;36mCopia de seguridad de tvheadend con script manuelin\e[0m"
+	echo "2) Ejecutar instalador para \e[0;36mCOPIA DE SEGURIDAD de tvheadend con script MANUELIN\e[0m"
 	echo
-	echo "3) Ejecutar instalador para \e[0;36mInstalar lista y grabber dobleM con script manuelin\e[0m"
+	echo "3) Ejecutar instalador para \e[0;36mINSTALAR lista y grabber dobleM con script MANUELIN\e[0m"
 	echo
     echo "4) Ejecutar instalador para \e[0;36mPrueba2\e[0m"
 	echo 
