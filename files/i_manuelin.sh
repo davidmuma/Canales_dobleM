@@ -165,7 +165,7 @@ if [ "$1" = "-b" -o "$1" = "-B" ]; then
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
+			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend stop
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -201,7 +201,7 @@ if [ "$1" = "-b" -o "$1" = "-B" ]; then
 		2)
 			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
+			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend start
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -378,7 +378,7 @@ case $SYSTEM in
 	2)
 		systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	3)
-		service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
+		systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend stop 
 	#4)
 	#	systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 esac
@@ -598,7 +598,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 		2)
 			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
+			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend start
 		#4)
 		#	systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	esac
@@ -639,7 +639,7 @@ if [ "$INSTALL_GRABBER" = true ]; then
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 		3)
-			service tvheadend stop 2>>i_manuelin.log;; #systemctl stop $TVHEADEND_SERVICE 
+			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend stop
 		#4)
 		#	systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	esac
@@ -681,7 +681,7 @@ case $SYSTEM in
 	2)
 		systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 	3)
-		service tvheadend start 2>>i_manuelin.log;; #systemctl start $TVHEADEND_SERVICE
+		systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend start
 	#4)
 	#	systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
 esac
