@@ -31,9 +31,9 @@ do
 	echo -n "Indica una opción: "
 	read opcion
 	case $opcion in
-		1) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sh i_linux.sh && rm -rf i_linux.sh; break;;
-		2) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sh i_manuelin.sh -b && rm -rf i_manuelin; break;;
-		3) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sh i_manuelin.sh -g && rm -rf i_manuelin; break;;
+		1) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh && rm -rf i_linux.sh; break;;
+		2) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sudo sh i_manuelin.sh -b && rm -rf i_manuelin; break;;
+		3) wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sudo sh i_manuelin.sh -g && rm -rf i_manuelin; break;;
 		4) echo "Esta función todavía no está, no seas impaciente"; break;;
 		5) rm -rf $NOMBRE_SCRIPT; exit;;		
 		*) echo "$opcion es una opción inválida\n";
