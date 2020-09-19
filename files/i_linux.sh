@@ -1,5 +1,13 @@
 #!/bin/bash
-#### Script creado por dobleM
+# - Script creado por dobleM
+#Formatear texto con colores: https://unix.stackexchange.com/a/92568
+red='\e[1;31m'
+green='\e[1;32m'
+yellow='\e[1;33m'
+blue='\e[1;34m'
+magenta='\e[1;35m'
+cyan='\e[1;36m'
+end='\e[0m'
 
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
@@ -26,24 +34,24 @@ CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 ver_local=`cat $CARPETA_TVH/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
 
-INFO_SISTEMA="$(uname -a)"
+INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
 
 clear
 
 # Copia de seguridad
 backup()
 {
-	echo "Realizando copia de seguridad"
+	echo "$blue Realizando copia de seguridad $end"
 	cd $CARPETA_TVH
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
 		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
-		echo "Copia de seguridad completada. Pulsa intro para continuar..."
+		echo "$green Copia de seguridad completada. Pulsa intro para continuar... $end"
 		read CAD
 	else
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
 		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
-		echo "Copia de seguridad completada. Pulsa intro para continuar..."
+		echo "$green Copia de seguridad completada. Pulsa intro para continuar... $end"
 		read CAD
 	fi
 }
@@ -52,18 +60,18 @@ backup()
 install()
 {
 	echo
-	echo "\e[36m##############################################################\e[0m" 
-	echo "\e[36m#   Iniciando instalación de lista de canales y EPG dobleM   #\e[0m" 
-	echo "\e[36m##############################################################\e[0m" 	
+	echo "$blue ################################################################ $end"
+	echo "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
+	echo "$blue ################################################################ $end" 	
 
 #Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
-	echo "\e[38;5;198m1. Parando servicio tvheadend\e[0m"
+	echo "$magenta 1. Parando servicio tvheadend $end"
 		sudo service tvheadend stop
 				
 # Borramos grabber anterior y carpeta dobleM. Vamos al directorio principal de tvheadend y borramos configuración actual	
 	echo
-	echo "\e[38;5;198m2. Borrando instalación anterior\e[0m"
+	echo "$magenta 2. Borrando instalación anterior $end"
 	rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM
 	rm -rf $CARPETA_DOBLEM
 	cd $CARPETA_TVH
@@ -75,7 +83,7 @@ install()
 
 # Descargamos el tar de dobleM y lo descomprimimos en CARPETA_DOBLEM		
 	echo
-	echo "\e[38;5;198m3. Descargando nueva lista de canales dobleM\e[0m" 		
+	echo "$magenta 3. Descargando nueva lista de canales $end" 		
 		mkdir $CARPETA_DOBLEM
 		cd $CARPETA_DOBLEM
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz
@@ -83,20 +91,25 @@ install()
 
 # Empezamos a copiar los archivos necesarios
 	echo	
-	echo "\e[38;5;198m4. Instalando lista de canales dobleM\e[0m"
+	echo "$magenta 4. Instalando lista de canales dobleM $end"
 		cp -r $CARPETA_DOBLEM/dobleM.ver $CARPETA_TVH
+		cp -r $CARPETA_DOBLEM/bouquet/ $CARPETA_TVH
+		cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH
+		cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH
 		cp -r $CARPETA_DOBLEM/picons/ $CARPETA_TVH
-		cp -r $CARPETA_DOBLEM/data/* $CARPETA_TVH
 
-# Copiamos el grabber
+# Instalamos el grabber
 	echo			
-	echo "\e[38;5;198m5. Instalando grabber dobleM\e[0m"		
-		cp -r $CARPETA_DOBLEM/grabber/* $CARPETA_GRABBER		
+	echo "$magenta 5. Instalando grabber $end"		
+		cp -r $CARPETA_DOBLEM/grabber/* $CARPETA_GRABBER
+		cp -r $CARPETA_DOBLEM/epggrab/ $CARPETA_TVH
+		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $CARPETA_TVH/epggrab/xmltv/channels/*
+	
 while :	
 do
-	echo "   5a. Eligue si quieres la guía con imágenes tipo posters o fanarts"
-	echo "	1. Posters"
-	echo "	2. Fanarts"
+	echo "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo "	1) Posters"
+	echo "	2) Fanarts"
 	echo -n "	Indica una opción: "
 	read opcion
 	case $opcion in
@@ -105,27 +118,29 @@ do
 			*) echo "$opcion es una opción inválida";
 	esac
 done
-
-# Damos permisos a los directorios y al grabber
-	echo
-	echo "\e[38;5;198m6. Aplicando permisos\e[0m"
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/picons
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/bouquet
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input
+		
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab/
+		chmod -R $TVHEADEND_EPGGRAB_PERMISSIONS $CARPETA_TVH/epggrab/
+		
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM
+		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
 
-		chmod -R $TVHEADEND_PICONS_PERMISSIONS $CARPETA_TVH/picons/
+# Damos permisos a los directorios
+	echo
+	echo "$magenta 6. Aplicando permisos $end"
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/bouquet/
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel/
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input/
+		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/picons/
+		
 		chmod -R $TVHEADEND_BOUQUET_PERMISSIONS $CARPETA_TVH/bouquet/
 		chmod -R $TVHEADEND_CHANNEL_PERMISSIONS $CARPETA_TVH/channel/
-		chmod -R $TVHEADEND_EPGGRAB_PERMISSIONS $CARPETA_TVH/epggrab/
 		chmod -R $TVHEADEND_INPUT_PERMISSIONS $CARPETA_TVH/input/
-		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
+		chmod -R $TVHEADEND_PICONS_PERMISSIONS $CARPETA_TVH/picons/
 	
 # Configuramos tvheadend
 	echo
-	echo "\e[38;5;198m7. Configurando tvheadend\e[0m"
+	echo "$magenta 7. Configurando tvheadend $end"
 		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config
 		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config
@@ -144,56 +159,65 @@ done
 		
 # Borramos carpeta termporal dobleM
 	echo
-	echo "\e[38;5;198m8. Eliminando archivos temporales\e[0m"
+	echo "$magenta 8. Eliminando archivos temporales $end"
 		rm -rf $CARPETA_DOBLEM
 	
 # Reiniciamos el servicio de TVH
 	echo
-	echo "\e[38;5;198m9. Iniciando servicio tvheadend\e[0m"
+	echo "$magenta 9. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
 		sudo service tvheadend start
 
 # Fin instalación
-	echo	
-	echo "La primera captura de EPG tardará unos minutos hasta que todos"
-	echo "los procesos de tvheadend se terminen de iniciar, ten paciencia."
-	echo
-	echo "tvheadend ha quedado configurado de la siguiente manera:"
-	echo " Spanish - Guía con etiquetas de colores"
-	echo " English - Guía sin etiquetas de colores"
-	echo " German - Guía con etiquetas de colores, título en una sola linea"
-	echo " French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
-	echo
-	echo "\e[36m###############################################################\e[0m" 
-	echo "\e[36m###                Gracias por usar dobleM                  ###\e[0m" 
-	echo "\e[36m###############################################################\e[0m" 
-	echo
-		rm -rf $CARPETA_SCRIPT/i_dobleM.sh
-		rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT
+	echo 
+	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña"
+	echo "    Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo 
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo 
+	echo " tvheadend ha quedado configurado de la siguiente manera:"
+	echo "  Spanish - Guía con etiquetas de colores"
+	echo "  English - Guía sin etiquetas de colores"
+	echo "  German - Guía con etiquetas de colores, título en una sola linea"
+	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+	echo 
+	echo "$blue ################################################################# $end"
+	echo "$blue ###                  Gracias por usar dobleM                  ### $end" 
+	echo "$blue ################################################################# $end" 
+	echo 
+		rm -rf $CARPETA_SCRIPT/i_*.sh
 }
 
 # Menu instalacion
 while :	
 do
-	echo "\e[36m###############################################################\e[0m" 
-	echo "\e[36m#   \e[38;5;198m¡PRECAUCION!\e[0m   \e[36mComprueba que el sistema y los directorios #\e[0m" 
-	echo "\e[36m# de instalación sean correctos, en caso de duda no continues #\e[0m" 
-	echo "\e[36m# Si continuas se borrará cualquier lista de canales anterior #\e[0m"
-	echo "\e[36m###############################################################\e[0m" 
+	echo "$blue ################################################################# $end" 
+	echo "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
+	echo "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
+	echo "$blue # ------------------------------------------------------------- #$end"
+	echo "$blue #  $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios  # $end" 
+	echo "$blue #  de instalación sean correctos, en caso de duda no continues  # $end" 
+	echo "$blue #  Si continuas se borrará cualquier lista de canales anterior  # $end"
+	echo "$blue ################################################################# $end" 
 	echo
-	echo "Se ha detectado el sistema operativo: \e[38;5;198m$INFO_SISTEMA\e[0m\n"
-	echo "Vas a ejecutar el script: \e[32m$NOMBRE_SCRIPT\e[0m"
-	echo "Directorio instalación tvheadend: \e[32m$CARPETA_TVH\e[0m"
-	echo "Directorio instalación grabber: \e[32m$CARPETA_GRABBER\e[0m\n"
-	echo "Versión instalada: \e[31m$ver_local\e[0m ---> Nueva versión: \e[32m$ver_web\e[0m\n"
-	echo "---------------------------------------------------------------\n"
-	echo "1) \e[0;32mHacer copia de seguridad\e[0m"
+	echo " Se ha detectado el sistema operativo: $yellow $INFO_SISTEMA $end"
 	echo
-	echo "2) \e[0;36mInstalar lista de canales, picons, grabber y configurar tvheadend\e[0m"
+	echo " Vas a ejecutar el script:$green $NOMBRE_SCRIPT $end"
+	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
+	echo " Directorio instalación grabber:$green $CARPETA_GRABBER $end"
+	echo
+	echo " Versión instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
+	echo
+	echo "------------------------------------------------------------------"
+	echo
+	echo " 1)$green Hacer copia de seguridad $end"
+	echo
+	echo " 2)$blue Instalar lista de canales, picons, grabber y configurar tvheadend $end"
 	echo 
-    echo "3) \e[31mVolver\e[0m"
+    echo " 3)$red Volver $end"
 	echo
-	echo -n "Indica una opción: "
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) backup && clear;;
