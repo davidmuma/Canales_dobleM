@@ -6,8 +6,11 @@ También cabe destacar que se incluye un grabber que descarga la EPG de todos lo
 
 
 Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
+y ejecútalo con sudo sh doble.sh
 
-Usar solamente la opción script de MANUELIN que es compatible con los sistemas operativos:
+Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales
+
+El script es compatible con los sistemas operativos:
 
   * Synology/XPEnology
   * LibreELEC/OpenELEC
