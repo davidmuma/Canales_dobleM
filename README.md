@@ -5,7 +5,7 @@ Todos los canales también están asignados a su correspondiente dial, renombrad
 También cabe destacar que se incluye un grabber que descarga la EPG de todos los canales, esta EPG se descarga en cuestión de segundos sin necesidad de estar horas generándola con alguna herramienta externa y además incluye 5 días de programación.
 
 
-Descarga del script: https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
+Descarga el script: https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
 y ejecútalo con "sudo sh doble.sh"
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales
