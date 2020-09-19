@@ -33,11 +33,11 @@ do
 	echo
 	echo " 1) Ejecutar instalador para$green Linux $end"
 	echo
-	echo " 2) Ejecutar instalador para$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN $end"
+	echo " 2) Ejecutar $green COPIA DE SEGURIDAD de tvheadend con script MANUELIN $end"
 	echo
-	echo " 3) Ejecutar instalador para$green INSTALAR lista y grabber dobleM con script MANUELIN $end"
+	echo " 3) Ejecutar $green INSTALACION lista y grabber posters dobleM con script MANUELIN $end"
 	echo
-    echo " 4) Ejecutar instalador para$green Prueba2 $end"
+    echo " 4) Ejecutar $green INSTALACION lista y grabber fantarts dobleM con script MANUELIN $end"
 	echo 
     echo " 5)$red Salir del instalador $end"
 	echo
@@ -45,9 +45,9 @@ do
 	read opcion
 	case $opcion in
 		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh; break;;
-		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sudo sh i_manuelin.sh -b; break;;
-		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_manuelin.sh && sudo sh i_manuelin.sh -g; break;;
-		4) echo "Esta función todavía no está, no seas impaciente"; break;;
+		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -b; break;;
+		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -g; break;;
+		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && sudo sh i_mfanart.sh -g; break;;
 		5) rm -rf i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
