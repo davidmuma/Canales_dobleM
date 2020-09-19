@@ -696,12 +696,15 @@ fi
 if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" "ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" "Revise los errores anteriores para intentar solucionarlo."
+	rm -rf i_*.sh
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" "ERROR: Tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" "Es necesario reiniciar Tvheadend manualmente para aplicar los cambios."
 	printf "$green%s$end\n" "¡Proceso completado correctamente!"
+	rm -rf i_*.sh
 else
 	printf "\n$green%s$end\n" "¡Proceso completado correctamente!"
+	rm -rf i_*.sh
 fi
 
 
