@@ -35,7 +35,11 @@ ver_local=`cat $CARPETA_TVH/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
 
 INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
-INFO_CARPETA_TVH="en pruebas"
+Info_temp1="find /home -type d -maxdepth 4 -iname tvheadend*"
+Info_temp2="find /var -type d -maxdepth 3 -iname tvheadend*"
+Info_temp3="find /storage -type d -maxdepth 5 -iname *tvheadend*"
+INFO_CARPETA_TVH="$($Info_temp1 & $Info_temp2 & $Info_temp3)"
+INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 
 clear
 
@@ -203,18 +207,20 @@ do
 	echo "$blue #  Si continuas se borrará cualquier lista de canales anterior  # $end"
 	echo "$blue ################################################################# $end" 
 	echo
-	echo " Se ha detectado el sistema operativo: $yellow $INFO_SISTEMA $end"
-	echo " Se ha detectado el directorio de tvheadend:   $yellow $INFO_CARPETA_TVH $end"
+	echo " Detectado sistema operativo: $yellow $INFO_SISTEMA $end"
+	echo
+	echo " Detectado directorio para tvheadend: $yellow $INFO_CARPETA_TVH $end"
+	echo " Detectado directorio para grabber:   $yellow $INFO_CARPETA_GRABBER $end"
+	echo
+	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
+	echo " Directorio instalación grabber:  $green $CARPETA_GRABBER $end"
 	echo
 	echo " Vas a ejecutar el script:$green $NOMBRE_SCRIPT $end"
-	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
-	echo " Directorio instalación grabber:$green $CARPETA_GRABBER $end"
-	echo
 	echo " Versión instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
 	echo
 	echo "------------------------------------------------------------------"
 	echo
-	echo " 1)$green Hacer copia de seguridad $end"
+	echo " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo
 	echo " 2)$blue Instalar lista de canales, picons, grabber y configurar tvheadend $end"
 	echo 
