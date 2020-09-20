@@ -653,6 +653,14 @@ if [ "$INSTALL_GRABBER" = true ]; then
 	
 	printf "%-$(($COLUMNS-10))s"  " * Habilitando grabber de Movistar+"
 	ERROR=false
+	sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>i_manuelin.log
+	if [ $? -ne 0 ]; then
+		ERROR=true
+	fi	
+	sed -i 's/"enabled": .*,/"enabled": false,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>i_manuelin.log
+	if [ $? -ne 0 ]; then
+		ERROR=true
+	fi	
 	sed -i '/tv_grab_EPG_dobleM/,/},/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>i_manuelin.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
