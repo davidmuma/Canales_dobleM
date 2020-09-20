@@ -209,8 +209,8 @@ do
 	echo
 	echo " Detectado sistema operativo: $yellow $INFO_SISTEMA $end"
 	echo
-	echo " Detectado directorio para tvheadend: $yellow $INFO_CARPETA_TVH $end"
-	echo " Detectado directorio para grabber:   $yellow $INFO_CARPETA_GRABBER $end"
+	echo " Detectado directorio de tvheadend: $yellow $INFO_CARPETA_TVH $end"
+	echo " Detectado directorio de grabber:   $yellow $INFO_CARPETA_GRABBER $end"
 	echo
 	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
 	echo " Directorio instalación grabber:  $green $CARPETA_GRABBER $end"
