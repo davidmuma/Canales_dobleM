@@ -33,11 +33,11 @@ do
 	echo
 	echo " 1) Ejecutar instalador para$green Linux $end"
 	echo
-	echo " 2) Ejecutar $green COPIA DE SEGURIDAD de tvheadend con script MANUELIN $end"
+	echo " 2) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN $end"
 	echo
-	echo " 3) Ejecutar $green INSTALACION lista y grabber posters dobleM con script MANUELIN $end"
+	echo " 3) Ejecutar$green INSTALACION lista y grabber posters dobleM con script MANUELIN $end"
 	echo
-    echo " 4) Ejecutar $green INSTALACION lista y grabber fantarts dobleM con script MANUELIN $end"
+    echo " 4) Ejecutar$green INSTALACION lista y grabber fantarts dobleM con script MANUELIN $end"
 	echo 
     echo " 5)$red Salir del instalador $end"
 	echo
