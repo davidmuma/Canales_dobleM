@@ -35,6 +35,7 @@ ver_local=`cat $CARPETA_TVH/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
 
 INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
+INFO_CARPETA_TVH="en pruebas"
 
 clear
 
@@ -170,8 +171,8 @@ done
 
 # Fin instalación
 	echo 
-	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña"
-	echo "    Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
+	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
 	echo 
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
@@ -202,6 +203,7 @@ do
 	echo "$blue ################################################################# $end" 
 	echo
 	echo " Se ha detectado el sistema operativo: $yellow $INFO_SISTEMA $end"
+	echo " Se ha detectado el directorio de tvheadend:   $yellow $INFO_CARPETA_TVH $end"
 	echo
 	echo " Vas a ejecutar el script:$green $NOMBRE_SCRIPT $end"
 	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
@@ -215,14 +217,17 @@ do
 	echo
 	echo " 2)$blue Instalar lista de canales, picons, grabber y configurar tvheadend $end"
 	echo 
-    echo " 3)$red Volver $end"
+    echo " 3)$magenta Volver $end"
+	echo 
+    echo " 4)$red Salir $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) backup && clear;;
 		2) install; break;;
-		3) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;	
+		3) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
+		4) rm -rf i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
