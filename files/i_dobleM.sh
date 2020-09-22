@@ -25,7 +25,9 @@ clear
 	echo "$blue #  Si continuas se borrará cualquier lista de canales anterior  # $end"
 	echo "$blue ################################################################# $end" 
 	echo
-	echo " Se ha detectado el sistema operativo: $yellow $INFO_SISTEMA $end"
+	echo " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
+	echo
+	echo " Instalación solo válida para la rama:$yellow Tvheadend 4.3 $end"
  
 # Menu de sistemas
 while :	
