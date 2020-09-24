@@ -10,11 +10,11 @@ cyan='\e[1;36m'
 end='\e[0m'
 
 # Variables
-NOMBRE_SCRIPT="i_linux.sh"
-CARPETA_TVH="/home/hts/.hts/tvheadend"
-CARPETA_GRABBER="/usr/bin"
-PARAR_TVHEADEND="sudo service tvheadend stop"
-INICIAR_TVHEADEND="sudo service tvheadend start"
+NOMBRE_SCRIPT="i_libreelec.sh"
+CARPETA_TVH="/storage/.kodi/userdata/addon_data/service.tvheadend43"
+CARPETA_GRABBER="/storage/.kodi/addons/service.tvheadend43/bin"
+PARAR_TVHEADEND="systemctl stop service.tvheadend43"
+INICIAR_TVHEADEND="systemctl start service.tvheadend43"
 
 NOMBRE_APP="dobleM"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"

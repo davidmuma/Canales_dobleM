@@ -10,11 +10,11 @@ cyan='\e[1;36m'
 end='\e[0m'
 
 # Variables
-NOMBRE_SCRIPT="i_linux.sh"
-CARPETA_TVH="/home/hts/.hts/tvheadend"
-CARPETA_GRABBER="/usr/bin"
-PARAR_TVHEADEND="sudo service tvheadend stop"
-INICIAR_TVHEADEND="sudo service tvheadend start"
+NOMBRE_SCRIPT="i_synology.sh"
+CARPETA_TVH="/var/packages/tvheadend/target/var"
+CARPETA_GRABBER="/usr/local/bin"
+PARAR_TVHEADEND="/var/packages/tvheadend/scripts/start-stop-status stop"
+INICIAR_TVHEADEND="/var/packages/tvheadend/scripts/start-stop-status start"
 
 NOMBRE_APP="dobleM"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
