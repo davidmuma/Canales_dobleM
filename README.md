@@ -14,6 +14,6 @@ Solo debes descargar el script una vez, él se encargará siempre de bajar la ú
 
 El script es compatible con los sistemas operativos:
 
-Synology/XPEnology
-LibreELEC/OpenELEC
-Linux
+- Synology/XPEnology
+- LibreELEC/OpenELEC
+- Linux
