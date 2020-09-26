@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/logo_dobleM.png">
+  <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png">
 </h1>
 
 Grupo de telegram: <a href="t.me/EPG_dobleM">t.me/EPG_dobleM</a>
