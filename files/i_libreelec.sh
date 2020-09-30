@@ -62,10 +62,10 @@ backup()
 	echo "$magenta 2. Realizando copia de seguridad $end"	
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
-		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
 	else
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb picons 
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
 	fi
 	
 # Reiniciamos el servicio de tvheadend
@@ -316,7 +316,7 @@ do
 		1) backup && clear;;
 		2) install; break;;
 		3) limpiezatotalcanales && clear;;
-		4) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
+		4) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
 		5) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac

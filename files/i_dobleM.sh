@@ -43,6 +43,8 @@ do
 	echo " 5) Ejecutar$green INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
 	echo
     echo " 6) Ejecutar$green INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
+	echo
+    echo " 7) Ejecutar$green INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
 	echo 
     echo " 7)$red Salir del instalador $end"
 	echo
@@ -51,11 +53,12 @@ do
 	case $opcion in
 		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh; break;;
 		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_synology.sh && sudo sh i_synology.sh; break;;
-		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_libreelec.sh && sudo sh i_libreelec.sh; break;;
+		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_libreelec.sh && sh i_libreelec.sh; break;;
 		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -b; break;;
 		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -g; break;;
 		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && sudo sh i_mfanart.sh -g; break;;
-		7) rm -rf i_*.sh; exit;;		
+		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sh i_mposter.sh -g; break;;
+		8) rm -rf i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done

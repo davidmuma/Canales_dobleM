@@ -447,7 +447,7 @@ do
 		2) clear && install;;
 		3) clear && installIPTV;;
 		4) clear && limpiezatotalcanales;;
-		5) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sudo sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
+		5) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
 		6) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
