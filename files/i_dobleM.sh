@@ -46,7 +46,7 @@ do
 	echo
     echo " 7) Ejecutar$green INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
 	echo 
-    echo " 7)$red Salir del instalador $end"
+    echo " 8)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
