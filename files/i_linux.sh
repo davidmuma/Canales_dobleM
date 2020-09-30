@@ -154,9 +154,7 @@ install()
 	echo			
 	echo "$magenta 5. Instalando grabber $end"
 		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM
-		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $CARPETA_GRABBER
-		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $CARPETA_GRABBER
 		
 		rm -rf $CARPETA_TVH/epggrab/xmltv/
 		cp -r $CARPETA_DOBLEM/epggrab/ $CARPETA_TVH
@@ -177,9 +175,7 @@ do
 done
 		
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV
 		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
-		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV
 		
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/epggrab/
 		chmod -R $TVHEADEND_EPGGRAB_PERMISSIONS $CARPETA_TVH/epggrab/
@@ -312,28 +308,10 @@ installIPTV()
 # Instalación de grabbers. Borramos grabbers viejos y copiamos grabbers nuevos. Damos permisos.
 	echo			
 	echo "$magenta 5. Instalando grabber $end"
-		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM
 		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV		
-		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $CARPETA_GRABBER
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $CARPETA_GRABBER
-		
-while :	
-do
-	echo "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo "	1) Posters"
-	echo "	2) Fanarts"
-	echo -n "	Indica una opción: "
-	read opcion
-	case $opcion in
-			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
-			2) sed -i 's/enable_fanart=.*/enable_fanart=true/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;	
-			*) echo "$opcion es una opción inválida";
-	esac
-done
-		
-		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM
+			
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV
-		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
 		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV
 
 # Damos permisos a los directorios
@@ -385,7 +363,6 @@ done
 	echo "$blue ################################################################# $end"
 	echo "$blue ###                  Gracias por usar dobleM                  ### $end" 
 	echo "$blue ################################################################# $end" 
-	echo 
 		echo
 		echo "$green Pulsa intro para continuar... $end"
 		read CAD
