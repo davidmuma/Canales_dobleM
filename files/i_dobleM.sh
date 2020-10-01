@@ -16,39 +16,37 @@ INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)
 clear
 	
 # Arranca script principal
-	echo "$blue ################################################################# $end" 
-	echo "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
-	echo "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
-	echo "$blue # ------------------------------------------------------------- #$end"
-	echo "$blue #  $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios  # $end" 
-	echo "$blue #  de instalación sean correctos, en caso de duda no continues  # $end" 
-	echo "$blue ################################################################# $end" 
+	echo -e "$blue ################################################################# $end" 
+	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end"
+	echo -e "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
+	echo -e "$blue # ------------------------------------------------------------- #$end" 
+	echo -e "$blue #   Por favor, comprueba tu sistema y tu versión de tvheadend   # $end"
+	echo -e "$blue #   Para dudas o sugerencias pásate por el grupo de telegram.   # $end" 
+	echo -e "$blue ################################################################# $end" 
 	echo
-	echo " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
-	echo
-	echo " Instalación solo válida para la rama:$cyan  Tvheadend 4.3 $end"
+	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
  
 # Menu de sistemas
 while :	
 do
 	echo
-	echo " 1) Ejecutar instalador para$green Linux $end"
+	echo -e " 1) Ejecutar instalador para$green Linux (solo para tvheadend 4.3)$end"
 	echo
-	echo " 2) Ejecutar instalador para$green Synology/XPEnology (en pruebas) $end"
+	echo -e " 2) Ejecutar instalador para$green Synology/XPEnology (en pruebas) $end"
 	echo
-	echo " 3) Ejecutar instalador para$green LibreELEC/OpenELEC $end"
+	echo -e " 3) Ejecutar instalador para$green LibreELEC/OpenELEC (válido para tvheadend 4.2 y 4.3) $end"
 	echo
-	echo " 4) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
+	echo -e " 4) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
 	echo
-	echo " 5) Ejecutar$green INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
+	echo -e " 5) Ejecutar$green INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
 	echo
-    echo " 6) Ejecutar$green INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
+    echo -e " 6) Ejecutar$green INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
 	echo
-    echo " 7) Ejecutar$green INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
-	echo 
-    echo " 8)$red Salir del instalador $end"
+    echo -e " 7) Ejecutar$green INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
 	echo
-	echo -n " Indica una opción: "
+    echo -e " 8)$red Salir del instalador $end"
+	echo
+	echo -e -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh; break;;
