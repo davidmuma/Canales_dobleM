@@ -162,10 +162,10 @@ install()
 	
 while :	
 do
-	echo -e "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo -e "	1) Posters"
-	echo -e "	2) Fanarts"
-	echo -e -n "	Indica una opción: "
+	echo "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo "	1) Posters"
+	echo "	2) Fanarts"
+	echo -n "	Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
@@ -227,17 +227,17 @@ done
 
 # Fin instalación
 	echo
-	echo -e " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
-	echo -e "   Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
+	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
 	echo
-	echo -e " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo -e " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo -e " tvheadend ha quedado configurado de la siguiente manera:"
-	echo -e "  Spanish - Guía con etiquetas de colores"
-	echo -e "  English - Guía sin etiquetas de colores"
-	echo -e "  German - Guía con etiquetas de colores, título en una sola linea"
-	echo -e "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+	echo " tvheadend ha quedado configurado de la siguiente manera:"
+	echo "  Spanish - Guía con etiquetas de colores"
+	echo "  English - Guía sin etiquetas de colores"
+	echo "  German - Guía con etiquetas de colores, título en una sola linea"
+	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 	echo
 	echo -e "$blue ################################################################# $end"
 	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
@@ -357,8 +357,8 @@ installIPTV()
 
 # Fin instalación
 	echo
-	echo -e " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo -e " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
 	echo -e "$blue ################################################################# $end"
 	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
@@ -373,10 +373,10 @@ imagenesgrabber()
 {
 while :	
 do
-	echo -e "$magenta Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
-	echo -e " 1) Posters"
-	echo -e " 2) Fanarts"
-	echo -e -n "Indica una opción: "
+	echo -e "$cyan Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
+	echo -e "$yellow 1) Posters $end"
+	echo -e "$yellow 2) Fanarts $end"
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
