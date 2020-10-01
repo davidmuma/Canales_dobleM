@@ -21,7 +21,7 @@ wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
 ```
 y ejecútalo con
 ```
-sh doble.sh
+sh dobleM.sh
 ```
 
 El script es compatible con los sistemas operativos:
