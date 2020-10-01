@@ -7,7 +7,7 @@
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda
 
-Actualmente el script incluye todos los canales de Movistar+, canales alemanes y canales IPTV (Gracias LaQuay)
+Actualmente el script incluye todos los canales de Movistar+, canales deportivos alemanes y canales IPTV en abierto (Gracias LaQuay)
 
 Los canales de Movistar+ vienen exactamente con el mismo orden que tienen oficialmente en su página. Todos los canales también están asignados a su correspondiente dial, renombrados a su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, y vienen con su correspondiente logo asignado. 
 
