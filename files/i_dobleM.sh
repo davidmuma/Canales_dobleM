@@ -48,7 +48,7 @@ do
 	echo
     echo -e " 8)$red Salir del instalador $end"
 	echo
-	echo -e -n " Indica una opción: "
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh; break;;

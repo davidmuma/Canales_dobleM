@@ -373,10 +373,10 @@ imagenesgrabber()
 {
 while :	
 do
-	echo -e "Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo -e "  1) Posters"
-	echo -e "  2) Fanarts"
-	echo -e -n "  Indica una opción: "
+	echo -e "$magenta Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
+	echo -e " 1) Posters"
+	echo -e " 2) Fanarts"
+	echo -e -n "Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
@@ -459,7 +459,7 @@ do
 	echo
     echo -e " 7)$red Salir $end"
 	echo
-	echo -e -n " Indica una opción: "
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) clear && backup;;

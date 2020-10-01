@@ -333,7 +333,7 @@ do
 	echo
     echo -e " 7)$red Salir $end"
 	echo
-	echo -e -n " Indica una opción: "
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) clear && backup;;
