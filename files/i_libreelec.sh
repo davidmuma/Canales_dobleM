@@ -86,6 +86,7 @@ backup()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
+	clear
 }
 
 # INSTALADOR SATELITE
@@ -162,7 +163,7 @@ install()
 	
 while :	
 do
-	echo "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo "     5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
 	echo "	1) Posters"
 	echo "	2) Fanarts"
 	echo -n "	Indica una opción: "
@@ -245,6 +246,7 @@ done
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
+	clear
 }
 
 # INSTALADOR IPTV
@@ -366,13 +368,19 @@ installIPTV()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
+	clear
 }
 
 # CAMBIAR IMAGENES GRABBER
 imagenesgrabber()
 {
+	echo
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###             Iniciando cambio tipo de imágenes            ### $end" 
+	echo -e "$blue ################################################################ $end" 
 while :	
 do
+	echo
 	echo -e "$cyan Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
 	echo -e "$yellow 1) Posters $end"
 	echo -e "$yellow 2) Fanarts $end"
@@ -384,6 +392,14 @@ do
 			*) echo "$opcion es una opción inválida";
 	esac
 done
+	echo
+	echo -e "$blue ################################################################# $end"
+	echo -e "$blue ###               Cambio realizado correctamente              ### $end" 
+	echo -e "$blue ################################################################# $end"
+		echo
+		echo -e "$green Pulsa intro para continuar... $end"
+		read CAD
+	clear
 }
 
 # LIMPIEZA TOTAL DE CANALES
@@ -419,6 +435,7 @@ limpiezatotalcanales()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
+	clear
 }
 
 # Menu instalacion
