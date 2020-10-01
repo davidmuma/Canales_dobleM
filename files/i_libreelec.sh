@@ -368,6 +368,24 @@ installIPTV()
 		read CAD
 }
 
+# CAMBIAR IMAGENES GRABBER
+imagenesgrabber()
+{
+while :	
+do
+	echo -e "Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo -e "  1) Posters"
+	echo -e "  2) Fanarts"
+	echo -e -n "  Indica una opción: "
+	read opcion
+	case $opcion in
+			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
+			2) sed -i 's/enable_fanart=.*/enable_fanart=true/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;	
+			*) echo "$opcion es una opción inválida";
+	esac
+done
+}
+
 # LIMPIEZA TOTAL DE CANALES
 limpiezatotalcanales()
 {
@@ -433,11 +451,13 @@ do
 	echo
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ grabber y configurar tvheadend $end"
 	echo
-	echo -e " 4)$blue Hacer una limpieza total de canales $end"
+	echo -e " 4)$blue Cambiar tipo de imágenes que aparecen en la guía $end"
 	echo
-    echo -e " 5)$magenta Volver $end"
+	echo -e " 5)$blue Hacer una limpieza total de canales $end"
 	echo
-    echo -e " 6)$red Salir $end"
+    echo -e " 6)$magenta Volver $end"
+	echo
+    echo -e " 7)$red Salir $end"
 	echo
 	echo -e -n " Indica una opción: "
 	read opcion
@@ -445,9 +465,10 @@ do
 		1) clear && backup;;
 		2) clear && install;;
 		3) clear && installIPTV;;
-		4) clear && limpiezatotalcanales;;
-		5) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
-		6) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
+		4) clear && imagenesgrabber;;
+		5) clear && limpiezatotalcanales;;
+		6) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
+		7) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
