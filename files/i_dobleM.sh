@@ -25,16 +25,18 @@ clear
 	echo -e "$blue ################################################################# $end" 
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
+	echo
+	echo -------------------------------------------------------------
  
 # Menu de sistemas
 while :	
 do
 	echo
-	echo -e " 1) Ejecutar instalador para$green Linux (solo para tvheadend 4.3)$end"
+	echo -e " 1) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2) Ejecutar instalador para$green Synology/XPEnology (en pruebas) $end"
+	echo -e " 2) Ejecutar instalador para$green Synology/XPEnology $end(en pruebas)"
 	echo
-	echo -e " 3) Ejecutar instalador para$green LibreELEC/OpenELEC (válido para tvheadend 4.2 y 4.3) $end"
+	echo -e " 3) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
 	echo
 	echo -e " 4) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
 	echo
