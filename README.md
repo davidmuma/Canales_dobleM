@@ -13,7 +13,9 @@ Los canales de Movistar+ vienen exactamente con el mismo orden que tienen oficia
 
 También se instala un grabber que descarga la EPG con cinco días de programación de prácticamente todos los canales, pudiendo elegir el tipo de imagen que aparecerá en el evento mostrado, poster o fanart.
 
-Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales
+El script configura tvheadend con los idiomas Spanish, English, German y French, modifica el cron para realizar la descarga de dicha EPG y configura el tipo y la ruta de los picons.
+
+Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
 Descarga el script
 ```
