@@ -11,7 +11,7 @@ end='\e[0m'
 
 # Variables
 NOMBRE_SCRIPT="i_dobleM.sh"
-INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 
 clear
 	
@@ -34,9 +34,9 @@ do
 	echo
 	echo " 1) Ejecutar instalador para$green Linux $end"
 	echo
-	echo " 2) Ejecutar instalador para$green Synology (en pruebas) $end"
+	echo " 2) Ejecutar instalador para$green Synology/XPEnology (en pruebas) $end"
 	echo
-	echo " 3) Ejecutar instalador para$green LibreELEC (en pruebas) $end"
+	echo " 3) Ejecutar instalador para$green LibreELEC/OpenELEC $end"
 	echo
 	echo " 4) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
 	echo

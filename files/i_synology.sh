@@ -20,11 +20,11 @@ NOMBRE_APP="dobleM"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
-INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
-Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"				#/home/hts/.hts/tvheadend
-Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"				#/var/packages/tvheadend/target/var
-Infdir_libre="find /storage -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
-Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"			#/storage/.config/tvheadend
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
+Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
+Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
+Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
+Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storage/.config/tvheadend
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
 INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 

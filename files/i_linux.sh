@@ -21,11 +21,11 @@ NOMBRE_APP_IPTV="dobleM-IPTV"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
-INFO_SISTEMA="$(lsb_release -d | cut -f 2-10 -d":")"
-Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"				#/home/hts/.hts/tvheadend
-Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"				#/var/packages/tvheadend/target/var
-Infdir_libre="find /storage -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
-Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"			#/storage/.config/tvheadend
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
+Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
+Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
+Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
+Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storage/.config/tvheadend
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
 INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 
@@ -51,19 +51,19 @@ clear
 backup()
 {
 	echo
-	echo "$blue ################################################################ $end"
-	echo "$blue ###               Iniciando copia de seguridad               ### $end" 
-	echo "$blue ################################################################ $end"
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###               Iniciando copia de seguridad               ### $end" 
+	echo -e "$blue ################################################################ $end"
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
-	echo "$magenta 1. Parando servicio tvheadend $end"
+	echo -e "$magenta 1. Parando servicio tvheadend $end"
 		$PARAR_TVHEADEND
 		cd $CARPETA_TVH
 
 # Hacemos la copia de seguridad
 	echo
-	echo "$magenta 2. Realizando copia de seguridad $end"	
+	echo -e "$magenta 2. Realizando copia de seguridad $end"	
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
 		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
@@ -74,17 +74,17 @@ backup()
 	
 # Reiniciamos el servicio de tvheadend
 	echo
-	echo "$magenta 3. Iniciando servicio tvheadend $end"
+	echo -e "$magenta 3. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
 		$INICIAR_TVHEADEND	
 
 # Fin copia de seguridad		
 	echo
-	echo "$blue ################################################################ $end"
-	echo "$blue ###              Copia de seguridad completada               ### $end" 
-	echo "$blue ################################################################ $end"
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###              Copia de seguridad completada               ### $end" 
+	echo -e "$blue ################################################################ $end"
 		echo
-		echo "$green Pulsa intro para continuar... $end"
+		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
 }
 
@@ -92,19 +92,19 @@ backup()
 install()
 {
 	echo
-	echo "$blue ################################################################ $end"
-	echo "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
-	echo "$blue ################################################################ $end" 	
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
+	echo -e "$blue ################################################################ $end" 	
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
-	echo "$magenta 1. Parando servicio tvheadend $end"
+	echo -e "$magenta 1. Parando servicio tvheadend $end"
 		$PARAR_TVHEADEND
 		cd $CARPETA_TVH
 				
 # Borramos carpeta dobleM y configuración actual menos "channel" y "epggrab" de tvheadend
 	echo
-	echo "$magenta 2. Borrando instalación anterior $end"
+	echo -e "$magenta 2. Borrando instalación anterior $end"
 	rm -rf $CARPETA_DOBLEM
 	rm -rf $CARPETA_TVH/bouquet/
 	rm -rf $CARPETA_TVH/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/
@@ -130,7 +130,7 @@ install()
 
 # Descargamos el tar de dobleM y lo descomprimimos en CARPETA_DOBLEM		
 	echo
-	echo "$magenta 3. Descargando nueva lista de canales $end" 		
+	echo -e "$magenta 3. Descargando nueva lista de canales $end" 		
 		mkdir $CARPETA_DOBLEM
 		cd $CARPETA_DOBLEM
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz
@@ -143,7 +143,7 @@ install()
 
 # Empezamos a copiar los archivos necesarios
 	echo	
-	echo "$magenta 4. Instalando lista de canales $end"
+	echo -e "$magenta 4. Instalando lista de canales $end"
 		cp -r $CARPETA_DOBLEM/dobleM.ver $CARPETA_TVH
 		cp -r $CARPETA_DOBLEM/bouquet/ $CARPETA_TVH
 		cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH
@@ -152,7 +152,7 @@ install()
 
 # Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevos. Damos permisos.
 	echo			
-	echo "$magenta 5. Instalando grabber $end"
+	echo -e "$magenta 5. Instalando grabber $end"
 		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $CARPETA_GRABBER
 		
@@ -162,10 +162,10 @@ install()
 	
 while :	
 do
-	echo "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo "	1) Posters"
-	echo "	2) Fanarts"
-	echo -n "	Indica una opción: "
+	echo -e "   5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo -e "	1) Posters"
+	echo -e "	2) Fanarts"
+	echo -e -n "	Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
@@ -182,7 +182,7 @@ done
 
 # Damos permisos a los directorios
 	echo
-	echo "$magenta 6. Aplicando permisos $end"
+	echo -e "$magenta 6. Aplicando permisos $end"
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/bouquet/
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel/
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input/
@@ -195,7 +195,7 @@ done
 	
 # Configuramos tvheadend
 	echo
-	echo "$magenta 7. Configurando tvheadend $end"
+	echo -e "$magenta 7. Configurando tvheadend $end"
 		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config
 		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config
@@ -216,34 +216,34 @@ done
 		
 # Borramos carpeta termporal dobleM
 	echo
-	echo "$magenta 8. Eliminando archivos temporales $end"
+	echo -e "$magenta 8. Eliminando archivos temporales $end"
 		rm -rf $CARPETA_DOBLEM
 	
 # Reiniciamos el servicio de tvheadend
 	echo
-	echo "$magenta 9. Iniciando servicio tvheadend $end"
+	echo -e "$magenta 9. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
 		$INICIAR_TVHEADEND
 
 # Fin instalación
-	echo 
-	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
-	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
-	echo 
-	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
-	echo 
-	echo " tvheadend ha quedado configurado de la siguiente manera:"
-	echo "  Spanish - Guía con etiquetas de colores"
-	echo "  English - Guía sin etiquetas de colores"
-	echo "  German - Guía con etiquetas de colores, título en una sola linea"
-	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
-	echo 
-	echo "$blue ################################################################# $end"
-	echo "$blue ###                  Gracias por usar dobleM                  ### $end" 
-	echo "$blue ################################################################# $end" 
+	echo
+	echo -e " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
+	echo -e "   Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo
+	echo -e " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo -e " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo -e " tvheadend ha quedado configurado de la siguiente manera:"
+	echo -e "  Spanish - Guía con etiquetas de colores"
+	echo -e "  English - Guía sin etiquetas de colores"
+	echo -e "  German - Guía con etiquetas de colores, título en una sola linea"
+	echo -e "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+	echo
+	echo -e "$blue ################################################################# $end"
+	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
+	echo -e "$blue ################################################################# $end" 
 		echo
-		echo "$green Pulsa intro para continuar... $end"
+		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
 }
 
@@ -251,19 +251,19 @@ done
 installIPTV()
 {
 	echo
-	echo "$blue ################################################################ $end"
-	echo "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
-	echo "$blue ################################################################ $end" 	
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
+	echo -e "$blue ################################################################ $end" 	
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
-	echo "$magenta 1. Parando servicio tvheadend $end"
+	echo -e "$magenta 1. Parando servicio tvheadend $end"
 		$PARAR_TVHEADEND
 		cd $CARPETA_TVH
 				
 # Borramos carpeta dobleM e input actual de tvheadend
 	echo
-	echo "$magenta 2. Borrando instalación anterior $end"
+	echo -e "$magenta 2. Borrando instalación anterior $end"
 	rm -rf $CARPETA_DOBLEM
 	rm -rf $CARPETA_TVH/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/
 	
@@ -287,7 +287,7 @@ installIPTV()
 
 # Descargamos el tar de dobleM y lo descomprimimos en CARPETA_DOBLEM		
 	echo
-	echo "$magenta 3. Descargando nueva lista de canales $end" 		
+	echo -e "$magenta 3. Descargando nueva lista de canales $end" 		
 		mkdir $CARPETA_DOBLEM
 		cd $CARPETA_DOBLEM
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.tar.xz
@@ -300,14 +300,14 @@ installIPTV()
 
 # Empezamos a copiar los archivos necesarios
 	echo	
-	echo "$magenta 4. Instalando lista de canales $end"
+	echo -e "$magenta 4. Instalando lista de canales $end"
 		cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $CARPETA_TVH
 		cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH
 		cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH
 
 # Instalación de grabbers. Borramos grabbers viejos y copiamos grabbers nuevos. Damos permisos.
 	echo			
-	echo "$magenta 5. Instalando grabber $end"
+	echo -e "$magenta 5. Instalando grabber $end"
 		rm -f $CARPETA_GRABBER/tv_grab_EPG_dobleM-IPTV		
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $CARPETA_GRABBER
 			
@@ -316,7 +316,7 @@ installIPTV()
 
 # Damos permisos a los directorios
 	echo
-	echo "$magenta 6. Aplicando permisos $end"
+	echo -e "$magenta 6. Aplicando permisos $end"
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/channel/
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_TVH/input/
 		
@@ -325,7 +325,7 @@ installIPTV()
 	
 # Configuramos tvheadend
 	echo
-	echo "$magenta 7. Configurando tvheadend $end"
+	echo -e "$magenta 7. Configurando tvheadend $end"
 		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config
 		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config
@@ -346,25 +346,25 @@ installIPTV()
 		
 # Borramos carpeta termporal dobleM
 	echo
-	echo "$magenta 8. Eliminando archivos temporales $end"
+	echo -e "$magenta 8. Eliminando archivos temporales $end"
 		rm -rf $CARPETA_DOBLEM
 	
 # Reiniciamos el servicio de tvheadend
 	echo
-	echo "$magenta 9. Iniciando servicio tvheadend $end"
+	echo -e "$magenta 9. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
 		$INICIAR_TVHEADEND
 
 # Fin instalación
-	echo 
-	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
-	echo 
-	echo "$blue ################################################################# $end"
-	echo "$blue ###                  Gracias por usar dobleM                  ### $end" 
-	echo "$blue ################################################################# $end" 
+	echo
+	echo -e " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo -e " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo -e "$blue ################################################################# $end"
+	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
+	echo -e "$blue ################################################################# $end" 
 		echo
-		echo "$green Pulsa intro para continuar... $end"
+		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
 }
 
@@ -372,75 +372,74 @@ installIPTV()
 limpiezatotalcanales()
 {
 	echo
-	echo "$blue ################################################################ $end"
-	echo "$blue ###            Iniciando limpieza total de canales           ### $end" 
-	echo "$blue ################################################################ $end" 	
+	echo -e "$blue ################################################################ $end"
+	echo -e "$blue ###            Iniciando limpieza total de canales           ### $end" 
+	echo -e "$blue ################################################################ $end" 	
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
-	echo "$magenta 1. Parando servicio tvheadend $end"
+	echo -e "$magenta 1. Parando servicio tvheadend $end"
 		$PARAR_TVHEADEND
 		cd $CARPETA_TVH
 				
 # Borramos carpeta "channel" de tvheadend
 	echo
-	echo "$magenta 2. Borrando carpeta de canales $end"
+	echo -e "$magenta 2. Borrando carpeta de canales $end"
 	rm -rf $CARPETA_TVH/channel/
 	
 # Reiniciamos el servicio de tvheadend
 	echo
-	echo "$magenta 3. Iniciando servicio tvheadend $end"
+	echo -e "$magenta 3. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
 		$INICIAR_TVHEADEND
 		
 # Fin limpieza
 	echo
-	echo "$blue ################################################################# $end"
-	echo "$blue ###              Limpieza realizada correctamente             ### $end" 
-	echo "$blue ################################################################# $end"
+	echo -e "$blue ################################################################# $end"
+	echo -e "$blue ###              Limpieza realizada correctamente             ### $end" 
+	echo -e "$blue ################################################################# $end"
 		echo
-		echo "$green Pulsa intro para continuar... $end"
+		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
 }
 
 # Menu instalacion
 while :	
 do
-	echo "$blue ################################################################# $end" 
-	echo "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
-	echo "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
-	echo "$blue # ------------------------------------------------------------- #$end"
-	echo "$blue #  $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios  # $end" 
-	echo "$blue #  de instalación sean correctos, en caso de duda no continues  # $end" 
-	echo "$blue ################################################################# $end" 
+	echo -e "$blue ################################################################# $end" 
+	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
+	echo -e "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
+	echo -e "$blue # ------------------------------------------------------------- #$end"
+	echo -e "$blue #  $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios  # $end" 
+	echo -e "$blue #  de instalación sean correctos, en caso de duda no continues  # $end" 
+	echo -e "$blue ################################################################# $end" 
 	echo
-	echo " Detectado sistema operativo: $yellow $INFO_SISTEMA $end"
+	echo -e " Detectado el sistema operativo: $yellow $INFO_SISTEMA $end"
+	echo -e " Detectado directorio tvheadend: $yellow $INFO_CARPETA_TVH $end"
+	echo -e " Detectado directorio grabber:   $yellow $INFO_CARPETA_GRABBER $end"
 	echo
-	echo " Detectado directorio tvheadend: $yellow $INFO_CARPETA_TVH $end"
-	echo " Detectado directorio grabber:   $yellow $INFO_CARPETA_GRABBER $end"
+	echo -e " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
+	echo -e " Directorio instalación grabber:  $green $CARPETA_GRABBER $end"
 	echo
-	echo " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
-	echo " Directorio instalación grabber:  $green $CARPETA_GRABBER $end"
-	echo
-	echo " Vas a ejecutar el script:$green $NOMBRE_SCRIPT $end"
-	echo " Versión SATELITE instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
-	echo " Versión IPTV instalada:$red $ver_local_IPTV $end --->  Nueva versión:$green $ver_web_IPTV $end"
+	echo -e " Vas a ejecutar el script:$green $NOMBRE_SCRIPT $end"
+	echo -e " Versión SATELITE instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
+	echo -e " Versión IPTV instalada:$red $ver_local_IPTV $end --->  Nueva versión:$green $ver_web_IPTV $end"
 	echo
 	echo "------------------------------------------------------------------"
 	echo
-	echo " 1)$green Hacer copia de seguridad de tvheadend $end"
+	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo
-	echo " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
+	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo
-	echo " 3)$cyan Instalar lista de canales$yellow IPTV $end+ grabber y configurar tvheadend $end"
-	echo 
-	echo " 4)$blue Hacer una limpieza total de canales $end"
-	echo 
-    echo " 5)$magenta Volver $end"
-	echo 
-    echo " 6)$red Salir $end"
+	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ grabber y configurar tvheadend $end"
 	echo
-	echo -n " Indica una opción: "
+	echo -e " 4)$blue Hacer una limpieza total de canales $end"
+	echo
+    echo -e " 5)$magenta Volver $end"
+	echo
+    echo -e " 6)$red Salir $end"
+	echo
+	echo -e -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) clear && backup;;
