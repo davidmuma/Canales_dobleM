@@ -21,7 +21,7 @@ NOMBRE_APP="dobleM"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
-INFO_SISTEMA="sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release"
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
 Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
 Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
@@ -29,9 +29,8 @@ Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storag
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
 INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 
-	USER_TVH=$(stat -c %U $CARPETA_TVH/config)
-	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
-	PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
+	USER_TVH="root"
+	GROUP_TVH="video"
 
 		TVHEADEND_CHANNEL_PERMISSIONS="777"
         TVHEADEND_INPUT_PERMISSIONS="755"      
@@ -223,7 +222,7 @@ done
 		$INICIAR_TVHEADEND
 
 # Fin instalación
-	echo -e 
+	echo 
 	echo -e " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
 	echo -e "   Configuración --- Entradas DVB --- Adaptadores de TV"
 	echo -e 
@@ -239,7 +238,7 @@ done
 	echo -e "$blue ################################################################# $end"
 	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
 	echo -e "$blue ################################################################# $end" 
-	echo -e 
+	echo 
 		rm -rf $CARPETA_SCRIPT/i_*.sh
 }
 
