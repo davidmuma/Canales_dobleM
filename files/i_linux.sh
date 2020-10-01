@@ -21,17 +21,17 @@ NOMBRE_APP_IPTV="dobleM-IPTV"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
-INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
-Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
-Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
-Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
-Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storage/.config/tvheadend
+Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend* 2>/dev/null"								#/home/hts/.hts/tvheadend
+Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend* 2>/dev/null"								#/var/packages/tvheadend/target/var
+Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend* 2>/dev/null"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
+Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend* 2>/dev/null"							#/storage/.config/tvheadend
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release) 2>/dev/null"
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
-INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
+INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//') 2>/dev/null"
 
-	USER_TVH=$(stat -c %U $CARPETA_TVH/config)
-	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
-	PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
+	USER_TVH=$(stat -c %U $CARPETA_TVH/config) 2>/dev/null
+	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config) 2>/dev/null
+	PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config) 2>/dev/null
 
 		TVHEADEND_CHANNEL_PERMISSIONS="777"
         TVHEADEND_INPUT_PERMISSIONS="755"      
