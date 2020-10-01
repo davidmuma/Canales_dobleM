@@ -1,10 +1,9 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png">
+  Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
 </h1>
 
-Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
-
-<a href="https://github.com/davidmuma/EPG_dobleM">Guía de programación</a>
+Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para ver capturas de como queda la guía de programación
 
 
 Script que instala en el Tvheadend todos los canales de Movistar+, los cuales vienen exactamente con el mismo orden que tienen oficialmente en su página. Todos los canales también están asignados a su correspondiente dial, renombrados a su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, y vienen con su correspondiente logo asignado (logos originales, transparentes y con una resolución bastante alta).
