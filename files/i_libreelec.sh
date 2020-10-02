@@ -45,7 +45,7 @@ ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/
 ver_local_IPTV=`cat $CARPETA_TVH/dobleM-IPTV.ver 2>/dev/null`
 ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.ver 2>/dev/null`
 
-# Copia de seguridad
+# COPIA DE SEGURIDAD
 backup()
 {
 	echo
@@ -236,7 +236,7 @@ done
 	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 	echo
 	echo -e "$blue ################################################################# $end"
-	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
+	echo -e "$blue ###     Instalación completada, gracias por usar dobleM       ### $end" 
 	echo -e "$blue ################################################################# $end" 
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
@@ -357,7 +357,7 @@ installIPTV()
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
 	echo -e "$blue ################################################################# $end"
-	echo -e "$blue ###                  Gracias por usar dobleM                  ### $end" 
+	echo -e "$blue ###     Instalación completada, gracias por usar dobleM       ### $end" 
 	echo -e "$blue ################################################################# $end" 
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
@@ -369,7 +369,7 @@ imagenesgrabber()
 {
 	echo
 	echo -e "$blue ################################################################ $end"
-	echo -e "$blue ###          Iniciando cambio de tipo de imágenes            ### $end" 
+	echo -e "$blue ###     Iniciando cambio de tipo de imágenes en grabber      ### $end" 
 	echo -e "$blue ################################################################ $end" 
 while :	
 do
@@ -429,7 +429,7 @@ limpiezatotalcanales()
 		read CAD
 }
 
-# Menu instalacion
+# MENU INSTALACION
 clear
 while :	
 do
