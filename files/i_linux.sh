@@ -64,10 +64,10 @@ backup()
 	echo -e "$magenta 2. Realizando copia de seguridad $end"	
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
 	else
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
 	fi
 	
 # Reiniciamos el servicio de tvheadend

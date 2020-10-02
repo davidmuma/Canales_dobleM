@@ -32,7 +32,7 @@ clear
 	echo
 	echo -e " 1) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2) Ejecutar instalador para$green Synology/XPEnology $end(en pruebas)"
+	echo -e " 2) Ejecutar instalador para$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo
 	echo -e " 3) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
 	echo

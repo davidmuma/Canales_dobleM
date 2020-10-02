@@ -13,9 +13,13 @@ end='\e[0m'
 NOMBRE_SCRIPT="i_synology.sh"
 CARPETA_TVH="/var/packages/tvheadend/target/var"
 CARPETA_GRABBER="/usr/local/bin"
-SERVICE_TVH=""
-PARAR_TVHEADEND="/var/packages/tvheadend/scripts/start-stop-status stop"
-INICIAR_TVHEADEND="/var/packages/tvheadend/scripts/start-stop-status start"
+
+TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" #"pkgctl-tvheadend-testing"
+		if [ $? -ne 0 ]; then
+			SERVICES_MANAGEMENT="OLD"
+		else
+			SERVICES_MANAGEMENT="NEW"
+		fi
 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
@@ -23,12 +27,12 @@ CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
 Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
-Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
+Infdir_syno="echo /var/packages/$(ls /var/packages/ | grep tvheadend)/target/var"			#/var/packages/tvheadend/target/var
 Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
 Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storage/.config/tvheadend
-INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
+INFO_SISTEMA="$(uname -a)"
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
-INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
+INFO_CARPETA_GRABBER="/usr/local/bin"
 
 	USER_TVH=$(stat -c %U $CARPETA_TVH/config)
 	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
@@ -56,7 +60,11 @@ backup()
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
 	echo -e "$magenta 1. Parando servicio tvheadend $end"
-		$PARAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop
+		else
+			stop -q $TVHEADEND_SERVICE
+		fi
 		cd $CARPETA_TVH
 
 # Hacemos la copia de seguridad
@@ -64,17 +72,21 @@ backup()
 	echo -e "$magenta 2. Realizando copia de seguridad $end"	
 	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d__%H-%M-%S").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
 	else
 		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
 	fi
 	
 # Reiniciamos el servicio de tvheadend
 	echo
 	echo -e "$magenta 3. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
-		$INICIAR_TVHEADEND	
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_manuelin.log 2>&1
+		else
+			start -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+		fi	
 
 # Fin copia de seguridad		
 	echo
@@ -97,7 +109,11 @@ install()
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
 	echo -e "$magenta 1. Parando servicio tvheadend $end"
-		$PARAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop
+		else
+			stop -q $TVHEADEND_SERVICE
+		fi
 		cd $CARPETA_TVH
 				
 # Borramos carpeta dobleM y configuración actual menos "channel" y "epggrab" de tvheadend
@@ -219,7 +235,11 @@ done
 	echo
 	echo -e "$magenta 9. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
-		$INICIAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_manuelin.log 2>&1
+		else
+			start -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+		fi
 
 # Fin instalación
 	echo
@@ -254,7 +274,11 @@ installIPTV()
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
 	echo -e "$magenta 1. Parando servicio tvheadend $end"
-		$PARAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop
+		else
+			stop -q $TVHEADEND_SERVICE
+		fi
 		cd $CARPETA_TVH
 				
 # Borramos carpeta dobleM e input actual de tvheadend
@@ -349,7 +373,11 @@ installIPTV()
 	echo
 	echo -e "$magenta 9. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
-		$INICIAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_manuelin.log 2>&1
+		else
+			start -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+		fi
 
 # Fin instalación
 	echo
@@ -377,7 +405,7 @@ do
 	echo -e "$cyan Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
 	echo -e "$yellow 1) Posters $end"
 	echo -e "$yellow 2) Fanarts $end"
-	echo -n "    Indica una opción: "
+	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
@@ -405,7 +433,11 @@ limpiezatotalcanales()
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	echo
 	echo -e "$magenta 1. Parando servicio tvheadend $end"
-		$PARAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop
+		else
+			stop -q $TVHEADEND_SERVICE
+		fi
 		cd $CARPETA_TVH
 				
 # Borramos carpeta "channel" de tvheadend
@@ -417,7 +449,11 @@ limpiezatotalcanales()
 	echo
 	echo -e "$magenta 3. Iniciando servicio tvheadend $end"
 		cd $CARPETA_SCRIPT
-		$INICIAR_TVHEADEND
+		if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_manuelin.log 2>&1
+		else
+			start -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+		fi
 		
 # Fin limpieza
 	echo
