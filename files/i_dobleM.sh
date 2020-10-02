@@ -16,6 +16,7 @@ INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)
 clear
 	
 # Arranca script principal
+	echo
 	echo -e "$blue ################################################################# $end" 
 	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end"
 	echo -e "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"
