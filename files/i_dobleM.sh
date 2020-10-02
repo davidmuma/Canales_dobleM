@@ -28,7 +28,7 @@ do
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo
-	echo " -----------------------------------------------------------------"
+	echo "-------------------------------------------------------------------"
 	echo
 	echo -e " 1) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
 	echo
