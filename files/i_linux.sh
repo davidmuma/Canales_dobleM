@@ -430,9 +430,9 @@ limpiezatotalcanales()
 }
 
 # MENU INSTALACION
-clear
 while :	
 do
+clear
 	echo
 	echo -e "$blue ################################################################# $end" 
 	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
