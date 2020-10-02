@@ -26,7 +26,7 @@ clear
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo
-	echo -------------------------------------------------------------
+	echo  -----------------------------------------------------------------
  
 # Menu de sistemas
 while :	
