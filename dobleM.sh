@@ -10,4 +10,5 @@ echo
 sleep 1
 echo Ejecutando instalador...
 sleep 1
+clear
 sh i_dobleM.sh
