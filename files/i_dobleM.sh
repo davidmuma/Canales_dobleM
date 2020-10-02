@@ -51,13 +51,13 @@ do
 	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
-		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && sudo sh i_linux.sh; break;;
-		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_synology.sh && sudo sh i_synology.sh; break;;
-		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_libreelec.sh && sh i_libreelec.sh; break;;
-		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -b; break;;
-		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sudo sh i_mposter.sh -g; break;;
-		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && sudo sh i_mfanart.sh -g; break;;
-		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && sh i_mposter.sh -g; break;;
+		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && clear && sudo sh i_linux.sh; break;;
+		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_synology.sh && clear && sudo sh i_synology.sh; break;;
+		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_libreelec.sh && clear && sh i_libreelec.sh; break;;
+		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -b; break;;
+		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -g; break;;
+		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && clear && sudo sh i_mfanart.sh -g; break;;
+		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sh i_mposter.sh -g; break;;
 		8) rm -rf i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac

@@ -45,8 +45,6 @@ ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/
 ver_local_IPTV=`cat $CARPETA_TVH/dobleM-IPTV.ver 2>/dev/null`
 ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.ver 2>/dev/null`
 
-clear
-
 # Copia de seguridad
 backup()
 {
