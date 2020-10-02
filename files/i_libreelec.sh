@@ -13,20 +13,20 @@ end='\e[0m'
 NOMBRE_SCRIPT="i_libreelec.sh"
 CARPETA_TVH="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
 CARPETA_GRABBER="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
-SERVICE_TVHEADEND="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
-PARAR_TVHEADEND="systemctl stop $SERVICE_TVHEADEND"
-INICIAR_TVHEADEND="systemctl start $SERVICE_TVHEADEND"
+SERVICE_TVH="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
+PARAR_TVHEADEND="systemctl stop $SERVICE_TVH"
+INICIAR_TVHEADEND="systemctl start $SERVICE_TVH"
 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
 CARPETA_DOBLEM="$CARPETA_TVH/dobleM"
 CARPETA_SCRIPT="$PWD"
 
-INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 Infdir_linux="find /home -maxdepth 4 -type d -iname tvheadend*"								#/home/hts/.hts/tvheadend
 Infdir_syno="find /var -maxdepth 3 -type d -iname tvheadend*"								#/var/packages/tvheadend/target/var
 Infdir_libre="find /storage/.kodi/userdata -maxdepth 5 -type d -iname service.tvheadend*"	#/storage/.kodi/userdata/addon_data/service.tvheadend43
 Infdir_alex="find /storage -maxdepth 3 -type d -iname tvheadend*"							#/storage/.config/tvheadend
+INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"							
 INFO_CARPETA_TVH="$($Infdir_linux & $Infdir_syno & $Infdir_libre & $Infdir_alex)"
 INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 

@@ -13,8 +13,9 @@ end='\e[0m'
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_TVH="/home/hts/.hts/tvheadend"
 CARPETA_GRABBER="/usr/bin"
-PARAR_TVHEADEND="sudo service tvheadend stop"
-INICIAR_TVHEADEND="sudo service tvheadend start"
+SERVICE_TVH="tvheadend"
+PARAR_TVHEADEND="sudo service $SERVICE_TVH stop"
+INICIAR_TVHEADEND="sudo service $SERVICE_TVH start"
 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
@@ -31,7 +32,6 @@ INFO_CARPETA_GRABBER="$(which tvheadend | sed 's/\/tvheadend//')"
 
 	USER_TVH=$(stat -c %U $CARPETA_TVH/config)
 	GROUP_TVH=$(stat -c %G $CARPETA_TVH/config)
-	PERMISSIONS_TVH=$(stat -c %a $CARPETA_TVH/config)
 
 		TVHEADEND_CHANNEL_PERMISSIONS="777"
         TVHEADEND_INPUT_PERMISSIONS="755"      
