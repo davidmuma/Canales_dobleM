@@ -14,9 +14,9 @@ NOMBRE_SCRIPT="i_dobleM.sh"
 INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 
 # MENU ELECCION DE SISTEMAS
-clear
 while :	
 do
+clear
 	echo
 	echo -e "$blue ################################################################# $end" 
 	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end"

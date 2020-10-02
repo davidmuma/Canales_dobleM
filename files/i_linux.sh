@@ -159,7 +159,7 @@ install()
 		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $CARPETA_TVH/epggrab/xmltv/channels/*	
 while :	
 do
-	echo "     5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo "      5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
 	echo "	1) Posters"
 	echo "	2) Fanarts"
 	echo -n "	Indica una opción: "
@@ -377,7 +377,7 @@ do
 	echo -e "$cyan Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
 	echo -e "$yellow 1) Posters $end"
 	echo -e "$yellow 2) Fanarts $end"
-	echo -n " Indica una opción: "
+	echo -n "    Indica una opción: "
 	read opcion
 	case $opcion in
 			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;
