@@ -84,7 +84,6 @@ backup()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
-	clear
 }
 
 # INSTALADOR SATELITE
@@ -92,7 +91,7 @@ install()
 {
 	echo
 	echo -e "$blue ################################################################ $end"
-	echo -e "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
+	echo -e "$blue ###  Iniciando instalación de canales satélite y EPG dobleM  ### $end" 
 	echo -e "$blue ################################################################ $end" 	
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
@@ -157,8 +156,7 @@ install()
 		
 		rm -rf $CARPETA_TVH/epggrab/xmltv/
 		cp -r $CARPETA_DOBLEM/epggrab/ $CARPETA_TVH
-		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $CARPETA_TVH/epggrab/xmltv/channels/*
-	
+		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $CARPETA_TVH/epggrab/xmltv/channels/*	
 while :	
 do
 	echo "     5a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
@@ -171,8 +169,7 @@ do
 			2) sed -i 's/enable_fanart=.*/enable_fanart=true/g' $CARPETA_GRABBER/tv_grab_EPG_dobleM; break;;	
 			*) echo "$opcion es una opción inválida";
 	esac
-done
-		
+done		
 		chown -R $USER_TVH:$GROUP_TVH $CARPETA_GRABBER/tv_grab_EPG_dobleM
 		chmod +rx $CARPETA_GRABBER/tv_grab_EPG_dobleM
 		
@@ -244,7 +241,6 @@ done
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
-	clear
 }
 
 # INSTALADOR IPTV
@@ -252,7 +248,7 @@ installIPTV()
 {
 	echo
 	echo -e "$blue ################################################################ $end"
-	echo -e "$blue ###  Iniciando instalación de lista de canales y EPG dobleM  ### $end" 
+	echo -e "$blue ###    Iniciando instalación de canales IPTV y EPG dobleM    ### $end" 
 	echo -e "$blue ################################################################ $end" 	
 
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
@@ -366,7 +362,6 @@ installIPTV()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
-	clear
 }
 
 # CAMBIAR IMAGENES GRABBER
@@ -374,7 +369,7 @@ imagenesgrabber()
 {
 	echo
 	echo -e "$blue ################################################################ $end"
-	echo -e "$blue ###             Iniciando cambio tipo de imágenes            ### $end" 
+	echo -e "$blue ###          Iniciando cambio de tipo de imágenes            ### $end" 
 	echo -e "$blue ################################################################ $end" 
 while :	
 do
@@ -397,7 +392,6 @@ done
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
-	clear
 }
 
 # LIMPIEZA TOTAL DE CANALES
@@ -433,12 +427,13 @@ limpiezatotalcanales()
 		echo
 		echo -e "$green Pulsa intro para continuar... $end"
 		read CAD
-	clear
 }
 
 # Menu instalacion
+clear
 while :	
 do
+	echo
 	echo -e "$blue ################################################################# $end" 
 	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end" 
 	echo -e "$blue #                 Telegram: $cyan t.me/EPG_dobleM $end                  $blue # $end"

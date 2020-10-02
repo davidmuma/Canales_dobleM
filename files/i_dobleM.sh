@@ -13,9 +13,10 @@ end='\e[0m'
 NOMBRE_SCRIPT="i_dobleM.sh"
 INFO_SISTEMA="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 
+# Menu de sistemas
 clear
-	
-# Arranca script principal
+while :	
+do
 	echo
 	echo -e "$blue ################################################################# $end" 
 	echo -e "$blue #                       $green -= dobleM =- $end                         $blue # $end"
@@ -28,10 +29,6 @@ clear
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo
 	echo " -----------------------------------------------------------------"
- 
-# Menu de sistemas
-while :	
-do
 	echo
 	echo -e " 1) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
 	echo
@@ -39,13 +36,13 @@ do
 	echo
 	echo -e " 3) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
 	echo
-	echo -e " 4) Ejecutar$green COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
+	echo -e " 4) Ejecutar$magenta COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
 	echo
-	echo -e " 5) Ejecutar$green INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
+	echo -e " 5) Ejecutar$magenta INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
 	echo
-    echo -e " 6) Ejecutar$green INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
+    echo -e " 6) Ejecutar$magenta INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
 	echo
-    echo -e " 7) Ejecutar$green INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
+    echo -e " 7) Ejecutar$magenta INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
 	echo
     echo -e " 8)$red Salir del instalador $end"
 	echo
