@@ -909,7 +909,7 @@ clear
 		4) clear && imagenesgrabber;;
 		5) clear && limpiezatotal;;
 		6) rm -rf $CARPETA_SCRIPT/$NOMBRE_SCRIPT && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
-		7) rm -rf $CARPETA_SCRIPT/i_*.sh $CARPETA_SCRIPT/i_*.log; exit;;		
+		7) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done

@@ -56,7 +56,7 @@ clear
 		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -g; break;;
 		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && clear && sudo sh i_mfanart.sh -g; break;;
 		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sh i_mposter.sh -g; break;;
-		8) rm -rf i_*.sh i_*.log; exit;;		
+		8) rm -rf i_*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
