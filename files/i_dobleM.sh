@@ -33,7 +33,7 @@ clear
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo
-	echo "-------------------------------------------------------------------------------"
+	echo "----------------------------------------------------------------------------------"
 	echo
 	echo -e " 1) Ejecutar instalador para$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo -e " 2) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"

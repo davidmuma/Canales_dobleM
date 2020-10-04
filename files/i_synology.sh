@@ -9,6 +9,8 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
+echo Cargando...
+
 # Variables
 NOMBRE_SCRIPT="i_synology.sh"
 CARPETA_TVH="/var/packages/tvheadend/target/var"
