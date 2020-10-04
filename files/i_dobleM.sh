@@ -22,11 +22,11 @@ while :
 do
 clear
 	echo -e "$blue ############################################################################# $end" 
-	echo -e "$blue #                             $green -= dobleM =- $end                               $blue # $end"
-	echo -e "$blue #                       Telegram: $cyan t.me/EPG_dobleM $end                        $blue # $end"
-	echo -e "$blue # ------------------------------------------------------------------------- #$end" 
-	echo -e "$blue #         Por favor, comprueba tu sistema y tu versión de tvheadend         # $end"
-	echo -e "$blue #         Para dudas o sugerencias pásate por el grupo de telegram.         # $end" 
+	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
+	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
+	echo -e "$blue ### --------------------------------------------------------------------- ###$end" 
+	echo -e "$blue ###       Por favor, comprueba tu sistema y tu versión de tvheadend       ### $end"
+	echo -e "$blue ###       Para dudas o sugerencias pásate por el grupo de telegram.       ### $end" 
 	echo -e "$blue ############################################################################# $end" 
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"

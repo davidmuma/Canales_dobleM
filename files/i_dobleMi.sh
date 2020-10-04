@@ -171,6 +171,10 @@ LIST_ERROR=false
 GRABBER_ERROR=false
 SERVICE_ERROR=false
 
+if [ -f "i_manuelin.log" ]; then
+	mv "i_manuelin.log" "i_manuelin.old.log" 2>>i_manuelin.log
+fi
+
 if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
@@ -875,11 +879,11 @@ while :
 do
 clear
 	echo -e "$blue ############################################################################# $end" 
-	echo -e "$blue #                             $green -= dobleM =- $end                               $blue # $end" 
-	echo -e "$blue #                       Telegram: $cyan t.me/EPG_dobleM $end                        $blue # $end"
-	echo -e "$blue # ------------------------------------------------------------------------- #$end"
-	echo -e "$blue #        $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios        # $end" 
-	echo -e "$blue #        de instalación sean correctos, en caso de duda no continues        # $end" 
+	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end" 
+	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
+	echo -e "$blue ### --------------------------------------------------------------------- ###$end"
+	echo -e "$blue ###      $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios      ### $end" 
+	echo -e "$blue ###      de instalación sean correctos, en caso de duda no continues      ### $end" 
 	echo -e "$blue ############################################################################# $end" 
 	echo
 	echo -e " Sistema seleccionado:$magenta $SISTEMA_ELEGIDO $end"
@@ -896,7 +900,7 @@ clear
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar tipo de imágenes que aparecen en la guía $end"
-	echo -e " 5)$blue Hacer una limpieza TOTAL de tvheadend $end"
+	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end de tvheadend $end"
     echo -e " 6)$magenta Volver $end"
     echo -e " 7)$red Salir $end"
 	echo
