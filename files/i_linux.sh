@@ -32,27 +32,27 @@ SYSTEM=3   #1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux
 
 case $SYSTEM in
 	1)
-		TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" 2>>i_manuelin.log #"pkgctl-tvheadend-testing"
+		TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" 2>>i_dobleM.log #"pkgctl-tvheadend-testing"
 		if [ $? -ne 0 ]; then
 			SERVICES_MANAGEMENT="OLD"
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>i_manuelin.log #"tvheadend-testing"
-		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>i_manuelin.log #"users"
+		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>i_dobleM.log #"tvheadend-testing"
+		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>i_dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>i_manuelin.log #"/var/packages/tvheadend-testing/target/var"
+		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>i_dobleM.log #"/var/packages/tvheadend-testing/target/var"
 		TVHEADEND_GRABBER_DIR="/usr/local/bin";;
 	2)
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>i_manuelin.log #"service.tvheadend42.service"
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>i_dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>i_manuelin.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>i_manuelin.log;; #"/storage/.kodi/addons/service.tvheadend42/bin"
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>i_dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>i_dobleM.log;; #"/storage/.kodi/addons/service.tvheadend42/bin"
 	3)
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>i_manuelin.log #"tvheadend.service"
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>i_manuelin.log #"hts"
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>i_dobleM.log #"tvheadend.service"
+		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>i_dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
@@ -64,14 +64,14 @@ PARAR_TVHEADEND()
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>i_manuelin.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>i_dobleM.log 2>&1
 			else
-				stop -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+				stop -q $TVHEADEND_SERVICE 2>>i_dobleM.log
 			fi;;
 		2)
-			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			systemctl stop $TVHEADEND_SERVICE 2>>i_dobleM.log;;
 		3)
-			systemctl stop $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend stop
+			service tvheadend stop 2>>i_dobleM.log;; #service tvheadend stop
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -84,14 +84,14 @@ INICIAR_TVHEADEND()
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_manuelin.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>i_dobleM.log 2>&1
 			else
-				start -q $TVHEADEND_SERVICE 2>>i_manuelin.log
+				start -q $TVHEADEND_SERVICE 2>>i_dobleM.log
 			fi;;
 		2)
-			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;;
+			systemctl start $TVHEADEND_SERVICE 2>>i_dobleM.log;;
 		3)
-			systemctl start $TVHEADEND_SERVICE 2>>i_manuelin.log;; #service tvheadend start
+			service tvheadend start 2>>i_dobleM.log;; #service tvheadend start
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -150,8 +150,8 @@ else
 	TVHEADEND_PICONS_PERMISSIONS=$TVHEADEND_PERMISSIONS
 fi
 
-if [ -f "i_manuelin.log" ]; then
-	mv "i_manuelin.log" "i_manuelin.old.log" 2>>i_manuelin.log
+if [ -f "i_dobleM.log" ]; then
+	mv "i_dobleM.log" "i_dobleM.old.log" 2>>i_dobleM.log
 fi
 
 if [ -z "$COLUMNS" ]; then
@@ -238,7 +238,7 @@ install()
 	rm -rf $CARPETA_DOBLEM	
 	mkdir $CARPETA_DOBLEM
 	cd $CARPETA_DOBLEM
-	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz 2>>i_manuelin.log
+	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz 2>>i_dobleM.log
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -254,7 +254,7 @@ install()
 		sed -i "\$a}\n$NOMBRE_APP" $CARPETA_DOBLEM/channel/tag/*
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-	rm -rf $CARPETA_TVH/bouquet/ $CARPETA_TVH/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $CARPETA_TVH/picons/ 2>>i_manuelin.log
+	rm -rf $CARPETA_TVH/bouquet/ $CARPETA_TVH/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $CARPETA_TVH/picons/ 2>>i_dobleM.log
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -281,23 +281,23 @@ install()
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales"
 	ERROR=false
-	cp -r $CARPETA_DOBLEM/dobleM.ver $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/dobleM.ver $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/bouquet/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/bouquet/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/picons/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/picons/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -307,51 +307,51 @@ install()
 # Damos permisos a los directorios
 	printf "%-$(($COLUMNS-10+1))s" " 5. Aplicando permisos a los ficheros de configuración"
 	ERROR=false
-	chown -R $TVHEADEND_BOUQUET_USER:$TVHEADEND_BOUQUET_GROUP $TVHEADEND_CONFIG_DIR/bouquet 2>>i_manuelin.log
+	chown -R $TVHEADEND_BOUQUET_USER:$TVHEADEND_BOUQUET_GROUP $TVHEADEND_CONFIG_DIR/bouquet 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/bouquet -type d -exec chmod $TVHEADEND_BOUQUET_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/bouquet -type d -exec chmod $TVHEADEND_BOUQUET_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/bouquet -type f -exec chmod $(($TVHEADEND_BOUQUET_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/bouquet -type f -exec chmod $(($TVHEADEND_BOUQUET_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi	
-	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>i_manuelin.log
+	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>i_manuelin.log
+	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>i_manuelin.log
+	chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -361,58 +361,58 @@ install()
 # Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevo. Damos permisos.			
 	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber"
 	if [ -f /usr/bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 1 ]; then
-		rm /usr/bin/tv_grab_EPG_dobleM 2>>i_manuelin.log
+		rm /usr/bin/tv_grab_EPG_dobleM 2>>i_dobleM.log
 	fi
 	ERROR=false
-	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_manuelin.log
+	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>i_manuelin.log
+	rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>i_dobleM.log
 	if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
 		ERROR=true
 	fi
 	if [ $SYSTEM -ne 1 ]; then
-		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>i_manuelin.log
+		sed -i -- "s,\"modid\":.*,\"modid\": \"$CARPETA_GRABBER/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 	fi
-	chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>i_manuelin.log
+	chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
 	if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
-		mkdir -p $TVHEADEND_GRABBER_DIR 2>>i_manuelin.log
+		mkdir -p $TVHEADEND_GRABBER_DIR 2>>i_dobleM.log
 	fi
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>i_manuelin.log
+	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_manuelin.log
+	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_manuelin.log
+	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_manuelin.log
+	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>i_dobleM.log
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -436,61 +436,61 @@ done
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 	ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		#picons config tvheadend
-		sed -i '/"chiconscheme": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"chiconscheme": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconpath": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"piconpath": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconscheme": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"piconscheme": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/CARPETA_TVH\/picons",\n\t"piconscheme": 0,/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/CARPETA_TVH\/picons",\n\t"piconscheme": 0,/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s,CARPETA_TVH,$CARPETA_TVH,g" $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i "s,CARPETA_TVH,$CARPETA_TVH,g" $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		#cron y grabber config epggrab
-		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"enabled": .*,/"enabled": false,/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"enabled": .*,/"enabled": false,/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/tv_grab_EPG_dobleM/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i '/tv_grab_EPG_dobleM/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/tv_grab_EPG_dobleM-IPTV/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i '/tv_grab_EPG_dobleM-IPTV/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"modules": {/"modules": {\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM-IPTV": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - IPTV",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"modules": {/"modules": {\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM-IPTV": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - IPTV",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s,CARPETA_GRABBER,$CARPETA_GRABBER,g" $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i "s,CARPETA_GRABBER,$CARPETA_GRABBER,g" $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -499,7 +499,7 @@ done
 		fi	
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
-		rm -rf $CARPETA_DOBLEM 2>>i_manuelin.log
+		rm -rf $CARPETA_DOBLEM 2>>i_dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -585,7 +585,7 @@ installIPTV()
 	rm -rf $CARPETA_DOBLEM	
 	mkdir $CARPETA_DOBLEM
 	cd $CARPETA_DOBLEM
-	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.tar.xz 2>>i_manuelin.log
+	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.tar.xz 2>>i_dobleM.log
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -601,7 +601,7 @@ installIPTV()
 		sed -i "\$a}\n$NOMBRE_APP_IPTV" $CARPETA_DOBLEM/channel/tag/*		
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-	rm -rf $CARPETA_TVH/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>i_manuelin.log
+	rm -rf $CARPETA_TVH/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>i_dobleM.log
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -628,15 +628,15 @@ installIPTV()
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales"
 	ERROR=false
-	cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/channel/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH 2>>i_manuelin.log
+	cp -r $CARPETA_DOBLEM/input/ $CARPETA_TVH 2>>i_dobleM.log
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -646,27 +646,27 @@ installIPTV()
 # Damos permisos a los directorios
 	printf "%-$(($COLUMNS-10+1))s" " 5. Aplicando permisos a los ficheros de configuración"
 	ERROR=false
-	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>i_manuelin.log
+	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>i_manuelin.log
+	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>i_dobleM.log {} \;
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>i_manuelin.log {} \;
+	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>i_dobleM.log {} \;
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -676,26 +676,26 @@ installIPTV()
 # Instalación de grabber. Borramos grabber viejo. Copiamos grabber nuevo. Damos permisos.			
 	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber"
 	if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
-		rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>i_manuelin.log
+		rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>i_dobleM.log
 	fi
 	ERROR=false
-	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_manuelin.log
+	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>i_manuelin.log
+	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_manuelin.log
+	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_manuelin.log
+	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_dobleM.log
 	if [ $? -ne 0 ]; then
 		ERROR=true
 	fi
-	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_manuelin.log
+	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>i_dobleM.log
 	if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -706,61 +706,61 @@ installIPTV()
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 	ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"language": \[/"language": \[\ndobleM/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/dobleM/,/],/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		#picons config tvheadend
-		sed -i '/"chiconscheme": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"chiconscheme": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconpath": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"piconpath": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconscheme": .*,/d' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i '/"piconscheme": .*,/d' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/CARPETA_TVH\/picons",\n\t"piconscheme": 0,/g' $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/CARPETA_TVH\/picons",\n\t"piconscheme": 0,/g' $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s,CARPETA_TVH,$CARPETA_TVH,g" $CARPETA_TVH/config 2>>i_manuelin.log
+		sed -i "s,CARPETA_TVH,$CARPETA_TVH,g" $CARPETA_TVH/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		#cron y grabber config epggrab
-		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"enabled": .*,/"enabled": false,/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"enabled": .*,/"enabled": false,/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/tv_grab_EPG_dobleM/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i '/tv_grab_EPG_dobleM/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/tv_grab_EPG_dobleM-IPTV/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i '/tv_grab_EPG_dobleM-IPTV/,/},/d' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"modules": {/"modules": {\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM-IPTV": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - IPTV",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i 's/"modules": {/"modules": {\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - Movistar+",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},\n\t\t"CARPETA_GRABBER\/tv_grab_EPG_dobleM-IPTV": {\n\t\t\t"class": "epggrab_mod_int_xmltv",\n\t\t\t"dn_chnum": 0,\n\t\t\t"name": "XMLTV: EPG_dobleM - IPTV",\n\t\t\t"type": "Internal",\n\t\t\t"enabled": true,\n\t\t\t"priority": 3\n\t\t},/g' $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s,CARPETA_GRABBER,$CARPETA_GRABBER,g" $CARPETA_TVH/epggrab/config 2>>i_manuelin.log
+		sed -i "s,CARPETA_GRABBER,$CARPETA_GRABBER,g" $CARPETA_TVH/epggrab/config 2>>i_dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -769,7 +769,7 @@ installIPTV()
 		fi	
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
-		rm -rf $CARPETA_DOBLEM 2>>i_manuelin.log
+		rm -rf $CARPETA_DOBLEM 2>>i_dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -847,7 +847,7 @@ limpiezatotal()
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"	
 	cd $CARPETA_TVH
-	rm -rf $CARPETA_TVH/bouquet/ $CARPETA_TVH/channel/ $CARPETA_TVH/epggrab/ $CARPETA_TVH/input/ $CARPETA_TVH/picons/ 2>>i_manuelin.log
+	rm -rf $CARPETA_TVH/bouquet/ $CARPETA_TVH/channel/ $CARPETA_TVH/epggrab/ $CARPETA_TVH/input/ $CARPETA_TVH/picons/ 2>>i_dobleM.log
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
