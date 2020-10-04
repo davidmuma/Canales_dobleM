@@ -71,6 +71,7 @@ PARAR_TVHEADEND()
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_dobleM.log;;
 		3)
+			echo
 			service tvheadend stop 2>>i_dobleM.log;; #service tvheadend stop
 	esac
 	if [ $? -eq 0 ]; then
