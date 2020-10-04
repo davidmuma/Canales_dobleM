@@ -58,7 +58,7 @@ echo Cargando...
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin";;
-esac
+	esac
 
 # Parar/Iniciar tvheadend
 PARAR_TVHEADEND()
