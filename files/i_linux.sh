@@ -9,6 +9,9 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
+clear
+echo Cargando...
+
 # Variables
 NOMBRE_SCRIPT="i_linux.sh"
 CARPETA_TVH="/home/hts/.hts/tvheadend"
@@ -71,7 +74,6 @@ PARAR_TVHEADEND()
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>i_dobleM.log;;
 		3)
-			echo
 			service tvheadend stop 2>>i_dobleM.log;; #service tvheadend stop
 	esac
 	if [ $? -eq 0 ]; then
@@ -187,10 +189,10 @@ backup()
 	cd $CARPETA_TVH
 	if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>i_dobleM.log
 	else
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>i_dobleM.log
 	fi
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"

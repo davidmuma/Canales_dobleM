@@ -9,6 +9,9 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
+clear
+echo Cargando...
+
 # Variables
 NOMBRE_SCRIPT="i_libreelec.sh"
 CARPETA_TVH="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
@@ -186,10 +189,10 @@ backup()
 	cd $CARPETA_TVH
 	if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>i_dobleM.log
 	else
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
+		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>i_dobleM.log
 	fi
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
