@@ -821,9 +821,9 @@ imagenesgrabber()
 	echo
 while :	
 do
-	echo -e "$cyan Escoge que tipo de imágenes quieres que aparezcan en la guía: $end"
-	echo -e "$yellow 1) Posters $end"
-	echo -e "$yellow 2) Fanarts $end"
+	echo -e " Escoge que tipo de imágenes quieres que aparezcan en la guía:"
+	echo -e " 1) Posters"
+	echo -e " 2) Fanarts"
 	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
