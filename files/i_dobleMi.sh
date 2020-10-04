@@ -171,8 +171,8 @@ LIST_ERROR=false
 GRABBER_ERROR=false
 SERVICE_ERROR=false
 
-if [ -f "i_manuelin.log" ]; then
-	mv "i_manuelin.log" "i_manuelin.old.log" 2>>i_manuelin.log
+if [ -f "dobleM.log" ]; then
+	mv "dobleM.log" "dobleM.old.log" 2>>dobleM.log
 fi
 
 if [ -z "$COLUMNS" ]; then
