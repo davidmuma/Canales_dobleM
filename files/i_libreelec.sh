@@ -202,9 +202,9 @@ backup()
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND	
 # Fin copia de seguridad
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 }
 
@@ -514,12 +514,12 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: Tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" " Es necesario reiniciar Tvheadend manualmente para aplicar los cambios."
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
@@ -533,10 +533,10 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	echo "  German - Guía con etiquetas de colores, título en una sola linea"
 	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 else
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
@@ -550,7 +550,7 @@ else
 	echo "  German - Guía con etiquetas de colores, título en una sola linea"
 	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 fi
 }
@@ -784,25 +784,25 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: Tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" " Es necesario reiniciar Tvheadend manualmente para aplicar los cambios."
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 else
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 fi
 }
@@ -827,9 +827,9 @@ do
 			*) echo "$opcion es una opción inválida";
 	esac
 done
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 }
 
@@ -859,9 +859,9 @@ limpiezatotal()
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND		
 # Fin limpieza
-	printf "\n$green%s$end\n" " ¡Proceso completado correctamente!"
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
-	echo -e "$green Pulsa intro para continuar... $end"
+	echo " Pulsa intro para continuar..."
 	read CAD
 }
 
