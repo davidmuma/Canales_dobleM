@@ -900,7 +900,7 @@ clear
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar tipo de imágenes que aparecen en la guía $end"
-	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end de tvheadend $end"
+	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end de$cyan tvheadend $end"
     echo -e " 6)$magenta Volver $end"
     echo -e " 7)$red Salir $end"
 	echo

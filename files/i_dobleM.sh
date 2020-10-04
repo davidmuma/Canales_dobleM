@@ -32,11 +32,11 @@ clear
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo _________________________________________________________________________________
 	echo
-	echo -e " 1) Ejecutar instalador para$green Synology/XPEnology $end(solo para tvheadend 4.3)"
+	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
+	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
 	echo
-	echo -e " 3) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
+	echo -e " 3)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
 #	echo -e " 4) Ejecutar$magenta COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
 #	echo -e " 5) Ejecutar$magenta INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
