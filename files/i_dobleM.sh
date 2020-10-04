@@ -43,7 +43,7 @@ clear
 #   echo -e " 6) Ejecutar$magenta INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
 #   echo -e " 7) Ejecutar$magenta INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
 #	echo
-    echo -e " 8)$red Salir del instalador $end"
+    echo -e " 4)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
