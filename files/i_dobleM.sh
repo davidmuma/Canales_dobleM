@@ -9,9 +9,7 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
-# Variables
-NOMBRE_SCRIPT="i_dobleM.sh"
-
+# Detectamos sistema operativo
 SYSTEM_INFO="$(uname -a)"
 if [ "${SYSTEM_INFO#*"synology"}" != "$SYSTEM_INFO" ]; then
 	INFO_SISTEMA="Synology/XPEnology"
@@ -32,31 +30,32 @@ clear
 	echo -e "$blue ############################################################################# $end" 
 	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
-	echo
-	echo "----------------------------------------------------------------------------------"
+	echo _________________________________________________________________________________
 	echo
 	echo -e " 1) Ejecutar instalador para$green Synology/XPEnology $end(solo para tvheadend 4.3)"
+	echo
 	echo -e " 2) Ejecutar instalador para$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
+	echo
 	echo -e " 3) Ejecutar instalador para$green Linux $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 4) Ejecutar$magenta COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
-	echo -e " 5) Ejecutar$magenta INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
-    echo -e " 6) Ejecutar$magenta INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
-    echo -e " 7) Ejecutar$magenta INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
-	echo
+#	echo -e " 4) Ejecutar$magenta COPIA DE SEGURIDAD de tvheadend con script MANUELIN modificado $end"
+#	echo -e " 5) Ejecutar$magenta INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
+#   echo -e " 6) Ejecutar$magenta INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
+#   echo -e " 7) Ejecutar$magenta INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
+#	echo
     echo -e " 8)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
-		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_synology.sh && clear && sudo sh i_synology.sh; break;;
-		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_libreelec.sh && clear && sh i_libreelec.sh; break;;
-		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_linux.sh && clear && sudo sh i_linux.sh; break;;
-		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -b; break;;
-		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -g; break;;
-		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && clear && sudo sh i_mfanart.sh -g; break;;
-		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sh i_mposter.sh -g; break;;
-		8) rm -rf i_*.sh; exit;;		
+		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo sh i_dobleMi.sh Synology; break;;
+		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sh i_dobleMi.sh Libreelec; break;;
+		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo sh i_dobleMi.sh Linux; break;;
+#		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -b; break;;
+#		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sudo sh i_mposter.sh -g; break;;
+#		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mfanart.sh && clear && sudo sh i_mfanart.sh -g; break;;
+#		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_mposter.sh && clear && sh i_mposter.sh -g; break;;
+		4) rm -rf i_dobleM*.sh; exit;;		
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
