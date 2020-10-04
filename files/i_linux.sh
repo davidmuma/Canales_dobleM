@@ -187,10 +187,10 @@ backup()
 	cd $CARPETA_TVH
 	if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
 	else
 		FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>/dev/null
+		tar -cJf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input/dvb input/iptv picons 2>>i_dobleM.log
 	fi
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
