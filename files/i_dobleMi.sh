@@ -531,7 +531,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
-	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
