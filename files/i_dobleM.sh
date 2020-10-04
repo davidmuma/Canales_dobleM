@@ -23,7 +23,6 @@ fi
 while :	
 do
 clear
-	echo
 	echo -e "$blue ############################################################################# $end" 
 	echo -e "$blue #                             $green -= dobleM =- $end                               $blue # $end"
 	echo -e "$blue #                       Telegram: $cyan t.me/EPG_dobleM $end                        $blue # $end"
@@ -44,6 +43,7 @@ clear
 	echo -e " 5) Ejecutar$magenta INSTALACION lista y grabber posters dobleM con script MANUELIN modificado $end"
     echo -e " 6) Ejecutar$magenta INSTALACION lista y grabber fantarts dobleM con script MANUELIN modificado $end"
     echo -e " 7) Ejecutar$magenta INSTALACION para COREELEC/LIBREELEC con script MANUELIN modificado $end"
+	echo
     echo -e " 8)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "

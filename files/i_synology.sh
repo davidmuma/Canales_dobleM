@@ -877,9 +877,9 @@ clear
 	echo -e "$blue #        de instalación sean correctos, en caso de duda no continues        # $end" 
 	echo -e "$blue ############################################################################# $end" 
 	echo
-	echo -e " Detectado el sistema operativo:  $yellow $INFO_SISTEMA $end"
-	echo -e " Detectado directorio tvheadend:  $yellow $INFO_CARPETA_TVH $end"
-	echo -e " Detectado  directorio  grabber:  $yellow $INFO_CARPETA_GRABBER $end"
+	echo -e " Detectado  el sistema  operativo:$yellow $INFO_SISTEMA $end"
+	echo -e " Detectado  directorio  tvheadend:$yellow $INFO_CARPETA_TVH $end"
+	echo -e " Detectado   directorio   grabber:$yellow $INFO_CARPETA_GRABBER $end"
 	echo
 	echo -e " Directorio instalación tvheadend:$green $CARPETA_TVH $end"
 	echo -e " Directorio  instalación  grabber:$green $CARPETA_GRABBER $end"
@@ -888,7 +888,6 @@ clear
 	echo -e " Versión SATELITE instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
 	echo -e " Versión   IPTV   instalada:$red $ver_local_IPTV $end --->  Nueva versión:$green $ver_web_IPTV $end"
 	echo
-	echo "-------------------------------------------------------------------"
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
