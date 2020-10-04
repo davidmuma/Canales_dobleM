@@ -9,8 +9,6 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
-echo Cargando...
-
 # Variables
 NOMBRE_SCRIPT="i_libreelec.sh"
 CARPETA_TVH="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
