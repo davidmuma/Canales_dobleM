@@ -508,7 +508,7 @@ done
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -782,7 +782,7 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
