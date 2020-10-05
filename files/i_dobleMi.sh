@@ -33,47 +33,47 @@ echo Cargando...
 	fi	
 	case $SYSTEM in
 	1)
-		TVHEADEND_SERVICE="$(synoservicecfg --list | grep Tvheadend)" 2>>dobleM.log #"pkgctl-Tvheadend-testing"
+		TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" 2>>dobleM.log #"pkgctl-tvheadend-testing"
 		if [ $? -ne 0 ]; then
 			SERVICES_MANAGEMENT="OLD"
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep Tvheadend)" 2>>dobleM.log #"Tvheadend-testing"
+		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>dobleM.log #"tvheadend-testing"
 		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep Tvheadend)/target/var" 2>>dobleM.log #"/var/packages/Tvheadend-testing/target/var"
+		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>dobleM.log #"/var/packages/tvheadend-testing/target/var"
 		TVHEADEND_GRABBER_DIR="/usr/local/bin";;
 	2)
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep Tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"service.Tvheadend42.service"
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep Tvheadend)" 2>>dobleM.log #"/storage/.kodi/userdata/addon_data/service.Tvheadend42"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep Tvheadend)/bin" 2>>dobleM.log;; #"/storage/.kodi/addons/service.Tvheadend42/bin"
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>dobleM.log;; #"/storage/.kodi/addons/service.tvheadend42/bin"
 	3)
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep Tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"Tvheadend.service"
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'Tvheadend|hts')" 2>>dobleM.log #"hts"
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"tvheadend.service"
+		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/home/hts/.hts/Tvheadend"
+		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin";;
 	esac
 
-# Parar/Iniciar Tvheadend
+# Parar/Iniciar tvheadend
 PARAR_TVHEADEND()
 {
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep Tvheadend)/scripts/start-stop-status" stop 1>dobleM.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>dobleM.log 2>&1
 			else
 				stop -q $TVHEADEND_SERVICE 2>>dobleM.log
 			fi;;
 		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>dobleM.log;;
 		3)
-			service Tvheadend stop 2>>dobleM.log;; #service Tvheadend stop
+			service tvheadend stop 2>>dobleM.log;; #service tvheadend stop
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -87,14 +87,14 @@ INICIAR_TVHEADEND()
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep Tvheadend)/scripts/start-stop-status" start 1>dobleM.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>dobleM.log 2>&1
 			else
 				start -q $TVHEADEND_SERVICE 2>>dobleM.log
 			fi;;
 		2)
 			systemctl start $TVHEADEND_SERVICE 2>>dobleM.log;;
 		3)
-			service Tvheadend start 2>>dobleM.log;; #service Tvheadend start
+			service tvheadend start 2>>dobleM.log;; #service tvheadend start
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -104,7 +104,7 @@ INICIAR_TVHEADEND()
 	fi
 }
 
-# Variables config Tvheadend
+# Variables config tvheadend
 if [ -d $TVHEADEND_CONFIG_DIR/bouquet ]; then
 	TVHEADEND_BOUQUET_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/bouquet) 2>/dev/null
 	TVHEADEND_BOUQUET_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/bouquet) 2>/dev/null
@@ -211,18 +211,18 @@ backup()
 	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end" 
 	echo -e "$blue ############################################################################# $end"
 	echo
-# Paramos Tvheadend para evitar conflictos al copiar y/o borrar archivos	
-	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo Tvheadend"
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Hacemos la copia de seguridad
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Realizando copia de seguridad de la configuración actual"	
 	cd $TVHEADEND_CONFIG_DIR
-	if [ -f "$CARPETA_SCRIPT/Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
-		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
+	if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
+		FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
 		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
 	else
-		FILE="Backup_Tvheadend_$(date +"%Y-%m-%d").tar.xz"
+		FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
 		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
 	fi
 	if [ $? -eq 0 ]; then
@@ -231,8 +231,8 @@ backup()
 	else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 	fi	
-# Reiniciamos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando Tvheadend"
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND	
 # Fin copia de seguridad
@@ -251,7 +251,7 @@ install()
 	echo
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del Tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -263,8 +263,8 @@ install()
 		done
 		echo
 	fi
-# Paramos Tvheadend para evitar conflictos al copiar y/o borrar archivos	
-	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo Tvheadend"
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND		
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM.tar.xz	
@@ -286,7 +286,7 @@ install()
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/tag/*
 		sed -i "\$a}\n$NOMBRE_APP" $CARPETA_DOBLEM/channel/config/*
 		sed -i "\$a}\n$NOMBRE_APP" $CARPETA_DOBLEM/channel/tag/*
-# Borramos configuración actual menos "channel" y "epggrab" de Tvheadend
+# Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
 	rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
 	if [ $? -eq 0 ]; then
@@ -466,10 +466,10 @@ do
 			*) echo "$opcion es una opción inválida";
 	esac
 done	
-# Configuramos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 7. Configurando Tvheadend"
+# Configuramos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 	ERROR=false
-		#Idiomas EPG config Tvheadend
+		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -482,7 +482,7 @@ done
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		#picons config Tvheadend
+		#picons config tvheadend
 		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -539,8 +539,8 @@ done
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-# Reiniciamos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 9. Iniciando Tvheadend"
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 9. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND
 # Fin instalación
@@ -551,17 +551,17 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	echo " Pulsa intro para continuar..."
 	read CAD
 elif [ "$SERVICE_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " ERROR: Tvheadend no se ha podido reiniciar de forma automática."
-	printf "$red%s$end\n" " Es necesario reiniciar Tvheadend manualmente para aplicar los cambios."
+	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
+	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de Tvheadend se terminen de iniciar, ten paciencia."
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo " Tvheadend ha quedado configurado de la siguiente manera:"
+	echo " tvheadend ha quedado configurado de la siguiente manera:"
 	echo "  Spanish - Guía con etiquetas de colores"
 	echo "  English - Guía sin etiquetas de colores"
 	echo "  German - Guía con etiquetas de colores, título en una sola linea"
@@ -576,9 +576,9 @@ else
 	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de Tvheadend se terminen de iniciar, ten paciencia."
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo " Tvheadend ha quedado configurado de la siguiente manera:"
+	echo " tvheadend ha quedado configurado de la siguiente manera:"
 	echo "  Spanish - Guía con etiquetas de colores"
 	echo "  English - Guía sin etiquetas de colores"
 	echo "  German - Guía con etiquetas de colores, título en una sola linea"
@@ -598,7 +598,7 @@ installIPTV()
 	echo
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del Tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -610,8 +610,8 @@ installIPTV()
 		done
 		echo
 	fi
-# Paramos Tvheadend para evitar conflictos al copiar y/o borrar archivos	
-	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo Tvheadend"
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM.tar.xz	
@@ -633,7 +633,7 @@ installIPTV()
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/tag/*
 		sed -i "\$a}\n$NOMBRE_APP_IPTV" $CARPETA_DOBLEM/channel/config/*
 		sed -i "\$a}\n$NOMBRE_APP_IPTV" $CARPETA_DOBLEM/channel/tag/*		
-# Borramos configuración actual menos "channel" y "epggrab" de Tvheadend
+# Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
 	rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>dobleM.log
 	if [ $? -eq 0 ]; then
@@ -736,10 +736,10 @@ installIPTV()
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		GRABBER_ERROR=true
 	fi
-# Configuramos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 7. Configurando Tvheadend"
+# Configuramos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 	ERROR=false
-		#Idiomas EPG config Tvheadend
+		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -752,7 +752,7 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		#picons config Tvheadend
+		#picons config tvheadend
 		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -809,8 +809,8 @@ installIPTV()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-# Reiniciamos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 9. Iniciando Tvheadend"
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 9. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND
 # Fin instalación
@@ -821,12 +821,12 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	echo " Pulsa intro para continuar..."
 	read CAD
 elif [ "$SERVICE_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " ERROR: Tvheadend no se ha podido reiniciar de forma automática."
-	printf "$red%s$end\n" " Es necesario reiniciar Tvheadend manualmente para aplicar los cambios."
+	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
+	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de Tvheadend se terminen de iniciar, ten paciencia."
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
@@ -834,7 +834,7 @@ else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
-	echo " los procesos de Tvheadend se terminen de iniciar, ten paciencia."
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
@@ -871,15 +871,15 @@ done
 limpiezatotal()
 {
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                 Iniciando limpieza total de Tvheadend                 ### $end" 
+	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end" 
 	echo -e "$blue ############################################################################# $end" 	
 	echo
-# Paramos Tvheadend para evitar conflictos al copiar y/o borrar archivos	
-	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo Tvheadend"
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND				
-# Borramos carpeta "channel" de Tvheadend
-	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de Tvheadend"	
+# Borramos carpeta "channel" de tvheadend
+	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"	
 	cd $TVHEADEND_CONFIG_DIR
 	rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
 	if [ $? -eq 0 ]; then
@@ -888,8 +888,8 @@ limpiezatotal()
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		LIST_ERROR=true
 	fi	
-# Reiniciamos Tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando Tvheadend"
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND		
 # Fin limpieza
@@ -914,18 +914,18 @@ clear
 	echo -e " Sistema seleccionado:$magenta $SISTEMA_ELEGIDO $end"
 	echo
 	echo -e " Sistema    detectado:$yellow $SYSTEM_INFO $end"
-	echo -e " Directorio Tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
+	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -e " Versión SATELITE instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
 	echo -e " Versión   IPTV   instalada:$red $ver_local_IPTV $end --->  Nueva versión:$green $ver_web_IPTV $end"
 	echo _________________________________________________________________________________
 	echo
-	echo -e " 1)$green Hacer copia de seguridad de Tvheadend $end"
-	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar Tvheadend $end"
-	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar Tvheadend $end"
+	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
+	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
+	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar tipo de imágenes que aparecen en la guía $end"
-	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de Tvheadend $end"
+	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
     echo -e " 6)$magenta Volver $end"
     echo -e " 7)$red Salir $end"
 	echo
