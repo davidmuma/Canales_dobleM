@@ -504,7 +504,11 @@ done
 			ERROR=true
 		fi
 		#cron y grabber config epggrab
-		sed -i 's/"cron": .*,/"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los dÃ­as a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Default config (02:04 and 14:04 everyday)\\n4 2 * * *\\n4 14 * * *",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
