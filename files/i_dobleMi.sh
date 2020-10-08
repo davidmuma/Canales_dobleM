@@ -267,6 +267,7 @@ install()
 		echo -e " 2) Guía sin etiquetas de colores"
 		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
 		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
@@ -283,6 +284,7 @@ install()
 		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
+		echo
 		echo -n " Indica una opción: "
 		read opcion2
 		case $opcion2 in
@@ -596,7 +598,7 @@ else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
-	echo "   Configuración --- Entradas DVB --- Adaptadores de TV"
+	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
@@ -844,6 +846,7 @@ cambioformatoEPG()
 		echo -e " 2) Guía sin etiquetas de colores"
 		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
 		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
@@ -860,6 +863,7 @@ cambioformatoEPG()
 		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
+		echo
 		echo -n " Indica una opción: "
 		read opcion2
 		case $opcion2 in
@@ -946,7 +950,7 @@ ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
 ver_local_IPTV=`cat $TVHEADEND_CONFIG_DIR/dobleM-IPTV.ver 2>/dev/null`
 ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.ver 2>/dev/null`
-clear
+	clear
 	echo -e "$blue ############################################################################# $end" 
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end" 
 	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
@@ -963,7 +967,7 @@ clear
 	echo
 	echo -e " Versión SATELITE instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
 	echo -e " Versión   IPTV   instalada:$red $ver_local_IPTV $end --->  Nueva versión:$green $ver_web_IPTV $end"
-	echo _________________________________________________________________________________
+	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
