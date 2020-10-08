@@ -183,11 +183,6 @@ fi
 command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
 command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
 
-ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
-ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
-ver_local_IPTV=`cat $TVHEADEND_CONFIG_DIR/dobleM-IPTV.ver 2>/dev/null`
-ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.ver 2>/dev/null`
-
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
 CARPETA_DOBLEM="$TVHEADEND_CONFIG_DIR/dobleM"
@@ -217,38 +212,35 @@ backup()
 		PARAR_TVHEADEND
 # Hacemos la copia de seguridad
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Realizando copia de seguridad de la configuración actual"	
-	cd $TVHEADEND_CONFIG_DIR
-	if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
-		FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
-	else
-		FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-		tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
-	fi
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-		printf "%s$blue%s$end\n" "   Backup creado: " "$FILE"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-	fi	
+		cd $TVHEADEND_CONFIG_DIR
+		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
+			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
+			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
+		else
+			FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
+			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
+		fi
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+			printf "%s$blue%s$end\n" "   Backup creado: " "$FILE"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi	
 # Reiniciamos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND	
 # Fin copia de seguridad
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
-	echo
-	echo " Pulsa intro para continuar..."
-	read CAD
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
 }
 
 # INSTALADOR SATELITE
 install()
 {
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end" 
-	echo -e "$blue ############################################################################# $end"
-	echo
+# Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
@@ -261,25 +253,67 @@ install()
 		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
 			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Desea continuar? [S/n]" CONTINUAR
 		done
-		echo
 	fi
+# Pedimos el formato de la guía de programación
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end" 
+	echo -e "$blue ############################################################################# $end"
+	echo
+	while :	
+	do
+		echo -e "$yellow Elige el formato de la guía de programación: $end"
+		echo -e " 1) Guía con etiquetas de colores"
+		echo -e " 2) Guía sin etiquetas de colores"
+		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
+		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+		echo -n " Indica una opción: "
+		read opcion1
+		case $opcion1 in
+				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
+				4) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
+				*) echo "$opcion1 es una opción inválida";
+		esac
+	done
+		echo
+	while :	
+	do
+		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
+		echo -e " 1) Imágenes tipo poster"
+		echo -e " 2) Imágenes tipo fanart"
+		echo -n " Indica una opción: "
+		read opcion2
+		case $opcion2 in
+				1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
+				2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
+				*) echo "$opcion2 es una opción inválida";
+		esac
+	done
+# Iniciamos instalación satélite
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end" 
+	echo -e "$blue ############################################################################# $end"
+	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND		
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM.tar.xz	
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista de canales satélite"
-	rm -rf $CARPETA_DOBLEM	
-	mkdir $CARPETA_DOBLEM
-	cd $CARPETA_DOBLEM
-	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz 2>>dobleM.log
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		echo -e "\nLa lista de canales satélite no se ha podido descargar.\nPor favor, inténtalo más tarde."
-		exit 1
-	fi
+		rm -rf $CARPETA_DOBLEM	
+		mkdir $CARPETA_DOBLEM
+		cd $CARPETA_DOBLEM
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.tar.xz 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			echo -e "\nLa lista de canales satélite no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			exit 1
+		fi
 	# Descomprimimos el tar y marcamos con dobleM al final todos los archivos de la carpeta /channel/config/ y /channel/tag/
 	tar -xf "dobleM.tar.xz"
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/*
@@ -288,13 +322,13 @@ install()
 		sed -i "\$a}\n$NOMBRE_APP" $CARPETA_DOBLEM/channel/tag/*
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-	rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi	
+		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi	
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 		rm -f 
 			if [ "$1" != "ALL" ];then
@@ -313,172 +347,163 @@ install()
 				rm -rf $TVHEADEND_CONFIG_DIR/channel/
 			fi		
 # Empezamos a copiar los archivos necesarios
-	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales"
-	ERROR=false
-	cp -r $CARPETA_DOBLEM/dobleM.ver $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/bouquet/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/channel/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/input/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/picons/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi
-# Damos permisos a los directorios
-	printf "%-$(($COLUMNS-10+1))s" " 5. Aplicando permisos a los ficheros de configuración"
-	ERROR=false
-	chown -R $TVHEADEND_BOUQUET_USER:$TVHEADEND_BOUQUET_GROUP $TVHEADEND_CONFIG_DIR/bouquet 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/bouquet -type d -exec chmod $TVHEADEND_BOUQUET_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/bouquet -type f -exec chmod $(($TVHEADEND_BOUQUET_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi	
-	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi	
-# Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevo. Damos permisos.			
-	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber"
-	if [ -f /usr/bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 1 ]; then
-		rm /usr/bin/tv_grab_EPG_dobleM 2>>dobleM.log
-	fi
-	ERROR=false
-	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>dobleM.log
-	if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
-		ERROR=true
-	fi
-	if [ $SYSTEM -ne 1 ]; then
-		sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>dobleM.log
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Instalando lista de canales satélite"
+		ERROR=false
+		cp -r $CARPETA_DOBLEM/dobleM.ver $TVHEADEND_CONFIG_DIR 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-	fi
-	chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
-		mkdir -p $TVHEADEND_GRABBER_DIR 2>>dobleM.log
-	fi
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		GRABBER_ERROR=true
-	fi	
-while :	
-do
-	echo "  6a. Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo "   1) Posters"
-	echo "   2) Fanarts"
-	echo -n "   Indica una opción: "
-	read opcion
-	case $opcion in
-			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM; break;;
-			2) sed -i 's/enable_fanart=.*/enable_fanart=true/g' $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM; break;;	
-			*) echo "$opcion es una opción inválida";
-	esac
-done	
+		cp -r $CARPETA_DOBLEM/bouquet/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/channel/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/input/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/picons/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+# Damos permisos a los directorios
+	printf "%-$(($COLUMNS-10+1))s" " 5. Aplicando permisos a los ficheros de configuración"
+		ERROR=false
+		chown -R $TVHEADEND_BOUQUET_USER:$TVHEADEND_BOUQUET_GROUP $TVHEADEND_CONFIG_DIR/bouquet 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/bouquet -type d -exec chmod $TVHEADEND_BOUQUET_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/bouquet -type f -exec chmod $(($TVHEADEND_BOUQUET_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi	
+		chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi	
+# Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevo. Damos permisos.			
+	printf "%-$(($COLUMNS-10+1))s"  " 6. Instalando grabber para satélite"
+		if [ -f /usr/bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 1 ]; then
+			rm /usr/bin/tv_grab_EPG_dobleM 2>>dobleM.log
+		fi
+		ERROR=false
+		rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>dobleM.log
+		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
+			ERROR=true
+		fi
+		if [ $SYSTEM -ne 1 ]; then
+			sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+		fi
+		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
+			mkdir -p $TVHEADEND_GRABBER_DIR 2>>dobleM.log
+		fi
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		$FORMATO_IMAGEN_GRABBER $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			GRABBER_ERROR=true
+		fi
 # Configuramos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
-	ERROR=false
+		ERROR=false
 		#Idiomas EPG config tvheadend
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi
+		fi		
 		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
+		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -508,7 +533,7 @@ done
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -565,12 +590,6 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo " tvheadend ha quedado configurado de la siguiente manera:"
-	echo "  Spanish - Guía con etiquetas de colores"
-	echo "  English - Guía sin etiquetas de colores"
-	echo "  German - Guía con etiquetas de colores, título en una sola linea"
-	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
-	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
 else
@@ -582,12 +601,6 @@ else
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
-	echo " tvheadend ha quedado configurado de la siguiente manera:"
-	echo "  Spanish - Guía con etiquetas de colores"
-	echo "  English - Guía sin etiquetas de colores"
-	echo "  German - Guía con etiquetas de colores, título en una sola linea"
-	echo "  French - Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
-	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
 fi
@@ -596,10 +609,7 @@ fi
 # INSTALADOR IPTV
 installIPTV()
 {
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###          Iniciando instalación de canales IPTV y EPG dobleM           ### $end" 
-	echo -e "$blue ############################################################################# $end" 
-	echo
+# Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
@@ -612,25 +622,30 @@ installIPTV()
 		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
 			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Desea continuar? [S/n]" CONTINUAR
 		done
-		echo
 	fi
+# Iniciamos instalación IPTV
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###          Iniciando instalación de canales IPTV y EPG dobleM           ### $end" 
+	echo -e "$blue ############################################################################# $end" 
+	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM.tar.xz	
 	printf "%-$(($COLUMNS-10))s"  " 2. Descargando lista de canales IPTV"
-	rm -rf $CARPETA_DOBLEM	
-	mkdir $CARPETA_DOBLEM
-	cd $CARPETA_DOBLEM
-	wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.tar.xz 2>>dobleM.log
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		echo -e "\nLa lista de canales IPTV no se ha podido descargar.\nPor favor, inténtalo más tarde."
-		exit 1
-	fi
+		rm -rf $CARPETA_DOBLEM	
+		mkdir $CARPETA_DOBLEM
+		cd $CARPETA_DOBLEM
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.tar.xz 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			echo -e "\nLa lista de canales IPTV no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			exit 1
+		fi
 	# Descomprimimos el tar y marcamos con dobleM al final todos los archivos de la carpeta /channel/config/ y /channel/tag/
 	tar -xf "dobleM-IPTV.tar.xz"
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/*
@@ -639,150 +654,116 @@ installIPTV()
 		sed -i "\$a}\n$NOMBRE_APP_IPTV" $CARPETA_DOBLEM/channel/tag/*		
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-	rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>dobleM.log
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi	
-		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
-		rm -f 
-			if [ "$1" != "ALL" ];then
-				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
-				for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
-				do 
-					if [ -f "$fichero" ]; then  
-						ultima=$(tail -n 1 $fichero)
-						if [ "$ultima" = $NOMBRE_APP_IPTV ]; then
-						rm -f $fichero 
+		rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi	
+			# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+			rm -f 
+				if [ "$1" != "ALL" ];then
+					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
+					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
+					do 
+						if [ -f "$fichero" ]; then  
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_APP_IPTV ]; then
+							rm -f $fichero 
+							fi
 						fi
-					fi
-				done
-			else
-				# Borramos todos los canales y tags
-				rm -rf $TVHEADEND_CONFIG_DIR/channel/
-			fi					
+					done
+				else
+					# Borramos todos los canales y tags
+					rm -rf $TVHEADEND_CONFIG_DIR/channel/
+				fi					
 # Empezamos a copiar los archivos necesarios
-	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales"
-	ERROR=false
-	cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/channel/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp -r $CARPETA_DOBLEM/input/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi			
+	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
+		ERROR=false
+		cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/channel/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/input/ $TVHEADEND_CONFIG_DIR 2>>dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi			
 # Damos permisos a los directorios
 	printf "%-$(($COLUMNS-10+1))s" " 5. Aplicando permisos a los ficheros de configuración"
-	ERROR=false
-	chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>dobleM.log {} \;
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>dobleM.log {} \;
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi	
+		ERROR=false
+		chown -R $TVHEADEND_CHANNEL_USER:$TVHEADEND_CHANNEL_GROUP $TVHEADEND_CONFIG_DIR/channel 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/channel -type d -exec chmod $TVHEADEND_CHANNEL_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/channel -type f -exec chmod $(($TVHEADEND_CHANNEL_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chown -R $TVHEADEND_INPUT_USER:$TVHEADEND_INPUT_GROUP $TVHEADEND_CONFIG_DIR/input 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/input -type d -exec chmod $TVHEADEND_INPUT_PERMISSIONS 2>>dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>dobleM.log {} \;
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi	
 # Instalación de grabber. Borramos grabber viejo. Copiamos grabber nuevo. Damos permisos.			
-	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber"
-	if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
-		rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-	fi
-	ERROR=false
-	rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-	if [ $? -ne 0 ]; then
-		ERROR=true
-	fi
-	chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-	if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		GRABBER_ERROR=true
-	fi
+	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber para IPTV"
+		if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
+			rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		fi
+		ERROR=false
+		rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			GRABBER_ERROR=true
+		fi
 # Configuramos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
-	ERROR=false
-		#Idiomas EPG config tvheadend
-		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i 's/"language": \[/"language": \[\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t\],/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		#picons config tvheadend
-		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/picons",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
+		ERROR=false
 		#cron y grabber config epggrab
 		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Desactivados todos los OTA grabber",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -808,7 +789,7 @@ installIPTV()
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
-		fi	
+		fi		
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
 		rm -rf $CARPETA_DOBLEM 2>>dobleM.log
@@ -849,30 +830,82 @@ else
 fi
 }
 
-# CAMBIAR IMAGENES GRABBER
-imagenesgrabber()
+# CAMBIAR FORMATO EPG
+cambioformatoEPG()
 {
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###            Iniciando cambio de tipo de imágenes en grabber            ### $end" 
+	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end" 
 	echo -e "$blue ############################################################################# $end"
 	echo
-while :	
-do
-	echo -e " Escoge que tipo de imágenes quieres que aparezcan en la guía:"
-	echo -e " 1) Posters"
-	echo -e " 2) Fanarts"
-	echo -n " Indica una opción: "
-	read opcion
-	case $opcion in
-			1) sed -i 's/enable_fanart=.*/enable_fanart=false/g' $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM; break;;
-			2) sed -i 's/enable_fanart=.*/enable_fanart=true/g' $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM; break;;	
-			*) echo "$opcion es una opción inválida";
-	esac
-done
+	while :	
+	do
+		echo -e "$yellow Elige el formato de la guía de programación: $end"
+		echo -e " 1) Guía con etiquetas de colores"
+		echo -e " 2) Guía sin etiquetas de colores"
+		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
+		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
+		echo -n " Indica una opción: "
+		read opcion1
+		case $opcion1 in
+				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
+				4) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
+				*) echo "$opcion1 es una opción inválida";
+		esac
+	done
+		echo
+	while :	
+	do
+		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
+		echo -e " 1) Imágenes tipo poster"
+		echo -e " 2) Imágenes tipo fanart"
+		echo -n " Indica una opción: "
+		read opcion2
+		case $opcion2 in
+				1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
+				2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
+				*) echo "$opcion2 es una opción inválida";
+		esac
+	done
+		echo
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Aplicamos cambio formato de EPG
+	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
+		ERROR=false
+		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi		
+		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi	
+# Aplicamos cambio tipo de imagen de EPG
+	printf "%-$(($COLUMNS-10+3))s"  " 3. Cambiando tipo de imágenes de la guía de programación"	
+		$FORMATO_IMAGEN_GRABBER $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 4. Iniciando tvheadend"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND		
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
-	echo
-	echo " Pulsa intro para continuar..."
-	read CAD
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
 }
 
 # LIMPIEZA TOTAL DE CANALES
@@ -888,28 +921,31 @@ limpiezatotal()
 		PARAR_TVHEADEND				
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"	
-	cd $TVHEADEND_CONFIG_DIR
-	rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
-	if [ $? -eq 0 ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-	else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		LIST_ERROR=true
-	fi	
+		cd $TVHEADEND_CONFIG_DIR
+		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi	
 # Reiniciamos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND		
 # Fin limpieza
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
-	echo
-	echo " Pulsa intro para continuar..."
-	read CAD
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
 }
 
 # MENU INSTALACION
 while :	
 do
+ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
+ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
+ver_local_IPTV=`cat $TVHEADEND_CONFIG_DIR/dobleM-IPTV.ver 2>/dev/null`
+ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-IPTV.ver 2>/dev/null`
 clear
 	echo -e "$blue ############################################################################# $end" 
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end" 
@@ -932,7 +968,7 @@ clear
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
-	echo -e " 4)$cyan Cambiar tipo de imágenes que aparecen en la guía $end"
+	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
     echo -e " 6)$magenta Volver $end"
     echo -e " 7)$red Salir $end"
@@ -943,7 +979,7 @@ clear
 		1) clear && backup;;
 		2) clear && install;;
 		3) clear && installIPTV;;
-		4) clear && imagenesgrabber;;
+		4) clear && cambioformatoEPG;;
 		5) clear && limpiezatotal;;
 		6) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
 		7) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;		
