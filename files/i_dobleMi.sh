@@ -39,7 +39,7 @@ echo Cargando...
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>dobleM.log #"tvheadend-testing"
+		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>dobleM.log #"sc-tvheadend-testing"
 		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>dobleM.log #"/var/packages/tvheadend-testing/target/var"
@@ -213,12 +213,13 @@ backup()
 # Hacemos la copia de seguridad
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Realizando copia de seguridad de la configuración actual"	
 		cd $TVHEADEND_CONFIG_DIR
+		mkdir -p bouquet channel epggrab input picons
 		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input picons 2>>dobleM.log
 		else
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input input picons 2>>dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE bouquet channel epggrab input picons 2>>dobleM.log
 		fi
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
