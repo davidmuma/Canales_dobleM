@@ -1,7 +1,0 @@
-#EXTM3U
-#EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas" tvg-name="La 1",La 1
-pipe:///usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i https://rtvelivestream.akamaized.net/la1_dvr.m3u8 -c copy -f mpegts -tune zerolatency pipe:1
-#EXTINF:-1 tvg-id="Cuatro.TV" tvg-logo="https://graph.facebook.com/cuatro/picture?width=200&height=200" group-title="Generalistas" tvg-name="Cuatro",Cuatro HD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i https://linear02-i.akamaihd.net/hls/live/837811/cuatro/01.m3u8 -c copy -f mpegts -tune zerolatency pipe:1
-#EXTINF:-1 tvg-id="Divinity.TV" tvg-logo="https://graph.facebook.com/divinityes/picture?width=200&height=200" group-title="Generalistas" tvg-name="Divinity",Divinity HD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i https://linear01-i.akamaihd.net/hls/live/837812/divinity/01.m3u8 -c copy -f mpegts -tune zerolatency pipe:1
