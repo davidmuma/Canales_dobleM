@@ -1,35 +1,24 @@
 #EXTM3U @LaQuay https://github.com/LaQuay/TDTChannels
 #EXTM3U url-tvg="https://www.tdtchannels.com/epg/TV.xml"
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas" tvg-name="La 1",La 1
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://rtvelivestream.akamaized.net/la1_dvr.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://rtvelivestream.akamaized.net/la1_dvr.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas" tvg-name="La 1",La 1 GEO
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@584096/master.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@584096/master.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas" tvg-name="La 1",La 1
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="La2.TV" tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="Generalistas" tvg-name="La 2",La 2
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://rtvelivestream.akamaized.net/la2_dvr.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://rtvelivestream.akamaized.net/la2_dvr.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="La2.TV" tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="Generalistas" tvg-name="La 2",La 2 GEO
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@60414/master.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://hlsliveamdgl1-lh.akamaihd.net/i/hlsdvrlive_1@60414/master.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="La2.TV" tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="Generalistas" tvg-name="La 2",La 2
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://hlsliveamdgl0-lh.akamaihd.net/i/hlsdvrlive_1@60531/master.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://hlsliveamdgl0-lh.akamaihd.net/i/hlsdvrlive_1@60531/master.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="Cuatro.TV" tvg-logo="https://graph.facebook.com/cuatro/picture?width=200&height=200" group-title="Generalistas" tvg-name="Cuatro",Cuatro HD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://linear02-i.akamaihd.net/hls/live/837811/cuatro/01.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://linear02-i.akamaihd.net/hls/live/837811/cuatro/01.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="Cuatro.TV" tvg-logo="https://graph.facebook.com/cuatro/picture?width=200&height=200" group-title="Generalistas" tvg-name="Cuatro",Cuatro SD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://linear02-i.akamaihd.net/hls/live/837811/cuatro/03.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://linear02-i.akamaihd.net/hls/live/837811/cuatro/03.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="Telecinco.TV" tvg-logo="https://graph.facebook.com/tele5/picture?width=200&height=200" group-title="Generalistas" tvg-name="Telecinco",Telecinco HD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://linear01-i.akamaihd.net/hls/live/837810/telecinco/01.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://linear01-i.akamaihd.net/hls/live/837810/telecinco/01.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="Telecinco.TV" tvg-logo="https://graph.facebook.com/tele5/picture?width=200&height=200" group-title="Generalistas" tvg-name="Telecinco",Telecinco SD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://linear01-i.akamaihd.net/hls/live/837810/telecinco/03.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://linear01-i.akamaihd.net/hls/live/837810/telecinco/03.m3u8 -c copy -f mpegts pipe:1
 #EXTINF:-1 tvg-id="FDF.TV" tvg-logo="https://graph.facebook.com/factoriadeficcion/picture?width=200&height=200" group-title="Generalistas" tvg-name="FDF",FDF HD
-pipe:///usr/local/ffmpeg/bin/ffmpeg -i
-https://linear02-i.akamaihd.net/hls/live/837813/fdf/01.m3u8 -c copy -f mpegts pipe:1
+pipe:///usr/local/ffmpeg/bin/ffmpeg -i https://linear02-i.akamaihd.net/hls/live/837813/fdf/01.m3u8 -c copy -f mpegts pipe:1
