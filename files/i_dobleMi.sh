@@ -9,6 +9,10 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
+command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
+command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
+command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
+
 clear
 echo Cargando...
 
@@ -179,9 +183,6 @@ else
 	TVHEADEND_PICONS_GROUP=$TVHEADEND_GROUP
 	TVHEADEND_PICONS_PERMISSIONS=$TVHEADEND_PERMISSIONS
 fi
-
-command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
-command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
