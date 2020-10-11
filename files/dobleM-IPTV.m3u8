@@ -23,3 +23,15 @@ pipe:///var/dobleM-IPTV.sh https://linear01-i.akamaihd.net/hls/live/837810/telec
 pipe:///var/dobleM-IPTV.sh http://186.0.233.76:1935/Garage/garage.smil/.m3u8
 #EXTINF:-1 tvg-id="FDF.TV" tvg-logo="https://graph.facebook.com/factoriadeficcion/picture?width=200&height=200" group-title="Generalistas" tvg-name="FDF",FDF HD
 pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837813/fdf/01.m3u8
+#EXTINF:-1 tvg-id="Energy.TV" tvg-logo="https://graph.facebook.com/E.EnergyTV/picture?width=200&height=200" group-title="Generalistas" tvg-name="Energy",Energy HD
+pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837816/energy/01.m3u8
+#EXTINF:-1 tvg-id="Divinity.TV" tvg-logo="https://graph.facebook.com/divinityes/picture?width=200&height=200" group-title="Generalistas" tvg-name="Divinity",Divinity HD
+pipe:///var/dobleM-IPTV.sh https://linear01-i.akamaihd.net/hls/live/837812/divinity/01.m3u8
+#EXTINF:-1 tvg-id="Bemad.TV" tvg-logo="https://graph.facebook.com/BeMadTV/picture?width=200&height=200" group-title="Generalistas" tvg-name="Be Mad",Be Mad HD
+pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837815/bemad/01.m3u8
+#EXTINF:-1 tvg-id="Bemad.TV" tvg-logo="https://graph.facebook.com/BeMadTV/picture?width=200&height=200" group-title="Generalistas" tvg-name="Be Mad",Be Mad SD
+pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837815/bemad/03.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/radiom2o/picture?width=200&height=200" group-title="Musicales" tvg-name="m2o Italia",m2o Italia IT
+pipe:///var/dobleM-IPTV.sh https://m2otv-lh.akamaihd.net/i/m2oTv_1@186074/master.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/ONFM93.8/picture?width=200&height=200" group-title="Musicales" tvg-name="ON TV Portugal",ON TV Portugal
+pipe:///var/dobleM-IPTV.sh https://5ce9406b73c33.streamlock.net/ONFM/livestream/master.m3u8
