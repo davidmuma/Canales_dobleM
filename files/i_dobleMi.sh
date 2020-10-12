@@ -47,21 +47,24 @@ echo Cargando...
 		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>dobleM.log #"/var/packages/tvheadend-testing/target/var"
-		TVHEADEND_GRABBER_DIR="/usr/local/bin";;
+		TVHEADEND_GRABBER_DIR="/usr/local/bin"
+		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i \$1 -c copy -f mpegts -tune zerolatency pipe:1";;
 	2)
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>dobleM.log;; #"/storage/.kodi/addons/service.tvheadend42/bin"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1";;
 	3)
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"tvheadend.service"
 		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
-		TVHEADEND_GRABBER_DIR="/usr/bin";;
+		TVHEADEND_GRABBER_DIR="/usr/bin"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1";;
 	esac
 
 # Parar/Iniciar tvheadend
@@ -658,7 +661,7 @@ installIPTV()
 		sed -i "\$a}\n$NOMBRE_APP_IPTV" $CARPETA_DOBLEM/channel/tag/*		
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-		rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d040f9ac2f2bfe2df2af82722cf1a7b6/ 2>>dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f80013f7cb7dc75ed04b0312fa362ae1/ 2>>dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -685,6 +688,10 @@ installIPTV()
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
 		ERROR=false
+		sed -i "s#FFMPEG_TEMP#$FFMPEG_COMMAND#g" $CARPETA_DOBLEM/dobleM-IPTV.sh && chmod +rx $CARPETA_DOBLEM/dobleM-IPTV.sh && cp -r $CARPETA_DOBLEM/dobleM-IPTV.sh /var 2>>dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
 		cp -r $CARPETA_DOBLEM/dobleM-IPTV.ver $TVHEADEND_CONFIG_DIR 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
