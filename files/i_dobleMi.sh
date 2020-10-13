@@ -9,10 +9,6 @@ magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
 
-command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
-command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
-command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado."; exit 1; }
-
 clear
 echo Cargando...
 
@@ -24,7 +20,7 @@ echo Cargando...
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)"
 	fi
 	
-# Sistema elegido: 1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
@@ -36,7 +32,7 @@ echo Cargando...
 		SYSTEM=3	
 	fi	
 	case $SYSTEM in
-	1)
+	1) #Synology/XPEnology
 		TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" 2>>dobleM.log #"pkgctl-tvheadend-testing"
 		if [ $? -ne 0 ]; then
 			SERVICES_MANAGEMENT="OLD"
@@ -49,7 +45,7 @@ echo Cargando...
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>dobleM.log #"/var/packages/tvheadend-testing/target/var"
 		TVHEADEND_GRABBER_DIR="/usr/local/bin"
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i \$1 -c copy -f mpegts -tune zerolatency pipe:1";;
-	2)
+	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
@@ -57,7 +53,7 @@ echo Cargando...
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1";;
-	3)
+	3) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>dobleM.log #"tvheadend.service"
 		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
@@ -202,6 +198,10 @@ fi
 if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
+
+# Comprobamos que estén instalados curl y wget
+command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 
 # COPIA DE SEGURIDAD
 backup()
@@ -636,6 +636,8 @@ installIPTV()
 	echo -e "$blue ###          Iniciando instalación de canales IPTV y EPG dobleM           ### $end" 
 	echo -e "$blue ############################################################################# $end" 
 	echo
+# Comprobamos que esté instalado ffmpeg
+command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos	
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
