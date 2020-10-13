@@ -34,7 +34,7 @@ clear
 	echo
 	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(válido para tvheadend 4.2 y 4.3)"
+	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(solo para tvheadend 4.3)"
 	echo
 	echo -e " 3)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
