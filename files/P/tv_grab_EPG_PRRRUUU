@@ -8,7 +8,7 @@ if [ "$enable_fanart" = true ]
 then
     XMLTV_LOCATION_WEB="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart.xml.gz"
 else
-    XMLTV_LOCATION_WEB="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/epgconrex.xml.gz"
+    XMLTV_LOCATION_WEB="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/P/epgconrex.xml.gz"
 fi
 
 dflag=
