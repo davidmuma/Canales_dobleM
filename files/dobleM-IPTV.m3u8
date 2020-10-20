@@ -19,7 +19,7 @@ pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837811/cuatr
 pipe:///var/dobleM-IPTV.sh https://linear01-i.akamaihd.net/hls/live/837810/telecinco/01.m3u8
 #EXTINF:-1 tvg-id="Telecinco.TV" tvg-logo="https://graph.facebook.com/tele5/picture?width=200&height=200" group-title="Generalistas" tvg-name="Telecinco",Telecinco SD
 pipe:///var/dobleM-IPTV.sh https://linear01-i.akamaihd.net/hls/live/837810/telecinco/03.m3u8
-#EXTINF:-1 tvg-id="FDF.TV" tvg-logo="https://graph.facebook.com/factoriadeficcion/picture?width=200&height=200" group-title="Generalistas" tvg-name="FDF",FDF HD
+#EXTINF:-1 tvg-id="FDF.TV" tvg-logo="https://graph.facebook.com/factoriadeficcion/picture?width=200&height=200" group-title="Generalistas" tvg-name="Factoría de Ficción",Factoría de Ficción HD
 pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837813/fdf/01.m3u8
 #EXTINF:-1 tvg-id="Energy.TV" tvg-logo="https://graph.facebook.com/E.EnergyTV/picture?width=200&height=200" group-title="Generalistas" tvg-name="Energy",Energy HD
 pipe:///var/dobleM-IPTV.sh https://linear02-i.akamaihd.net/hls/live/837816/energy/01.m3u8
@@ -38,9 +38,9 @@ pipe:///var/dobleM-IPTV.sh https://play.cdn.enetres.net/091DB7AFBD77442B9BA2F141
 pipe:///var/dobleM-IPTV.sh https://play.cdn.enetres.net/16011939C62D44ED91350508FB25828B021/live.smil/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/mtmad.es/picture?width=200&height=200" group-title="Generalistas" tvg-name="mtmad 24h",mtmad 24h
 pipe:///var/dobleM-IPTV.sh https://mdssplive-lh.akamaihd.net/i/mtmad_1@744785/index_2500_av-b.m3u8
-#EXTINF:-1 tvg-id="24Horas.TV" tvg-logo="https://pbs.twimg.com/profile_images/1144547866393882626/2R0Khn5n_200x200.png" group-title="Informativos" tvg-name="24h",24h
+#EXTINF:-1 tvg-id="24Horas.TV" tvg-logo="https://pbs.twimg.com/profile_images/1144547866393882626/2R0Khn5n_200x200.png" group-title="Informativos" tvg-name="Canal 24 Horas",Canal 24 Horas
 pipe:///var/dobleM-IPTV.sh https://rtvelivestream.akamaized.net/24h_dvr.m3u8
-#EXTINF:-1 tvg-id="24Horas.TV" tvg-logo="https://pbs.twimg.com/profile_images/1144547866393882626/2R0Khn5n_200x200.png" group-title="Informativos" tvg-name="24h",24h
+#EXTINF:-1 tvg-id="24Horas.TV" tvg-logo="https://pbs.twimg.com/profile_images/1144547866393882626/2R0Khn5n_200x200.png" group-title="Informativos" tvg-name="Canal 24 Horas",Canal 24 Horas
 pipe:///var/dobleM-IPTV.sh https://hlsliveamdgl8-lh.akamaihd.net/i/hlsdvrlive_1@583030/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/NiusDiario/picture?width=200&height=200" group-title="Informativos" tvg-name="Nius",Nius HD
 pipe:///var/dobleM-IPTV.sh https://mdslivehlsb-i.akamaihd.net/hls/live/875601-b/niusdiario/01.m3u8
@@ -66,9 +66,9 @@ pipe:///var/dobleM-IPTV.sh https://cartv.streaming.aranova.es/hls/live/adeportes
 pipe:///var/dobleM-IPTV.sh https://hls-aragontv-events2.flumotion.com/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/aragondeporte/picture?width=200&height=200" group-title="Deportivos" tvg-name="Aragón Deporte",Aragón Deporte
 pipe:///var/dobleM-IPTV.sh https://cartv.streaming.aranova.es/hls/live/adeportes_deporte3.m3u8
-#EXTINF:-1 tvg-id="RMTV.TV" tvg-logo="https://graph.facebook.com/RealMadridTV7/picture?width=200&height=200" group-title="Deportivos" tvg-name="RealMadrid TV",RealMadrid TV
+#EXTINF:-1 tvg-id="RMTV.TV" tvg-logo="https://graph.facebook.com/RealMadridTV7/picture?width=200&height=200" group-title="Deportivos" tvg-name="Real Madrid TV",Real Madrid TV
 pipe:///var/dobleM-IPTV.sh https://rmtv24hweblive-lh.akamaihd.net/i/rmtv24hwebes_1@300661/master.m3u8
-#EXTINF:-1 tvg-id="RMTV.TV" tvg-logo="https://graph.facebook.com/RealMadridTV7/picture?width=200&height=200" group-title="Deportivos" tvg-name="RealMadrid TV",RealMadrid TV EN
+#EXTINF:-1 tvg-id="RMTV.TV" tvg-logo="https://graph.facebook.com/RealMadridTV7/picture?width=200&height=200" group-title="Deportivos" tvg-name="Real Madrid TV",Real Madrid TV EN
 pipe:///var/dobleM-IPTV.sh https://rmtv24hweblive-lh.akamaihd.net/i/rmtv24hweben_1@300662/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/udlaspalmasoficial/picture?width=200&height=200" group-title="Deportivos" tvg-name="UD Las Palmas TV",UD Las Palmas TV
 pipe:///var/dobleM-IPTV.sh https://ns3153203.ip-51-91-51.eu/hls/playlist.m3u8
@@ -210,8 +210,8 @@ pipe:///var/dobleM-IPTV.sh https://www.tdtchannels.com/stream/saltv.m3u8
 pipe:///var/dobleM-IPTV.sh https://srv2.zcast.com.br/eduardom/eduardom/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CanalMalagaRTVMunicipal/picture?width=200&height=200" group-title="Andalucía" tvg-name="Canal Málaga",Canal Málaga
 pipe:///var/dobleM-IPTV.sh https://canalmalaga-tv-live.flumotion.com/playlist.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/812891658754713/picture?width=200&height=200" group-title="Andalucía" tvg-name="101 Tele Antequera",101 Tele Antequera
-pipe:///var/dobleM-IPTV.sh http://37.187.7.106/las4esquinastv/live.m3u8
+#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/1026753292322459648/KelWPobh_200x200.jpg" group-title="Andalucía" tvg-name="101 Tele Antequera",101 Tele Antequera
+pipe:///var/dobleM-IPTV.sh https://secure7.todostreaming.es/live/101tv-AntequeraHD.m3u8
 #EXTINF:-1 tvg-id="FuengirolaTV.TV" tvg-logo="https://graph.facebook.com/fuengirolatvoficial/picture?width=200&height=200" group-title="Andalucía" tvg-name="Fuengirola TV",Fuengirola TV
 pipe:///var/dobleM-IPTV.sh https://secure.todostreaming.es/live/nerja-livestream.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/TVM.Cordoba/picture?width=200&height=200" group-title="Andalucía" tvg-name="TVM Córdoba",TVM Córdoba
@@ -515,7 +515,7 @@ pipe:///var/dobleM-IPTV.sh https://liveingesta119.cdnmedia.tv/tvripolleslive/smi
 pipe:///var/dobleM-IPTV.sh http://iptv.btpba1.es.network.do:8080/martv-web/video.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/rtv10sesrovires/picture?width=200&height=200" group-title="Cataluña" tvg-name="RTV10 Sesrovires",RTV10 Sesrovires
 #EXTVLCOPT:http-user-agent=TDTChannels#CrKeyTDT#
-pipe:///var/dobleM-IPTV.sh http://liveingesta360.cdnmedia.tv/tvstestevelive/smil:tv10.smil/master.m3u8
+pipe:///var/dobleM-IPTV.sh https://liveingesta118.cdnmedia.tv/tvstestevelive/smil:tele.smil/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/298335373532952/picture?width=200&height=200" group-title="Cataluña" tvg-name="25 TV",25 TV
 pipe:///var/dobleM-IPTV.sh https://cdnlive.shooowit.net/25televisiolive/smil:channel1.smil/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/1397103013646307/picture?width=200&height=200" group-title="Cataluña" tvg-name="Televisió de Sant Martí",Televisió de Sant Martí
@@ -545,7 +545,7 @@ pipe:///var/dobleM-IPTV.sh https://secure2.todostreaming.es/live/tvstream-DHnew.
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/telesurmadrid/picture?width=200&height=200" group-title="C. de Madrid" tvg-name="Telesur Madrid",Telesur Madrid
 pipe:///var/dobleM-IPTV.sh https://cdn01.yowi.tv/W3GH8E4B5V/master.m3u8
 #EXTINF:-1 tvg-logo="https://yt3.ggpht.com/a/AATXAJxcv6MRsFdUfhyS4JPJgeDuqnuQzZFT4aNEP6Ja=s200-c-k-c0xffffffff-no-rj-mo" group-title="C. de Madrid" tvg-name="TB Madrid",TB Madrid
-pipe:///var/dobleM-IPTV.sh https://5f4cab04444c6.streamlock.net/gcm2/gcm2/playlist.m3u8
+pipe:///var/dobleM-IPTV.sh https://5f4cab04444c6.streamlock.net/gcm2/tbmadrid.stream/playlist.m3u8
 #EXTINF:-1 tvg-id="NaTV.TV" tvg-logo="https://graph.facebook.com/NavarraTelevision/picture?width=200&height=200" group-title="C. Foral de Navarra" tvg-name="Navarra TV",Navarra TV HD
 pipe:///var/dobleM-IPTV.sh https://pc-sumandocomunicacion-hls.flumotion.com/promecal/live1_720p/chunks.m3u8
 #EXTINF:-1 tvg-id="NaTV.TV" tvg-logo="https://graph.facebook.com/NavarraTelevision/picture?width=200&height=200" group-title="C. Foral de Navarra" tvg-name="Navarra TV",Navarra TV SD
@@ -645,6 +645,8 @@ pipe:///var/dobleM-IPTV.sh https://59c8647978660.streamlock.net/8176/8176/playli
 pipe:///var/dobleM-IPTV.sh http://149.202.68.178:1935/live/peprecasens/playlist.m3u8
 #EXTINF:-1 tvg-id="TVR.TV" tvg-logo="https://graph.facebook.com/tvrtelevision/picture?width=200&height=200" group-title="La Rioja" tvg-name="TV Rioja",TV Rioja
 pipe:///var/dobleM-IPTV.sh https://5924d3ad0efcf.streamlock.net/rioja/rioja/master.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/7riojatv/picture?width=200&height=200" group-title="La Rioja" tvg-name="7 La Rioja",7 La Rioja
+pipe:///var/dobleM-IPTV.sh https://pc-la7delarioja-hls.flumotion.com/playlist.m3u8
 #EXTINF:-1 tvg-id="MelillaTV.TV" tvg-logo="https://graph.facebook.com/TelevisionMelilla/picture?width=200&height=200" group-title="Melilla" tvg-name="Melilla TV",Melilla TV
 pipe:///var/dobleM-IPTV.sh https://tvmelilla-hls-rm-lw.flumotion.com/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/populartvml/picture?width=200&height=200" group-title="Melilla" tvg-name="Popular TV Melilla",Popular TV Melilla
@@ -681,8 +683,6 @@ pipe:///var/dobleM-IPTV.sh https://5924d3ad0efcf.streamlock.net/elcomerciodos/el
 pipe:///var/dobleM-IPTV.sh http://rtvmurcia_01-lh.akamaihd.net/i/rtvmurcia_1_0@507973/master.m3u8
 #EXTINF:-1 tvg-id="PopularMU.TV" tvg-logo="https://graph.facebook.com/poptvregiondemurcia/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="Popular TV Murcia",Popular TV Murcia
 pipe:///var/dobleM-IPTV.sh https://593fa17dec176.streamlock.net/gcm6/gcm6/master.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/vidartv/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="RTV Vida",RTV Vida
-pipe:///var/dobleM-IPTV.sh https://vidartv.todostreaming.es/live/radiovida-emisiontvhd.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/telearchena.es/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="TeleArchena",TeleArchena
 pipe:///var/dobleM-IPTV.sh https://ott.mapeka.es:64000/live/_definst_/telearchena/playlist.m3u8?bid=mapeka&sid=1&ref=bb22a7fda046cceead5da8d964caf620
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT GEO CAT
@@ -769,8 +769,6 @@ pipe:///var/dobleM-IPTV.sh https://rt-usa-gd.secure2.footprint.net/1105.m3u8
 pipe:///var/dobleM-IPTV.sh https://rt-france-gd.secure2.footprint.net/1107.m3u8
 #EXTINF:-1 tvg-id="RTDoc.TV" tvg-logo="https://graph.facebook.com/RTDocumentary/picture?width=200&height=200" group-title="Int. Europa" tvg-name="RT Documentary",RT Documentary EN
 pipe:///var/dobleM-IPTV.sh https://rt-doc-gd.secure2.footprint.net/1101.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ikonoTV/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Ikono TV",Ikono TV EN
-pipe:///var/dobleM-IPTV.sh https://58de7a369a9c4.streamlock.net/schedule/ngrp:ikono_stream_all/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/ABCNews/picture?width=200&height=200" group-title="Int. América" tvg-name="ABC News USA",ABC News USA EN
 pipe:///var/dobleM-IPTV.sh https://content.uplynk.com/channel/3324f2467c414329b3b0cc5cd987b6be.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CBSNews/picture?width=200&height=200" group-title="Int. América" tvg-name="CBS News USA",CBS News USA EN
@@ -794,7 +792,7 @@ pipe:///var/dobleM-IPTV.sh https://etlive-mediapackage-fastly.cbsaavideo.com/dvr
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/AmericasVoiceNews/picture?width=200&height=200" group-title="Int. América" tvg-name="America's Voice USA",America's Voice USA EN
 pipe:///var/dobleM-IPTV.sh https://cdnapi.kaltura.com/p/2377021/sp/237702100/playManifest/entryId/0_m2pjgwiu/format/applehttp/.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/BUZZRtv/picture?width=200&height=200" group-title="Int. América" tvg-name="BUZZR TV USA",BUZZR TV USA EN
-pipe:///var/dobleM-IPTV.sh https://buzzr.global.ssl.fastly.net/out/u/buzzr_hls.m3u8
+pipe:///var/dobleM-IPTV.sh https://buzzrota-web.amagi.tv/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/DablNetwork/picture?width=200&height=200" group-title="Int. América" tvg-name="Dabl USA",Dabl USA EN
 pipe:///var/dobleM-IPTV.sh https://cbsta49f-dabl68fc.global.ssl.fastly.net/out/v1/dfecb53fbf434b6bbbfd91d8a2549381/manifest.m3u8
 #EXTINF:-1 tvg-id="Zee.TV" tvg-logo="https://graph.facebook.com/zeemundo/picture?width=200&height=200" group-title="Int. América" tvg-name="Zee Mundo USA",Zee Mundo USA
@@ -861,6 +859,8 @@ pipe:///var/dobleM-IPTV.sh https://api.new.livestream.com/accounts/1359588/event
 pipe:///var/dobleM-IPTV.sh http://btvboliviatv.srfms.com:6568/live/livestream/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CubavisionInternacional/picture?width=200&height=200" group-title="Int. América" tvg-name="Cubavisión TV",Cubavisión TV
 pipe:///var/dobleM-IPTV.sh https://cdn.teveo.cu/live/video/Hqp6Hb4Vq2GFNeGj/ngrp:gppfydfzpSUn9Udy.stream/master.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/telemicro5/picture?width=200&height=200" group-title="Int. América" tvg-name="Telemicro República Dominicana",Telemicro República Dominicana
+pipe:///var/dobleM-IPTV.sh https://api.new.livestream.com/accounts/28126860/events/8825282/live.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/HCHTelevisionDigital/picture?width=200&height=200" group-title="Int. América" tvg-name="HCH Honduras",HCH Honduras
 pipe:///var/dobleM-IPTV.sh https://5d597bfcee285.streamlock.net/hch/hch/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/trecepy/picture?width=200&height=200" group-title="Int. América" tvg-name="Trece Paraguay",Trece Paraguay
@@ -920,7 +920,7 @@ pipe:///var/dobleM-IPTV.sh http://170.178.189.70:1935/live/Stream1/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/cachipumtv/picture?width=200&height=200" group-title="Int. Otros" tvg-name="Cachipum TV",Cachipum TV
 pipe:///var/dobleM-IPTV.sh https://tls.cdnz.cl/cachipuntv/live/chunklist_w72379467.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/acsnetworktv/picture?width=200&height=200" group-title="Int. Otros" tvg-name="ACS Network",ACS Network
-pipe:///var/dobleM-IPTV.sh https://cdn4.hostlagarto.com:8081/acsnetwork/index.m3u8
+pipe:///var/dobleM-IPTV.sh https://cloudflare.streamgato.us:3283/live/acsnetworklive.m3u8
 #EXTINF:-1 tvg-logo="https://rathergood.co.uk/wp-content/uploads/2019/11/Capture-260x180.png" group-title="Int. Otros" tvg-name="Rathergood LoL",Rathergood LoL EN
 pipe:///var/dobleM-IPTV.sh https://ssai06a.broadcastcdn.net/hlslive/m3u8?ctype=0&chname=CLOUDIETV-RATHERGOODLOL-001&pub=7ea6075b-8f90-46b7-abe4-9b830055de48&acsurl=1
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/OlympicChannel/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="Olympic Channel",Olympic Channel EN
@@ -942,7 +942,7 @@ pipe:///var/dobleM-IPTV.sh https://dotfvxkfj90ca.cloudfront.net/live/streamingau
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/onlymotors/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="OnlyMotors",OnlyMotors EN
 pipe:///var/dobleM-IPTV.sh https://ssai06a.broadcastcdn.net/hlslive/.m3u8?chname=CLOUDIETV-ONLYMOTORSTV-001&pub=7ea6075b-8f90-46b7-abe4-9b830055de48&ctype=0&acsurl=1
 #EXTINF:-1 tvg-id="HarleyM.TV" tvg-logo="https://graph.facebook.com/harley-davidson/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="Harley Davidson TV",Harley Davidson TV EN
-pipe:///var/dobleM-IPTV.sh https://hdtv.prod2.ioio.tv/broker/play/190dac2c-bf76-47e9-9b8f-0d31567f5401.m3u8
+pipe:///var/dobleM-IPTV.sh https://hdtv.prod2.ioio.tv/broker/play/cb4086ca-daba-42f5-8acf-27ee93fee0e8.m3u8
 #EXTINF:-1 tvg-id="HarleyR.TV" tvg-logo="https://graph.facebook.com/harley-davidson/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="Harley Davidson Racing TV",Harley Davidson Racing TV EN
 pipe:///var/dobleM-IPTV.sh https://hdtv.prod2.ioio.tv/broker/play/de245a96-516c-413d-81e9-419c05bbc6a7.m3u8
 #EXTINF:-1 tvg-id="HarleyF.TV" tvg-logo="https://graph.facebook.com/harley-davidson/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="Harley Davidson Factory TV",Harley Davidson Factory TV EN
@@ -1085,33 +1085,29 @@ pipe:///var/dobleM-IPTV.sh https://azroe0x-lh.akamaihd.net/i/test_1@775856/maste
 pipe:///var/dobleM-IPTV.sh https://cdnlive.myspirit.tv/LS-ATL-43240-2/index.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/fmurban/picture?width=200&height=200" group-title="Musicales" tvg-name="Urban Revolution",Urban Revolution
 pipe:///var/dobleM-IPTV.sh https://www.urbanrevolution.es:444/live/5e6d8470a3832/index.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN España
+pipe:///var/dobleM-IPTV.sh https://d3kr0d4mfjxpbv.cloudfront.net/p/SPAS.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN España EN
+pipe:///var/dobleM-IPTV.sh https://dyo5cp96eopax.cloudfront.net/p/CANE.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/668768296888631296/H1frmj8P_200x200.jpg" group-title="Religiosos" tvg-name="RTV Diocesana Toledo España",RTV Diocesana Toledo España
 pipe:///var/dobleM-IPTV.sh https://cdn01.yowi.tv/DDDDDDDDDD/master.m3u8
 #EXTINF:-1 tvg-logo="https://estatics.montserratvisita.com/img/imgTxtGenerals/foto_banners_nous_base117.jpg" group-title="Religiosos" tvg-name="Abadia de Montserrat España",Abadia de Montserrat España
 pipe:///var/dobleM-IPTV.sh https://live-edge-lon-1.cdn.enetres.net/CDB35895D88B49599996A01201668E06022/live-misas/index.m3u8
 #EXTINF:-1 tvg-logo="https://estatics.montserratvisita.com/img/imgTxtGenerals/foto_banners_nous_base117.jpg" group-title="Religiosos" tvg-name="Abadia de Montserrat España",Abadia de Montserrat España
 pipe:///var/dobleM-IPTV.sh https://play.cdn.enetres.net/CDB35895D88B49599996A01201668E06022/022/playlist.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/vidartv/picture?width=200&height=200" group-title="Religiosos" tvg-name="RTV Vida España",RTV Vida España
+pipe:///var/dobleM-IPTV.sh https://vidartv.todostreaming.es/live/radiovida-emisiontvhd.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/solidariatv/picture?width=200&height=200" group-title="Religiosos" tvg-name="Solidaria TV España",Solidaria TV España
 pipe:///var/dobleM-IPTV.sh https://canadaremar2.todostreaming.es/live/solidariatv-webhd.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/TBNEspana/picture?width=200&height=200" group-title="Religiosos" tvg-name="TBN España",TBN España
 pipe:///var/dobleM-IPTV.sh https://5e4e2e0bb2914.streamlock.net/live/ngrp:tbnlive_srt.stream_all/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/elsembradoresne/picture?width=200&height=200" group-title="Religiosos" tvg-name="El Sembrador TV Europa",El Sembrador TV Europa
 pipe:///var/dobleM-IPTV.sh https://zypelive-lh.akamaihd.net/i/default_1@745572/master.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN USA",EWTN USA
-pipe:///var/dobleM-IPTV.sh https://d3kr0d4mfjxpbv.cloudfront.net/p/SPAS.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN USA",EWTN USA EN
-pipe:///var/dobleM-IPTV.sh https://dyo5cp96eopax.cloudfront.net/p/CANE.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/mariavision/picture?width=200&height=200" group-title="Religiosos" tvg-name="María Visión Mexico",María Visión Mexico
 pipe:///var/dobleM-IPTV.sh https://1601580044.rsc.cdn77.org/live/_jcn_/amlst:Mariavision/master.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tbjoshuaespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="Emmanuel TV",Emmanuel TV EN
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tbjoshuaespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="Emmanuel TV Nigeria",Emmanuel TV Nigeria EN
 pipe:///var/dobleM-IPTV.sh https://api.new.livestream.com/accounts/23202872/events/7200883/live.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/TheBrazzersOfficial/picture?width=200&height=200" group-title="Adultos" tvg-name="BRAZZERS 1",BRAZZERS 1
-http://static.brazzers.com/scenes/7119/180sec.flv
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/TheBrazzersOfficial/picture?width=200&height=200" group-title="Adultos" tvg-name="BRAZZERS 2",BRAZZERS 2
-http://static.brazzers.com/scenes/5457/180sec.flv
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/TheBrazzersOfficial/picture?width=200&height=200" group-title="Adultos" tvg-name="BRAZZERS 3",BRAZZERS 3
-http://static.brazzers.com/scenes/3327/180sec.flv
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/TheBrazzersOfficial/picture?width=200&height=200" group-title="Adultos" tvg-name="BRAZZERS 4",BRAZZERS 4
-http://static.brazzers.com/scenes/3328/180sec.flv
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/visitxtv/picture?width=200&height=200" group-title="Adultos" tvg-name="Visit-X",Visit-X
+pipe:///var/dobleM-IPTV.sh http://stream.visit-x.tv/vxtv/live/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/JasminDotCom/picture?width=200&height=200" group-title="Adultos" tvg-name="Jasmin TV",Jasmin TV
-http://109.71.162.112:1935/live/hd.jasminchannel.stream/playlist.m3u8
+pipe:///var/dobleM-IPTV.sh http://109.71.162.112:1935/live/hd.jasminchannel.stream/playlist.m3u8
