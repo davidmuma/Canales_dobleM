@@ -433,19 +433,25 @@ install()
 		fi
 # Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevo. Damos permisos.
 	printf "%-$(($COLUMNS-10+1))s"  " 6. Instalando grabber para satélite"
+		if [ -f /bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 3 ]; then
+			 rm /bin/tv_grab_EPG_dobleM 2>>dobleM.log
+		fi
 		if [ -f /usr/bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 1 ]; then
 			 rm /usr/bin/tv_grab_EPG_dobleM 2>>dobleM.log
-		fi		
-		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM ]; then
-			 rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-		fi		
+		fi
 		ERROR=false
+		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM ]; then
+			rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi	
+		fi			
 		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>dobleM.log
-		if [ $? -ne 0 ]; then
+		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
 			ERROR=true
 		fi
 		if [ $SYSTEM -ne 1 ]; then
@@ -736,15 +742,18 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es nece
 		fi
 # Instalación de grabber. Borramos grabber viejo. Copiamos grabber nuevo. Damos permisos.
 	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber para IPTV"
+		if [ -f /bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 3 ]; then
+			 rm /bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+		fi
 		if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
 			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-		fi		
-		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV ]; then
-			 rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-		fi	
+		fi
 		ERROR=false
-		if [ $? -ne 0 ]; then
-			ERROR=true
+		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV ]; then
+			rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi	
 		fi
 		cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
 		if [ $? -ne 0 ]; then
