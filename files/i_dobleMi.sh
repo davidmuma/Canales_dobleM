@@ -742,12 +742,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es nece
 		fi
 # Instalación de grabber. Borramos grabber viejo. Copiamos grabber nuevo. Damos permisos.
 	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber para IPTV"
-		if [ -f /bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 3 ]; then
-			 rm /bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-		fi
-		if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
-			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-		fi
 		ERROR=false
 		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV ]; then
 			rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
@@ -770,6 +764,12 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es nece
 		chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+			if [ -f /bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 3 ]; then
+				rm /bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+			fi
+			if [ -f /usr/bin/tv_grab_EPG_dobleM-IPTV -a $SYSTEM -eq 1 ]; then
+				rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
+			fi
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			GRABBER_ERROR=true
