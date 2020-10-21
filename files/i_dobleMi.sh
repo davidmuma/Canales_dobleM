@@ -436,13 +436,7 @@ install()
 		if [ -f /usr/bin/tv_grab_EPG_dobleM -a $SYSTEM -eq 1 ]; then
 			 rm /usr/bin/tv_grab_EPG_dobleM 2>>dobleM.log
 		fi
-		ERROR=false
-		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM ]; then
-			rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM 2>>dobleM.log
-			if [ $? -ne 0 ]; then
-				ERROR=true
-			fi	
-		fi			
+		ERROR=false		
 		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -475,7 +469,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
+		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -743,13 +737,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es nece
 			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
 		fi
 		ERROR=false
-		if [ -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV ]; then
-			rm $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV 2>>dobleM.log
-			if [ $? -ne 0 ]; then
-				ERROR=true
-			fi	
-		fi
-		cp $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
+		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
