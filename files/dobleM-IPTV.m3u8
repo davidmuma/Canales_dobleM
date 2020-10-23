@@ -230,7 +230,7 @@ pipe:///var/dobleM-IPTV.sh https://cartv.streaming.aranova.es/hls/live/aragontv_
 pipe:///var/dobleM-IPTV.sh https://streaming2.radiohuesca.com/hls-live/livepkgr/_definst_/huescatv/huescatv.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/tvbarbastro/picture?width=200&height=200" group-title="Aragón" tvg-name="Canal 25 Barbastro TV",Canal 25 Barbastro TV
 pipe:///var/dobleM-IPTV.sh https://common01.todostreaming.es/live/tvbarbastro-livestream.m3u8
-#EXTINF:-1 tvg-id="Canarias.TV" tvg-logo="https://graph.facebook.com/188600904655/picture?width=200&height=200" group-title="Canarias" tvg-name="Televisión Canaria",Televisión Canaria
+#EXTINF:-1 tvg-id="Canarias.TV" tvg-logo="https://graph.facebook.com/188600904655/picture?width=200&height=200" group-title="Canarias" tvg-name="TV Canaria",TV Canaria
 pipe:///var/dobleM-IPTV.sh http://streaming2.mad.idec.net/rtvcnet/rtvcnet.drb.smil/Playlist.m3u8
 #EXTINF:-1 tvg-id="MirameTV.TV" tvg-logo="https://graph.facebook.com/MirameTVCanarias/picture?width=200&height=200" group-title="Canarias" tvg-name="Mírame TV",Mírame TV
 pipe:///var/dobleM-IPTV.sh https://bit.controlstreams.com:5443/LiveApp/streams/mirametv.m3u8
@@ -256,7 +256,7 @@ pipe:///var/dobleM-IPTV.sh https://5940924978228.streamlock.net/8171/8171/playli
 pipe:///var/dobleM-IPTV.sh https://5c0956165db0b.streamlock.net:8090/directo/_definst_/lancelot.television/master.m3u8
 #EXTINF:-1 tvg-id="PopularTV_S.TV" tvg-logo="https://graph.facebook.com/populartvcantabria/picture?width=200&height=200" group-title="Cantabria" tvg-name="Popular TV Cantabria",Popular TV Cantabria
 pipe:///var/dobleM-IPTV.sh https://limited12.todostreaming.es/live/ptvcantabria-livestream.m3u8
-#EXTINF:-1 tvg-id="CMM.TV" tvg-logo="https://graph.facebook.com/CMMediaes/picture?width=200&height=200" group-title="Castilla-La Mancha" tvg-name="CMM",CMM
+#EXTINF:-1 tvg-id="CMM.TV" tvg-logo="https://graph.facebook.com/CMMediaes/picture?width=200&height=200" group-title="Castilla-La Mancha" tvg-name="Castilla la Mancha TV",Castilla la Mancha TV
 pipe:///var/dobleM-IPTV.sh http://cdnapi.kaltura.com/p/2288691/sp/39582391/playManifest/entryId/0_xs45iy5i/format/applehttp/.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/tvhellin/picture?width=200&height=200" group-title="Castilla-La Mancha" tvg-name="TV Hellín",TV Hellín
 pipe:///var/dobleM-IPTV.sh https://hellin-hls-live.flumotion.com/hellin/hellin-live_source/playlist.m3u8
@@ -310,13 +310,13 @@ pipe:///var/dobleM-IPTV.sh https://directes-tv-cat.ccma.cat/cat/ngrp:tv3_web/pla
 pipe:///var/dobleM-IPTV.sh https://directes-tv-es.ccma.cat/es/ngrp:tv3_web/playlist_DVR.m3u8
 #EXTINF:-1 tvg-id="TV3.TV" tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Cataluña" tvg-name="TV3",TV3
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:tv3_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-id="324.TV" tvg-logo="https://graph.facebook.com/324cat/picture?width=200&height=200" group-title="Cataluña" tvg-name="324",324
+#EXTINF:-1 tvg-id="324.TV" tvg-logo="https://graph.facebook.com/324cat/picture?width=200&height=200" group-title="Cataluña" tvg-name="3 24",3 24
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:324_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="33",33 GEO CAT
+#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="Canal 33",Canal 33 GEO CAT
 pipe:///var/dobleM-IPTV.sh https://directes-tv-cat.ccma.cat/cat/ngrp:c33_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="33",33 GEO
+#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="Canal 33",Canal 33 GEO
 pipe:///var/dobleM-IPTV.sh https://directes-tv-es.ccma.cat/es/ngrp:c33_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="33",33
+#EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/Canal33/picture?width=200&height=200" group-title="Cataluña" tvg-name="Canal 33",Canal 33
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:c33_web/playlist_DVR.m3u8
 #EXTINF:-1 tvg-id="C33.TV" tvg-logo="https://graph.facebook.com/clubsuper3/picture?width=200&height=200" group-title="Cataluña" tvg-name="Super3",Super3 GEO CAT
 pipe:///var/dobleM-IPTV.sh https://directes-tv-cat.ccma.cat/cat/ngrp:c33_web/playlist_DVR.m3u8
@@ -352,7 +352,7 @@ pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:beauties_we
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:bnd_web/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/parlamentcat/picture?width=200&height=200" group-title="Cataluña" tvg-name="Canal Parlament",Canal Parlament
 pipe:///var/dobleM-IPTV.sh https://cdn-s1-eu.nice264.com/niceLiveServer/_definst_/pcatlive_canal1_MB_800/master.m3u8
-#EXTINF:-1 tvg-id="BTV.TV" tvg-logo="https://graph.facebook.com/betevecat/picture?width=200&height=200" group-title="Cataluña" tvg-name="betevé",betevé
+#EXTINF:-1 tvg-id="BTV.TV" tvg-logo="https://graph.facebook.com/betevecat/picture?width=200&height=200" group-title="Cataluña" tvg-name="Betevé",Betevé
 pipe:///var/dobleM-IPTV.sh https://cdnapisec.kaltura.com/p/2346171/sp/234617100/playManifest/entryId/1_n6442jz0/format/applehttp/.m3u8?referrer=aHR0cHM6Ly9iZXRldmUuY2F0
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/teve.cat/picture?width=200&height=200" group-title="Cataluña" tvg-name="teve.cat",teve.cat
 pipe:///var/dobleM-IPTV.sh https://www.tdtchannels.com/stream/tevecat.m3u8
@@ -611,7 +611,7 @@ pipe:///var/dobleM-IPTV.sh https://streamserver3.seneca.tv/cval_live/cdn_enc_3/m
 pipe:///var/dobleM-IPTV.sh https://cdnlive.shooowit.net/canalextremaduralive/smil:channel1DVR.smil/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/caceresteve/picture?width=200&height=200" group-title="Extremadura" tvg-name="Cáceres Tevé",Cáceres Tevé
 pipe:///var/dobleM-IPTV.sh https://ce2019100818001.dnssw.net/hls/ceres.m3u8
-#EXTINF:-1 tvg-id="TVGAL.TV" tvg-logo="https://graph.facebook.com/CRTVG/picture?width=200&height=200" group-title="Galicia" tvg-name="TVG",TVG
+#EXTINF:-1 tvg-id="TVGAL.TV" tvg-logo="https://graph.facebook.com/CRTVG/picture?width=200&height=200" group-title="Galicia" tvg-name="TVG-TV Galicia",TVG-TV Galicia
 pipe:///var/dobleM-IPTV.sh https://europa-crtvg.flumotion.com/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/CRTVG/picture?width=200&height=200" group-title="Galicia" tvg-name="TVG 2",TVG 2
 pipe:///var/dobleM-IPTV.sh https://amodino-crtvg.flumotion.com/playlist.m3u8
@@ -679,27 +679,27 @@ pipe:///var/dobleM-IPTV.sh https://59c8647978660.streamlock.net/8128/8128/playli
 pipe:///var/dobleM-IPTV.sh https://59c8647978660.streamlock.net/directo_7/directo_7/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/2738370318/194fb6f639bce86465674a5dd6741519_200x200.png" group-title="P. de Asturias" tvg-name="Canal 10",Canal 10
 pipe:///var/dobleM-IPTV.sh https://5924d3ad0efcf.streamlock.net/elcomerciodos/elcomerciodoslive/playlist.m3u8
-#EXTINF:-1 tvg-id="7RM.TV" tvg-logo="https://graph.facebook.com/La7TVRegiondeMurcia/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="7 R. de Murcia",7 R. de Murcia
+#EXTINF:-1 tvg-id="7RM.TV" tvg-logo="https://graph.facebook.com/La7TVRegiondeMurcia/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="7 TV Región Murcia",7 TV Región Murcia
 pipe:///var/dobleM-IPTV.sh http://rtvmurcia_01-lh.akamaihd.net/i/rtvmurcia_1_0@507973/master.m3u8
 #EXTINF:-1 tvg-id="PopularMU.TV" tvg-logo="https://graph.facebook.com/poptvregiondemurcia/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="Popular TV Murcia",Popular TV Murcia
 pipe:///var/dobleM-IPTV.sh https://593fa17dec176.streamlock.net/gcm6/gcm6/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/telearchena.es/picture?width=200&height=200" group-title="R. de Murcia" tvg-name="TeleArchena",TeleArchena
 pipe:///var/dobleM-IPTV.sh https://ott.mapeka.es:64000/live/_definst_/telearchena/playlist.m3u8?bid=mapeka&sid=1&ref=bb22a7fda046cceead5da8d964caf620
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT GEO CAT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat GEO CAT
 pipe:///var/dobleM-IPTV.sh https://directes-tv-ca.ccma.cat/ca/ngrp:tvc_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT GEO CAT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat GEO CAT
 pipe:///var/dobleM-IPTV.sh https://directes-tv-ca.ccma.cat/ca/ngrp:tvi_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT GEO
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat GEO
 pipe:///var/dobleM-IPTV.sh https://directes-tv-es.ccma.cat/es/ngrp:tvc_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT GEO
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat GEO
 pipe:///var/dobleM-IPTV.sh https://directes-tv-es.ccma.cat/es/ngrp:tvi_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:tvc_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3CAT",TV3CAT
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv3/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV3 Cat",TV3 Cat
 pipe:///var/dobleM-IPTV.sh https://directes-tv-int.ccma.cat/int/ngrp:tvi_web/playlist_DVR.m3u8
-#EXTINF:-1 tvg-id="ETBSAT.TV" tvg-logo="https://graph.facebook.com/eitb/picture?width=200&height=200" group-title="Int. Europa" tvg-name="ETB SAT",ETB SAT
+#EXTINF:-1 tvg-id="ETBSAT.TV" tvg-logo="https://graph.facebook.com/eitb/picture?width=200&height=200" group-title="Int. Europa" tvg-name="ETB Sat",ETB Sat
 pipe:///var/dobleM-IPTV.sh https://etbvnogeo-lh.akamaihd.net/i/ETBEITBEUS_1@300391/master.m3u8
-#EXTINF:-1 tvg-id="TVGA.TV" tvg-logo="https://graph.facebook.com/CRTVG/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TVG América",TVG América
+#EXTINF:-1 tvg-id="TVGA.TV" tvg-logo="https://graph.facebook.com/CRTVG/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TVGA Europa",TVGA Europa
 pipe:///var/dobleM-IPTV.sh https://america-crtvg.flumotion.com/playlist.m3u8
 #EXTINF:-1 tvg-id="ATVHD.TV" tvg-logo="https://graph.facebook.com/rtva.andorra/picture?width=200&height=200" group-title="Int. Europa" tvg-name="ATV Andorra",ATV Andorra
 pipe:///var/dobleM-IPTV.sh http://videos.rtva.ad:1935/live/rtva/playlist.m3u8
@@ -709,19 +709,19 @@ pipe:///var/dobleM-IPTV.sh https://videos.rtva.ad/live/rtva/playlist.m3u8
 pipe:///var/dobleM-IPTV.sh http://videos.rtva.ad:1935/live/web/playlist.m3u8
 #EXTINF:-1 tvg-id="ATVCW.TV" tvg-logo="https://graph.facebook.com/rtva.andorra/picture?width=200&height=200" group-title="Int. Europa" tvg-name="ATV Web Andorra",ATV Web Andorra
 pipe:///var/dobleM-IPTV.sh https://videos.rtva.ad/live/web/playlist.m3u8
-#EXTINF:-1 tvg-id="RTESP.TV" tvg-logo="https://graph.facebook.com/ActualidadRT/picture?width=200&height=200" group-title="Int. Europa" tvg-name="RT",RT
+#EXTINF:-1 tvg-id="RTESP.TV" tvg-logo="https://graph.facebook.com/ActualidadRT/picture?width=200&height=200" group-title="Int. Europa" tvg-name="RT Español",RT Español
 pipe:///var/dobleM-IPTV.sh https://rt-esp-gd.secure2.footprint.net/1102.m3u8
-#EXTINF:-1 tvg-id="Bloom.TV" tvg-logo="https://graph.facebook.com/bloombergbusiness/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Bloomberg Europe",Bloomberg Europe
+#EXTINF:-1 tvg-id="Bloom.TV" tvg-logo="https://graph.facebook.com/bloombergbusiness/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Bloomberg TV Europe",Bloomberg TV Europe
 pipe:///var/dobleM-IPTV.sh https://liveprodeuwest.global.ssl.fastly.net/btv/desktop/eu_live.m3u8
 #EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_ES_LO_HLS/live_web.m3u8
-#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia EN
+#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia English
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8
 #EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia FR
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_FR_LO_HLS/live_web.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/BFMTV/picture?width=200&height=200" group-title="Int. Europa" tvg-name="BFM TV Francia",BFM TV Francia FR
 pipe:///var/dobleM-IPTV.sh https://bcovlive-a.akamaihd.net/fb3647b53c1a4c278eaecf83230ee4c5/eu-central-1/876450610001/profile_0/chunklist.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv5mondeofficiel/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV5Monde Francia",TV5Monde Francia FR
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/tv5mondeofficiel/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TV5 Monde Europe",TV5 Monde Europe
 pipe:///var/dobleM-IPTV.sh https://tv5infohls-i.akamaihd.net/hls/live/631613/tv5infohls/index.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/tgcom24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="TGCom24 Italia",TGCom24 Italia IT
 pipe:///var/dobleM-IPTV.sh https://live2.msf.cdn.mediaset.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8
@@ -743,7 +743,7 @@ pipe:///var/dobleM-IPTV.sh https://dwstream6-lh.akamaihd.net/i/dwstream6_live@12
 pipe:///var/dobleM-IPTV.sh https://mcdn.daserste.de/daserste/int/master.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/ndrniedersachsen/picture?width=200&height=200" group-title="Int. Europa" tvg-name="NDR Niedersachsen Alemania",NDR Niedersachsen Alemania
 pipe:///var/dobleM-IPTV.sh https://ndrfs-lh.akamaihd.net/i/ndrfs_nds@430233/master.m3u8
-#EXTINF:-1 tvg-id="SkyN.TV" tvg-logo="https://graph.facebook.com/skynews/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Sky News UK",Sky News UK EN
+#EXTINF:-1 tvg-id="SkyN.TV" tvg-logo="https://graph.facebook.com/skynews/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Sky News International",Sky News International
 pipe:///var/dobleM-IPTV.sh http://skydvn-sn-mobile-prod.skydvn.com/skynews/1404/latest.m3u8
 #EXTINF:-1 tvg-id="RTP1.TV" tvg-logo="https://graph.facebook.com/rtp1.pt/picture?width=200&height=200" group-title="Int. Europa" tvg-name="RTP 1 Portugal",RTP 1 Portugal
 pipe:///var/dobleM-IPTV.sh https://streaming-live.rtp.pt/liverepeater/rtp1.smil/master.m3u8
@@ -1085,9 +1085,9 @@ pipe:///var/dobleM-IPTV.sh https://azroe0x-lh.akamaihd.net/i/test_1@775856/maste
 pipe:///var/dobleM-IPTV.sh https://cdnlive.myspirit.tv/LS-ATL-43240-2/index.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/fmurban/picture?width=200&height=200" group-title="Musicales" tvg-name="Urban Revolution",Urban Revolution
 pipe:///var/dobleM-IPTV.sh https://www.urbanrevolution.es:444/live/5e6d8470a3832/index.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN España
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN
 pipe:///var/dobleM-IPTV.sh https://d3kr0d4mfjxpbv.cloudfront.net/p/SPAS.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN España EN
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/ewtnespanol/picture?width=200&height=200" group-title="Religiosos" tvg-name="EWTN España",EWTN EN
 pipe:///var/dobleM-IPTV.sh https://dyo5cp96eopax.cloudfront.net/p/CANE.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/668768296888631296/H1frmj8P_200x200.jpg" group-title="Religiosos" tvg-name="RTV Diocesana Toledo España",RTV Diocesana Toledo España
 pipe:///var/dobleM-IPTV.sh https://cdn01.yowi.tv/DDDDDDDDDD/master.m3u8
