@@ -25,7 +25,7 @@ clear
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
 	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
 	echo -e "$blue ### --------------------------------------------------------------------- ### $end" 
-	echo -e "$blue ###   Por favor, comprueba que tu versión de tvheadend sea la 4.3 antes    ### $end"
+	echo -e "$blue ###   Por favor, comprueba que tu versión de tvheadend sea la 4.3 antes   ### $end"
 	echo -e "$blue ###   de ejecutar el instalador.  En algunos sistemas puede que te pida   ### $end"
 	echo -e "$blue ###   contraseña para poder continuar con privilegios de administrador.   ### $end"
 	echo -e "$blue ###       Para dudas o sugerencias pásate por el grupo de telegram.       ### $end" 
