@@ -636,7 +636,7 @@ GRABBER_ERROR=false
 	echo -e "$blue ############################################################################# $end"
 	echo
 # Comprobamos que esté instalado ffmpeg
-command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
