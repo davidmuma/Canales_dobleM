@@ -24,8 +24,10 @@ clear
 	echo -e "$blue ############################################################################# $end" 
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
 	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
-	echo -e "$blue ### --------------------------------------------------------------------- ###$end" 
-	echo -e "$blue ###       Por favor, comprueba tu sistema y tu versión de tvheadend       ### $end"
+	echo -e "$blue ### --------------------------------------------------------------------- ### $end" 
+	echo -e "$blue ###   Por favor, comprueba que tu versión de tvheadend sea la 4.3 antes    ### $end"
+	echo -e "$blue ###   de ejecutar el instalador.  En algunos sistemas puede que te pida   ### $end"
+	echo -e "$blue ###   contraseña para poder continuar con privilegios de administrador.   ### $end"
 	echo -e "$blue ###       Para dudas o sugerencias pásate por el grupo de telegram.       ### $end" 
 	echo -e "$blue ############################################################################# $end" 
 	echo
@@ -34,7 +36,7 @@ clear
 	echo
 	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(solo para tvheadend 4.3)"
+	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC/CoreELEC $end(solo para tvheadend 4.3)"
 	echo
 	echo -e " 3)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
