@@ -528,7 +528,7 @@ pipe:///var/dobleM-IPTV.sh https://secure.todostreaming.es/live/anguloce-livestr
 pipe:///var/dobleM-IPTV.sh http://teledifusion.tv:1935/rtvcetv/rtvcetvlive/playlist.m3u8
 #EXTINF:-1 tvg-id="Telemadrid.TV" tvg-logo="https://graph.facebook.com/telemadrid/picture?width=200&height=200" group-title="C. de Madrid" tvg-name="Telemadrid",Telemadrid
 pipe:///var/dobleM-IPTV.sh http://telemadridhls-live.hls.adaptive.level3.net/telemadrid/telemadrid1/index.m3u8
-#EXTINF:-1 tvg-id="LaOtra.TV" tvg-logo="https://pbs.twimg.com/profile_images/1279727978268839938/jSZUiboT_200x200.jpg" group-title="C. de Madrid" tvg-name="LaOtra",LaOtra
+#EXTINF:-1 tvg-id="LaOtra.TV" tvg-logo="https://pbs.twimg.com/profile_images/1279727978268839938/jSZUiboT_200x200.jpg" group-title="C. de Madrid" tvg-name="La Otra",La Otra
 pipe:///var/dobleM-IPTV.sh http://laotrahls-live.hls.adaptive.level3.net/telemadrid/laotra1/master.m3u8
 #EXTINF:-1 tvg-id="OndaMadrid.TV" tvg-logo="https://graph.facebook.com/ondamadridradio/picture?width=200&height=200" group-title="C. de Madrid" tvg-name="Webcam OndaMadrid",Webcam OndaMadrid
 pipe:///var/dobleM-IPTV.sh http://telemadridhls-live.hls.adaptive.level3.net/telemadrid/tvradio/index.m3u8
@@ -713,11 +713,11 @@ pipe:///var/dobleM-IPTV.sh https://videos.rtva.ad/live/web/playlist.m3u8
 pipe:///var/dobleM-IPTV.sh https://rt-esp-gd.secure2.footprint.net/1102.m3u8
 #EXTINF:-1 tvg-id="Bloom.TV" tvg-logo="https://graph.facebook.com/bloombergbusiness/picture?width=200&height=200" group-title="Int. Europa" tvg-name="Bloomberg TV Europe",Bloomberg TV Europe
 pipe:///var/dobleM-IPTV.sh https://liveprodeuwest.global.ssl.fastly.net/btv/desktop/eu_live.m3u8
-#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia
+#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24",France 24
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_ES_LO_HLS/live_web.m3u8
-#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia English
+#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24",France 24 English
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_EN_LO_HLS/live_web.m3u8
-#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24 Francia",France 24 Francia FR
+#EXTINF:-1 tvg-id="France24.TV" tvg-logo="https://graph.facebook.com/FRANCE24/picture?width=200&height=200" group-title="Int. Europa" tvg-name="France 24",France 24 FR
 pipe:///var/dobleM-IPTV.sh http://static.france24.com/live/F24_FR_LO_HLS/live_web.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/BFMTV/picture?width=200&height=200" group-title="Int. Europa" tvg-name="BFM TV Francia",BFM TV Francia FR
 pipe:///var/dobleM-IPTV.sh https://bcovlive-a.akamaihd.net/fb3647b53c1a4c278eaecf83230ee4c5/eu-central-1/876450610001/profile_0/chunklist.m3u8
@@ -843,7 +843,7 @@ pipe:///var/dobleM-IPTV.sh https://cdnh8.iblups.com/hls/R9WtilpKKB.m3u8
 pipe:///var/dobleM-IPTV.sh https://cdnh8.iblups.com/hls/RMuwrdk7M9.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/canalipe/picture?width=200&height=200" group-title="Int. América" tvg-name="Canal IPe Perú",Canal IPe Perú
 pipe:///var/dobleM-IPTV.sh https://cdnh8.iblups.com/hls/OVJNKV4pSr.m3u8
-#EXTINF:-1 tvg-id="TeleSUR.TV" tvg-logo="https://graph.facebook.com/teleSUR/picture?width=200&height=200" group-title="Int. América" tvg-name="TeleSUR Venezuela",TeleSUR Venezuela
+#EXTINF:-1 tvg-id="TeleSUR.TV" tvg-logo="https://graph.facebook.com/teleSUR/picture?width=200&height=200" group-title="Int. América" tvg-name="TeleSUR",TeleSUR
 pipe:///var/dobleM-IPTV.sh https://d2ajt1gpdtnw25.cloudfront.net/mbliveMain/hd/playlist.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/VTVtuCanal/picture?width=200&height=200" group-title="Int. América" tvg-name="Venezolana de Televisión",Venezolana de Televisión
 pipe:///var/dobleM-IPTV.sh https://livestream.streamingconnect.com/hls/vtvweb.m3u8
@@ -875,15 +875,15 @@ pipe:///var/dobleM-IPTV.sh https://cdn.elsalvadordigital.com:1936/wowtv/smil:wow
 pipe:///var/dobleM-IPTV.sh https://mdstrm.com/live-stream-playlist/5a7b1e63a8da282c34d65445.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/tvcultura/picture?width=200&height=200" group-title="Int. América" tvg-name="TV Cultura Brasil",TV Cultura Brasil
 pipe:///var/dobleM-IPTV.sh https://cdn.jmvstream.com/w/LVW-8403/ngrp:LVW8403_bIBvekk9QA_all/master.m3u8
-#EXTINF:-1 tvg-id="CGTN.TV" tvg-logo="https://graph.facebook.com/cgtnenespanol/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN",CGTN
+#EXTINF:-1 tvg-id="CGTN.TV" tvg-logo="https://graph.facebook.com/cgtnenespanol/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN",CGTN Español
 pipe:///var/dobleM-IPTV.sh https://livees.cgtn.com/1000e/prog_index.m3u8
-#EXTINF:-1 tvg-id="CGTN.TV" tvg-logo="https://graph.facebook.com/cgtnenespanol/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN",CGTN
+#EXTINF:-1 tvg-id="CGTN.TV" tvg-logo="https://graph.facebook.com/cgtnenespanol/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN",CGTN Español
 pipe:///var/dobleM-IPTV.sh https://news.cgtn.com/resource/live/espanol/cgtn-e.m3u8
 #EXTINF:-1 tvg-id="CGTNN.TV" tvg-logo="https://graph.facebook.com/ChinaGlobalTVNetwork/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN News",CGTN News EN
 pipe:///var/dobleM-IPTV.sh https://news.cgtn.com/resource/live/english/cgtn-news.m3u8
 #EXTINF:-1 tvg-id="CGTNDoc.TV" tvg-logo="https://graph.facebook.com/ChinaGlobalTVNetwork/picture?width=200&height=200" group-title="Int. Asia" tvg-name="CGTN Documentary",CGTN Documentary EN
 pipe:///var/dobleM-IPTV.sh https://news.cgtn.com/resource/live/document/cgtn-doc.m3u8
-#EXTINF:-1 tvg-id="AlJQ.TV" tvg-logo="https://graph.facebook.com/aljazeera/picture?width=200&height=200" group-title="Int. Asia" tvg-name="Al Jazeera Qatar",Al Jazeera Qatar EN
+#EXTINF:-1 tvg-id="AlJQ.TV" tvg-logo="https://graph.facebook.com/aljazeera/picture?width=200&height=200" group-title="Int. Asia" tvg-name="Al Jazeera",Al Jazeera English
 pipe:///var/dobleM-IPTV.sh https://live-hls-web-aje.getaj.net/AJE/index.m3u8
 #EXTINF:-1 tvg-id="NHK.TV" tvg-logo="https://graph.facebook.com/nhkworld/picture?width=200&height=200" group-title="Int. Asia" tvg-name="NHK World Japan",NHK World Japan EN
 pipe:///var/dobleM-IPTV.sh https://nhkworld.webcdn.stream.ne.jp/www11/nhkworld-tv/global/2003458/live.m3u8
@@ -935,7 +935,7 @@ pipe:///var/dobleM-IPTV.sh https://ott-live.olympicchannel.com/out/u/OC4_1.m3u8
 pipe:///var/dobleM-IPTV.sh https://ott-live.olympicchannel.com/out/u/OC5_1.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/RedBull/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="Redbull TV",Redbull TV EN
 pipe:///var/dobleM-IPTV.sh https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
-#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/1169992187314167808/TeabGtEB_200x200.jpg" group-title="Deportivos Int." tvg-name="Garage TV",Garage TV
+#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/1169992187314167808/TeabGtEB_200x200.jpg" group-title="Deportivos Int." tvg-name="El Garage TV",El Garage TV
 pipe:///var/dobleM-IPTV.sh http://186.0.233.76:1935/Garage/garage.smil/.m3u8
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/msmotortv/picture?width=200&height=200" group-title="Deportivos Int." tvg-name="MsMotor TV",MsMotor TV IT
 pipe:///var/dobleM-IPTV.sh https://dotfvxkfj90ca.cloudfront.net/live/streamingautomototv_aac/playlist.m3u8
