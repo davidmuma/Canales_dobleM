@@ -591,7 +591,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
-	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
+	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
@@ -603,7 +603,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
-	echo " Acuerdate de asignar en cada sintonizador \"Red DVB-S\" en la pestaña:"
+	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
@@ -1078,7 +1078,7 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
-	echo -e " 6)$green Restaurar copia de seguridad $end"
+	echo -e " 6)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
     echo -e " 7)$magenta Volver $end"
     echo -e " 8)$red Salir $end"
 	echo
