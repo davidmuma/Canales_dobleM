@@ -745,6 +745,38 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		ERROR=false
+		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
+			ERROR=true
+		fi
+		if [ $SYSTEM -ne 1 ]; then
+			sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+		fi
+		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
+			mkdir -p $TVHEADEND_GRABBER_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		fi
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi	
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -933,7 +965,7 @@ limpiezatotal()
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"
 		cd $TVHEADEND_CONFIG_DIR
-		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
