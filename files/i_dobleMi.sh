@@ -216,12 +216,13 @@ backup()
 # Hacemos la copia de seguridad
 	printf "%-$(($COLUMNS-10))s"  " 2. Realizando copia de seguridad"
 		cd $TVHEADEND_CONFIG_DIR
+		mkdir -p accesscontrol bouquet caclient channel codec epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE * 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
 		else
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE * 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -749,6 +750,38 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		ERROR=false
+		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
+			ERROR=true
+		fi
+		if [ $SYSTEM -ne 1 ]; then
+			sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+		fi
+		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type d -exec chmod $TVHEADEND_EPGGRAB_PERMISSIONS 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
+			mkdir -p $TVHEADEND_GRABBER_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		fi
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
 		cp -r $CARPETA_DOBLEM/grabber/tv_grab_EPG_dobleM-IPTV $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -987,10 +1020,10 @@ resbackup()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-# Descomprimimos el fichero de backup, borramos todo y copiamos todo
+# Borramos carpetas/ficheros y descomprimimos el fichero de backup
 	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"
 		ERROR=false
-		rm -rf $TVHEADEND_CONFIG_DIR && mkdir $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/accesscontrol/ $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/caclient/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/codec/ $TVHEADEND_CONFIG_DIR/config $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/passwd/ $TVHEADEND_CONFIG_DIR/picons/ $TVHEADEND_CONFIG_DIR/profile/ $TVHEADEND_CONFIG_DIR/service_mapper/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
