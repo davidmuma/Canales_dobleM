@@ -450,11 +450,9 @@ GRABBER_ERROR=false
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
 			ERROR=true
 		fi
-		if [ $SYSTEM -ne 1 ]; then
-			sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-			if [ $? -ne 0 ]; then
-				ERROR=true
-			fi
+		sed -i -- "s,dobleMgrab,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
 		fi
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -758,11 +756,9 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
 			ERROR=true
 		fi
-		if [ $SYSTEM -ne 1 ]; then
-			sed -i -- "s,\"modid\":.*,\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM\"\,,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-			if [ $? -ne 0 ]; then
-				ERROR=true
-			fi
+		sed -i -- "s,dobleMgrab,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
 		fi
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
