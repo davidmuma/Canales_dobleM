@@ -749,10 +749,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			 rm /usr/bin/tv_grab_EPG_dobleM-IPTV 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		ERROR=false
-		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
 			ERROR=true
