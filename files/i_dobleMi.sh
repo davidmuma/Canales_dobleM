@@ -51,11 +51,15 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
-		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
+#		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
+#		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>$CARPETA_SCRIPT/dobleM.log #"/var/packages/tvheadend-testing/target/var"
 		TVHEADEND_GRABBER_DIR="/usr/local/bin"
+		
+		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
+		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
+		
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i \$1 -c copy -f mpegts -tune zerolatency pipe:1";;
 	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -205,6 +209,7 @@ CARPETA_SCRIPT="$PWD"
 # COPIA DE SEGURIDAD
 backup()
 {
+	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end"
 	echo -e "$blue ############################################################################# $end"
@@ -245,8 +250,9 @@ backup()
 # INSTALADOR SATELITE
 install()
 {
-LIST_ERROR=false
-GRABBER_ERROR=false
+	clear
+	LIST_ERROR=false
+	GRABBER_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
@@ -616,8 +622,9 @@ fi
 # INSTALADOR IPTV
 installIPTV()
 {
-LIST_ERROR=false
-GRABBER_ERROR=false
+	clear
+	LIST_ERROR=false
+	GRABBER_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
@@ -878,6 +885,7 @@ fi
 # CAMBIAR FORMATO EPG
 cambioformatoEPG()
 {
+	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end"
 	echo -e "$blue ############################################################################# $end"
@@ -959,6 +967,7 @@ cambioformatoEPG()
 # LIMPIEZA TOTAL DE CANALES
 limpiezatotal()
 {
+	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end"
 	echo -e "$blue ############################################################################# $end"
@@ -991,6 +1000,7 @@ limpiezatotal()
 # RESTAURAR COPIA DE SEGURIDAD
 resbackup()
 {
+	clear
 # Comprobamos que exista un fichero de copia de seguridad
 	if [ ! -f $CARPETA_SCRIPT/Backup_tvheadend_* ]; then
 		printf "$red%s$end\n\n" "No se ha encontrado ningún fichero de copia de seguridad."
