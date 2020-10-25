@@ -7,13 +7,13 @@
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
-Actualmente el script incluye todos los canales de Movistar+, canales deportivos alemanes y canales IPTV en abierto (Gracias LaQuay). 
+Actualmente el script incluye todos los canales de Movistar+, canales deportivos alemanes y canales IPTV en abierto (gracias LaQuay). 
 
-Para que los canales IPTV funcionen correctamente será necesario tener instalado "ffmpeg" en el sistema. Solo disponen de EPG algunos(pocos) canales, espero solucionarlo en futuras versiones.
+Para que los canales IPTV funcionen correctamente será necesario tener instalado "ffmpeg" en el sistema. Muchos de éstos canales IPTV no disponen de guía de programación.
 
-Los canales de Movistar+ vienen exactamente con el mismo orden que tienen oficialmente en su página. Todos los canales también están asignados a su correspondiente dial, renombrados a su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, y vienen con su correspondiente logo asignado. 
+Los canales de Movistar+ tienen todos su guía de programación y vienen exactamente con el mismo orden que tienen oficialmente en su página. Todos los canales también están asignados a su correspondiente dial, renombrados a su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, y vienen con su correspondiente logo asignado. 
 
-También se instala un grabber que descarga la EPG con cinco días de programación de prácticamente todos los canales, pudiendo elegir el tipo de imagen que aparecerá en el evento mostrado, poster o fanart.
+También se instala un grabber que descarga la EPG con cinco días de programación, pudiendo elegir tanto el formato de la guía (Con etiquetas de colores, sin etiquetas de colores, con etiquetas de colores y título en una sola linea, sin etiquetas de colores, título en una sola linea y sin caracteres especiales), como el tipo de imagen que aparecerá en el evento mostrado (Imágenes tipo poster o imágenes tipo fanart).
 
 El script configura tvheadend con los idiomas Spanish, English, German y French(ver página EPG_dobleM para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
 
