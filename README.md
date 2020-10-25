@@ -19,17 +19,17 @@ El script configura tvheadend con los idiomas Spanish, English, German y French(
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
-Descarga el script
+Descarga el script en el directorio que quieras (en Synology si no has entrado con sudo -i, pon sudo antes del wget)
 ```
 wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
 ```
-y ejecútalo con
+y ejecútalo con (en Synology si no has entrado con sudo -i, pon sudo antes del sh)
 ```
 sh dobleM.sh
 ```
 
-El script es compatible con los sistemas operativos:
+El script es compatible con los siguientes sistemas:
 
 - Synology/XPEnology
-- LibreELEC/OpenELEC
+- LibreELEC/OpenELEC/CoreELEC
 - Linux
