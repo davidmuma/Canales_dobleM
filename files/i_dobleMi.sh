@@ -11,7 +11,6 @@ end='\e[0m'
 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
-CARPETA_DOBLEM="$TVHEADEND_CONFIG_DIR/dobleM"
 CARPETA_SCRIPT="$PWD"
 
 clear
@@ -66,6 +65,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -re -i \$1 -c copy -f mpegts -tune zerolatency pipe:1";;
+		CARPETA_DOBLEM="$TVHEADEND_CONFIG_DIR/dobleM"
 	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
@@ -74,6 +74,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1";;
+		CARPETA_DOBLEM="$TVHEADEND_CONFIG_DIR/dobleM"
 	3) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
 		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>$CARPETA_SCRIPT/dobleM.log #"hts"
@@ -82,6 +83,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1";;
+		CARPETA_DOBLEM="$TVHEADEND_CONFIG_DIR/dobleM"
 	esac
 
 # Parar/Iniciar tvheadend
