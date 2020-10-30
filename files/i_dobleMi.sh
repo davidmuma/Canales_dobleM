@@ -25,8 +25,8 @@ if [ -z "$COLUMNS" ]; then
 fi
 
 # Comprobamos que estén instalados curl y wget
-command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
-command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 
 # Detectando sistema operativo
 	SYSTEM_DETECTOR="$(uname -a)"
@@ -217,7 +217,7 @@ backup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -277,7 +277,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 	while :
 	do
@@ -317,7 +317,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -651,10 +651,10 @@ installIPTV()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###          Iniciando instalación de canales IPTV y EPG dobleM           ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
-command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecute el script de nuevo una vez haya sido instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
@@ -897,7 +897,7 @@ cambioformatoEPG()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 	while :
 	do
@@ -980,7 +980,7 @@ limpiezatotal()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -1023,7 +1023,7 @@ resbackup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###           Iniciando restauración de la copia de seguridad             ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Ejecutando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
