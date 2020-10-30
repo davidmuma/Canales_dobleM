@@ -37,7 +37,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
 	elif [ "$1" = "Libreelec" ]; then
-		SISTEMA_ELEGIDO="LibreELEC/OpenELEC"
+		SISTEMA_ELEGIDO="LibreELEC/OpenELEC/CoreELEC"
 		SYSTEM=2
 	elif [ "$1" = "Linux" ]; then
 		SISTEMA_ELEGIDO="Linux"
