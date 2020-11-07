@@ -784,8 +784,16 @@ resbackup()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
+# Borramos carpeta termporal dobleM
+	printf "%-$(($COLUMNS-10))s"  " 5. Eliminando archivos temporales"
+		rm -rf $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
 # Reiniciamos tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 5. Iniciando contenedor $CONTAINER_NAME"
+	printf "%-$(($COLUMNS-10))s"  " 6. Iniciando contenedor $CONTAINER_NAME"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND
 # Fin restauracion copia de seguridad
