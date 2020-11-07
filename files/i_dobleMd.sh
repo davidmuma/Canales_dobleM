@@ -40,7 +40,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	fi
 
 # Comprobamos nombre del contenedor y que el contenedor esté inicidado
-		docker images | grep tvheadend 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
+		docker start tvheadend 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 		if [ $? -ne 0 ]; then
 			echo "Introduzca el nombre de su contenedor con tvheadend"
 			read CONTAINER_NAME
@@ -203,6 +203,22 @@ install()
 	clear
 	LIST_ERROR=false
 	GRABBER_ERROR=false
+# Comprobamos que exista el fichero config en la carpeta epggrab
+	rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+	docker cp $TVHEADEND_CONFIG_COM/epggrab/config $DOBLEM_DIR/configepggrab 2>>$CARPETA_SCRIPT/dobleM.log
+	if [ $? -ne 0 ]; then
+		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
+		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
+		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
+		printf "\t%s$blue%s$end\n\t%s\n" "3- Finalmente, pulsa sobre el botón superior " "\"Guardar\"" "  (en inglés \"Save\")"
+		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
+		CONTINUAR="n"
+		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
+			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
+		done
+	fi
 # Pedimos el formato de la guía de programación
 	clear
 	echo -e "$blue ############################################################################# $end"
@@ -777,7 +793,7 @@ resbackup()
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Empezamos a copiar los archivos necesarios
-	printf "%-$(($COLUMNS-10+1))s"  " 4. Restaurando copia de seguridad"
+	printf "%-$(($COLUMNS-10))s"  " 4. Restaurando copia de seguridad"
 		docker cp $DOBLEM_DIR/. $TVHEADEND_CONFIG_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -842,7 +858,7 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
     echo -e " 7)$magenta Volver $end"
     echo -e " 8)$red Salir $end"
 	echo
-	echo -e " 9)$green Cambiar rutas /config y /usr/bin $end"
+	echo -e " 9)$green Cambiar las rutas /config y /usr/bin $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
