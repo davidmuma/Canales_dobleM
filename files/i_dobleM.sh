@@ -40,7 +40,7 @@ clear
 	echo
 	echo -e " 3)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 4)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)(VERSION EN PRUEBAS)"
+	echo -e " 4)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
     echo -e " 5)$red Salir del instalador $end"
 	echo

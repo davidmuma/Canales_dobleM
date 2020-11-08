@@ -62,7 +62,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>$CARPETA_SCRIPT/dobleM.log #"/var/packages/tvheadend-testing/target/var"
 		TVHEADEND_GRABBER_DIR="/usr/local/bin"
-		
+
 		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
@@ -219,7 +219,7 @@ backup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -279,7 +279,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 	while :
 	do
@@ -319,7 +319,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -653,7 +653,7 @@ installIPTV()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###          Iniciando instalación de canales IPTV y EPG dobleM           ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
 command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
@@ -661,7 +661,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
-# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM.tar.xz
+# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM-IPTV.tar.xz
 	printf "%-$(($COLUMNS-10))s"  " 2. Descargando lista de canales IPTV"
 		ERROR=false
 		rm -rf $TVHEADEND_DOBLEM_DIR && mkdir $TVHEADEND_DOBLEM_DIR && cd $TVHEADEND_DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
@@ -899,7 +899,7 @@ cambioformatoEPG()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 	while :
 	do
@@ -982,7 +982,7 @@ limpiezatotal()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -1025,7 +1025,7 @@ resbackup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###           Iniciando restauración de la copia de seguridad             ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -1082,9 +1082,9 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 	echo -e "$blue ###      de instalación sean correctos, en caso de duda no continues      ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo
-	echo -e " Sistema seleccionado:$magenta $SISTEMA_ELEGIDO $end"
+	echo -e " Sistema seleccionado:$green $SISTEMA_ELEGIDO $end"
+	echo -e " Sistema    detectado:$green $SYSTEM_INFO $end"
 	echo
-	echo -e " Sistema    detectado:$yellow $SYSTEM_INFO $end"
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
@@ -1098,8 +1098,11 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
 	echo -e " 6)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+	echo
     echo -e " 7)$magenta Volver $end"
     echo -e " 8)$red Salir $end"
+	echo
+	echo -e " 9)$yellow Cambiar las rutas $TVHEADEND_CONFIG_DIR y $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
@@ -1112,6 +1115,16 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 		6) clear && resbackup;;
 		7) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
 		8) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
+		9) clear
+			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_CONFIG_DIR$end"
+			read TVHEADEND_CONFIG_DIR
+			echo
+			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_GRABBER_DIR$end"
+			read TVHEADEND_GRABBER_DIR
+				 TVHEADEND_CONFIG_COM="$CONTAINER_NAME:$TVHEADEND_CONFIG_DIR"
+			     TVHEADEND_GRABBER_COM="$CONTAINER_NAME:$TVHEADEND_GRABBER_DIR"
+			MENU
+			;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
