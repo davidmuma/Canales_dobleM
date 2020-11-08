@@ -7,7 +7,7 @@
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
-Actualmente el script incluye todos los canales de Movistar+, canales deportivos alemanes y canales IPTV libres y legales (gracias LaQuay). 
+Actualmente el script incluye todos los canales satélite de Movistar+ y canales deportivos alemanes. Tambien es posible instalar una lista de canales IPTV libres y legales (gracias LaQuay). 
 
 Para que los canales IPTV funcionen correctamente será necesario tener instalado "ffmpeg" en el sistema. Muchos de éstos canales IPTV no disponen de guía de programación.
 
@@ -16,6 +16,8 @@ Los canales de Movistar+ tienen todos su guía de programación y vienen exactam
 También se instala un grabber que descarga la EPG con cinco días de programación, pudiendo elegir tanto el formato de la guía (Con etiquetas de colores, sin etiquetas de colores, con etiquetas de colores y título en una sola linea, sin etiquetas de colores, título en una sola linea y sin caracteres especiales), como el tipo de imagen que aparecerá en el evento mostrado (Imágenes tipo poster o imágenes tipo fanart).
 
 El script configura tvheadend con los idiomas Spanish, English, German y French(ver página EPG_dobleM para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
+
+Al hacer la instalación de cualquiera de las dos listas de canales(Satélite o IPTV), el script respetará los canales creados por ti anteriormente.
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
