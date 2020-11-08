@@ -33,3 +33,4 @@ El script es compatible con los siguientes sistemas:
 - Synology/XPEnology
 - LibreELEC/OpenELEC/CoreELEC
 - Linux
+- Docker
