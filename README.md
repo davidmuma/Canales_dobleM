@@ -21,11 +21,11 @@ Al hacer la instalación de cualquiera de las dos listas de canales(Satélite o 
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
-Descarga el script en el directorio que quieras (en Synology si no has entrado con sudo -i, pon sudo antes del wget)
+Descarga el script en el directorio que quieras
 ```
 wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
 ```
-y ejecútalo con (en Synology si no has entrado con sudo -i, pon sudo antes del sh)
+y ejecútalo con
 ```
 sh dobleM.sh
 ```
@@ -36,3 +36,7 @@ El script es compatible con los siguientes sistemas:
 - LibreELEC/OpenELEC/CoreELEC
 - Linux
 - Docker
+
+Notas:
+En Synology si no has entrado con sudo -i, pon sudo antes del wget y el sh
+En Docker ejecutalo en el sistema anfitrión, no en el contenedor
