@@ -41,4 +41,4 @@ Notas:
 
 En Synology si no has entrado con sudo -i, pon sudo antes del wget y del sh
 
-En Docker ejecutalo en el sistema anfitrión, no en el contenedor
+En Docker ejecuta el script en el sistema anfitrión, no en el contenedor
