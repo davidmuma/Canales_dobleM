@@ -1121,8 +1121,6 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 			echo
 			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_GRABBER_DIR$end"
 			read TVHEADEND_GRABBER_DIR
-				 TVHEADEND_CONFIG_COM="$CONTAINER_NAME:$TVHEADEND_CONFIG_DIR"
-			     TVHEADEND_GRABBER_COM="$CONTAINER_NAME:$TVHEADEND_GRABBER_DIR"
 			MENU
 			;;
 		*) echo "$opcion es una opción inválida\n";
