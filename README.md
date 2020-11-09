@@ -38,6 +38,7 @@ El script es compatible con los siguientes sistemas:
 - Docker
 
 Notas:
-En Synology si no has entrado con sudo -i, pon sudo antes del wget y el sh
+
+En Synology si no has entrado con sudo -i, pon sudo antes del wget y del sh
 
 En Docker ejecutalo en el sistema anfitrión, no en el contenedor
