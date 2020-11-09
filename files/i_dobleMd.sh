@@ -38,16 +38,16 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	fi
 
 # Comprobamos nombre del contenedor y que el contenedor esté inicidado
-		docker start tvheadend 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
+		docker start tvheadend >/dev/null 2>&1
 		if [ $? -ne 0 ]; then
 			echo "Introduzca el nombre de su contenedor con tvheadend"
 			read CONTAINER_NAME
 			echo
 			echo "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
-			docker start $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
+			docker start $CONTAINER_NAME >/dev/null 2>&1
 				if [ $? -ne 0 ]; then
 				echo
-				echo $red"Contenedor no reconocido, por favor comprueba el nombre y vuelve a ejecutar el script"$end
+				echo $red"El contenedor$end$yellow $CONTAINER_NAME$end$red no existe, por favor comprueba el nombre y vuelve a ejecutar el script"$end
 				echo
 				rm -rf $CARPETA_SCRIPT/i_*.sh
 				exit
@@ -56,7 +56,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 			CONTAINER_NAME="tvheadend"
 			echo
 			echo "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
-			docker start $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
+			docker start $CONTAINER_NAME 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 
 # VARIABLES POR DEFECTO
@@ -70,7 +70,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 PARAR_TVHEADEND()
 {
 SERVICE_ERROR=false
-	docker stop $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
+	docker stop $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1 
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
@@ -204,8 +204,7 @@ install()
 	LIST_ERROR=false
 	GRABBER_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
-	rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
-	docker cp $TVHEADEND_CONFIG_COM/epggrab/config $DOBLEM_DIR/configepggrab 2>>$CARPETA_SCRIPT/dobleM.log
+	docker exec $CONTAINER_NAME sh -c "ls $TVHEADEND_CONFIG_DIR/epggrab/config" >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
@@ -379,7 +378,7 @@ install()
 # Borramos configuración actual
 	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
-		docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>>$CARPETA_SCRIPT/dobleM.log
+		docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
 		docker cp $TVHEADEND_CONFIG_COM/channel $DOBLEM_DIR/channelTEMP 2>>$CARPETA_SCRIPT/dobleM.log
 		rm -f
 			if [ "$1" != "ALL" ];then
@@ -541,8 +540,7 @@ installIPTV()
 	LIST_ERROR=false
 	GRABBER_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
-	rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
-	docker cp $TVHEADEND_CONFIG_COM/epggrab/config $DOBLEM_DIR/configepggrab 2>>$CARPETA_SCRIPT/dobleM.log
+	docker exec $CONTAINER_NAME sh -c "ls $TVHEADEND_CONFIG_DIR/epggrab/config" >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
@@ -564,7 +562,7 @@ installIPTV()
 	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
-	docker exec $CONTAINER_NAME sh -c "command -v ffmpeg >/dev/null 2>&1"
+	docker exec $CONTAINER_NAME sh -c "command -v ffmpeg" >/dev/null 2>&1
 	if [ $? -ne 0 ]; then
 		printf "$red%s\n%s$end\n\n" "ERROR: Es necesario que el contenedor tenga instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1;
 	fi
@@ -639,7 +637,7 @@ installIPTV()
 # Borramos configuración actual
 	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
-		docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>>$CARPETA_SCRIPT/dobleM.log
+		docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
 		docker cp $TVHEADEND_CONFIG_COM/channel $DOBLEM_DIR/channelTEMP 2>>$CARPETA_SCRIPT/dobleM.log
 		rm -f
 			if [ "$1" != "ALL" ];then

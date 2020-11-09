@@ -97,7 +97,7 @@ SERVICE_ERROR=false
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>$CARPETA_SCRIPT/dobleM.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				stop -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
@@ -119,7 +119,7 @@ SERVICE_ERROR=false
 	case $SYSTEM in
 		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
-				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>$CARPETA_SCRIPT/dobleM.log 2>&1
+				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				start -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
