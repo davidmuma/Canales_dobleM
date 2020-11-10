@@ -47,7 +47,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 			docker start $CONTAINER_NAME >/dev/null 2>&1
 				if [ $? -ne 0 ]; then
 				echo
-				echo $red"El contenedor$end$yellow $CONTAINER_NAME$end$red no existe, por favor comprueba el nombre y vuelve a ejecutar el script"$end
+				echo "$redEl contenedor$end$yellow $CONTAINER_NAME$end$red no existe, por favor comprueba el nombre y vuelve a ejecutar el script$end"
 				echo
 				rm -rf $CARPETA_SCRIPT/i_*.sh
 				exit
