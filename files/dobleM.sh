@@ -11,4 +11,5 @@ sleep 1
 echo Ejecutando instalador...
 sleep 1
 clear
-chmod +x i_dobleM.sh && ./i_dobleM.sh
+chmod +x i_dobleM.sh
+./i_dobleM.sh
