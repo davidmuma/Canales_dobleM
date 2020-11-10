@@ -40,14 +40,14 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 # Comprobamos nombre del contenedor y que el contenedor esté inicidado
 		docker start tvheadend >/dev/null 2>&1
 		if [ $? -ne 0 ]; then
-			echo "Introduzca el nombre de su contenedor con tvheadend"
+			echo -e "Introduzca el nombre de su contenedor con tvheadend"
 			read CONTAINER_NAME
 			echo
-			echo "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
+			echo -e "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
 			docker start $CONTAINER_NAME >/dev/null 2>&1
 				if [ $? -ne 0 ]; then
 				echo
-				echo "$redEl contenedor$end$yellow $CONTAINER_NAME$end$red no existe, por favor comprueba el nombre y vuelve a ejecutar el script$end"
+				echo -e "$redEl contenedor$end$yellow $CONTAINER_NAME$end$red no existe, por favor comprueba el nombre y vuelve a ejecutar el script$end"
 				echo
 				rm -rf $CARPETA_SCRIPT/i_*.sh
 				exit
@@ -55,7 +55,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		else
 			CONTAINER_NAME="tvheadend"
 			echo
-			echo "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
+			echo -e "Comprobando que el contenedor$yellow $CONTAINER_NAME$end está iniciado..."
 			docker start $CONTAINER_NAME 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 
@@ -70,7 +70,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 PARAR_TVHEADEND()
 {
 SERVICE_ERROR=false
-	docker stop $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1 
+	docker stop $CONTAINER_NAME 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 	else
