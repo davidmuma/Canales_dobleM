@@ -1113,7 +1113,7 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 		4) clear && cambioformatoEPG;;
 		5) clear && limpiezatotal;;
 		6) clear && resbackup;;
-		7) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && sh $CARPETA_SCRIPT/i_dobleM.sh; break;;
+		7) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
 		8) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
 		9) clear
 			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_CONFIG_DIR$end"
