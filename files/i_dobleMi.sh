@@ -38,7 +38,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)" 2>>$CARPETA_SCRIPT/dobleM.log
 	fi
 
-# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux	 4-Qnap
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
@@ -48,6 +48,9 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	elif [ "$1" = "Linux" ]; then
 		SISTEMA_ELEGIDO="Linux"
 		SYSTEM=3
+	elif [ "$1" = "Qnap" ]; then
+		SISTEMA_ELEGIDO="Qnap"
+		SYSTEM=4
 	fi
 	case $SYSTEM in
 	1) #Synology/XPEnology
@@ -88,6 +91,16 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1"
 		;;
+	4) #Qnap
+		TVHEADEND_SERVICE="tvheadend"
+		TVHEADEND_USER="admin"
+        TVHEADEND_GROUP="administrators"
+		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
+        TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
+        TVHEADEND_GRABBER_DIR="/share/CACHEDEV1_DATA/.qpkg/xmltv/bin"
+		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
+		FFMPEG_COMMAND="/share/CACHEDEV1_DATA/.qpkg/Qffmpeg/bin/ffmpeg -loglevel fatal -re -i \$1 -c copy -f mpegts -tune zerolatency pipe:1"
+		;;
 	esac
 
 # Parar/Iniciar tvheadend
@@ -105,6 +118,8 @@ SERVICE_ERROR=false
 			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
 		3)
 			service tvheadend stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend stop
+		4)	
+			/etc/init.d/TVHeadend.sh stop 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -127,6 +142,8 @@ SERVICE_ERROR=false
 			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
 		3)
 			service tvheadend start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend start
+		4)	
+			/etc/init.d/TVHeadend.sh start 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"

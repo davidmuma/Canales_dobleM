@@ -42,7 +42,9 @@ clear
 	echo
 	echo -e " 4)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
-    echo -e " 5)$red Salir del instalador $end"
+	echo -e " 5)$cyan Ejecutar instalador para$end$green Qnap(EN PRUEBAS) $end(solo para tvheadend 4.3)"
+	echo
+    echo -e " 6)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
@@ -51,7 +53,8 @@ clear
 		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Libreelec; break;;
 		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
 		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
-		5) rm -rf i_dobleM*.sh; exit;;
+		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Qnap; break;;
+		6) rm -rf i_dobleM*.sh; exit;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
