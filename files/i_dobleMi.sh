@@ -8,22 +8,22 @@ blue='\e[1;34m'
 magenta='\e[1;35m'
 cyan='\e[1;36m'
 end='\e[0m'
-
+ 
 NOMBRE_APP="dobleM"
 NOMBRE_APP_IPTV="dobleM-IPTV"
 CARPETA_SCRIPT="$PWD"
-
+ 
 clear
 echo Cargando...
-
+ 
 if [ -f "dobleM.log" ]; then
 	mv "dobleM.log" "dobleM.old.log" 2>>$CARPETA_SCRIPT/dobleM.log
 fi
-
+ 
 if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
-
+ 
 # Comprobamos que estén instalados curl y wget
 command -v sudo >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'sudo'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 command -v stat >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'stat'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
