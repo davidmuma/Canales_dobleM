@@ -1119,7 +1119,7 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
     echo -e " 7)$magenta Volver $end"
     echo -e " 8)$red Salir $end"
 	echo
-	echo -e " 9)$yellow Cambiar las rutas $TVHEADEND_CONFIG_DIR y $TVHEADEND_GRABBER_DIR $end"
+	echo -e " 9)$green Cambiar las rutas$end$yellow $TVHEADEND_CONFIG_DIR$end$green y$end$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
