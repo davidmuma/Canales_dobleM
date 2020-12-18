@@ -5,6 +5,11 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
 </h1>
 
+## ULTIMA ACTUALIZACION
+| **Satélite** | **IPTV** |
+| -	| -	|
+| 18/12/2020 | 18/11/20 |
+
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
 Actualmente el script incluye todos los canales satélite de Movistar+ y canales deportivos alemanes. Tambien es posible instalar una lista de canales IPTV libres y legales (gracias LaQuay). 
