@@ -6,7 +6,7 @@
 </h1>
 
 | | ULTIMA ACTUALIZACION | |
-| -	| - | - | - | - |
+| -	| - | - |
 | Satélite | 18/12/2020 | ✔ | 
 | IPTV | 24/10/2020 | ✔ | 
 
