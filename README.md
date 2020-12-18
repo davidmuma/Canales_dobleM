@@ -5,6 +5,11 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
 </h1>
 
+| | ULTIMA ACTUALIZACION | |
+| -	| - | - | - | - |
+| Satélite | 18/12/2020 | ✔ | 
+| IPTV | 24/10/2020 | ✔ | 
+
 # ULTIMA ACTUALIZACION
 | **Satélite** | **IPTV** |
 | -	| -	|
