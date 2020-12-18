@@ -5,15 +5,10 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
 </h1>
 
-| | ULTIMA ACTUALIZACION | |
+| | ULTIMA ACTUALIZACION | Versión |
 | -	| - | - |
-| Satélite | 18/12/2020 | ✔ | 
-| IPTV | 24/10/2020 | ✔ | 
-
-# ULTIMA ACTUALIZACION
-| **Satélite** | **IPTV** |
-| -	| -	|
-| 18/12/2020 | 24/10/2020 |
+| Satélite | 18/12/2020 | 1.4 | 
+| IPTV | 24/10/2020 | 1.2 | 
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
