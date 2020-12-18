@@ -8,7 +8,7 @@
 | | Última actualización | Versión |
 | -	| - | - |
 | Satélite | 18/12/2020 | 1.4 | 
-| IPTV | 24/10/2020 | 1.2 | 
+| IPTV | 18/12/2020 | 1.3 | 
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
