@@ -873,6 +873,88 @@ cambioformatoEPG()
 		MENU
 }
 
+# CAMBIAR TIPO_PICON
+cambioformatoPICONS()
+{
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###              Iniciando cambio del formato de los picons               ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$yellow Elige el tipo de picon: $end"
+		echo -e " 1) local (tvheadend)"
+		echo -e " 2) reflejo (GitHub)"
+		echo -e " 3) transparent (GitHub)"
+		echo
+		echo -n " Indica una opción: "
+		read opcion1
+		case $opcion1 in
+				1) TIPO_PICON='file:\/\/TVHEADEND_CONFIG_DIR\/picons'; break;;
+				2) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/reflejo\/'; break;;
+				3) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/transparent\/'; break;;
+				*) echo "$opcion1 es una opción inválida";
+		esac
+	done
+		echo
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Aplicamos cambio formato picons
+	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato picons"
+		ERROR=false
+		rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $TVHEADEND_CONFIG_COM/config $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s/\"prefer_picon\": .*,/\"prefer_picon\": false,\n\t\"chiconscheme\": 2,\n\t\"piconpath\": \"$TIPO_PICON\",\n\t\"piconscheme\": 0,/g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 3. Deteniendo contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Empezamos a copiar los archivos nuevos
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Aplicando nueva configuración"
+		docker cp $DOBLEM_DIR/config $TVHEADEND_CONFIG_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Borramos carpeta termporal dobleM
+	printf "%-$(($COLUMNS-10))s"  " 5. Eliminando archivos temporales"
+		rm -rf $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 6. Iniciando contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
+		MENU
+}
+
 # LIMPIEZA TOTAL DE CANALES
 limpiezatotal()
 {
@@ -1075,13 +1157,14 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 5)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
-	echo -e " 6)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+	echo -e " 5)$cyan Cambiar el formato de los picons $end"
+	echo -e " 6)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
+	echo -e " 7)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
-    echo -e " 7)$magenta Volver $end"
-    echo -e " 8)$red Salir $end"
+    echo -e " 8)$magenta Volver $end"
+    echo -e " 9)$red Salir $end"
 	echo
-	echo -e " 9)$yellow Cambiar las rutas $TVHEADEND_CONFIG_DIR y $TVHEADEND_GRABBER_DIR $end"
+	echo -e " 0)$yellow Cambiar las rutas $TVHEADEND_CONFIG_DIR y $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
@@ -1090,11 +1173,12 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 		2) clear && install;;
 		3) clear && installIPTV;;
 		4) clear && cambioformatoEPG;;
-		5) clear && limpiezatotal;;
-		6) clear && resbackup;;
-		7) rm -rf $CARPETA_SCRIPT/i_dobleMd.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
-		8) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
-		9) clear
+		5) clear && cambioformatoPICONS;;
+		6) clear && limpiezatotal;;
+		7) clear && resbackup;;
+		8) rm -rf $CARPETA_SCRIPT/i_dobleMd.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
+		9) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
+		0) clear
 			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_CONFIG_DIR$end"
 			read TVHEADEND_CONFIG_DIR
 			echo
