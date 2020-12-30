@@ -893,8 +893,8 @@ cambioformatoPICONS()
 		read opcion1
 		case $opcion1 in
 				1) TIPO_PICON='file:\/\/TVHEADEND_CONFIG_DIR\/picons'; break;;
-				2) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/reflejo\/'; break;;
-				3) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/transparent\/'; break;;
+				2) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/reflejo'; break;;
+				3) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/transparent'; break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
