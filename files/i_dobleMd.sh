@@ -335,7 +335,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": false,\n\t"chiconscheme": 2,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/picons",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/picons",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -873,28 +873,37 @@ cambioformatoEPG()
 		MENU
 }
 
-# CAMBIAR TIPO_PICON
+# CAMBIAR RUTA Y TIPO_PICON
 cambioformatoPICONS()
 {
 	clear
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###              Iniciando cambio del formato de los picons               ### $end"
+	echo -e "$blue ###           Iniciando cambio del formato/ruta de los picons             ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
 	while :
 	do
-		echo -e "$yellow Elige el tipo de picon: $end"
-		echo -e " 1) local (tvheadend)"
-		echo -e " 2) reflejo (GitHub)"
-		echo -e " 3) transparent (GitHub)"
+		echo -e "$yellow Elige el tipo de picon y la ruta: $end"
+		echo -e " 1) dobleM (local)"
+		echo -e " 2) dobleM (GitHub)"
+		echo -e " 3) reflejo (GitHub)"
+		echo -e " 4) transparent (GitHub)"
+		echo
+		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
+		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
-				1) TIPO_PICON='file:\/\/TVHEADEND_CONFIG_DIR\/picons'; break;;
-				2) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/reflejo'; break;;
-				3) TIPO_PICON='https:\/\/raw.githubusercontent.com\/davidmuma\/Canales_dobleM\/master\/picon\/transparent'; break;;
+				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
+				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
+				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
+				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
+				0) 
+					echo -e "$yellow Escribe la ruta de los picons $end"
+					read RUTA_PICON
+					break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
@@ -904,7 +913,7 @@ cambioformatoPICONS()
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Aplicamos cambio formato picons
-	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato picons"
+	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato/ruta picons"
 		ERROR=false
 		rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -914,7 +923,11 @@ cambioformatoPICONS()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s/\"prefer_picon\": .*,/\"prefer_picon\": false,\n\t\"chiconscheme\": 2,\n\t\"piconpath\": \"$TIPO_PICON\",\n\t\"piconscheme\": 0,/g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1157,7 +1170,7 @@ ver_web_IPTV=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/ma
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 5)$cyan Cambiar el formato de los picons $end"
+	echo -e " 5)$cyan Cambiar el formato/ruta de los picons $end"
 	echo -e " 6)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
 	echo -e " 7)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
