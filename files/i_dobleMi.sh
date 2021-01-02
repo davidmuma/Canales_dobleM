@@ -319,7 +319,7 @@ install()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
+		echo -e "$yellow Elige que tipo de imágenes aparecerán en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
 		echo
@@ -329,6 +329,27 @@ install()
 				1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
 				2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
 				*) echo "$opcion2 es una opción inválida";
+		esac
+	done
+		echo
+	while :
+	do
+		echo -e "$yellow Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
+		echo -e " 1) dobleM (local)"
+		echo -e " 2) dobleM (GitHub)"
+		echo -e " 3) reflejo (GitHub)"
+		echo -e " 4) transparent (GitHub)"
+		echo -e " 5) fondo blanco (GitHub)"
+		echo
+		echo -n " Indica una opción: "
+		read opcion3
+		case $opcion3 in
+				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
+				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
+				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
+				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
+				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
+				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
 # Iniciamos instalación satélite
@@ -544,19 +565,11 @@ install()
 			ERROR=true
 		fi
 		#picons config tvheadend
-		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "file:\/\/TVHEADEND_CONFIG_DIR\/picons",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1003,11 +1016,12 @@ cambioformatoPICONS()
 	echo
 	while :
 	do
-		echo -e "$yellow Elige el tipo de picon y la ruta: $end"
+		echo -e "$yellow Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
 		echo -e " 1) dobleM (local)"
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
+		echo -e " 5) fondo blanco (GitHub)"
 		echo
 		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
@@ -1019,7 +1033,8 @@ cambioformatoPICONS()
 				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
 				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
 				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
-				0) 
+				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
+				0)
 					echo -e "$yellow Escribe la ruta de los picons $end"
 					read RUTA_PICON
 					break;;
@@ -1034,11 +1049,11 @@ cambioformatoPICONS()
 # Aplicamos cambio formato picons
 	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato/ruta picons"
 		ERROR=false
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
