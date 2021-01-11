@@ -1,0 +1,7 @@
+#EXTM3U dobleM-IPTV https://tttttt.me/EPG_dobleM
+#EXTINF:-1 tvg-id="Pluto.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Pluto" tvg-name="Pluto",Pluto
+https://stitcher.pluto.tv/stitch/hls/channel/5f1ac8588734f8000823b7de/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="Pluto2.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Pluto" tvg-name="Pluto2",Pluto2
+https://stitcher.pluto.tv/stitch/hls/channel/5f1aa82c150b2500077733d7/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+
+
