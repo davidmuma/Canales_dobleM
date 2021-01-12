@@ -1,7 +1,7 @@
 #EXTM3U dobleM-IPTV https://tttttt.me/EPG_dobleM
 #EXTINF:-1 tvg-id="Pluto.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Pluto" tvg-name="Pluto",Pluto
-https://stitcher.pluto.tv/stitch/hls/channel/5f1ac8588734f8000823b7de/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f1aa7aab66c76000790ee7e/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=900&deviceId=5f1aa7aab66c76000790ee7e&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=41.1167&deviceLon=1.2500&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=ES&serverSideAds=false
 #EXTINF:-1 tvg-id="Pluto2.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Pluto" tvg-name="Pluto2",Pluto2
-https://stitcher.pluto.tv/stitch/hls/channel/5f1aa82c150b2500077733d7/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f1ac8588734f8000823b7de/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=900&deviceId=5f1aa7aab66c76000790ee7e&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=41.1167&deviceLon=1.2500&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=ES&serverSideAds=false
 
 
