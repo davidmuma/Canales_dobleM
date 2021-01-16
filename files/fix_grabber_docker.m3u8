@@ -1,4 +1,4 @@
 #EXTM3U dobleM-Pluto https://tttttt.me/EPG_dobleM
 
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="TDT-Generalistas" tvg-name="La 1",La 1
-pipe:///var/fix_grabber_docker.sh -q -P /usr/bin/ https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_dobleM-Pluto
+pipe:///var/fix_grabber_docker.sh
