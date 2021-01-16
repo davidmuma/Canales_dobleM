@@ -1,4 +1,4 @@
 #EXTM3U dobleM-Pluto https://tttttt.me/EPG_dobleM
 
-wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_dobleM-Pluto
-docker cp tv_grab_EPG_dobleM-Pluto tvheadend:/usr/bin/
+#EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="TDT-Generalistas" tvg-name="La 1",La 1
+wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_dobleM-Pluto && cp tv_grab_EPG_dobleM-Pluto /usr/bin/
