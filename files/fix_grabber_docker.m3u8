@@ -1,0 +1,4 @@
+#EXTM3U dobleM-Pluto https://tttttt.me/EPG_dobleM
+
+wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_dobleM-Pluto
+docker cp tv_grab_EPG_dobleM-Pluto tvheadend:/usr/bin/
