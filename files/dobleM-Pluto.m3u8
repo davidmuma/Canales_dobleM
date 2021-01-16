@@ -1,3 +1,4 @@
+#EXTM3U dobleM-Pluto https://tttttt.me/EPG_dobleM
 #EXTM3U x-tvg-url="https://i.mjh.nz/PlutoTV/all.xml.gz"
 #EXTINF:-1 tvg-id="5f1aa7aab66c76000790ee7e" chan="900" tvg-logo="https://images.pluto.tv/channels/5f1aa7aab66c76000790ee7e/colorLogoPNG.png" group-title="Pluto_ES-Infantil",Big Time Rush
 pipe:///var/dobleM-FFMPEG.sh https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f1aa7aab66c76000790ee7e/master.m3u8?terminate=false&deviceType=web&deviceMake=web&deviceModel=web&sid=900&deviceId=5f1aa7aab66c76000790ee7e&deviceVersion=DNT&appVersion=DNT&deviceDNT=0&userId=&advertisingId=&deviceLat=41.1167&deviceLon=1.2500&app_name=&appName=web&buildVersion=&appStoreUrl=&architecture=&includeExtendedEvents=false&marketingRegion=ES&serverSideAds=false

@@ -1,5 +1,5 @@
-#EXTM3U dobleM-IPTV https://tttttt.me/EPG_dobleM
-#EXTM3U url-tvg="https://github.com/davidmuma/EPG_dobleM/blob/master/guiatv_sincolor1.xml.gz?raw=true"
+#EXTM3U dobleM-TDT https://tttttt.me/EPG_dobleM
+#EXTM3U x-tvg-url="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz"
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Generalistas" tvg-name="La 1",La 1
 pipe:///var/dobleM-FFMPEG.sh https://rtvelivestream.akamaized.net/la1_dvr.m3u8
 #EXTINF:-1 tvg-id="La1.TV" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV-Generalistas" tvg-name="La 1",La 1 GEO
