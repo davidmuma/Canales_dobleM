@@ -696,8 +696,8 @@ installIPTV()
 				rm -rf $DOBLEM_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 			fi
 		case $opcion1 in
-				1) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log; break;;
-				2) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log; break;;
+				1) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log;;
+				2) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log;;
 		esac
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"

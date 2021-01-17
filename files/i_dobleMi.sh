@@ -737,15 +737,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
 # Borramos configuración actual menos "channel" y "epggrab" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
-		case $opcion1 in
-				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log; break;;
-				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log; break;;
-		esac
-		if [ $? -eq 0 ]; then
-			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-		else
-			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		fi
 			# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 			rm -f
 				if [ "$1" != "ALL" ];then
@@ -763,6 +754,15 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 					# Borramos todos los canales y tags
 					rm -rf $TVHEADEND_CONFIG_DIR/channel/
 				fi
+		case $opcion1 in
+				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+		esac
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
 		ERROR=false
