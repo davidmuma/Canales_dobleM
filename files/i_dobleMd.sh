@@ -112,6 +112,10 @@ backup()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		docker exec $CONTAINER_NAME sh -c "ls -l > $TVHEADEND_CONFIG_DIR/dobleM-DIR.ver" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
 		docker cp $TVHEADEND_CONFIG_COM/accesscontrol $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -159,21 +163,16 @@ backup()
 		docker cp $TVHEADEND_CONFIG_COM/service_mapper $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi
-		docker cp $TVHEADEND_CONFIG_COM/dobleM.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		docker cp $TVHEADEND_CONFIG_COM/dobleM-TDT.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		docker cp $TVHEADEND_CONFIG_COM/dobleM-Pluto.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		fi			
+		docker cp $TVHEADEND_CONFIG_COM/dobleM-DIR.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
+		docker cp $TVHEADEND_CONFIG_COM/dobleM.ver $DOBLEM_DIR/ 2>/dev/null
+		docker cp $TVHEADEND_CONFIG_COM/dobleM-TDT.ver $DOBLEM_DIR/ 2>/dev/null
+		docker cp $TVHEADEND_CONFIG_COM/dobleM-Pluto.ver $DOBLEM_DIR/ 2>/dev/null
 # Hacemos la copia de seguridad
 	printf "%-$(($COLUMNS-10))s"  " 3. Realizando copia de seguridad"
 		cd $DOBLEM_DIR
@@ -1130,15 +1129,12 @@ resbackup()
 			ERROR=true
 		fi
 		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_CONFIG_DIR/config" 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_CONFIG_DIR/dobleM*.ver" 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_CONFIG_DIR/dobleM*.ver" 2>>$CARPETA_SCRIPT/dobleM.log
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"
 		docker cp $DOBLEM_DIR/. $TVHEADEND_CONFIG_COM/ 2>>$CARPETA_SCRIPT/dobleM.log

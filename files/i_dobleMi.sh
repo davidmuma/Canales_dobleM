@@ -244,6 +244,7 @@ backup()
 	printf "%-$(($COLUMNS-10))s"  " 2. Realizando copia de seguridad"
 		cd $TVHEADEND_CONFIG_DIR
 		mkdir -p accesscontrol bouquet caclient channel codec epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
+		ls -l > dobleM-DIR.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
 			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper dobleM*.ver 2>>$CARPETA_SCRIPT/dobleM.log
@@ -1157,18 +1158,22 @@ resbackup()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-# Borramos carpetas/ficheros y descomprimimos el fichero de backup
-	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"
-		ERROR=false
-		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/accesscontrol/ $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/caclient/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/codec/ $TVHEADEND_CONFIG_DIR/config $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/passwd/ $TVHEADEND_CONFIG_DIR/picons/ $TVHEADEND_CONFIG_DIR/profile/ $TVHEADEND_CONFIG_DIR/service_mapper/ 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		tar -xf "$CARPETA_SCRIPT/$FILE_BACKUP" -C $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+# Borramos carpetas/ficheros
+	printf "%-$(($COLUMNS-10))s"  " 2. Preparando copia de seguridad"
+		rm -rf $TVHEADEND_CONFIG_DIR/accesscontrol/ $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/caclient/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/codec/ $TVHEADEND_CONFIG_DIR/config $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/passwd/ $TVHEADEND_CONFIG_DIR/picons/ $TVHEADEND_CONFIG_DIR/profile/ $TVHEADEND_CONFIG_DIR/service_mapper/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver 2>/dev/null
+# Descomprimimos el fichero de backup		
+	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"		
+		tar -xf "$CARPETA_SCRIPT/$FILE_BACKUP" -C $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Reiniciamos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 4. Iniciando tvheadend"
