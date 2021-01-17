@@ -157,6 +157,18 @@ backup()
 			ERROR=true
 		fi
 		docker cp $TVHEADEND_CONFIG_COM/service_mapper $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $TVHEADEND_CONFIG_COM/dobleM.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $TVHEADEND_CONFIG_COM/dobleM-TDT.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $TVHEADEND_CONFIG_COM/dobleM-Pluto.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -167,10 +179,10 @@ backup()
 		cd $DOBLEM_DIR
 		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper dobleM*.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		else
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper dobleM*.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -1118,6 +1130,10 @@ resbackup()
 			ERROR=true
 		fi
 		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_CONFIG_DIR/config" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_CONFIG_DIR/dobleM*.ver" 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else

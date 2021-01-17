@@ -246,10 +246,10 @@ backup()
 		mkdir -p accesscontrol bouquet caclient channel codec epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ -f "$CARPETA_SCRIPT/Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz" ]; then
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper dobleM*.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		else
 			FILE="Backup_tvheadend_$(date +"%Y-%m-%d").tar.xz"
-			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper 2>>$CARPETA_SCRIPT/dobleM.log
+			tar -cjf $CARPETA_SCRIPT/$FILE accesscontrol bouquet caclient channel codec config epggrab input passwd picons profile service_mapper dobleM*.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -1160,7 +1160,7 @@ resbackup()
 # Borramos carpetas/ficheros y descomprimimos el fichero de backup
 	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"
 		ERROR=false
-		rm -rf $TVHEADEND_CONFIG_DIR/accesscontrol/ $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/caclient/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/codec/ $TVHEADEND_CONFIG_DIR/config $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/passwd/ $TVHEADEND_CONFIG_DIR/picons/ $TVHEADEND_CONFIG_DIR/profile/ $TVHEADEND_CONFIG_DIR/service_mapper/ 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/accesscontrol/ $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/caclient/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/codec/ $TVHEADEND_CONFIG_DIR/config $TVHEADEND_CONFIG_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/passwd/ $TVHEADEND_CONFIG_DIR/picons/ $TVHEADEND_CONFIG_DIR/profile/ $TVHEADEND_CONFIG_DIR/service_mapper/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
