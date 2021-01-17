@@ -8,7 +8,8 @@
 | | Última actualización | Versión |
 | -	| - | - |
 | Satélite | 20/12/2020 | [1.5](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | 
-| IPTV | 18/12/2020 | [1.3](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
+| TDT | 18/01/2021 | [1.4](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
+| Pluto.TV | 18/01/2021 | [1.0](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
