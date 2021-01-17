@@ -1110,12 +1110,13 @@ limpiezatotal()
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"
 		cd $TVHEADEND_CONFIG_DIR
-		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
+		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver >/dev/null 2>&1
 # Reiniciamos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
