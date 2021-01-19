@@ -14,9 +14,11 @@
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
 Actualmente el script incluye las siguientes listas de canales:
-Satélite: Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes. 
-IPTV - TDT: Más de 500 canales libres y legales españoles y extranjeros (gracias LaQuay) 
-IPTV - Pluto.TV: Más de 600 canales libres de la plataforma Pluto.TV
+
+- Satélite: Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes.
+- IPTV / TDT: Más de 500 canales libres y legales españoles y extranjeros (gracias LaQuay)
+- IPTV / Pluto.TV: Más de 600 canales libres de la plataforma Pluto.TV
+
 
 Para que los canales IPTV funcionen correctamente será necesario tener instalado "ffmpeg" en el sistema. Muchos de éstos canales IPTV no disponen de guía de programación.
 
