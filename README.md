@@ -16,7 +16,7 @@ Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dob
 Actualmente el script incluye las siguientes listas de canales:
 
 - Satélite: Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes.
-- IPTV / TDT: Más de 500 canales libres y legales españoles y extranjeros (gracias LaQuay)
+- IPTV / TDT: Más de 500 canales libres españoles y extranjeros (gracias LaQuay)
 - IPTV / Pluto.TV: Más de 600 canales libres de la plataforma Pluto.TV
 
 
