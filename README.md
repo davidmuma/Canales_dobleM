@@ -13,7 +13,7 @@
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
-Actualmente el script incluye todos los canales satélite de Movistar+ y canales deportivos alemanes. Tambien es posible instalar una lista de canales IPTV libres y legales (gracias LaQuay). 
+Actualmente el script incluye todos los canales satélite de Movistar+ y canales deportivos alemanes. También es posible instalar una lista de canales IPTV libres y legales (gracias LaQuay) y otra lista con los canales libres de la plataforma Pluto.TV
 
 Para que los canales IPTV funcionen correctamente será necesario tener instalado "ffmpeg" en el sistema. Muchos de éstos canales IPTV no disponen de guía de programación.
 
