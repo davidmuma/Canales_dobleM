@@ -1168,8 +1168,8 @@ resbackup()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 		rm -rf $TVHEADEND_CONFIG_DIR/dobleM*.ver 2>/dev/null
-# Descomprimimos el fichero de backup		
-	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"		
+# Descomprimimos el fichero de backup
+	printf "%-$(($COLUMNS-10))s"  " 3. Restaurando copia de seguridad"
 		tar -xf "$CARPETA_SCRIPT/$FILE_BACKUP" -C $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"

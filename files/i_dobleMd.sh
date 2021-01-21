@@ -163,7 +163,7 @@ backup()
 		docker cp $TVHEADEND_CONFIG_COM/service_mapper $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		docker cp $TVHEADEND_CONFIG_COM/dobleM-DIR.ver $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -967,8 +967,8 @@ cambioformatoPICONS()
 		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
-		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log		
+		fi
+		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
