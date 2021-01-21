@@ -358,7 +358,19 @@ install()
 			ERROR=true
 		fi
 		#picons config tvheadend
-		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/"chiconscheme": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconpath": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconscheme": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -960,7 +972,19 @@ cambioformatoPICONS()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/"chiconscheme": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconpath": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconscheme": .*,/d' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi

@@ -569,7 +569,19 @@ install()
 			ERROR=true
 		fi
 		#picons config tvheadend
-		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1069,7 +1081,19 @@ cambioformatoPICONS()
 # Aplicamos cambio formato picons
 	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato/ruta picons"
 		ERROR=false
-		sed -i -e 's/"prefer_picon": .*,/"prefer_picon": true,/g' -e 's/"piconpath": .*,/"piconpath": "RUTA_PICON",/g' -e 's/"piconscheme": .*,/"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1193,11 +1217,11 @@ MENU()
 {
 while :
 do
-ver_local=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM.ver" 2>/dev/null`
+ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
-ver_local_TDT=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-TDT.ver" 2>/dev/null`
+ver_local_TDT=`cat $TVHEADEND_CONFIG_DIR/dobleM-TDT.ver 2>/dev/null`
 ver_web_TDT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-TDT.ver 2>/dev/null`
-ver_local_Pluto=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-Pluto.ver" 2>/dev/null`
+ver_local_Pluto=`cat $TVHEADEND_CONFIG_DIR/dobleM-Pluto.ver 2>/dev/null`
 ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-Pluto.ver 2>/dev/null`
 	clear
 	echo -e "$blue ############################################################################# $end"
