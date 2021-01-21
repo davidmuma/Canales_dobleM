@@ -95,7 +95,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
         TVHEADEND_GROUP="administrators"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
         TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
-        TVHEADEND_GRABBER_DIR="/share/CACHEDEV1_DATA/.qpkg/xmltv/bin"
+        TVHEADEND_GRABBER_DIR="/usr/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/share/CACHEDEV1_DATA/.qpkg/Qffmpeg/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 		;;
