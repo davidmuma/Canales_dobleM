@@ -7,7 +7,7 @@
 
 | | Última actualización | Versión |
 | -	| - | - |
-| Satélite | 20/12/2020 | [ 1.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | 
+| Satélite | 21/01/2021 | [ 1.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | 
 | TDT | 17/01/2021 | [ 1.4 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
 | Pluto.TV | 19/01/2021 | [ 1.1 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 
