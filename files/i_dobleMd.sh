@@ -62,7 +62,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_GRABBER_DIR="/usr/bin"
 		TVHEADEND_CONFIG_COM="$CONTAINER_NAME:/config"
 		TVHEADEND_GRABBER_COM="$CONTAINER_NAME:/usr/bin"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -i \$1 -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 
 # Parar/Iniciar tvheadend
 PARAR_TVHEADEND()
