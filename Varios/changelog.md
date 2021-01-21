@@ -1,5 +1,7 @@
 21/01/21
+
 Cambiada frecuecia Telesur HD
+
 Añadidos los canales DAZN 1 HD, DAZN 2 HD, DAZN 1 y DAZN 2
 
 20/12/20
