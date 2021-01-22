@@ -808,7 +808,7 @@ cambioformatoEPG()
 	NOMBRE_LISTA=dobleM
 	clear
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end"
+	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
@@ -833,7 +833,7 @@ cambioformatoEPG()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
+		echo -e "$yellow Elige que tipo de imágenes aparecerán en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
 		echo
