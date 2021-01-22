@@ -42,7 +42,7 @@ clear
 	echo
 	echo -e " 4)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 5)$cyan Ejecutar instalador para$end$green Qnap(EN PRUEBAS) $end(solo para tvheadend 4.3)"
+	echo -e " 5)$cyan Ejecutar instalador para$end$green Qnap $end(solo para tvheadend 4.3)"
 	echo
     echo -e " 6)$red Salir del instalador $end"
 	echo

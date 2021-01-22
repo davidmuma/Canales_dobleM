@@ -280,11 +280,11 @@ install()
 		echo -n " Indica una opción: "
 		read opcion3
 		case $opcion3 in
-				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
-				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
-				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
-				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
-				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
+				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
+				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
+				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
 				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
@@ -311,6 +311,10 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -328,11 +332,11 @@ install()
 # Configuramos ficheros para tvheadend y grabber para satelite
 	printf "%-$(($COLUMNS-10))s"  " 3. Configurando ficheros para tvheadend"
 		ERROR=false
-		sed -i -e "s/\"modid\": .*/\"modid\": \"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\",/g" -e "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		$FORMATO_IMAGEN_GRABBER $DOBLEM_DIR/grabber/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		$FORMATO_IMAGEN_GRABBER $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -370,15 +374,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -395,11 +391,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s/\"modules\": {/\"modules\": {\n\t\t\"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},/g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},#g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -504,11 +496,11 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $DOBLEM_DIR/grabber/* 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod +x $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		docker cp $DOBLEM_DIR/grabber/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
+		docker cp $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -636,6 +628,10 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -653,7 +649,7 @@ installIPTV()
 # Configuramos ficheros para tvheadend y grabber para IPTV
 	printf "%-$(($COLUMNS-10))s"  " 3. Configurando ficheros para tvheadend"
 		ERROR=false
-		sed -i -e "s/\"modid\": .*/\"modid\": \"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\",/g" -e "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -674,11 +670,7 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s/\"modules\": {/\"modules\": {\n\t\t\"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},/g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},#g" $DOBLEM_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -756,11 +748,11 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $DOBLEM_DIR/grabber/* 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod +x $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		docker cp $DOBLEM_DIR/grabber/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
+		docker cp $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -854,8 +846,8 @@ cambioformatoEPG()
 		esac
 	done
 		echo
-# Aplicamos cambio formato de EPG
-	printf "%-$(($COLUMNS-10+2))s"  " 1. Cambiando formato de la guía de programación"
+# Preparamos archivos
+	printf "%-$(($COLUMNS-10))s"  " 1. Preparando archivos"
 		ERROR=false
 		rm -rf $DOBLEM_DIR && mkdir $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -865,6 +857,15 @@ cambioformatoEPG()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		docker cp $TVHEADEND_GRABBER_COM/tv_grab_EPG_$NOMBRE_LISTA $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Aplicamos cambio formato de EPG (config)
+	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
+		ERROR=false
 		sed -i 's/"language": \[/"language": \[\ndobleM/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -879,21 +880,16 @@ cambioformatoEPG()
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-# Aplicamos cambio tipo de imagen de EPG
-	printf "%-$(($COLUMNS-10+3))s"  " 2. Cambiando tipo de imágenes de la guía de programación"
-		ERROR=false
-		docker cp $TVHEADEND_GRABBER_COM/tv_grab_EPG_$NOMBRE_LISTA $DOBLEM_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
+# Aplicamos cambio tipo de imagen de EPG (grabber)
+	printf "%-$(($COLUMNS-10+3))s"  " 3. Cambiando tipo de imágenes de la guía de programación"
 		$FORMATO_IMAGEN_GRABBER $DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Empezamos a copiar los archivos nuevos
-	printf "%-$(($COLUMNS-10+1))s"  " 3. Aplicando nueva configuración"
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Aplicando nueva configuración"
 		ERROR=false
 		docker cp $DOBLEM_DIR/config $TVHEADEND_CONFIG_COM/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -906,7 +902,7 @@ cambioformatoEPG()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Borramos carpeta termporal dobleM
-	printf "%-$(($COLUMNS-10))s"  " 4. Eliminando archivos temporales"
+	printf "%-$(($COLUMNS-10))s"  " 5. Eliminando archivos temporales"
 		rm -rf $DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -948,13 +944,13 @@ cambioformatoPICONS()
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
-				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
-				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
-				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
-				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
-				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
+				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
+				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
+				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
 				0)
-					echo -e "$yellow Escribe la ruta de los picons $end"
+					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
 					break;;
 				*) echo "$opcion1 es una opción inválida";
@@ -984,15 +980,7 @@ cambioformatoPICONS()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $DOBLEM_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
