@@ -559,15 +559,15 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -995,15 +995,15 @@ cambioformatoEPG()
 # Aplicamos cambio formato de EPG
 	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
 		ERROR=false
-		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1201,11 +1201,29 @@ MENU()
 while :
 do
 ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
+	if [ $? -ne 0 ]; then
+	ver_local=···
+	fi
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
+	if [ $ver_local != $ver_web ]; then
+	ver_menu="--->  Nueva versión:$green $ver_web $end"
+	fi
 ver_local_TDT=`cat $TVHEADEND_CONFIG_DIR/dobleM-TDT.ver 2>/dev/null`
+	if [ $? -ne 0 ]; then
+	ver_local_TDT=···
+	fi
 ver_web_TDT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-TDT.ver 2>/dev/null`
+	if [ $ver_local_TDT != $ver_web_TDT ]; then
+	ver_menu_TDT="--->  Nueva versión:$green $ver_web_TDT $end"
+	fi
 ver_local_Pluto=`cat $TVHEADEND_CONFIG_DIR/dobleM-Pluto.ver 2>/dev/null`
+	if [ $? -ne 0 ]; then
+	ver_local_Pluto=···
+	fi
 ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-Pluto.ver 2>/dev/null`
+	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
+	ver_menu_Pluto="--->  Nueva versión:$green $ver_web_Pluto $end"
+	fi
 	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
@@ -1221,9 +1239,9 @@ ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/m
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " Versión SATELITE    instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
-	echo -e " Versión TDTChannels instalada:$red $ver_local_TDT $end --->  Nueva versión:$green $ver_web_TDT $end"
-	echo -e " Versión Pluto.TV    instalada:$red $ver_local_Pluto $end --->  Nueva versión:$green $ver_web_Pluto $end"
+	echo -e " SATELITE ----> Versión instalada:$red $ver_local $end $ver_menu"
+	echo -e " TDTChannels -> Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+	echo -e " Pluto.TV ----> Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
 	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
