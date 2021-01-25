@@ -47,6 +47,7 @@ El script es compatible con los siguientes sistemas:
 - LibreELEC/OpenELEC/CoreELEC
 - Linux
 - Docker
+- Qnap
 
 Notas:
 
