@@ -589,11 +589,7 @@ install()
 			ERROR=true
 		fi
 		#cron y grabber config epggrab
-		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Telegram: t.me/EPG_dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Se ejecuta todos los días a las 12:00\\n00 12 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -882,11 +878,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#cron y grabber config epggrab
-		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Telegram: t.me/EPG_dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Se ejecuta todos los días a las 12:00\\n00 12 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1200,6 +1192,9 @@ MENU()
 {
 while :
 do
+ver_menu=""
+ver_menu_TDT=""
+ver_menu_Pluto=""
 ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local=···
@@ -1239,9 +1234,9 @@ ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/m
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " SATELITE ----> Versión instalada:$red $ver_local $end $ver_menu"
-	echo -e " TDTChannels -> Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV ----> Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " SATELITE    --->  Versión instalada:$red $ver_local $end $ver_menu"
+	echo -e " TDTChannels --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+	echo -e " Pluto.TV    --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
 	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
