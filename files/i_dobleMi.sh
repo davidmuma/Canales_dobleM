@@ -275,10 +275,12 @@ install()
 	clear
 	LIST_ERROR=false
 	GRABBER_ERROR=false
+	CONFIG_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -386,7 +388,7 @@ install()
 			MENU
 		fi
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
-	printf "%-$(($COLUMNS-10))s"  " 3. Preparando instalación"
+	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando instalación"
 		ERROR=false
 		tar -xf "$NOMBRE_LISTA.tar.xz"
 		if [ $? -ne 0 ]; then
@@ -414,7 +416,7 @@ install()
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 			rm -f
 				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
+					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
 					do
 						if [ -f "$fichero" ]; then
@@ -428,7 +430,7 @@ install()
 					# Borramos carpeta channel
 					rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 				fi
-		# Borramos resto de la configuración anterior
+		# Borramos resto de la instalación anterior
 		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10+1))s"  " 4. Instalando lista de canales satélite"
@@ -637,7 +639,7 @@ install()
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		GRABBER_ERROR=true
+		CONFIG_ERROR=true
 		fi
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
@@ -659,13 +661,18 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	echo " Pulsa intro para continuar..."
 	read CAD
 	MENU
+elif [ "$CONFIG_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " PROBLEMA: La configuración de tvheadend no se ha podido realizar de forma automática."
+	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
-	echo
-	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
-	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
@@ -675,9 +682,6 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	MENU
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
-	echo
-	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
-	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
@@ -694,10 +698,12 @@ installIPTV()
 	clear
 	LIST_ERROR=false
 	GRABBER_ERROR=false
+	CONFIG_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -705,7 +711,7 @@ installIPTV()
 		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
 		CONTINUAR="n"
 		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
-			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Desea continuar? [S/n]" CONTINUAR
+			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
 		done
 	fi
 # Pedimos lista a instalar
@@ -769,7 +775,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			MENU
 		fi
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
-	printf "%-$(($COLUMNS-10))s"  " 3. Preparando instalación"
+	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando instalación"
 		ERROR=false
 		tar -xf "$NOMBRE_LISTA.tar.xz"
 		if [ $? -ne 0 ]; then
@@ -797,7 +803,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 			rm -f
 				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
+					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
 					do
 						if [ -f "$fichero" ]; then
@@ -811,7 +817,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 					# Borramos carpeta channel
 					rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 				fi
-		# Borramos resto de la configuración anterior
+		# Borramos resto de la instalación anterior
 		case $opcion1 in
 				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
@@ -961,7 +967,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		GRABBER_ERROR=true
+		CONFIG_ERROR=true
 		fi
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
@@ -979,6 +985,14 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
+elif [ "$CONFIG_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " PROBLEMA: La configuración de tvheadend no se ha podido realizar de forma automática."
+	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
