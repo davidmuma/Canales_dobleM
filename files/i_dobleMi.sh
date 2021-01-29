@@ -76,7 +76,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
 	3) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
@@ -364,7 +364,7 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
-# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM.tar.xz
+# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM?????.tar.xz
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista de canales satélite"
 		ERROR=false
 		rm -rf $TVHEADEND_DOBLEM_DIR && mkdir $TVHEADEND_DOBLEM_DIR && cd $TVHEADEND_DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
@@ -385,6 +385,9 @@ install()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			echo -e "\nLa lista de canales satélite no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			echo
+			echo " Pulsa intro para continuar..."
+			read CAD
 			MENU
 		fi
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
@@ -662,7 +665,7 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	read CAD
 	MENU
 elif [ "$CONFIG_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " PROBLEMA: La configuración de tvheadend no se ha podido realizar de forma automática."
+	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
 	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
@@ -772,6 +775,9 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			echo -e "\nLa lista de canales IPTV no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			echo
+			echo " Pulsa intro para continuar..."
+			read CAD
 			MENU
 		fi
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
@@ -990,7 +996,7 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	read CAD
 	MENU
 elif [ "$CONFIG_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " PROBLEMA: La configuración de tvheadend no se ha podido realizar de forma automática."
+	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
 	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
