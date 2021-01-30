@@ -44,10 +44,11 @@ sh dobleM.sh
 El script es compatible con los siguientes sistemas:
 
 - Synology/XPEnology
+- Qnap
 - LibreELEC/OpenELEC/CoreELEC
+- AlexELEC
 - Linux
 - Docker
-- Qnap
 
 Notas:
 
