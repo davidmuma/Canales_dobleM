@@ -60,14 +60,11 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-#		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
-#		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
+		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log			#TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
+		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log		#TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>$CARPETA_SCRIPT/dobleM.log #"/var/packages/tvheadend-testing/target/var"
-		TVHEADEND_GRABBER_DIR="/usr/local/bin"
-
-		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
-		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
+		TVHEADEND_GRABBER_DIR="/usr/local/bin"	
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
@@ -694,6 +691,9 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
+	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
+	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -702,6 +702,9 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	MENU
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
+	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
