@@ -36,25 +36,28 @@ clear
 	echo
 	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 2)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC/CoreELEC $end(solo para tvheadend 4.3)"
+	echo -e " 2)$cyan Ejecutar instalador para$end$green Qnap $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 3)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
+	echo -e " 3)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC/CoreELEC $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 4)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
+	echo -e " 4)$cyan Ejecutar instalador para$end$green AlexELEC $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 5)$cyan Ejecutar instalador para$end$green Qnap $end(solo para tvheadend 4.3)"
+	echo -e " 5)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
-    echo -e " 6)$red Salir del instalador $end"
+	echo -e " 6)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
+	echo
+    echo -e " 7)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
 	case $opcion in
 		1) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Synology; break;;
-		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Libreelec; break;;
-		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
-		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
-		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Qnap; break;;
-		6) rm -rf i_dobleM*.sh; exit;;
+		2) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Qnap; break;;
+		3) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Libreelec; break;;
+		4) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Alexelec; break;;
+		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
+		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
+		7) rm -rf i_dobleM*.sh; exit;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
