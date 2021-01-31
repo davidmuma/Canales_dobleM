@@ -69,13 +69,13 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
 	2) #LibreELEC/OpenELEC
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
+		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
-		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
+		TVHEADEND_DOBLEM_DIR="/storage/.kodi/dobleM"
 		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
 	3) #AlexElec
