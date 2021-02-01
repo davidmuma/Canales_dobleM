@@ -69,12 +69,12 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
 	2) #LibreELEC/OpenELEC
-		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
+		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
 		TVHEADEND_DOBLEM_DIR="/storage/.kodi/dobleM"
 		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
@@ -353,7 +353,7 @@ install()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) fondo blanco (GitHub)"
+		echo -e " 5) color (GitHub)"
 		echo
 		echo -n " Indica una opción: "
 		read opcion3
@@ -362,7 +362,7 @@ install()
 				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
 				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
@@ -1146,7 +1146,7 @@ cambioformatoPICONS()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) fondo blanco (GitHub)"
+		echo -e " 5) color (GitHub)"
 		echo
 		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
@@ -1158,7 +1158,7 @@ cambioformatoPICONS()
 				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
 				0)
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON

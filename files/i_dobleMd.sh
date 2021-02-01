@@ -275,7 +275,7 @@ install()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) fondo blanco (GitHub)"
+		echo -e " 5) color (GitHub)"
 		echo
 		echo -n " Indica una opción: "
 		read opcion3
@@ -284,7 +284,7 @@ install()
 				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
 				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
@@ -928,7 +928,7 @@ cambioformatoPICONS()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) fondo blanco (GitHub)"
+		echo -e " 5) color (GitHub)"
 		echo
 		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
@@ -940,7 +940,7 @@ cambioformatoPICONS()
 				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
 				0)
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
