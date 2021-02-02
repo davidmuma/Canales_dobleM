@@ -79,7 +79,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;		
 	3) #CoreELEC
 		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
