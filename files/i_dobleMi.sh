@@ -40,17 +40,20 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
 	elif [ "$1" = "Libreelec" ]; then
-		SISTEMA_ELEGIDO="LibreELEC/OpenELEC/CoreELEC"
+		SISTEMA_ELEGIDO="LibreELEC/OpenELEC"
 		SYSTEM=2
+	elif [ "$1" = "Coreelec" ]; then
+		SISTEMA_ELEGIDO="CoreELEC"
+		SYSTEM=3
 	elif [ "$1" = "Alexelec" ]; then
 		SISTEMA_ELEGIDO="AlexELEC"
-		SYSTEM=3
+		SYSTEM=4
 	elif [ "$1" = "Linux" ]; then
 		SISTEMA_ELEGIDO="Linux"
-		SYSTEM=4
+		SYSTEM=5
 	elif [ "$1" = "Qnap" ]; then
 		SISTEMA_ELEGIDO="Qnap"
-		SYSTEM=5
+		SYSTEM=6
 	fi
 	case $SYSTEM in
 	1) #Synology/XPEnology
@@ -69,16 +72,26 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
 	2) #LibreELEC/OpenELEC
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
+		TVHEADEND_USER="root"
+		TVHEADEND_GROUP="video"
+		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
+		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		;;		
+	3) #CoreELEC
 		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
-		TVHEADEND_DOBLEM_DIR="/storage/.kodi/dobleM"
+		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
-	3) #AlexElec
+	4) #AlexElec
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
@@ -88,7 +101,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
-	4) #Linux
+	5) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
 		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>$CARPETA_SCRIPT/dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
@@ -98,7 +111,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
 		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
 		;;
-	5) #Qnap
+	6) #Qnap
 		TVHEADEND_SERVICE="tvheadend"
 		TVHEADEND_USER="admin"
         TVHEADEND_GROUP="administrators"
@@ -115,19 +128,21 @@ PARAR_TVHEADEND()
 {
 SERVICE_ERROR=false
 	case $SYSTEM in
-		1)
+		1) #Synology/XPEnology
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
 				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				stop -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
-		2)
+		2) #LibreELEC/OpenELEC
 			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		3)
+		3) #CoreELEC
 			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		4)
+		4) #AlexElec
+			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
+		5) #Linux
 			service tvheadend stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend stop
-		5)
+		6) #Qnap
 			/etc/init.d/TVHeadend.sh stop 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
@@ -141,19 +156,21 @@ INICIAR_TVHEADEND()
 {
 SERVICE_ERROR=false
 	case $SYSTEM in
-		1)
+		1) #Synology/XPEnology
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
 				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				start -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
-		2)
+		2) #LibreELEC/OpenELEC
 			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		3)
+		3) #CoreELEC
 			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		4)
+		4) #AlexElec
+			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
+		5) #Linux
 			service tvheadend start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend start
-		5)
+		6) #Qnap
 			/etc/init.d/TVHeadend.sh start 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
