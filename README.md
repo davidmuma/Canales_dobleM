@@ -45,7 +45,8 @@ El script es compatible con los siguientes sistemas:
 
 - Synology/XPEnology
 - Qnap
-- LibreELEC/OpenELEC/CoreELEC
+- LibreELEC/OpenELEC
+- CoreELEC
 - AlexELEC
 - Linux
 - Docker
