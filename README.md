@@ -34,7 +34,7 @@ Solo debes descargar el script una vez, él se encargará siempre de bajar la ú
 
 Ejecuta el script con el siguiente comando:
 ```
-wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh && sh dobleM.sh
+wget -q https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh ; sh dobleM.sh
 ```
 
 El script es compatible con los siguientes sistemas:
