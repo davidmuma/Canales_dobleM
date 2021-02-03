@@ -1,3 +1,7 @@
+03/02/21
+
+Reorganizadas todas las etiquetas, ahora se generan solamente etiquetas por paises
+
 19/01/21
 
 Añadidos dos canales nuevos de España y eliminados canales que ya no funcionan
