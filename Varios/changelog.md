@@ -1,3 +1,9 @@
+03/02/21
+
+Añadido M. Crimen
+
+Reorganizada lista de canales
+
 21/01/21
 
 Cambiada frecuecia Telesur HD
