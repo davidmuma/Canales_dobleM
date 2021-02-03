@@ -1033,7 +1033,7 @@ limpiezatotal()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>>$CARPETA_SCRIPT/dobleM.log
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/" 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else

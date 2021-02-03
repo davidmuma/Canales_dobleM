@@ -579,7 +579,7 @@ install()
 					done
 				else
 					# Borramos carpeta epggrab/xmltv
-					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/ 2>>$CARPETA_SCRIPT/dobleM.log
+					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ 2>>$CARPETA_SCRIPT/dobleM.log
 				fi
 		cp -r $TVHEADEND_DOBLEM_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
@@ -950,7 +950,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 					done
 				else
 					# Borramos carpeta epggrab/xmltv
-					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/ 2>>$CARPETA_SCRIPT/dobleM.log
+					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ 2>>$CARPETA_SCRIPT/dobleM.log
 				fi
 		cp -r $TVHEADEND_DOBLEM_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
@@ -1236,7 +1236,7 @@ limpiezatotal()
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"
 		cd $TVHEADEND_CONFIG_DIR
-		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
