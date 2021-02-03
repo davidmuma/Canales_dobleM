@@ -1,3 +1,0 @@
-#EXTM3U dobleM https://tttttt.me/EPG_dobleM
-#EXTINF:-1 tvg-id="ENGLISH" tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="UTILIDADES",ENGLISH
-pipe:///var/pru.sh 
