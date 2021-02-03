@@ -9,7 +9,7 @@
 | -	| - | - |
 | Satélite | 03/02/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | 
 | TDT | 17/01/2021 | [ 1.4 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
-| Pluto.TV | 25/01/2021 | [ 1.2 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
+| Pluto.TV | 03/02/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas de como queda.
 
