@@ -32,13 +32,9 @@ Al hacer la instalación de cualquiera de las listas de canales(Satélite o IPTV
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
-Descarga el script en el directorio que quieras
+Ejecuta el script con el siguiente comando:
 ```
-wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh
-```
-y ejecútalo con
-```
-sh dobleM.sh
+wget https://github.com/davidmuma/Canales_dobleM/raw/master/dobleM.sh && sh dobleM.sh
 ```
 
 El script es compatible con los siguientes sistemas:
