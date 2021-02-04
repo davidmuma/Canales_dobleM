@@ -22,7 +22,8 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-# Comprobamos que estén instalados stat, curl y wget
+# Comprobamos que estén instalados curl y wget
+command -v sudo >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'sudo'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 command -v stat >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'stat'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
 command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
@@ -35,25 +36,19 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)" 2>>$CARPETA_SCRIPT/dobleM.log
 	fi
 
-# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC  3-AlexELEC  4-Linux	 5-Qnap
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC   3-Linux	 4-Qnap
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
 	elif [ "$1" = "Libreelec" ]; then
-		SISTEMA_ELEGIDO="LibreELEC/OpenELEC"
+		SISTEMA_ELEGIDO="LibreELEC/OpenELEC/CoreELEC"
 		SYSTEM=2
-	elif [ "$1" = "Coreelec" ]; then
-		SISTEMA_ELEGIDO="CoreELEC"
-		SYSTEM=3
-	elif [ "$1" = "Alexelec" ]; then
-		SISTEMA_ELEGIDO="AlexELEC"
-		SYSTEM=4
 	elif [ "$1" = "Linux" ]; then
 		SISTEMA_ELEGIDO="Linux"
-		SYSTEM=5
+		SYSTEM=3
 	elif [ "$1" = "Qnap" ]; then
 		SISTEMA_ELEGIDO="Qnap"
-		SYSTEM=6
+		SYSTEM=4
 	fi
 	case $SYSTEM in
 	1) #Synology/XPEnology
@@ -63,13 +58,16 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		else
 			SERVICES_MANAGEMENT="NEW"
 		fi
-		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log			#TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
-		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log		#TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
+#		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"sc-tvheadend-testing"
+#		TVHEADEND_GROUP="$(id -gn $TVHEADEND_USER)" 2>>$CARPETA_SCRIPT/dobleM.log #"users"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/var/packages/$(ls /var/packages/ | grep tvheadend)/target/var" 2>>$CARPETA_SCRIPT/dobleM.log #"/var/packages/tvheadend-testing/target/var"
-		TVHEADEND_GRABBER_DIR="/usr/local/bin"	
+		TVHEADEND_GRABBER_DIR="/usr/local/bin"
+
+		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
+		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 		;;
 	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -79,29 +77,9 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
-		;;		
-	3) #CoreELEC
-		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
-		TVHEADEND_USER="root"
-		TVHEADEND_GROUP="video"
-		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
-		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 		;;
-	4) #AlexElec
-		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
-		TVHEADEND_USER="root"
-		TVHEADEND_GROUP="video"
-		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.config/tvheadend" 2>>$CARPETA_SCRIPT/dobleM.log
-		TVHEADEND_GRABBER_DIR="/storage/.config/tvheadend/bin" 2>>$CARPETA_SCRIPT/dobleM.log
-		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
-		;;
-	5) #Linux
+	3) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
 		TVHEADEND_USER="$(cut -d: -f1 /etc/passwd | grep -E 'tvheadend|hts')" 2>>$CARPETA_SCRIPT/dobleM.log #"hts"
 		TVHEADEND_GROUP="video" #"$(id -gn $TVHEADEND_USER)"
@@ -109,9 +87,9 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 		;;
-	6) #Qnap
+	4) #Qnap
 		TVHEADEND_SERVICE="tvheadend"
 		TVHEADEND_USER="admin"
         TVHEADEND_GROUP="administrators"
@@ -119,7 +97,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
         TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
         TVHEADEND_GRABBER_DIR="/usr/bin"
 		TVHEADEND_DOBLEM_DIR="$TVHEADEND_CONFIG_DIR/dobleM"
-		FFMPEG_COMMAND="/share/CACHEDEV1_DATA/.qpkg/ffmpeg/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_COMMAND="/share/CACHEDEV1_DATA/.qpkg/Qffmpeg/bin/ffmpeg -loglevel fatal -probesize 10M -analyzeduration 0 -fpsprobesize 0 -i \"\$1\" -vcodec copy -acodec copy -f mpegts pipe:1"
 		;;
 	esac
 
@@ -128,21 +106,17 @@ PARAR_TVHEADEND()
 {
 SERVICE_ERROR=false
 	case $SYSTEM in
-		1) #Synology/XPEnology
+		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
 				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				stop -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
-		2) #LibreELEC/OpenELEC
+		2)
 			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		3) #CoreELEC
-			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		4) #AlexElec
-			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		5) #Linux
+		3)
 			service tvheadend stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend stop
-		6) #Qnap
+		4)
 			/etc/init.d/TVHeadend.sh stop 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
@@ -156,21 +130,17 @@ INICIAR_TVHEADEND()
 {
 SERVICE_ERROR=false
 	case $SYSTEM in
-		1) #Synology/XPEnology
+		1)
 			if [ "$SERVICES_MANAGEMENT" = "OLD" ]; then
 				"/var/packages/$(ls /var/packages/ | grep tvheadend)/scripts/start-stop-status" start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1
 			else
 				start -q $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log
 			fi;;
-		2) #LibreELEC/OpenELEC
+		2)
 			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		3) #CoreELEC
-			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		4) #AlexElec
-			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
-		5) #Linux
+		3)
 			service tvheadend start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend start
-		6) #Qnap
+		4)
 			/etc/init.d/TVHeadend.sh start 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
@@ -306,12 +276,10 @@ install()
 	clear
 	LIST_ERROR=false
 	GRABBER_ERROR=false
-	CONFIG_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -370,16 +338,16 @@ install()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) color (GitHub)"
+		echo -e " 5) fondo blanco (GitHub)"
 		echo
 		echo -n " Indica una opción: "
 		read opcion3
 		case $opcion3 in
-				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
-				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
-				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
-				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
+				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
+				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
+				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
+				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
+				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
 				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
@@ -395,7 +363,7 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
-# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM?????.tar.xz
+# Preparamos TVHEADEND_DOBLEM_DIR y descargamos el fichero dobleM.tar.xz
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista de canales satélite"
 		ERROR=false
 		rm -rf $TVHEADEND_DOBLEM_DIR && mkdir $TVHEADEND_DOBLEM_DIR && cd $TVHEADEND_DOBLEM_DIR 2>>$CARPETA_SCRIPT/dobleM.log
@@ -403,10 +371,6 @@ install()
 			ERROR=true
 		fi
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -421,51 +385,37 @@ install()
 			read CAD
 			MENU
 		fi
-# Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
-	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando instalación"
-		ERROR=false
-		tar -xf "$NOMBRE_LISTA.tar.xz"
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
+	# Descomprimimos el tar y marcamos con dobleM????? al final de todos los archivos de la carpeta /channel/config/ y /channel/tag/
+	tar -xf "$NOMBRE_LISTA.tar.xz"
 		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -eq 0 -a $ERROR = "false" ]; then
+# Borramos configuración actual menos "channel" y "epggrab" de tvheadend
+	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
+		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-			LIST_ERROR=true
 		fi
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
-			rm -f
-				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
-					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
-					do
-						if [ -f "$fichero" ]; then
-							ultima=$(tail -n 1 $fichero)
-							if [ "$ultima" = $NOMBRE_LISTA ]; then
-							rm -f $fichero
-							fi
+		rm -f
+			if [ "$1" != "ALL" ];then
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
+				for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
+				do
+					if [ -f "$fichero" ]; then
+						ultima=$(tail -n 1 $fichero)
+						if [ "$ultima" = $NOMBRE_LISTA ]; then
+						rm -f $fichero
 						fi
-					done
-				else
-					# Borramos carpeta channel
-					rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
-				fi
-		# Borramos resto de la instalación anterior
-		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+					fi
+				done
+			else
+				# Borramos todos los canales y tags
+				rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
+			fi
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10+1))s"  " 4. Instalando lista de canales satélite"
 		ERROR=false
@@ -546,43 +496,22 @@ install()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-# Marcamos con dobleM????? al final todos los archivos de la carpeta /epggrab/xmltv/channels/. Copiamos carpeta epggrab. Copiamos grabber. Damos permisos.
+# Instalación de grabber. Borramos carpeta epggrab y grabber viejo. Copiamos carpeta epggrab y grabber nuevo. Damos permisos.
 	printf "%-$(($COLUMNS-10+1))s"  " 6. Instalando grabber para satélite"
 		if [ -f /usr/bin/tv_grab_EPG_$NOMBRE_LISTA -a $SYSTEM -eq 1 ]; then
 			 rm /usr/bin/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		ERROR=false
-		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
-			rm -f
-				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
-					for fichero in $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/*
-					do
-						if [ -f "$fichero" ]; then
-							ultima=$(tail -n 1 $fichero)
-							if [ "$ultima" = $NOMBRE_LISTA ]; then
-							rm -f $fichero
-							fi
-						fi
-					done
-				else
-					# Borramos carpeta epggrab/xmltv
-					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ 2>>$CARPETA_SCRIPT/dobleM.log
-				fi
 		cp -r $TVHEADEND_DOBLEM_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
+			ERROR=true
+		fi
+		sed -i -e "s/\"modid\": .*/\"modid\": \"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\",/g" -e "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
@@ -603,7 +532,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		cp -r $TVHEADEND_DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		cp -r $TVHEADEND_DOBLEM_DIR/grabber/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -630,15 +559,15 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -655,12 +584,24 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		#cron y grabber config epggrab
-		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Telegram: t.me/EPG_dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -668,12 +609,16 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},#g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s/\"modules\": {/\"modules\": {\n\t\t\"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},/g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		CONFIG_ERROR=true
+		GRABBER_ERROR=true
 		fi
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
@@ -691,14 +636,6 @@ install()
 if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
-	echo
-	echo " Pulsa intro para continuar..."
-	read CAD
-	MENU
-elif [ "$CONFIG_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
-	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
-	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
@@ -738,12 +675,10 @@ installIPTV()
 	clear
 	LIST_ERROR=false
 	GRABBER_ERROR=false
-	CONFIG_ERROR=false
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Es necesario que entres en la interfaz web del tvheadend y te dirijas al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
 		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
@@ -751,7 +686,7 @@ installIPTV()
 		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
 		CONTINUAR="n"
 		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
-			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
+			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Desea continuar? [S/n]" CONTINUAR
 		done
 	fi
 # Pedimos lista a instalar
@@ -802,10 +737,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -817,36 +748,18 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			read CAD
 			MENU
 		fi
-# Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
-	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando instalación"
-		ERROR=false
-		tar -xf "$NOMBRE_LISTA.tar.xz"
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
+	# Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ y /channel/tag/
+	tar -xf "$NOMBRE_LISTA.tar.xz"
 		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -eq 0 -a $ERROR = "false" ]; then
-			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
-		else
-			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-			LIST_ERROR=true
-		fi
-		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+# Borramos configuración actual menos "channel" y "epggrab" de tvheadend
+	printf "%-$(($COLUMNS-10+1))s"  " 3. Eliminando instalación anterior"
+			# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 			rm -f
 				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM
 					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
 					do
 						if [ -f "$fichero" ]; then
@@ -857,14 +770,18 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 						fi
 					done
 				else
-					# Borramos carpeta channel
-					rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
+					# Borramos todos los canales y tags
+					rm -rf $TVHEADEND_CONFIG_DIR/channel/
 				fi
-		# Borramos resto de la instalación anterior
 		case $opcion1 in
 				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 		esac
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
 		ERROR=false
@@ -917,43 +834,22 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-# Marcamos con dobleM????? al final todos los archivos de la carpeta /epggrab/xmltv/channels/. Copiamos carpeta epggrab. Copiamos grabber. Damos permisos.
+# Instalación de grabber. Borramos grabber viejo. Copiamos grabber nuevo. Damos permisos.
 	printf "%-$(($COLUMNS-10))s"  " 6. Instalando grabber para IPTV"
 		if [ -f /usr/bin/tv_grab_EPG_$NOMBRE_LISTA -a $SYSTEM -eq 1 ]; then
 			 rm /usr/bin/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		fi
 		ERROR=false
-		sed -i '/^\}$/,$d' $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "\$a}\n$NOMBRE_LISTA" $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $TVHEADEND_DOBLEM_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
-			rm -f
-				if [ "$1" != "ALL" ];then
-					# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
-					for fichero in $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/*
-					do
-						if [ -f "$fichero" ]; then
-							ultima=$(tail -n 1 $fichero)
-							if [ "$ultima" = $NOMBRE_LISTA ]; then
-							rm -f $fichero
-							fi
-						fi
-					done
-				else
-					# Borramos carpeta epggrab/xmltv
-					rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ 2>>$CARPETA_SCRIPT/dobleM.log
-				fi
 		cp -r $TVHEADEND_DOBLEM_DIR/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 -a $SYSTEM -ne 2 ]; then
+			ERROR=true
+		fi
+		sed -i -e "s/\"modid\": .*/\"modid\": \"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\",/g" -e "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
@@ -974,7 +870,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		cp -r $TVHEADEND_DOBLEM_DIR/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		cp -r $TVHEADEND_DOBLEM_DIR/grabber/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -997,7 +893,11 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#cron y grabber config epggrab
-		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i -e '/channel_rename/d' -e '/channel_renumber/d' -e '/channel_reicon/d' -e '/epgdb_periodicsave/d' -e '/epgdb_saveafterimport/d' -e '/cron/d' -e '/int_initial/d' -e '/ota_initial/d' -e '/ota_cron/d' -e '/ota_timeout/d' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '2i\\t"channel_rename": false,\n\t"channel_renumber": false,\n\t"channel_reicon": false,\n\t"epgdb_periodicsave": 0,\n\t"epgdb_saveafterimport": true,\n\t"cron": "# Se ejecuta todos los días a las 8:10\\n10 8 * * *",\n\t"int_initial": true,\n\t"ota_initial": false,\n\t"ota_cron": "# Configuración modificada por dobleM\\n# Telegram: t.me/EPG_dobleM",\n\t"ota_timeout": 600,' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1005,12 +905,16 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},#g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s/\"modules\": {/\"modules\": {\n\t\t\"TVHEADEND_GRABBER_DIR\/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},/g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,TVHEADEND_GRABBER_DIR,$TVHEADEND_GRABBER_DIR,g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
 		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		CONFIG_ERROR=true
+		GRABBER_ERROR=true
 		fi
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
@@ -1028,14 +932,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
 	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
-	echo
-	echo " Pulsa intro para continuar..."
-	read CAD
-	MENU
-elif [ "$CONFIG_ERROR" = true ]; then
-	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
-	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
-	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
@@ -1069,7 +965,7 @@ cambioformatoEPG()
 	NOMBRE_LISTA=dobleM
 	clear
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
+	echo -e "$blue ###        Iniciando cambio de formato de la guía de programación         ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
 	echo
@@ -1094,7 +990,7 @@ cambioformatoEPG()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige que tipo de imágenes aparecerán en la guía: $end"
+		echo -e "$yellow Elige que tipo de imágenes quieres que aparezcan en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
 		echo
@@ -1114,15 +1010,15 @@ cambioformatoEPG()
 # Aplicamos cambio formato de EPG
 	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
 		ERROR=false
-		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"language": \[/"language": \[\ndobleM/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/dobleM/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s/\"language\": \[/\"language\": \[$FORMATO_IDIOMA_EPG\],/g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1163,7 +1059,7 @@ cambioformatoPICONS()
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) color (GitHub)"
+		echo -e " 5) fondo blanco (GitHub)"
 		echo
 		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
@@ -1171,13 +1067,13 @@ cambioformatoPICONS()
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
-				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
-				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
-				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
-				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
+				1) RUTA_PICON='file://TVHEADEND_CONFIG_DIR/picons'; break;;
+				2) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM'; break;;
+				3) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo'; break;;
+				4) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent'; break;;
+				5) RUTA_PICON='https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/fondoblanco'; break;;
 				0)
-					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
+					echo -e "$yellow Escribe la ruta de los picons $end"
 					read RUTA_PICON
 					break;;
 				*) echo "$opcion1 es una opción inválida";
@@ -1203,7 +1099,15 @@ cambioformatoPICONS()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's/"prefer_picon": .*,/"prefer_picon": true,\n\t"chiconscheme": 0,\n\t"piconpath": "RUTA_PICON",\n\t"piconscheme": 0,/g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,RUTA_PICON,$RUTA_PICON,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s,TVHEADEND_CONFIG_DIR,$TVHEADEND_CONFIG_DIR,g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1236,7 +1140,7 @@ limpiezatotal()
 # Borramos carpeta "channel" de tvheadend
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Borrando toda la configuración de tvheadend"
 		cd $TVHEADEND_CONFIG_DIR
-		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/ $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $TVHEADEND_CONFIG_DIR/bouquet/ $TVHEADEND_CONFIG_DIR/channel/ $TVHEADEND_CONFIG_DIR/epggrab/xmltv $TVHEADEND_CONFIG_DIR/input/ $TVHEADEND_CONFIG_DIR/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1319,33 +1223,12 @@ MENU()
 {
 while :
 do
-ver_menu=""
-ver_menu_TDT=""
-ver_menu_Pluto=""
 ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
-	if [ $? -ne 0 ]; then
-	ver_local=···
-	fi
 ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
-	if [ $ver_local != $ver_web ]; then
-	ver_menu="--->  Nueva versión:$green $ver_web $end"
-	fi
 ver_local_TDT=`cat $TVHEADEND_CONFIG_DIR/dobleM-TDT.ver 2>/dev/null`
-	if [ $? -ne 0 ]; then
-	ver_local_TDT=···
-	fi
 ver_web_TDT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-TDT.ver 2>/dev/null`
-	if [ $ver_local_TDT != $ver_web_TDT ]; then
-	ver_menu_TDT="--->  Nueva versión:$green $ver_web_TDT $end"
-	fi
 ver_local_Pluto=`cat $TVHEADEND_CONFIG_DIR/dobleM-Pluto.ver 2>/dev/null`
-	if [ $? -ne 0 ]; then
-	ver_local_Pluto=···
-	fi
 ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-Pluto.ver 2>/dev/null`
-	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
-	ver_menu_Pluto="--->  Nueva versión:$green $ver_web_Pluto $end"
-	fi
 	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
@@ -1361,9 +1244,9 @@ ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/m
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " SATELITE    --->  Versión instalada:$red $ver_local $end $ver_menu"
-	echo -e " TDTChannels --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV    --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " Versión SATELITE    instalada:$red $ver_local $end --->  Nueva versión:$green $ver_web $end"
+	echo -e " Versión TDTChannels instalada:$red $ver_local_TDT $end --->  Nueva versión:$green $ver_web_TDT $end"
+	echo -e " Versión Pluto.TV    instalada:$red $ver_local_Pluto $end --->  Nueva versión:$green $ver_web_Pluto $end"
 	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
