@@ -1,3 +1,7 @@
+06/02/2021
+
+Cambio de las URLs
+
 03/02/21
 
 Reorganizadas todas las etiquetas, ahora se generan solamente etiquetas por paises
