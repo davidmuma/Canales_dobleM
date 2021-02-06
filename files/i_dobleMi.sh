@@ -1359,7 +1359,7 @@ ver_local_PlutoVOD_ES=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoVOD_ES.ver 2>/dev/n
 	ver_local_PlutoVOD_ES=···
 	fi
 ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-PlutoVOD_ES.ver 2>/dev/null`
-	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
+	if [ $ver_local_PlutoVOD_ES != $ver_web_PlutoVOD_ES ]; then
 	ver_menu_PlutoVOD_ES="--->  Nueva versión:$green $ver_web_PlutoVOD_ES $end"
 	fi
 	clear
