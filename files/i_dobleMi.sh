@@ -769,14 +769,19 @@ installIPTV()
 	while :
 	do
 		echo -e "$yellow Elige la lista IPTV que quieres instalar: $end"
+		echo
 		echo -e " 1) LaQuay/TDTChannels"
+		echo
 		echo -e " 2) Pluto.TV"
+		echo
+		echo -e " 2) Pluto.TV VOD español" 
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-Pluto; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
@@ -1324,6 +1329,7 @@ do
 ver_menu=""
 ver_menu_TDT=""
 ver_menu_Pluto=""
+ver_menu_PlutoVOD_ES=""
 ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local=···
@@ -1347,6 +1353,13 @@ ver_local_Pluto=`cat $TVHEADEND_CONFIG_DIR/dobleM-Pluto.ver 2>/dev/null`
 ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-Pluto.ver 2>/dev/null`
 	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
 	ver_menu_Pluto="--->  Nueva versión:$green $ver_web_Pluto $end"
+ver_local_PlutoVOD_ES=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoVOD_ES.ver 2>/dev/null`
+	if [ $? -ne 0 ]; then
+	ver_local_PlutoVOD_ES=···
+	fi
+ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-PlutoVOD_ES.ver 2>/dev/null`
+	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
+	ver_menu_PlutoVOD_ES="--->  Nueva versión:$green $ver_web_PlutoVOD_ES $end"
 	fi
 	clear
 	echo -e "$blue ############################################################################# $end"
@@ -1363,9 +1376,10 @@ ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/m
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " SATELITE    --->  Versión instalada:$red $ver_local $end $ver_menu"
-	echo -e " TDTChannels --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV    --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " SATELITE     --->  Versión instalada:$red $ver_local $end $ver_menu"
+	echo -e " TDTChannels  --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+	echo -e " Pluto.TV     --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " Pluto.TV VOD --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
