@@ -774,14 +774,14 @@ installIPTV()
 		echo
 		echo -e " 2) Pluto.TV"
 		echo
-		echo -e " 2) Pluto.TV VOD español" 
+		echo -e " 3) Pluto.TV VOD español" 
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-Pluto; break;;
-				2) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
