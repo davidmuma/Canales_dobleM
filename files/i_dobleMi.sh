@@ -71,7 +71,8 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_GRABBER_DIR="/usr/local/bin"
 		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
-		FFMPEG_COMMAND="/usr/local/ffmpeg/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_DIR="/usr/local/ffmpeg/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
 		;;
 	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -80,8 +81,9 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
-		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
-		;;		
+		FFMPEG_DIR="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
+		;;
 	3) #CoreELEC
 		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
 		TVHEADEND_USER="root"
@@ -89,7 +91,8 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
-		FFMPEG_COMMAND="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_DIR="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
 		;;
 	4) #AlexElec
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -98,7 +101,8 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/storage/.config/tvheadend" 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_GRABBER_DIR="/storage/.config/tvheadend/bin" 2>>$CARPETA_SCRIPT/dobleM.log
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_DIR="/usr/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
 		;;
 	5) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
@@ -107,7 +111,8 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin"
-		FFMPEG_COMMAND="/usr/bin/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_DIR="/usr/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
 		;;
 	6) #Qnap
 		TVHEADEND_SERVICE="tvheadend"
@@ -116,7 +121,8 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
         TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
         TVHEADEND_GRABBER_DIR="/usr/bin"
-		FFMPEG_COMMAND="/share/CACHEDEV1_DATA/.qpkg/ffmpeg/ffmpeg -loglevel fatal -i \"\$1\" -c copy -f mpegts pipe:1"
+		FFMPEG_DIR="/share/CACHEDEV1_DATA/.qpkg/ffmpeg/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -c copy -f mpegts pipe:1'
 		;;
 	esac
 
@@ -261,7 +267,7 @@ backup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -324,11 +330,11 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
 	do
-		echo -e "$yellow Elige el formato de la guía de programación: $end"
+		echo -e "$cyan Elige el formato de la guía de programación: $end"
 		echo -e " 1) Guía con etiquetas de colores"
 		echo -e " 2) Guía sin etiquetas de colores"
 		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
@@ -347,7 +353,7 @@ install()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige que tipo de imágenes aparecerán en la guía: $end"
+		echo -e "$cyan Elige que tipo de imágenes aparecerán en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
 		echo
@@ -362,7 +368,7 @@ install()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
+		echo -e "$cyan Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
 		echo -e " 1) dobleM (local)"
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
@@ -386,7 +392,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -627,32 +633,36 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language":.*#"language": [\n\t idomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"epg_compress":.*#idomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi
-		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		fi		
+		sed -i '/idomas_inicio/,/idomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi
+		fi			
+		sed -i "s#\"language\":.*#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi			
 		#picons config tvheadend
-		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"http_server_name":.*#picons_final \n\t&#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/picons_inicio/,/picons_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"prefer_picon\".*#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -759,17 +769,22 @@ installIPTV()
 	echo -e "$blue ###     $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son       ### $end"
 	echo -e "$blue ###     de terceros y pueden dejar de funcionar en cualquier momento      ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	echo -e " Ruta binario ffmpeg:$yellow $FFMPEG_DIR $end"
+	echo -e " Comandos     ffmpeg:$yellow $FFMPEG_COMMAND $end"
+	echo _______________________________________________________________________________
 	echo
 	while :
 	do
-		echo -e "$yellow Elige la lista IPTV que quieres instalar: $end"
+		echo -e "$cyan Elige la lista IPTV que quieres instalar: $end"
 		echo
 		echo -e " 1) LaQuay/TDTChannels"
-		echo
 		echo -e " 2) Pluto.TV"
+		echo -e " 3) Pluto.TV VOD español"
 		echo
-		echo -e " 3) Pluto.TV VOD español" 
+		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
+		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
@@ -777,6 +792,18 @@ installIPTV()
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-Pluto; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				a)  clear
+					echo -e "Introduzca su ruta para el binario ffmpeg"
+					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
+					echo
+					read FFMPEG_DIR
+					installIPTV;;
+				b)	clear
+					echo -e "Introduzca sus comandos para ffmpeg"
+					echo -e "$yellow$FFMPEG_COMMAND$end y pulse INTRO"
+					echo
+					read FFMPEG_COMMAND
+					installIPTV;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
@@ -785,7 +812,7 @@ installIPTV()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###             Iniciando instalación de canales IPTV y EPG               ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end con lista$yellow $NOMBRE_LISTA$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
 command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
@@ -871,7 +898,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
 		ERROR=false
-		sed -i "s#FFMPEG_TEMP#$FFMPEG_COMMAND#g" $CARPETA_DOBLEM/dobleM-FFMPEG.sh && chmod +rx $CARPETA_DOBLEM/dobleM-FFMPEG.sh && cp -r $CARPETA_DOBLEM/dobleM-FFMPEG.sh /var 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#FFMPEG_TEMP#$FFMPEG_DIR $FFMPEG_COMMAND#g" $CARPETA_DOBLEM/dobleM-FFMPEG.sh && chmod +rx $CARPETA_DOBLEM/dobleM-FFMPEG.sh && cp -r $CARPETA_DOBLEM/dobleM-FFMPEG.sh /var 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1074,11 +1101,11 @@ cambioformatoEPG()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
 	do
-		echo -e "$yellow Elige el formato de la guía de programación: $end"
+		echo -e "$cyan Elige el formato de la guía de programación: $end"
 		echo -e " 1) Guía con etiquetas de colores"
 		echo -e " 2) Guía sin etiquetas de colores"
 		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
@@ -1097,7 +1124,7 @@ cambioformatoEPG()
 		echo
 	while :
 	do
-		echo -e "$yellow Elige que tipo de imágenes aparecerán en la guía: $end"
+		echo -e "$cyan Elige que tipo de imágenes aparecerán en la guía: $end"
 		echo -e " 1) Imágenes tipo poster"
 		echo -e " 2) Imágenes tipo fanart"
 		echo
@@ -1117,15 +1144,19 @@ cambioformatoEPG()
 # Aplicamos cambio formato de EPG
 	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
 		ERROR=false
-		sed -i 's#"language": \[#"language": \[\ndobleM_FORMATO_IDIOMA_EPG#g' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language":.*#"language": [\n\t idomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/dobleM_FORMATO_IDIOMA_EPG/,/],/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"epg_compress":.*#idomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi
-		sed -i "s#\"language\": \[#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		fi		
+		sed -i '/idomas_inicio/,/idomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi			
+		sed -i "s#\"language\":.*#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1157,18 +1188,18 @@ cambioformatoPICONS()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###           Iniciando cambio del formato/ruta de los picons             ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
 	do
-		echo -e "$yellow Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
+		echo -e "$cyan Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
 		echo -e " 1) dobleM (local)"
 		echo -e " 2) dobleM (GitHub)"
 		echo -e " 3) reflejo (GitHub)"
 		echo -e " 4) transparent (GitHub)"
 		echo -e " 5) color (GitHub)"
 		echo
-		echo -e " 0)$yellow Introducir la ruta de los picons manualmente $end"
+		echo -e " a)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
 		echo
 		echo -n " Indica una opción: "
@@ -1179,7 +1210,7 @@ cambioformatoPICONS()
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
 				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
-				0)
+				a)
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
 					break;;
@@ -1194,19 +1225,19 @@ cambioformatoPICONS()
 # Aplicamos cambio formato picons
 	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato/ruta picons"
 		ERROR=false
-		sed -i '/"chiconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconpath": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"http_server_name":.*#picons_final \n\t&#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i '/"piconscheme": .*,/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/picons_inicio/,/picons_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"prefer_picon\": .*,#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i "s#\"prefer_picon\".*#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1230,7 +1261,7 @@ limpiezatotal()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -1274,7 +1305,7 @@ resbackup()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###           Iniciando restauración de la copia de seguridad             ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$yellow $SISTEMA_ELEGIDO$end en$yellow $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -1366,22 +1397,20 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e "$blue ###      $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios      ### $end"
 	echo -e "$blue ###      de instalación sean correctos, en caso de duda no continues      ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo
-	echo -e " Sistema seleccionado:$green $SISTEMA_ELEGIDO $end"
-	echo -e " Sistema    detectado:$green $SYSTEM_INFO $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " SATELITE     --->  Versión instalada:$red $ver_local $end $ver_menu"
-	echo -e " TDTChannels  --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV     --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
-	echo -e " Pluto.TV VOD --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
+	echo -e " SATELITE      --->  Versión instalada:$red $ver_local $end $ver_menu"
+	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 	echo _______________________________________________________________________________
 	echo
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
-	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end(TDTChannels - Pluto.TV) $end"
+	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 5)$cyan Cambiar el formato/ruta de los picons $end"
 	echo -e " 6)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
@@ -1390,7 +1419,8 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
     echo -e " 8)$magenta Volver $end"
     echo -e " 9)$red Salir $end"
 	echo
-	echo -e " 0)$green Cambiar las rutas$end$yellow $TVHEADEND_CONFIG_DIR$end$green y$end$yellow $TVHEADEND_GRABBER_DIR $end"
+	echo -e " a)$green Cambiar la ruta$end$yellow $TVHEADEND_CONFIG_DIR $end"
+	echo -e " b)$green Cambiar la ruta$end$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
@@ -1404,14 +1434,18 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		7) clear && resbackup;;
 		8) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
 		9) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
-		0) clear
-			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_CONFIG_DIR$end"
-			read TVHEADEND_CONFIG_DIR
+		a)  clear
+			echo -e "Introduzca su ruta para el directorio"
+			echo -e "$yellow$TVHEADEND_CONFIG_DIR$end y pulse INTRO"
 			echo
-			echo -e "Introduzca la ruta de su directorio$yellow $TVHEADEND_GRABBER_DIR$end"
+			read TVHEADEND_CONFIG_DIR
+			MENU;;
+		b)	clear
+			echo -e "Introduzca su ruta para el directorio"
+			echo -e "$yellow$TVHEADEND_GRABBER_DIR$end y pulse INTRO"
+			echo
 			read TVHEADEND_GRABBER_DIR
-			MENU
-			;;
+			MENU;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
