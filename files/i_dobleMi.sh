@@ -260,6 +260,26 @@ else
 	TVHEADEND_PICONS_PERMISSIONS=$TVHEADEND_PERMISSIONS
 fi
 
+# COMPROBAR QUE EXISTE CONFIG EN EPGGRAB
+comprobarconfigepggrab()
+{
+	clear
+	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
+		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
+		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
+		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
+		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
+		printf "\t%s$blue%s$end\n\t%s\n" "3- Finalmente, pulsa sobre el botón superior " "\"Guardar\"" "  (en inglés \"Save\")"
+		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
+		CONTINUAR="n"
+		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
+			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
+		done
+	fi
+}
+
 # COPIA DE SEGURIDAD
 backup()
 {
@@ -306,25 +326,44 @@ backup()
 # INSTALADOR SATELITE
 install()
 {
-	clear
+# Comprobamos que exista el fichero config en la carpeta epggrab
+	comprobarconfigepggrab
+# Reiniciamos variables ERROR
 	LIST_ERROR=false
 	GRABBER_ERROR=false
 	CONFIG_ERROR=false
-# Comprobamos que exista el fichero config en la carpeta epggrab
-	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
-		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
-		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
-		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
-		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
-		printf "\t%s$blue%s$end\n\t%s\n" "3- Finalmente, pulsa sobre el botón superior " "\"Guardar\"" "  (en inglés \"Save\")"
-		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
-		CONTINUAR="n"
-		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
-			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
-		done
-	fi
+	SERVICE_ERROR=false
+# Pedimos lista a instalar
+	NOMBRE_LISTA=dobleM
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                 Elección de lista satélite a instalar                 ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$cyan Elige la lista satélite que quieres instalar: $end"
+		echo
+		echo -e " 1) TODO (Astra individual + colectiva + Lista de canales SD"
+		echo
+		echo -e " 2) Astra individual + Lista de canales SD"
+		echo -e " 3) Astra colectiva + Lista de canales SD"
+		echo
+		echo -e " 4) Astra individual"
+		echo -e " 5) Astra colectiva"
+		echo
+		echo -n " Indica una opción: "
+		read opcionsat
+		case $opcionsat in
+				1) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #No borramos nada
+				2) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra individual y Astra SD
+				3) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra Colectiva y Astra SD
+				4) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c'; break;; #borramos todo menos Astra individual
+				5) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2'; break;; #borramos todo menos Astra Colectiva 
+				*) echo "$opcionsat es una opción inválida";
+		esac
+	done	
 # Pedimos el formato de la guía de programación
 	clear
 	echo -e "$blue ############################################################################# $end"
@@ -387,7 +426,6 @@ install()
 		esac
 	done
 # Iniciamos instalación satélite
-	NOMBRE_LISTA=dobleM
 	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
@@ -424,13 +462,17 @@ install()
 			read CAD
 			MENU
 		fi
-# Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
+# Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando instalación"
 		ERROR=false
 		tar -xf "$NOMBRE_LISTA.tar.xz"
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		grep -L $LIMPIAR_CANALES_SAT $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi		
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -633,15 +675,15 @@ install()
 	printf "%-$(($COLUMNS-10))s"  " 7. Configurando tvheadend"
 		ERROR=false
 		#Idiomas EPG config tvheadend
-		sed -i 's#"language":.*#"language": [\n\t idomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language":.*#"language": [\n\t idiomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's#"epg_compress":.*#idomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"epg_compress":.*#idiomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi		
-		sed -i '/idomas_inicio/,/idomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/idiomas_inicio/,/idiomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi			
@@ -742,25 +784,13 @@ fi
 # INSTALADOR IPTV
 installIPTV()
 {
-	clear
+# Comprobamos que exista el fichero config en la carpeta epggrab
+	comprobarconfigepggrab
+# Reiniciamos variables ERROR
 	LIST_ERROR=false
 	GRABBER_ERROR=false
 	CONFIG_ERROR=false
-# Comprobamos que exista el fichero config en la carpeta epggrab
-	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
-		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
-		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
-		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
-		printf "\t%s$blue%s$end\n\t%s\n" "2- En el menú lateral desmarca la casilla " "\"Habilitado\"" "  (en inglés \"Enabled\")"
-		printf "\t%s$blue%s$end\n\t%s\n" "3- Finalmente, pulsa sobre el botón superior " "\"Guardar\"" "  (en inglés \"Save\")"
-		printf "\n%s\n\n" "Repite esta operación con todos los grabber que estén habilitados"
-		CONTINUAR="n"
-		while [ "$CONTINUAR" != "s" ] && [ "$CONTINUAR" != "S" ] && [ "$CONTINUAR" != "" ]; do
-			read -p "Una vez haya realizado este proceso ya puedes continuar. ¿Deseas continuar? [S/n]" CONTINUAR
-		done
-	fi
+	SERVICE_ERROR=false
 # Pedimos lista a instalar
 	clear
 	echo -e "$blue ############################################################################# $end"
@@ -787,8 +817,8 @@ installIPTV()
 		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
 		echo
 		echo -n " Indica una opción: "
-		read opcion1
-		case $opcion1 in
+		read opcioniptv
+		case $opcioniptv in
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-Pluto; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
@@ -804,7 +834,7 @@ installIPTV()
 					echo
 					read FFMPEG_COMMAND
 					installIPTV;;
-				*) echo "$opcion1 es una opción inválida";
+				*) echo "$opcioniptv es una opción inválida";
 		esac
 	done
 # Iniciamos instalación IPTV
@@ -1144,15 +1174,15 @@ cambioformatoEPG()
 # Aplicamos cambio formato de EPG
 	printf "%-$(($COLUMNS-10+2))s"  " 2. Cambiando formato de la guía de programación"
 		ERROR=false
-		sed -i 's#"language":.*#"language": [\n\t idomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"language":.*#"language": [\n\t idiomas_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i 's#"epg_compress":.*#idomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i 's#"epg_compress":.*#idiomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi		
-		sed -i '/idomas_inicio/,/idomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+		sed -i '/idiomas_inicio/,/idiomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi			
@@ -1423,8 +1453,8 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " b)$green Cambiar la ruta$end$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -n " Indica una opción: "
-	read opcion
-	case $opcion in
+	read opcionmenu
+	case $opcionmenu in
 		1) clear && backup;;
 		2) clear && install;;
 		3) clear && installIPTV;;
@@ -1446,7 +1476,7 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 			echo
 			read TVHEADEND_GRABBER_DIR
 			MENU;;
-		*) echo "$opcion es una opción inválida\n";
+		*) echo "$opcionmenu es una opción inválida\n";
 	esac
 done
 }
