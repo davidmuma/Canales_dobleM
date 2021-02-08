@@ -920,7 +920,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 					rm -rf $TVHEADEND_CONFIG_DIR/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 				fi
 		# Borramos resto de la instalación anterior
-		case $opcion1 in
+		case $opcioniptv in
 				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f801b3c9e6be4260665d32be03908e00/ 2>>$CARPETA_SCRIPT/dobleM.log;;
@@ -1233,8 +1233,8 @@ cambioformatoPICONS()
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
 		echo
 		echo -n " Indica una opción: "
-		read opcion1
-		case $opcion1 in
+		read opcion3
+		case $opcion3 in
 				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
 				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
@@ -1244,7 +1244,7 @@ cambioformatoPICONS()
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
 					break;;
-				*) echo "$opcion1 es una opción inválida";
+				*) echo "$opcion3 es una opción inválida";
 		esac
 	done
 		echo
