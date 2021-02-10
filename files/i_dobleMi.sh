@@ -24,9 +24,9 @@ if [ -z "$COLUMNS" ]; then
 fi
 
 # Comprobamos que estén instalados stat, curl y wget
-command -v stat >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'stat'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
-command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
-command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v stat >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'stat'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
+command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
+command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
 
 # Detectando sistema operativo
 	SYSTEM_DETECTOR="$(uname -a)"
@@ -266,7 +266,7 @@ comprobarconfigepggrab()
 	clear
 	if [ ! -f $TVHEADEND_CONFIG_DIR/epggrab/config ]; then
 		printf "$red%s$end\n\n" "¡No continúes hasta hacer lo siguiente!:"
-		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
+		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end$blue%s$end$blue%s$end\n\t%s\n\n" "Es necesario que la interfaz web de tvheadend esté en modo Experto:" "- " "Configuración"  " >> " "General" " >> " "Base" " -> " "Default view level: Experto" "  (en inglés: Configuration >> General >> Base -> Default view level: Expert)"
 		printf "%s\n\t%s$blue%s$end%s$blue%s$end%s$blue%s$end\n\t%s\n" "Luego dirígete al apartado:" "- " "Configuración"  " >> " "Canal / EPG" " >> " "Módulos para Obtención de Guía" "  (en inglés: Configuration >> Channel / EPG >> EPG Grabber Modules)"
 		printf "\n%s\n" "Una vez estés situado aquí, haz lo siguiente:"
 		printf "\t%s$green%s$end\n" "1- Selecciona el grabber que esté en " "\"Verde\""""
@@ -344,26 +344,23 @@ install()
 	while :
 	do
 		echo -e "$cyan Elige la lista satélite que quieres instalar: $end"
-		echo
-		echo -e " 1) TODO (Astra individual + colectiva + Lista de canales SD"
-		echo
+		echo -e " 1) TODO (Astra individual + comunitaria + Lista de canales SD)"
 		echo -e " 2) Astra individual + Lista de canales SD"
-		echo -e " 3) Astra colectiva + Lista de canales SD"
-		echo
+		echo -e " 3) Astra comunitaria + Lista de canales SD"
 		echo -e " 4) Astra individual"
-		echo -e " 5) Astra colectiva"
+		echo -e " 5) Astra comunitaria"
 		echo
 		echo -n " Indica una opción: "
 		read opcionsat
 		case $opcionsat in
 				1) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #No borramos nada
 				2) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra individual y Astra SD
-				3) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra Colectiva y Astra SD
+				3) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra comunitaria y Astra SD
 				4) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c'; break;; #borramos todo menos Astra individual
-				5) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2'; break;; #borramos todo menos Astra Colectiva 
+				5) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2'; break;; #borramos todo menos Astra comunitaria
 				*) echo "$opcionsat es una opción inválida";
 		esac
-	done	
+	done
 # Pedimos el formato de la guía de programación
 	clear
 	echo -e "$blue ############################################################################# $end"
@@ -383,9 +380,9 @@ install()
 		read opcion1
 		case $opcion1 in
 				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
 				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
-				4) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
+				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
@@ -437,7 +434,7 @@ install()
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
-	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista de canales satélite"
+	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista y grabber para canales satélite"
 		ERROR=false
 		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -472,7 +469,7 @@ install()
 		grep -L $LIMPIAR_CANALES_SAT $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -682,15 +679,15 @@ install()
 		sed -i 's#"epg_compress":.*#idiomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		sed -i '/idiomas_inicio/,/idiomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		sed -i "s#\"language\":.*#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		#picons config tvheadend
 		sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -808,7 +805,6 @@ installIPTV()
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar: $end"
-		echo
 		echo -e " 1) LaQuay/TDTChannels"
 		echo -e " 2) Pluto.TV"
 		echo -e " 3) Pluto.TV VOD español"
@@ -823,13 +819,13 @@ installIPTV()
 				2) NOMBRE_LISTA=dobleM-Pluto; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
 				a)  clear
-					echo -e "Introduzca su ruta para el binario ffmpeg"
+					echo -e "Introduzca su ruta para el binario ffmpeg: "
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
 					echo
 					read FFMPEG_DIR
 					installIPTV;;
 				b)	clear
-					echo -e "Introduzca sus comandos para ffmpeg"
+					echo -e "Introduzca sus comandos para ffmpeg: "
 					echo -e "$yellow$FFMPEG_COMMAND$end y pulse INTRO"
 					echo
 					read FFMPEG_COMMAND
@@ -845,13 +841,13 @@ installIPTV()
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
-command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_*.sh; exit 1; }
+command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es necesario tener instalado 'ffmpeg'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
-	printf "%-$(($COLUMNS-10))s"  " 2. Descargando lista de canales IPTV"
+	printf "%-$(($COLUMNS-10))s"  " 2. Descargando lista y grabber parar canales IPTV"
 		ERROR=false
 		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -923,7 +919,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		case $opcioniptv in
 				1) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
-				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f801b3c9e6be4260665d32be03908e00/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+				3) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f801b3c9e6be4260665d32be03908e00/ 2>>$CARPETA_SCRIPT/dobleM.log;;
 		esac
 # Empezamos a copiar los archivos necesarios
 	printf "%-$(($COLUMNS-10))s"  " 4. Instalando lista de canales IPTV"
@@ -1145,9 +1141,9 @@ cambioformatoEPG()
 		read opcion1
 		case $opcion1 in
 				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
 				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
-				4) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
+				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
 				*) echo "$opcion1 es una opción inválida";
 		esac
 	done
@@ -1181,11 +1177,11 @@ cambioformatoEPG()
 		sed -i 's#"epg_compress":.*#idiomas_final \n\t"epg_compress": true,#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		sed -i '/idiomas_inicio/,/idiomas_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		sed -i "s#\"language\":.*#\"language\": \[$FORMATO_IDIOMA_EPG\],#g" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -1443,7 +1439,7 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
 	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 5)$cyan Cambiar el formato/ruta de los picons $end"
-	echo -e " 6)$cyan Hacer una limpieza$red TOTAL$end$cyan de tvheadend $end"
+	echo -e " 6)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
 	echo -e " 7)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
     echo -e " 8)$magenta Volver $end"
@@ -1463,15 +1459,15 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		6) clear && limpiezatotal;;
 		7) clear && resbackup;;
 		8) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
-		9) rm -rf $CARPETA_SCRIPT/i_*.sh; exit;;
+		9) rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
-			echo -e "Introduzca su ruta para el directorio"
+			echo -e "Introduzca su ruta para el directorio: "
 			echo -e "$yellow$TVHEADEND_CONFIG_DIR$end y pulse INTRO"
 			echo
 			read TVHEADEND_CONFIG_DIR
 			MENU;;
 		b)	clear
-			echo -e "Introduzca su ruta para el directorio"
+			echo -e "Introduzca su ruta para el directorio: "
 			echo -e "$yellow$TVHEADEND_GRABBER_DIR$end y pulse INTRO"
 			echo
 			read TVHEADEND_GRABBER_DIR
