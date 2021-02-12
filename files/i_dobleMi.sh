@@ -334,7 +334,7 @@ install()
 	CONFIG_ERROR=false
 	SERVICE_ERROR=false
 # Pedimos lista a instalar
-	NOMBRE_LISTA=dobleM
+	NOMBRE_LISTA=dobleM-SAT
 	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###                 Elección de lista satélite a instalar                 ### $end"
@@ -427,7 +427,7 @@ install()
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
 	echo -e "$blue ############################################################################# $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
@@ -597,6 +597,12 @@ install()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
+		
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto
+		
+		
 # Copiamos archivos para canales
 	printf "%-$(($COLUMNS-10+1))s"  " 7. Instalando lista de canales satélite"
 		ERROR=false
@@ -819,7 +825,7 @@ installIPTV()
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar: $end"
 		echo -e " 1) TDTChannels"
-		echo -e " 2) Pluto.TV"
+		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
 		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
@@ -829,7 +835,7 @@ installIPTV()
 		read opcioniptv
 		case $opcioniptv in
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
-				2) NOMBRE_LISTA=dobleM-Pluto; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
 				a)  clear
 					echo -e "Introduzca su ruta para el binario ffmpeg: "
@@ -989,6 +995,14 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
+		
+		
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto
+		
+		
+		
 # Copiamos archivos para canales
 	printf "%-$(($COLUMNS-10))s"  " 7. Instalando lista de canales IPTV"
 		ERROR=false
@@ -1149,7 +1163,7 @@ fi
 # CAMBIAR FORMATO EPG
 cambioformatoEPG()
 {
-	NOMBRE_LISTA=dobleM
+	NOMBRE_LISTA=dobleM-SAT
 	clear
 	echo -e "$blue ############################################################################# $end"
 	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
@@ -1406,17 +1420,17 @@ MENU()
 {
 while :
 do
-ver_menu=""
+ver_menu_SAT=""
 ver_menu_TDT=""
-ver_menu_Pluto=""
+ver_menu_PlutoTV_ALL=""
 ver_menu_PlutoVOD_ES=""
-ver_local=`cat $TVHEADEND_CONFIG_DIR/dobleM.ver 2>/dev/null`
+ver_local_SAT=`cat $TVHEADEND_CONFIG_DIR/dobleM-SAT.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
-	ver_local=···
+	ver_local_SAT=···
 	fi
-ver_web=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM.ver 2>/dev/null`
-	if [ $ver_local != $ver_web ]; then
-	ver_menu="--->  Nueva versión:$green $ver_web $end"
+ver_web_SAT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-SAT.ver 2>/dev/null`
+	if [ $ver_local_SAT != $ver_web_SAT ]; then
+	ver_menu_SAT="--->  Nueva versión:$green $ver_web_SAT $end"
 	fi
 ver_local_TDT=`cat $TVHEADEND_CONFIG_DIR/dobleM-TDT.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
@@ -1426,13 +1440,13 @@ ver_web_TDT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 	if [ $ver_local_TDT != $ver_web_TDT ]; then
 	ver_menu_TDT="--->  Nueva versión:$green $ver_web_TDT $end"
 	fi
-ver_local_Pluto=`cat $TVHEADEND_CONFIG_DIR/dobleM-Pluto.ver 2>/dev/null`
+ver_local_PlutoTV_ALL=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoTV_ALL.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
-	ver_local_Pluto=···
+	ver_local_PlutoTV_ALL=···
 	fi
-ver_web_Pluto=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-Pluto.ver 2>/dev/null`
-	if [ $ver_local_Pluto != $ver_web_Pluto ]; then
-	ver_menu_Pluto="--->  Nueva versión:$green $ver_web_Pluto $end"
+ver_web_PlutoTV_ALL=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM-PlutoTV_ALL.ver 2>/dev/null`
+	if [ $ver_local_PlutoTV_ALL != $ver_web_PlutoTV_ALL ]; then
+	ver_menu_PlutoTV_ALL="--->  Nueva versión:$green $ver_web_PlutoTV_ALL $end"
 	fi
 ver_local_PlutoVOD_ES=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoVOD_ES.ver 2>/dev/null`
 	if [ $? -ne 0 ]; then
@@ -1455,9 +1469,9 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
-	echo -e " SATELITE      --->  Versión instalada:$red $ver_local $end $ver_menu"
+	echo -e " SATELITE      --->  Versión instalada:$red $ver_local_SAT $end $ver_menu_SAT"
 	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_Pluto $end $ver_menu_Pluto"
+	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
 	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 	echo _______________________________________________________________________________
 	echo
