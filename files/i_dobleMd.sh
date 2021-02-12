@@ -619,7 +619,7 @@ installIPTV()
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar: $end"
-		echo -e " 1) LaQuay/TDTChannels"
+		echo -e " 1) TDTChannels"
 		echo -e " 2) Pluto.TV"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
