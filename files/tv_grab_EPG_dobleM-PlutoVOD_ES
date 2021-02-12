@@ -2,7 +2,7 @@
 
 XMLTV_TYPE="WEB"
 XMLTV_LOCATION_FILE=""
-XMLTV_LOCATION_WEB="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/EPG_Pluto_VOD_ES.xml.gz"
+XMLTV_LOCATION_WEB="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/EPG_PlutoVOD_ES.xml.gz"
 
 dflag=
 vflag=
