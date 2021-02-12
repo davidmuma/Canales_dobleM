@@ -1309,7 +1309,7 @@ ver_menu_SAT=""
 ver_menu_TDT=""
 ver_menu_PlutoTV_ALL=""
 ver_menu_PlutoVOD_ES=""
-ver_local_SAT=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM.ver-SAT" 2>/dev/null`
+ver_local_SAT=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-SAT.ver" 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local_SAT=···
 	fi
