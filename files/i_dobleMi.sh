@@ -838,8 +838,8 @@ installIPTV()
 		read opcioniptv
 		case $opcioniptv in
 				1) NOMBRE_LISTA=dobleM-TDT=; break;;
-				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEGffmpeg=; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEGffmpeg=; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=ffmpeg; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=ffmpeg; break;;
 				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
 				5) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=; break;;
 				a)  clear
