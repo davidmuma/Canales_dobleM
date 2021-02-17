@@ -837,11 +837,11 @@ installIPTV()
 		echo -n " Indica una opción: "
 		read opcioniptv
 		case $opcioniptv in
-				1) NOMBRE_LISTA=dobleM-TDT && NOMBRE_FFMPEG=; break;;
-				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=; break;;
-				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=ffmpeg; break;;
-				5) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=ffmpeg; break;;
+				1) NOMBRE_LISTA=dobleM-TDT=; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEGffmpeg=; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEGffmpeg=; break;;
+				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
+				5) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=; break;;
 				a)  clear
 					echo -e "Introduzca su ruta para el binario ffmpeg: "
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
