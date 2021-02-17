@@ -828,8 +828,8 @@ installIPTV()
 		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
-		echo -e " 4) Pluto.TV todos los países SIN FFMPEG"
-		echo -e " 5) Pluto.TV VOD español SIN FFMPEG"		
+		echo -e " 4) Pluto.TV todos los países (SIN FFMPEG)"
+		echo -e " 5) Pluto.TV VOD español (SIN FFMPEG)"		
 		echo
 		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
 		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
