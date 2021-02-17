@@ -899,7 +899,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 	printf "%-$(($COLUMNS-10))s"  " 3. Preparando lista de canales IPTV"
 		ERROR=false
-		tar -xf "$NOMBRE_LISTA.tar.xz"
+		tar -xf "$NOMBRE_LISTA$NOMBRE_FFMPEG.tar.xz"
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
