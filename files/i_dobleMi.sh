@@ -828,15 +828,20 @@ installIPTV()
 		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
+		echo -e " 4) Pluto.TV todos los países SIN FFMPEG"
+		echo -e " 5) Pluto.TV VOD español SIN FFMPEG"		
+		echo
 		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
 		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
 		echo
 		echo -n " Indica una opción: "
 		read opcioniptv
 		case $opcioniptv in
-				1) NOMBRE_LISTA=dobleM-TDT; break;;
-				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				1) NOMBRE_LISTA=dobleM-TDT && NOMBRE_FFMPEG=; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=; break;;
+				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=ffmpeg; break;;
+				5) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=ffmpeg; break;;
 				a)  clear
 					echo -e "Introduzca su ruta para el binario ffmpeg: "
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
@@ -880,7 +885,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA$NOMBRE_FFMPEG.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
