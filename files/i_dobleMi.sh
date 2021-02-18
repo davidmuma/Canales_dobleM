@@ -837,7 +837,7 @@ installIPTV()
 		echo -n " Indica una opción: "
 		read opcioniptv
 		case $opcioniptv in
-				1) NOMBRE_LISTA=dobleM-TDT=; break;;
+				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=ffmpeg; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=ffmpeg; break;;
 				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
