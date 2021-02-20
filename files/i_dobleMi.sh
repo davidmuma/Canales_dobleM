@@ -72,7 +72,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_USER=$(stat -c %U $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_GROUP=$(stat -c %G $TVHEADEND_CONFIG_DIR/config) 2>>$CARPETA_SCRIPT/dobleM.log
 		FFMPEG_DIR="/usr/local/ffmpeg/bin/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	2) #LibreELEC/OpenELEC
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -82,7 +82,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/service.tvheadend42"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/service.tvheadend42/bin"
 		FFMPEG_DIR="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	3) #CoreELEC
 		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
@@ -92,7 +92,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
 		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
 		FFMPEG_DIR="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	4) #AlexElec
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
@@ -102,7 +102,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/storage/.config/tvheadend" 2>>$CARPETA_SCRIPT/dobleM.log
 		TVHEADEND_GRABBER_DIR="/storage/.config/tvheadend/bin" 2>>$CARPETA_SCRIPT/dobleM.log
 		FFMPEG_DIR="/usr/bin/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	5) #Linux
 		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"tvheadend.service"
@@ -112,7 +112,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_CONFIG_DIR="/home/hts/.hts/tvheadend"
 		TVHEADEND_GRABBER_DIR="/usr/bin"
 		FFMPEG_DIR="/usr/bin/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	6) #Qnap
 		TVHEADEND_SERVICE="tvheadend"
@@ -122,7 +122,7 @@ command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
         TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
         TVHEADEND_GRABBER_DIR="/usr/bin"
 		FFMPEG_DIR="/share/CACHEDEV1_DATA/.qpkg/ffmpeg/ffmpeg"
-		FFMPEG_COMMAND='-loglevel fatal -re -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
 		;;
 	esac
 
@@ -828,9 +828,6 @@ installIPTV()
 		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
-		echo -e " 4) Pluto.TV todos los países (SIN FFMPEG)"
-		echo -e " 5) Pluto.TV VOD español (SIN FFMPEG)"		
-		echo
 		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
 		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
 		echo
@@ -838,10 +835,8 @@ installIPTV()
 		read opcioniptv
 		case $opcioniptv in
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
-				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=ffmpeg; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=ffmpeg; break;;
-				4) NOMBRE_LISTA=dobleM-PlutoTV_ALL && NOMBRE_FFMPEG=; break;;
-				5) NOMBRE_LISTA=dobleM-PlutoVOD_ES && NOMBRE_FFMPEG=; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
 				a)  clear
 					echo -e "Introduzca su ruta para el binario ffmpeg: "
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
@@ -885,7 +880,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA$NOMBRE_FFMPEG.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -899,7 +894,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 # Descomprimimos el tar y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 	printf "%-$(($COLUMNS-10))s"  " 3. Preparando lista de canales IPTV"
 		ERROR=false
-		tar -xf "$NOMBRE_LISTA$NOMBRE_FFMPEG.tar.xz"
+		tar -xf "$NOMBRE_LISTA.tar.xz"
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
