@@ -1,4 +1,8 @@
-06/02/2021
+20/02/21
+
+Nueva combinación de comandos ffmpeg + nuevas URLs
+
+06/02/21
 
 Cambio de las URLs
 
