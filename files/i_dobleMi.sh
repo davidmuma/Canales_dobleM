@@ -350,6 +350,8 @@ install()
 		echo -e " 4) Astra individual"
 		echo -e " 5) Astra comunitaria"
 		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
 		echo -n " Indica una opción: "
 		read opcionsat
 		case $opcionsat in
@@ -358,7 +360,8 @@ install()
 				3) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra comunitaria y Astra SD
 				4) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c'; break;; #borramos todo menos Astra individual
 				5) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2'; break;; #borramos todo menos Astra comunitaria
-				*) echo "$opcionsat es una opción inválida";
+				v) MENU;;
+				*) echo && echo " $opcionsat es una opción inválida" && echo;
 		esac
 	done
 # Pedimos el formato de la guía de programación
@@ -383,7 +386,7 @@ install()
 				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
 				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
 				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				*) echo "$opcion1 es una opción inválida";
+				*) echo && echo " $opcion1 es una opción inválida" && echo;
 		esac
 	done
 		echo
@@ -398,7 +401,7 @@ install()
 		case $opcion2 in
 				1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
 				2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
-				*) echo "$opcion2 es una opción inválida";
+				*) echo && echo " $opcion2 es una opción inválida" && echo;
 		esac
 	done
 		echo
@@ -419,7 +422,7 @@ install()
 				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
 				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
 				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
-				*) echo "$opcion3 es una opción inválida";
+				*) echo && echo " $opcion3 es una opción inválida" && echo;
 		esac
 	done
 # Iniciamos instalación satélite
@@ -597,12 +600,12 @@ install()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-		
+
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto
-		
-		
+
+
 # Copiamos archivos para canales
 	printf "%-$(($COLUMNS-10+1))s"  " 7. Instalando lista de canales satélite"
 		ERROR=false
@@ -828,6 +831,8 @@ installIPTV()
 		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
 		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
 		echo -e " a)$green Cambiar ruta binario$end$yellow $FFMPEG_DIR $end"
 		echo -e " b)$green Cambiar los comandos$end$yellow $FFMPEG_COMMAND $end"
 		echo
@@ -837,6 +842,7 @@ installIPTV()
 				1) NOMBRE_LISTA=dobleM-TDT; break;;
 				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
 				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				v) MENU;;
 				a)  clear
 					echo -e "Introduzca su ruta para el binario ffmpeg: "
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
@@ -849,7 +855,7 @@ installIPTV()
 					echo
 					read FFMPEG_COMMAND
 					installIPTV;;
-				*) echo "$opcioniptv es una opción inválida";
+				*) echo && echo " $opcioniptv es una opción inválida" && echo;
 		esac
 	done
 # Iniciamos instalación IPTV
@@ -995,14 +1001,14 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-		
-		
+
+
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV
 		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto
-		
-		
-		
+
+
+
 # Copiamos archivos para canales
 	printf "%-$(($COLUMNS-10))s"  " 7. Instalando lista de canales IPTV"
 		ERROR=false
@@ -1108,7 +1114,6 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			GRABBER_ERROR=true
 		fi
-
 # Borramos carpeta termporal dobleM
 	printf "%-$(($COLUMNS-10))s"  " 11. Eliminando archivos temporales"
 		rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
@@ -1160,6 +1165,146 @@ else
 fi
 }
 
+# INSTALAR GRABBER
+installGRABBER()
+{
+# Comprobamos que exista el fichero config en la carpeta epggrab
+	comprobarconfigepggrab
+# Pedimos grabber a instalar
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                    Elección de grabber a instalar                     ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$cyan Elige el grabber que quieres instalar: $end"
+		echo -e " 1) Satélite"
+		echo -e " 2) TDTChannels"
+		echo -e " 3) Pluto.TV"
+		echo -e " 4) Pluto.TV VOD"
+		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
+		echo -n " Indica una opción: "
+		read opciongrabber
+		case $opciongrabber in
+				1) NOMBRE_LISTA=dobleM-SAT; break;;
+				2) NOMBRE_LISTA=dobleM-TDT; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
+				4) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				v) MENU;;
+				*) echo && echo " $opciongrabber es una opción inválida" && echo;
+		esac
+	done
+# Iniciamos instalación grabber
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                   Iniciando instalación de grabber                    ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con grabber$green tv_grab_EPG_$NOMBRE_LISTA$end"
+	echo
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Preparamos CARPETA_DOBLEM y descargamos el grabber
+	printf "%-$(($COLUMNS-10))s"  " 2. Descargando grabber"
+		ERROR=false
+		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/epggrab && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			echo -e "\nEl grabber no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			echo
+			echo " Pulsa intro para continuar..."
+			read CAD
+			MENU
+		fi
+# Configuramos grabber
+	printf "%-$(($COLUMNS-10))s"  " 3. Configurando grabber en tvheadend"
+		ERROR=false
+		#cron y grabber config epggrab
+		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "/tv_grab_EPG_$NOMBRE_LISTA\"/,/},/d" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 5\n\t\t},#g" $TVHEADEND_CONFIG_DIR/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Borramos grabber anterior, copiamos el nuevo grabber y el fichero epggrab/config
+	printf "%-$(($COLUMNS-10))s"  " 4. Instalando grabber"
+		ERROR=false
+		if [ ! -d $TVHEADEND_GRABBER_DIR ]; then
+			mkdir -p $TVHEADEND_GRABBER_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+		fi
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Damos permisos a los directorios
+	printf "%-$(($COLUMNS-10))s" " 5. Aplicando permisos al grabber"
+		ERROR=false
+		chown $TVHEADEND_USER:$TVHEADEND_GROUP $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod $(($TVHEADEND_PERMISSIONS-100)) $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod +rx $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Borramos carpeta termporal dobleM
+	printf "%-$(($COLUMNS-10))s"  " 6. Eliminando archivos temporales"
+		rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 7. Iniciando tvheadend"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Fin limpieza
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
+		installGRABBER
+}
+
 # CAMBIAR FORMATO EPG
 cambioformatoEPG()
 {
@@ -1185,7 +1330,7 @@ cambioformatoEPG()
 				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
 				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
 				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				*) echo "$opcion1 es una opción inválida";
+				*) echo && echo " $opcion1 es una opción inválida" && echo;
 		esac
 	done
 		echo
@@ -1200,7 +1345,7 @@ cambioformatoEPG()
 		case $opcion2 in
 				1) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=false/g''; break;;
 				2) FORMATO_IMAGEN_GRABBER='sed -i 's/enable_fanart=.*/enable_fanart=true/g''; break;;
-				*) echo "$opcion2 es una opción inválida";
+				*) echo && echo " $opcion2 es una opción inválida" && echo;
 		esac
 	done
 		echo
@@ -1281,7 +1426,7 @@ cambioformatoPICONS()
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
 					break;;
-				*) echo "$opcion3 es una opción inválida";
+				*) echo && echo " $opcion3 es una opción inválida" && echo;
 		esac
 	done
 		echo
@@ -1330,6 +1475,19 @@ limpiezatotal()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
+	while :
+	do
+		echo -e "$cyan Se borrarán los siguientes directorios: $end"
+		echo -e "$cyan channel, epggrab, input, bouquet y picons $end"
+		echo
+		echo -n " ¿Estás seguro que deseas continuar? [s/n] "
+		read opcionlimpieza
+		case $opcionlimpieza in
+				s) echo && echo " Procediendo a limpiar tvheadend" && echo; break;;
+				n) MENU;;
+				*) echo && echo " Por favor, elige Si o No" && echo;
+		esac
+	done
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
 	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
 		cd $CARPETA_SCRIPT
@@ -1478,13 +1636,14 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
-	echo -e " 4)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 5)$cyan Cambiar el formato/ruta de los picons $end"
-	echo -e " 6)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
-	echo -e " 7)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+	echo -e " 4)$cyan Instalar grabber y configurar tvheadend $end"
+	echo -e " 5)$cyan Cambiar el formato de la guía de programación $end"
+	echo -e " 6)$cyan Cambiar el formato/ruta de los picons $end"
+	echo -e " 7)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
+	echo -e " 8)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
-    echo -e " 8)$magenta Volver $end"
-    echo -e " 9)$red Salir $end"
+    echo -e " v)$magenta Volver $end"
+    echo -e " s)$red Salir $end"
 	echo
 	echo -e " a)$green Cambiar la ruta$end$yellow $TVHEADEND_CONFIG_DIR $end"
 	echo -e " b)$green Cambiar la ruta$end$yellow $TVHEADEND_GRABBER_DIR $end"
@@ -1495,12 +1654,13 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		1) clear && backup;;
 		2) clear && install;;
 		3) clear && installIPTV;;
-		4) clear && cambioformatoEPG;;
-		5) clear && cambioformatoPICONS;;
-		6) clear && limpiezatotal;;
-		7) clear && resbackup;;
-		8) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
-		9) rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
+		4) clear && installGRABBER;;
+		5) clear && cambioformatoEPG;;
+		6) clear && cambioformatoPICONS;;
+		7) clear && limpiezatotal;;
+		8) clear && resbackup;;
+		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
+		s) rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
 			echo -e "Introduzca su ruta para el directorio: "
 			echo -e "$yellow$TVHEADEND_CONFIG_DIR$end y pulse INTRO"
@@ -1513,7 +1673,7 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 			echo
 			read TVHEADEND_GRABBER_DIR
 			MENU;;
-		*) echo "$opcionmenu es una opción inválida\n";
+		*) echo && echo " $opcionmenu es una opción inválida" && echo;
 	esac
 done
 }
