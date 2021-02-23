@@ -61,3 +61,5 @@ Si te gusta mi trabajo, apóyame con una pequeña donación.
 ## CAPTURAS
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/I1.jpg)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/I2.jpg)
+## Tipos de picon
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/picon.png)
