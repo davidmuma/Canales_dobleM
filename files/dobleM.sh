@@ -1,9 +1,6 @@
 #!/bin/bash
 #### script creado por dobleM
 
-# Comprobamos que esté instalado curl
-command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado."; exit 1; }
-
 echo
 echo Descargando última versión del instalador...
 sleep 1
