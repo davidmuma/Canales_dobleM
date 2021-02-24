@@ -48,7 +48,7 @@ clear
 	echo
 	echo -e " 7)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
-    echo -e " 8)$red Salir del instalador $end"
+    echo -e " s)$red Salir del instalador $end"
 	echo
 	echo -n " Indica una opción: "
 	read opcion
@@ -60,7 +60,7 @@ clear
 		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Alexelec; break;;
 		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
 		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
-		8) clear && echo " Gracias por usar el script dobleM" && rm -rf i_dobleM*.sh; exit;;
+		s) clear && echo " Gracias por usar el script dobleM" && rm -rf i_dobleM*.sh; exit;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done
