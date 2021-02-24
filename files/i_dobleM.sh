@@ -1,5 +1,5 @@
 #!/bin/bash
-# - Script creado por dobleM
+# - script creado por dobleM
 #Formatear texto con colores: https://unix.stackexchange.com/a/92568
 red='\e[1;31m'
 green='\e[1;32m'
@@ -60,7 +60,7 @@ clear
 		5) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Alexelec; break;;
 		6) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
 		7) curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
-		8) rm -rf i_dobleM*.sh; exit;;
+		8) clear && echo " Gracias por usar el script dobleM" && rm -rf i_dobleM*.sh; exit;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
 done

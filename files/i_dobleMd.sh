@@ -23,9 +23,8 @@ if [ -z "$COLUMNS" ]; then
 	COLUMNS=80
 fi
 
-# Comprobamos que estén instalados curl y wget
+# Comprobamos que esté instalado curl
 command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'curl'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
-command -v wget >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesario tener instalado 'wget'." "Por favor, ejecuta el script de nuevo cuando lo hayas instalado." && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit 1; }
 
 # Detectando sistema operativo
 	SYSTEM_DETECTOR="$(uname -a)"
@@ -290,15 +289,15 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -678,15 +677,15 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -979,7 +978,7 @@ installGRABBER()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		wget -q https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1533,7 +1532,7 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		7) clear && limpiezatotal;;
 		8) clear && resbackup;;
 		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
-		s) rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
+		s) clear && echo " Gracias por usar el script dobleM" && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
 			echo -e "Introduzca su ruta para el directorio: "
 			echo -e "$yellow$TVHEADEND_CONFIG_DIR$end y pulse INTRO"
