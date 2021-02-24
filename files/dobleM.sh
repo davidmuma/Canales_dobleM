@@ -1,6 +1,7 @@
 #!/bin/bash
 # - script creado por dobleM
 
+clear
 echo
 echo Descargando última versión del instalador...
 sleep 1
