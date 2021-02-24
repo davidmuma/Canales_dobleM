@@ -1,5 +1,5 @@
 #!/bin/bash
-#### script creado por dobleM
+# - script creado por dobleM
 
 echo
 echo Descargando última versión del instalador...
