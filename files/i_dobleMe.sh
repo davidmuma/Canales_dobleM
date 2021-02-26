@@ -15,12 +15,12 @@ CARPETA_SCRIPT="$PWD"
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
 	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
 	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
-	echo -e "$blue ###                        Instalador para Enigma2                        ### $end"
+	echo -e "$blue ###                 Instalador para EPG Import en Enigma2                 ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo
 	while :
 	do
-		echo -e "$cyan Se procederá a instalar la EPG $end"
+		echo -e "$cyan Se procederá a instalar los recursos para la EPG $end"
 		echo
 		echo -n " ¿Estás seguro que deseas continuar? [s/n] "
 		read opcionEPG
@@ -35,13 +35,13 @@ CARPETA_SCRIPT="$PWD"
 enigma2_EPG()
 {
  if [ ! -d /etc/epgimport/ ]; then
-   echo "No tiene instalado epg import en su receptor, realice la instalacion y vuelva a intentarlo"
+   echo "No tienes instalado EPG Import en su receptor, realiza la instalación y vuelve a intentarlo"
    sleep 5
  else
    curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar
    tar xvf dobleM_E2.sources.tar -C /etc/epgimport/
    rm -r dobleM_E2.sources.tar
-   echo "Ha finalizado la instalacion de EPG dobleM, espere unos segundos y volverá al menu"
+   echo "Ha finalizado la instalacion, ves a EPG Import y selecciona la fuente dobleM"
    sleep 5
  fi
-
+}
