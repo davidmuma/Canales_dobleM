@@ -24,7 +24,7 @@ enigma2_EPG()
    rm -r dobleM_E2.sources.tar
    rm -rf i_dobleM*.sh
    echo
-   echo "Ha finalizado la instalación, ves a EPG Import y selecciona la fuente dobleM"
+   echo "Ha finalizado la instalación, ves a EPG-Import y selecciona la fuente dobleM"
    echo
    sleep 5
    exit
@@ -41,7 +41,7 @@ do
 	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
 	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
 	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
-	echo -e "$blue ###                 Instalador para EPG Import en Enigma2                 ### $end"
+	echo -e "$blue ###                 Instalador para EPG-Import en Enigma2                 ### $end"
 	echo -e "$blue ############################################################################# $end"
 	echo
 	echo -e "$cyan Se procederá a instalar los recursos para la EPG $end"
