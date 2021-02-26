@@ -38,9 +38,9 @@ enigma2_EPG()
    echo "No tiene instalado epg import en su receptor, realice la instalacion y vuelva a intentarlo"
    sleep 5
  else
-   curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_e2EPG.sources.tar
-   tar xvf dobleM_e2EPG.sources.tar -C /etc/epgimport/
-   rm -r dobleM_e2EPG.sources.tar
+   curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar
+   tar xvf dobleM_E2.sources.tar -C /etc/epgimport/
+   rm -r dobleM_E2.sources.tar
    echo "Ha finalizado la instalacion de EPG dobleM, espere unos segundos y volverá al menu"
    sleep 5
  fi
