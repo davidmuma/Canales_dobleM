@@ -1,12 +1,13 @@
 #!/bin/bash
-#### Script creado por dobleM
+# - script creado por dobleM
 
+clear
 echo
 echo Descargando última versión del instalador...
 sleep 1
 echo
 if [ -d /etc/enigma2 ]; then
-	curl -# -O https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMe.sh
+	curl -# -kO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMe.sh
 	echo
 	sleep 1
 	echo Ejecutando instalador para enigma2...
@@ -14,7 +15,7 @@ if [ -d /etc/enigma2 ]; then
 	clear
 	sh i_dobleMe.sh
 else
-	curl -# -O https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleM.sh
+	curl -# -kO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleM.sh
 	echo
 	sleep 1
 	echo Ejecutando instalador para tvheadend...
