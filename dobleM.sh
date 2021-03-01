@@ -1,6 +1,9 @@
 #!/bin/bash
 # - script creado por dobleM
 
+CARPETA_SCRIPT="$PWD"
+cd $CARPETA_SCRIPT
+
 clear
 echo
 echo Descargando última versión del instalador...
