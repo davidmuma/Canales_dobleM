@@ -48,6 +48,7 @@ El script es compatible con los siguientes sistemas:
 - AlexELEC
 - Linux
 - Docker
+- Enigma2 (Solo guía de programación con EPG-Import)
 
 Notas:
 
