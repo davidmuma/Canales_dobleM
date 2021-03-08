@@ -1,3 +1,7 @@
+08/03/21
+
+Añadidos DAZN 3 y 4, actualizadas frecuencias
+
 20/02/21
 
 Añadido Dreamworks HD y SD
