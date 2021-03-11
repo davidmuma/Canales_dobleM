@@ -2,20 +2,23 @@
 #EXTM3U x-tvg-url="https://i.mjh.nz/PlutoTV/all.xml" url-tvg="https://i.mjh.nz/PlutoTV/all.xml" refresh="3600"
 #EXT-X-DISCONTINUITY-SEQUENCE:0
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="600ae79fa46e17000794e84c" tvg-logo="https://images.pluto.tv/channels/600ae79fa46e17000794e84c/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: MTV Love Music
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ae79fa46e17000794e84c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="60218baa464ef900073168c1" tvg-logo="https://images.pluto.tv/channels/60218baa464ef900073168c1/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Empeños a lo bestia
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60218baa464ef900073168c1/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="60016a60a8e3520008e0d331" tvg-logo="https://images.pluto.tv/channels/60016a60a8e3520008e0d331/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Pluto TV Teen Stars
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60016a60a8e3520008e0d331/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="60218c2a32f9c40007c2f7cc" tvg-logo="https://images.pluto.tv/channels/60218c2a32f9c40007c2f7cc/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Pluto TV Action Kids
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60218c2a32f9c40007c2f7cc/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="600169ec77e6f70008fa9cf0" tvg-logo="https://images.pluto.tv/channels/600169ec77e6f70008fa9cf0/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: MTV Dating
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600169ec77e6f70008fa9cf0/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="60218d81873f0e0007cff614" tvg-logo="https://images.pluto.tv/channels/60218d81873f0e0007cff614/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: RICH
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60218d81873f0e0007cff614/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f9853138d19af0007104a8d" tvg-logo="https://images.pluto.tv/channels/5f9853138d19af0007104a8d/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Pluto TV Series Comedia
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f9853138d19af0007104a8d/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="600ae52e34a3700007000534" tvg-logo="https://images.pluto.tv/channels/600ae52e34a3700007000534/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Sin tetas no hay paraíso
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ae52e34a3700007000534/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f984f4a09e92d0007d74647" tvg-logo="https://images.pluto.tv/channels/5f984f4a09e92d0007d74647/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Archivos Forenses
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f984f4a09e92d0007d74647/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="600ae59c341b1d0007d1c7cb" tvg-logo="https://images.pluto.tv/channels/600ae59c341b1d0007d1c7cb/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Tierra de lobos
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ae59c341b1d0007d1c7cb/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="600ae6a78d801e0007117d21" tvg-logo="https://images.pluto.tv/channels/600ae6a78d801e0007117d21/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Pluto TV Animales
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ae6a78d801e0007117d21/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f1ac1f1b66c76000790ef27" tvg-logo="https://images.pluto.tv/channels/5f1ac1f1b66c76000790ef27/colorLogoPNG.png" group-title="Pluto_ES",Películas: Pluto TV Cine Estelar
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1ac1f1b66c76000790ef27/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -83,11 +86,20 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1abd
 #EXTINF:-1 tvg-id="5f98537a5a4341000733aefe" tvg-logo="https://images.pluto.tv/channels/5f98537a5a4341000733aefe/colorLogoPNG.png" group-title="Pluto_ES",MTV en Pluto TV: MTV Embarazada a los 16
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f98537a5a4341000733aefe/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="600169ec77e6f70008fa9cf0" tvg-logo="https://images.pluto.tv/channels/600169ec77e6f70008fa9cf0/colorLogoPNG.png" group-title="Pluto_ES",MTV en Pluto TV: MTV Dating
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600169ec77e6f70008fa9cf0/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="600ae79fa46e17000794e84c" tvg-logo="https://images.pluto.tv/channels/600ae79fa46e17000794e84c/colorLogoPNG.png" group-title="Pluto_ES",MTV en Pluto TV: MTV Love Music
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ae79fa46e17000794e84c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f280149cec6be00072ab1fc" tvg-logo="https://images.pluto.tv/channels/5f280149cec6be00072ab1fc/colorLogoPNG.png" group-title="Pluto_ES",Entretenimiento: El Conquistador del Fin
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f280149cec6be00072ab1fc/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f1acdfda84c970007e750b5" tvg-logo="https://images.pluto.tv/channels/5f1acdfda84c970007e750b5/colorLogoPNG.png" group-title="Pluto_ES",Entretenimiento: Pluto TV Mundo Real
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1acdfda84c970007e750b5/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f9853138d19af0007104a8d" tvg-logo="https://images.pluto.tv/channels/5f9853138d19af0007104a8d/colorLogoPNG.png" group-title="Pluto_ES",Comedia: Pluto TV Series Comedia
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f9853138d19af0007104a8d/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f1acce7f17797000718f9be" tvg-logo="https://images.pluto.tv/channels/5f1acce7f17797000718f9be/colorLogoPNG.png" group-title="Pluto_ES",Comedia: Ana y los 7
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1acce7f17797000718f9be/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -106,6 +118,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1abf
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f1ac1780e94100007f94b3f" tvg-logo="https://images.pluto.tv/channels/5f1ac1780e94100007f94b3f/colorLogoPNG.png" group-title="Pluto_ES",Comedia: People are Awesome
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1ac1780e94100007f94b3f/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f984f4a09e92d0007d74647" tvg-logo="https://images.pluto.tv/channels/5f984f4a09e92d0007d74647/colorLogoPNG.png" group-title="Pluto_ES",Crimen y misterio: Archivos Forenses
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f984f4a09e92d0007d74647/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f1acba0d1f6340007db8843" tvg-logo="https://images.pluto.tv/channels/5f1acba0d1f6340007db8843/colorLogoPNG.png" group-title="Pluto_ES",Crimen y misterio: Los nuevos detectives
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1acba0d1f6340007db8843/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -143,6 +158,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1aa8
 #EXTINF:-1 tvg-id="5f1aa9bcd8160700076d45d1" tvg-logo="https://images.pluto.tv/channels/5f1aa9bcd8160700076d45d1/colorLogoPNG.png" group-title="Pluto_ES",Infantil: Pluto TV Junior
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1aa9bcd8160700076d45d1/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="60016a60a8e3520008e0d331" tvg-logo="https://images.pluto.tv/channels/60016a60a8e3520008e0d331/colorLogoPNG.png" group-title="Pluto_ES",Infantil: Pluto TV Teen Stars
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60016a60a8e3520008e0d331/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5e793a7cfbdf780007f7eb75" tvg-logo="https://images.pluto.tv/channels/5e793a7cfbdf780007f7eb75/colorLogoPNG.png" group-title="Pluto_MX",Pluto TV: Guía de canales
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e793a7cfbdf780007f7eb75/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -175,6 +193,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5defde
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5dd6ddb30a1d8a000908ed4c" tvg-logo="https://images.pluto.tv/channels/5dd6ddb30a1d8a000908ed4c/colorLogoPNG.png" group-title="Pluto_MX",Películas: Pluto TV Cine Familia​
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dd6ddb30a1d8a000908ed4c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="600728952b1776000776526d" tvg-logo="https://images.pluto.tv/channels/600728952b1776000776526d/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Paramount+ Presenta
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600728952b1776000776526d/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5dcde1317578340009b751d0" tvg-logo="https://images.pluto.tv/channels/5dcde1317578340009b751d0/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Pluto TV Series
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dcde1317578340009b751d0/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -224,6 +245,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dcde1
 #EXTINF:-1 tvg-id="5fceaab478f2af00080ff51f" tvg-logo="https://images.pluto.tv/channels/5fceaab478f2af00080ff51f/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Yu-Gi-Oh
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5fceaab478f2af00080ff51f/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5ff4b9ccf938f8000779eb99" tvg-logo="https://images.pluto.tv/channels/5ff4b9ccf938f8000779eb99/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: One Piece
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ff4b9ccf938f8000779eb99/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5e6a4d875d7ccf0007cc2cf1" tvg-logo="https://images.pluto.tv/channels/5e6a4d875d7ccf0007cc2cf1/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Pluto TV Animé Acción
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e6a4d875d7ccf0007cc2cf1/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -232,6 +256,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ee92e
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f2817d3d7573a00080f9175" tvg-logo="https://images.pluto.tv/channels/5f2817d3d7573a00080f9175/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Pluto TV Sci-Fi
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f2817d3d7573a00080f9175/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5fb554d87a0c480007c8dada" tvg-logo="https://images.pluto.tv/channels/5fb554d87a0c480007c8dada/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: ESR 24/7
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5fb554d87a0c480007c8dada/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5dd6d935d000120009bc1132" tvg-logo="https://images.pluto.tv/channels/5dd6d935d000120009bc1132/colorLogoPNG.png" group-title="Pluto_MX",Entretenimiento: Pluto TV  Competencias
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dd6d935d000120009bc1132/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -335,8 +362,8 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ebacb
 #EXTINF:-1 tvg-id="5e8397936791b30007ebb5a7" tvg-logo="https://images.pluto.tv/channels/5e8397936791b30007ebb5a7/colorLogoPNG.png" group-title="Pluto_MX",Comedia: Pluto TV Humor
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e8397936791b30007ebb5a7/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5e8f8e7598841d0007bf35b3" tvg-logo="https://images.pluto.tv/channels/5e8f8e7598841d0007bf35b3/colorLogoPNG.png" group-title="Pluto_MX",Comedia: Comedy Central Stand Up
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e8f8e7598841d0007bf35b3/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="5ffcc21a432945000762d06b" tvg-logo="https://images.pluto.tv/channels/5ffcc21a432945000762d06b/colorLogoPNG.png" group-title="Pluto_MX",Comedia: Comedy Central Pluto TV
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ffcc21a432945000762d06b/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5dcddfbdb7cf0e0009ae09ea" tvg-logo="https://images.pluto.tv/channels/5dcddfbdb7cf0e0009ae09ea/colorLogoPNG.png" group-title="Pluto_MX",Estilo de Vida: Pluto TV Viajes
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dcddfbdb7cf0e0009ae09ea/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -383,14 +410,14 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dd6da
 #EXTINF:-1 tvg-id="5ddd7c348520b40009c347e2" tvg-logo="https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png" group-title="Pluto_MX",Kids: Nick Clásico
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ddd7c348520b40009c347e2/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="600ad1a372e57c0007dbee5a" tvg-logo="https://images.pluto.tv/channels/600ad1a372e57c0007dbee5a/colorLogoPNG.png" group-title="Pluto_GB",New on Pluto TV: Clubbing TV
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ad1a372e57c0007dbee5a/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
-#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="600acdc434a37000070004cf" tvg-logo="https://images.pluto.tv/channels/600acdc434a37000070004cf/colorLogoPNG.png" group-title="Pluto_GB",New on Pluto TV: Judge Nosey
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600acdc434a37000070004cf/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="600acaff5f2d6e000745effb" tvg-logo="https://images.pluto.tv/channels/600acaff5f2d6e000745effb/colorLogoPNG.png" group-title="Pluto_GB",New on Pluto TV: Pluto TV Lives
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600acaff5f2d6e000745effb/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="600ad1a372e57c0007dbee5a" tvg-logo="https://images.pluto.tv/channels/600ad1a372e57c0007dbee5a/colorLogoPNG.png" group-title="Pluto_GB",New on Pluto TV: Clubbing TV
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600ad1a372e57c0007dbee5a/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f6b54b9e67cf60007d4cef1" tvg-logo="https://images.pluto.tv/channels/5f6b54b9e67cf60007d4cef1/colorLogoPNG.png" group-title="Pluto_GB",New on Pluto TV: Duck Dynasty
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f6b54b9e67cf60007d4cef1/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -466,9 +493,6 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dc2ba
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5bd833b41843b56328bac189" tvg-logo="https://images.pluto.tv/channels/5bd833b41843b56328bac189/colorLogoPNG.png" group-title="Pluto_GB",Entertainment: Mythbusters
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5bd833b41843b56328bac189/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
-#EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5d767857f65029ce2385b217" tvg-logo="https://images.pluto.tv/channels/5d767857f65029ce2385b217/colorLogoPNG.png" group-title="Pluto_GB",Entertainment: Pluto TV Inside
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d767857f65029ce2385b217/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5bd8186d53ed2c6334ea0855" tvg-logo="https://images.pluto.tv/channels/5bd8186d53ed2c6334ea0855/colorLogoPNG.png" group-title="Pluto_GB",Entertainment: Pluto TV Reality
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5bd8186d53ed2c6334ea0855/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -610,6 +634,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d4af2
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5dc2a69bc928a600093a7976" tvg-logo="https://images.pluto.tv/channels/5dc2a69bc928a600093a7976/colorLogoPNG.png" group-title="Pluto_GB",Curiosity: Get.factual
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dc2a69bc928a600093a7976/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5d767857f65029ce2385b217" tvg-logo="https://images.pluto.tv/channels/5d767857f65029ce2385b217/colorLogoPNG.png" group-title="Pluto_GB",Curiosity: Pluto TV Inside
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d767857f65029ce2385b217/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5db0510962948d000961d3c6" tvg-logo="https://images.pluto.tv/channels/5db0510962948d000961d3c6/colorLogoPNG.png" group-title="Pluto_GB",Curiosity: Pluto TV Motor
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5db0510962948d000961d3c6/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -857,6 +884,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5caf32
 #EXTINF:-1 tvg-id="5ea815a515d149000748ee9b" tvg-logo="https://images.pluto.tv/channels/5ea815a515d149000748ee9b/colorLogoPNG.png" group-title="Pluto_DE",MTV auf Pluto TV: MTV Cribs
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ea815a515d149000748ee9b/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5be1c20b53ed2c6334ebc4f2" tvg-logo="https://images.pluto.tv/channels/5be1c20b53ed2c6334ebc4f2/colorLogoPNG.png" group-title="Pluto_DE",Neu auf Pluto TV: Kids' Choice Awards 2021
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5be1c20b53ed2c6334ebc4f2/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="600adbdf8c554e00072125c9" tvg-logo="https://images.pluto.tv/channels/600adbdf8c554e00072125c9/colorLogoPNG.png" group-title="Pluto_DE",Neu auf Pluto TV: Avatar
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/600adbdf8c554e00072125c9/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -868,9 +898,6 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f9847
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f9847fd513250000728a9a5" tvg-logo="https://images.pluto.tv/channels/5f9847fd513250000728a9a5/colorLogoPNG.png" group-title="Pluto_DE",Neu auf Pluto TV: MTV Ridiculousness
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f9847fd513250000728a9a5/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
-#EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f98487036af340008da1e37" tvg-logo="https://images.pluto.tv/channels/5f98487036af340008da1e37/colorLogoPNG.png" group-title="Pluto_DE",Neu auf Pluto TV: Pluto TV Paranormal
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f98487036af340008da1e37/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5c5c3b948002db3c3e0b262e" tvg-logo="https://images.pluto.tv/channels/5c5c3b948002db3c3e0b262e/colorLogoPNG.png" group-title="Pluto_DE",Filme: Pluto TV Movies
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5c5c3b948002db3c3e0b262e/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -1049,6 +1076,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ede45
 #EXTINF:-1 tvg-id="5ede464e7be0030007c58b73" tvg-logo="https://images.pluto.tv/channels/5ede464e7be0030007c58b73/colorLogoPNG.png" group-title="Pluto_DE",Entertainment: Storage Wars
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ede464e7be0030007c58b73/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f98487036af340008da1e37" tvg-logo="https://images.pluto.tv/channels/5f98487036af340008da1e37/colorLogoPNG.png" group-title="Pluto_DE",Entertainment: Pluto TV Paranormal
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f98487036af340008da1e37/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5db04b360fa2560009deb3de" tvg-logo="https://images.pluto.tv/channels/5db04b360fa2560009deb3de/colorLogoPNG.png" group-title="Pluto_DE",Entertainment: Pluto TV Lives
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5db04b360fa2560009deb3de/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -1139,8 +1169,14 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f171d
 #EXTINF:-1 tvg-id="5f12111c9e6c2c00078ef3bb" tvg-logo="https://images.pluto.tv/channels/5f12111c9e6c2c00078ef3bb/colorLogoPNG.png" group-title="Pluto_BR",Filmes: Pluto TV Cine Terror
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f12111c9e6c2c00078ef3bb/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f5a545d0dbf7f0007c09408" tvg-logo="https://images.pluto.tv/channels/5f5a545d0dbf7f0007c09408/colorLogoPNG.png" group-title="Pluto_BR",Filmes: Pluto TV Filmes Nacionais
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f5a545d0dbf7f0007c09408/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f171f032cd22e0007f17f3d" tvg-logo="https://images.pluto.tv/channels/5f171f032cd22e0007f17f3d/colorLogoPNG.png" group-title="Pluto_BR",Filmes: Pluto TV Cine Família
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f171f032cd22e0007f17f3d/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="60072798dcf437000755b4f3" tvg-logo="https://images.pluto.tv/channels/60072798dcf437000755b4f3/colorLogoPNG.png" group-title="Pluto_BR",Entretenimento: Paramount+ Apresenta
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/60072798dcf437000755b4f3/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f121262a189a800076b9386" tvg-logo="https://images.pluto.tv/channels/5f121262a189a800076b9386/colorLogoPNG.png" group-title="Pluto_BR",Entretenimento: Pluto TV Séries
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f121262a189a800076b9386/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -1190,6 +1226,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5fd141
 #EXTINF:-1 tvg-id="5f516730b78b7600079294f5" tvg-logo="https://images.pluto.tv/channels/5f516730b78b7600079294f5/colorLogoPNG.png" group-title="Pluto_BR",Estilo de Vida: Pluto TV Fashionbox
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f516730b78b7600079294f5/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f4fb4cf605ddf000748e16f" tvg-logo="https://images.pluto.tv/channels/5f4fb4cf605ddf000748e16f/colorLogoPNG.png" group-title="Pluto_BR",Infantil: Babyfirst
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f4fb4cf605ddf000748e16f/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f12141b146d760007934ea7" tvg-logo="https://images.pluto.tv/channels/5f12141b146d760007934ea7/colorLogoPNG.png" group-title="Pluto_BR",Infantil: Pluto TV Junior
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f12141b146d760007934ea7/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -1198,6 +1237,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f1214
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f99aad4e82db50007fac4b2" tvg-logo="https://images.pluto.tv/channels/5f99aad4e82db50007fac4b2/colorLogoPNG.png" group-title="Pluto_BR",Infantil: As  Pistas de Blue
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f99aad4e82db50007fac4b2/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5f5c216df68f920007888315" tvg-logo="https://images.pluto.tv/channels/5f5c216df68f920007888315/colorLogoPNG.png" group-title="Pluto_BR",Infantil: O Reino Infantil
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f5c216df68f920007888315/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f997e44949bc70007a6941e" tvg-logo="https://images.pluto.tv/channels/5f997e44949bc70007a6941e/colorLogoPNG.png" group-title="Pluto_BR",Infantil: Turma da Mônica
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f997e44949bc70007a6941e/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -1277,6 +1319,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/58e55b
 #EXTINF:-1 tvg-id="591105034c1806b47438342c" tvg-logo="https://images.pluto.tv/channels/591105034c1806b47438342c/colorLogoPNG.png" group-title="Pluto_US",Movies: The Asylum
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/591105034c1806b47438342c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5ff8c708653d080007361b14" tvg-logo="https://images.pluto.tv/channels/5ff8c708653d080007361b14/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Paramount+ Picks
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ff8c708653d080007361b14/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f988934a507de00075d9ae7" tvg-logo="https://images.pluto.tv/channels/5f988934a507de00075d9ae7/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Showtime Selects
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f988934a507de00075d9ae7/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -1294,6 +1339,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f2466
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5d9ccebb60a26500097dc5a4" tvg-logo="https://images.pluto.tv/channels/5d9ccebb60a26500097dc5a4/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Leverage
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d9ccebb60a26500097dc5a4/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="601a026c464ef900073130f0" tvg-logo="https://images.pluto.tv/channels/601a026c464ef900073130f0/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Nashville
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/601a026c464ef900073130f0/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5d815eb889bca2ce7b746fdd" tvg-logo="https://images.pluto.tv/channels/5d815eb889bca2ce7b746fdd/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Baywatch
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d815eb889bca2ce7b746fdd/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
@@ -1325,7 +1373,7 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5aec96
 #EXTINF:-1 tvg-id="5e9decb953e157000752321c" tvg-logo="https://images.pluto.tv/channels/5e9decb953e157000752321c/colorLogoPNG.png" group-title="Pluto_US",Entertainment: Judge Nosey
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e9decb953e157000752321c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f7791b8372da90007fd45e6" tvg-logo="https://images.pluto.tv/channels/5f7791b8372da90007fd45e6/colorLogoPNG.png" group-title="Pluto_US",Entertainment: TPIR: The Barker Era
+#EXTINF:-1 tvg-id="5f7791b8372da90007fd45e6" tvg-logo="https://images.pluto.tv/channels/5f7791b8372da90007fd45e6/colorLogoPNG.png" group-title="Pluto_US",Entertainment: The Price Is Right: The Barker Era
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f7791b8372da90007fd45e6/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5812bfbe4ced4f7b601b12e6" tvg-logo="https://images.pluto.tv/channels/5812bfbe4ced4f7b601b12e6/colorLogoPNG.png" group-title="Pluto_US",Entertainment: BUZZR
@@ -1457,7 +1505,7 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5812bc
 #EXTINF:-1 tvg-id="5c393cad2de254456f7ef8c2" tvg-logo="https://images.pluto.tv/channels/5c393cad2de254456f7ef8c2/colorLogoPNG.png" group-title="Pluto_US",Reality: Spike Outdoors
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5c393cad2de254456f7ef8c2/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5b4e99f4423e067bd6df6903" tvg-logo="https://images.pluto.tv/channels/5b4e99f4423e067bd6df6903/colorLogoPNG.png" group-title="Pluto_US",Reality: Gordon Ramsay's Kitchen
+#EXTINF:-1 tvg-id="5b4e99f4423e067bd6df6903" tvg-logo="https://images.pluto.tv/channels/5b4e99f4423e067bd6df6903/colorLogoPNG.png" group-title="Pluto_US",Reality: Gordon Ramsay's Hell's Kitchen
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5b4e99f4423e067bd6df6903/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f21e7b24744c60007c1f6fc" tvg-logo="https://images.pluto.tv/channels/5f21e7b24744c60007c1f6fc/colorLogoPNG.png" group-title="Pluto_US",Reality: Survivor
@@ -1481,7 +1529,7 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ab3e1
 #EXTINF:-1 tvg-id="5e82530945600e0007ca076c" tvg-logo="https://images.pluto.tv/channels/5e82530945600e0007ca076c/colorLogoPNG.png" group-title="Pluto_US",Reality: All Reality by WE tv
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e82530945600e0007ca076c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5d40855b3fb0855028c99b6f" tvg-logo="https://images.pluto.tv/channels/5d40855b3fb0855028c99b6f/colorLogoPNG.png" group-title="Pluto_US",Reality: Dallas Cowboys Cheer
+#EXTINF:-1 tvg-id="5d40855b3fb0855028c99b6f" tvg-logo="https://images.pluto.tv/channels/5d40855b3fb0855028c99b6f/colorLogoPNG.png" group-title="Pluto_US",Reality: Dallas Cowboy Cheerleaders
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d40855b3fb0855028c99b6f/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5d8bf1472907815f66a866dd" tvg-logo="https://images.pluto.tv/channels/5d8bf1472907815f66a866dd/colorLogoPNG.png" group-title="Pluto_US",Reality: Pluto TV Celebrity
@@ -1538,13 +1586,13 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f7792
 #EXTINF:-1 tvg-id="5e82547b6b3df60007fec2b5" tvg-logo="https://images.pluto.tv/channels/5e82547b6b3df60007fec2b5/colorLogoPNG.png" group-title="Pluto_US",Comedy: Slightly Off By IFC
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e82547b6b3df60007fec2b5/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5af09e645126c2157123f9eb" tvg-logo="https://images.pluto.tv/channels/5af09e645126c2157123f9eb/colorLogoPNG.png" group-title="Pluto_US",Comedy: Kevin Hart LOL
+#EXTINF:-1 tvg-id="5af09e645126c2157123f9eb" tvg-logo="https://images.pluto.tv/channels/5af09e645126c2157123f9eb/colorLogoPNG.png" group-title="Pluto_US",Comedy: Kevin Hart Laugh Out Loud Network
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5af09e645126c2157123f9eb/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5ca671f215a62078d2ec0abf" tvg-logo="https://images.pluto.tv/channels/5ca671f215a62078d2ec0abf/colorLogoPNG.png" group-title="Pluto_US",Comedy: Comedy Central Pluto TV
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ca671f215a62078d2ec0abf/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f99e24636d67d0007a94e6d" tvg-logo="https://images.pluto.tv/channels/5f99e24636d67d0007a94e6d/colorLogoPNG.png" group-title="Pluto_US",Comedy: CC Animation
+#EXTINF:-1 tvg-id="5f99e24636d67d0007a94e6d" tvg-logo="https://images.pluto.tv/channels/5f99e24636d67d0007a94e6d/colorLogoPNG.png" group-title="Pluto_US",Comedy: Comedy Central Animation
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f99e24636d67d0007a94e6d/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5637d31f319573e26b64040b" tvg-logo="https://images.pluto.tv/channels/5637d31f319573e26b64040b/colorLogoPNG.png" group-title="Pluto_US",Comedy: Stand-Up TV
@@ -1733,6 +1781,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5a74b8
 #EXTINF:-1 tvg-id="5ced7d5df64be98e07ed47b6" tvg-logo="https://images.pluto.tv/channels/5ced7d5df64be98e07ed47b6/colorLogoPNG.png" group-title="Pluto_US",Sports: NFL Channel
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5ced7d5df64be98e07ed47b6/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5e66968a70f34c0007d050be" tvg-logo="https://images.pluto.tv/channels/5e66968a70f34c0007d050be/colorLogoPNG.png" group-title="Pluto_US",Sports: MLB
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e66968a70f34c0007d050be/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5cb626cfcaf83414128f439c" tvg-logo="https://images.pluto.tv/channels/5cb626cfcaf83414128f439c/colorLogoPNG.png" group-title="Pluto_US",Sports: MLS
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5cb626cfcaf83414128f439c/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -1892,22 +1943,22 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5d8d18
 #EXTINF:-1 tvg-id="5e6690befbdf780007f78158" tvg-logo="https://images.pluto.tv/channels/5e6690befbdf780007f78158/colorLogoPNG.png" group-title="Pluto_US",Latino: Nuestra Vision
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e6690befbdf780007f78158/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5e82bb378601b80007b4bd78" tvg-logo="https://images.pluto.tv/channels/5e82bb378601b80007b4bd78/colorLogoPNG.png" group-title="Pluto_US",Latino: The Walking Dead ESP
+#EXTINF:-1 tvg-id="5e82bb378601b80007b4bd78" tvg-logo="https://images.pluto.tv/channels/5e82bb378601b80007b4bd78/colorLogoPNG.png" group-title="Pluto_US",Latino: The Walking Dead en Español
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e82bb378601b80007b4bd78/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5f7b47f12a45590007821749" tvg-logo="https://images.pluto.tv/channels/5f7b47f12a45590007821749/colorLogoPNG.png" group-title="Pluto_US",Latino: Narcos en Español
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f7b47f12a45590007821749/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5e94cd036cc69d0007e8a1ba" tvg-logo="https://images.pluto.tv/channels/5e94cd036cc69d0007e8a1ba/colorLogoPNG.png" group-title="Pluto_US",Latino: Forensic Files en ESP
+#EXTINF:-1 tvg-id="5e94cd036cc69d0007e8a1ba" tvg-logo="https://images.pluto.tv/channels/5e94cd036cc69d0007e8a1ba/colorLogoPNG.png" group-title="Pluto_US",Latino: Forensic Files en Español
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5e94cd036cc69d0007e8a1ba/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5f4d882d5233170007ee880e" tvg-logo="https://images.pluto.tv/channels/5f4d882d5233170007ee880e/colorLogoPNG.png" group-title="Pluto_US",Latino: Unsolved Mysteries ESP
+#EXTINF:-1 tvg-id="5f4d882d5233170007ee880e" tvg-logo="https://images.pluto.tv/channels/5f4d882d5233170007ee880e/colorLogoPNG.png" group-title="Pluto_US",Latino: Unsovled Mysteries en Español
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5f4d882d5233170007ee880e/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5cf96b8f4f1ca3f0629f4bf1" tvg-logo="https://images.pluto.tv/channels/5cf96b8f4f1ca3f0629f4bf1/colorLogoPNG.png" group-title="Pluto_US",Latino: Pluto TV Investiga
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5cf96b8f4f1ca3f0629f4bf1/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="5cf96cc422df39f1a338d165" tvg-logo="https://images.pluto.tv/channels/5cf96cc422df39f1a338d165/colorLogoPNG.png" group-title="Pluto_US",Latino: Telemundo Telenovelas
+#EXTINF:-1 tvg-id="5cf96cc422df39f1a338d165" tvg-logo="https://images.pluto.tv/channels/5cf96cc422df39f1a338d165/colorLogoPNG.png" group-title="Pluto_US",Latino: Telemundo Telenovelas Clásicas
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5cf96cc422df39f1a338d165/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5e84db2db3851800077c871e" tvg-logo="https://images.pluto.tv/channels/5e84db2db3851800077c871e/colorLogoPNG.png" group-title="Pluto_US",Latino: Novelas Romance
@@ -1973,6 +2024,9 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5db0ae
 #EXTINF:-1 tvg-id="5dae0a40e8ee0d000975e99b" tvg-logo="https://images.pluto.tv/channels/5dae0a40e8ee0d000975e99b/colorLogoPNG.png" group-title="Pluto_US",Kids: pocket.watch
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5dae0a40e8ee0d000975e99b/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
+#EXTINF:-1 tvg-id="5fb584b7613a31000789de5a" tvg-logo="https://images.pluto.tv/channels/5fb584b7613a31000789de5a/colorLogoPNG.png" group-title="Pluto_US",Kids: Ryan and Friends
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5fb584b7613a31000789de5a/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXT-X-DISCONTINUITY
 #EXTINF:-1 tvg-id="5eb301b7395671000780d100" tvg-logo="https://images.pluto.tv/channels/5eb301b7395671000780d100/colorLogoPNG.png" group-title="Pluto_US",Kids: Little Baby Bum
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5eb301b7395671000780d100/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
@@ -2012,6 +2066,6 @@ pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5eb1b0
 #EXTINF:-1 tvg-id="5eb1b17aa5277e00083f6521" tvg-logo="https://images.pluto.tv/channels/5eb1b17aa5277e00083f6521/colorLogoPNG.png" group-title="Pluto_US",Local: CBSN Pittsburgh
 pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5eb1b17aa5277e00083f6521/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
-#EXTINF:-1 tvg-id="599243f0e0209bca186c822a" tvg-logo="https://images.pluto.tv/channels/599243f0e0209bca186c822a/colorLogoPNG.png" group-title="Pluto_US",Live Sports: Sacramento State
-pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/599243f0e0209bca186c822a/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
+#EXTINF:-1 tvg-id="5967f5cf73ac1fec2fc07148" tvg-logo="https://images.pluto.tv/channels/5967f5cf73ac1fec2fc07148/colorLogoPNG.png" group-title="Pluto_US",Live Sports: Big Sky Conference Live
+pipe:///var/dobleM-FFMPEG.sh https://stitcher.pluto.tv/stitch/hls/channel/5967f5cf73ac1fec2fc07148/master.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
 #EXT-X-DISCONTINUITY
