@@ -712,7 +712,7 @@ install()
 			GRABBER_ERROR=true
 		fi
 # Damos permisos a directorios y ficheros para canales
-	printf "%-$(($COLUMNS-10))s" " 10. Aplicando permisos al grabber IPTV"
+	printf "%-$(($COLUMNS-10+1))s" " 10. Aplicando permisos al grabber para satélite"
 		ERROR=false
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
