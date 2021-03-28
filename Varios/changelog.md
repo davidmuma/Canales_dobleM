@@ -1,3 +1,7 @@
+28/03/21
+
+Eliminados canales que ya no emiten, actualizadas frecuencias y añadido canal temporal M. Oscars
+
 08/03/21
 
 Añadidos DAZN 3 y 4, actualizadas frecuencias
