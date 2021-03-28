@@ -51,7 +51,9 @@ clear
 	echo
 	echo -e " 7)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 8)$cyan Ejecutar instalador para$end$green Docker en Asustor $end(solo para tvheadend 4.3)"
+	echo -e " 8)$cyan Ejecutar instalador para$end$green Docker (sudo)$end(solo para tvheadend 4.3)"
+	echo
+	echo -e " 9)$cyan Ejecutar instalador para$end$green Docker en Asustor $end(solo para tvheadend 4.3)"
 	echo
     echo -e " s)$red Salir del instalador $end"
 	echo
@@ -65,7 +67,8 @@ clear
 		5) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Alexelec; break;;
 		6) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
 		7) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
-		8) curl -sko $CARPETA_SCRIPT/i_dobleMd.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && sudo -i sh $CARPETA_SCRIPT/i_dobleMd.sh; break;;
+		8) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && sudo chmod +x i_dobleMd.sh && sudo ./i_dobleMd.sh; break;;
+		9) curl -sko $CARPETA_SCRIPT/i_dobleMd.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && sudo -i sh $CARPETA_SCRIPT/i_dobleMd.sh; break;;
 		s) clear && echo " Gracias por usar el script dobleM" && rm -rf i_dobleM*.sh; exit;;
 		*) echo "$opcion es una opción inválida\n";
 	esac
