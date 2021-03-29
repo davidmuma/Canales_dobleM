@@ -1409,7 +1409,7 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTV
 elif [ "$CONFIG_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
 	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
@@ -1417,7 +1417,7 @@ elif [ "$CONFIG_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTV
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
@@ -1428,7 +1428,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTV
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
@@ -1437,7 +1437,7 @@ else
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTV
 fi
 }
 
@@ -1489,13 +1489,13 @@ installIPTVffmpeg()
 					echo -e "$yellow$FFMPEG_DIR$end y pulse INTRO"
 					echo
 					read FFMPEG_DIR
-					installIPTV;;
+					installIPTVffmpeg;;
 				b)	clear
 					echo -e "Introduzca sus comandos para ffmpeg: "
 					echo -e "$yellow$FFMPEG_COMMAND$end y pulse INTRO"
 					echo
 					read FFMPEG_COMMAND
-					installIPTV;;
+					installIPTVffmpeg;;
 				*) echo && echo " $opcioniptv es una opción inválida" && echo;
 		esac
 	done
@@ -1778,7 +1778,7 @@ if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTVffmpeg
 elif [ "$CONFIG_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
 	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
@@ -1786,7 +1786,7 @@ elif [ "$CONFIG_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTVffmpeg
 elif [ "$SERVICE_ERROR" = true ]; then
 	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
@@ -1797,7 +1797,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTVffmpeg
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
@@ -1806,7 +1806,7 @@ else
 	echo
 	echo " Pulsa intro para continuar..."
 	read CAD
-	MENU
+	installIPTVffmpeg
 fi
 }
 
