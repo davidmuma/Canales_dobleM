@@ -2317,7 +2317,7 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		8) clear && limpiezatotal;;
 		9) clear && resbackup;;
 		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
-		s) clear && echo " Gracias por usar el script dobleM\n" && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
+		s) clear && echo " Gracias por usar el script dobleM" && echo && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
 			echo -e "Introduzca su ruta para el directorio: "
 			echo -e "$yellow$TVHEADEND_CONFIG_DIR$end y pulse INTRO"
