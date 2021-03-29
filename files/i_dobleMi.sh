@@ -777,6 +777,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -789,6 +790,7 @@ else
 	echo " Acuerdate de activar el sintonizador y asignar \"Red DVB-S\" en la pestaña:"
 	echo "   Configuración >> Entradas DVB >> Adaptadores de TV"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1079,6 +1081,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1088,6 +1091,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1423,6 +1427,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1432,6 +1437,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1792,6 +1798,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
@@ -1801,6 +1808,7 @@ elif [ "$SERVICE_ERROR" = true ]; then
 else
 	printf "\n$green%s$end\n" " ¡Proceso completado!"
 	echo
+	echo " Si no usas los grabbers A través del aire/Over the Air, desactívalos"
 	echo " La primera captura de EPG tardará unos minutos hasta que todos"
 	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
 	echo
