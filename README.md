@@ -8,7 +8,7 @@
 | | Última actualización | Versión |
 | -	| - | - |
 | Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | 
-| TDTChannels | 12/02/2021 | [ 2.0 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
+| TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
 | Pluto.TV | 11/03/2021 | [ 2.5 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 | Pluto.TV VOD | 11/03/2021 | [ 1.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 
