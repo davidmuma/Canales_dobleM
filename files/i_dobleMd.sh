@@ -61,7 +61,7 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	TVHEADEND_CONFIG_CONT="$CONTAINER_NAME:$TVHEADEND_CONFIG_DIR"
 	TVHEADEND_GRABBER_CONT="$CONTAINER_NAME:$TVHEADEND_GRABBER_DIR"
 	FFMPEG_DIR="/usr/bin/ffmpeg"
-	FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -hls_flags discont_start -f mpegts pipe:1'
+	FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 
 # Parar/Iniciar tvheadend
 PARAR_TVHEADEND()
@@ -524,7 +524,7 @@ install()
 # Instalación de grabber. Copiamos carpeta /epggrab/xmltv/channels y grabber nuevo.
 	printf "%-$(($COLUMNS-10+1))s"  " 9. Instalando grabber para satélite"
 		ERROR=false
-		docker cp $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
+		docker cp $CARPETA_DOBLEM/epggrab/. $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -596,8 +596,566 @@ else
 fi
 }
 
-# INSTALADOR IPTV
+# ACTUALIZAR SATELITE
+update()
+{
+# Reiniciamos variables ERROR
+	LIST_ERROR=false
+	GRABBER_ERROR=false
+	CONFIG_ERROR=false
+	SERVICE_ERROR=false
+# Pedimos lista a actualizar
+	NOMBRE_LISTA=dobleM-SAT
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                Elección de lista satélite a actualizar                ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$cyan Elige la lista satélite que quieres actualizar: $end"
+		echo -e " 1) TODO (Astra individual + comunitaria + Lista de canales SD)"
+		echo -e " 2) Astra individual + Lista de canales SD"
+		echo -e " 3) Astra comunitaria + Lista de canales SD"
+		echo -e " 4) Astra individual"
+		echo -e " 5) Astra comunitaria"
+		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
+		echo -n " Indica una opción: "
+		read opcionsat
+		case $opcionsat in
+				1) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #No borramos nada
+				2) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra individual y Astra SD
+				3) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2\|fa0254ffc9bdcc235a7ce86ec62b04b1'; break;; #borramos todo menos Astra comunitaria y Astra SD
+				4) LIMPIAR_CANALES_SAT='ac6da31b4882740649cd13bc94f96b1c'; break;; #borramos todo menos Astra individual
+				5) LIMPIAR_CANALES_SAT='8e06542863d3606f8a583e43c73580c2'; break;; #borramos todo menos Astra comunitaria
+				v) MENU;;
+				*) echo && echo " $opcionsat es una opción inválida" && echo;
+		esac
+	done
+# Iniciamos instalación satélite
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###              Iniciando actualización de canales satélite              ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
+	echo
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10+1))s"  " 1. Comprobando que el contenedor $CONTAINER_NAME está iniciado"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
+	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista para canales satélite"
+		ERROR=false
+		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			echo -e "\nLa lista de canales satélite no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			echo
+			echo " Pulsa intro para continuar..."
+			read CAD
+			MENU
+		fi
+# Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
+	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando lista de canales satélite"
+		ERROR=false
+		tar -xf "$NOMBRE_LISTA.tar.xz"
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		grep -L $LIMPIAR_CANALES_SAT $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+# Borramos configuración actual
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior si la hubiera"
+		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
+			docker cp $TVHEADEND_CONFIG_CONT/channel/ $CARPETA_DOBLEM/channelCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channelCONT/tag/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+					cp -r $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channel/config/ 2>/dev/null
+					cp -r $CARPETA_DOBLEM/channelCONT/tag/* $CARPETA_DOBLEM/channel/tag/ 2>/dev/null
+		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>/dev/null
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/" 2>/dev/null
+			docker cp $TVHEADEND_CONFIG_CONT/epggrab/ $CARPETA_DOBLEM/epggrabCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $CARPETA_DOBLEM/epggrabCONT/xmltv/channels/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+					cp -r $CARPETA_DOBLEM/epggrabCONT/xmltv/channels/* $CARPETA_DOBLEM/epggrab/xmltv/channels/ 2>/dev/null
+		# Borramos resto de la instalación anterior
+		ERROR=false
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/channel/" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+
+
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM"
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV"
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto"
+
+
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 5. Deteniendo contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Instalación de canales. Copiamos los archivos nuevos al contenedor
+	printf "%-$(($COLUMNS-10+1))s"  " 6. Instalando lista de canales satélite"
+		ERROR=false
+		docker cp $CARPETA_DOBLEM/bouquet/. $TVHEADEND_CONFIG_CONT/bouquet/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/channel/. $TVHEADEND_CONFIG_CONT/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/input/. $TVHEADEND_CONFIG_CONT/input/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/picons/. $TVHEADEND_CONFIG_CONT/picons/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/epggrab/. $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_CONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+# Borramos carpeta termporal dobleM
+	printf "%-$(($COLUMNS-10))s"  " 7. Eliminando archivos temporales"
+		rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 8. Iniciando contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Fin instalación
+if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
+	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
+elif [ "$CONFIG_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
+	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
+elif [ "$SERVICE_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
+	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
+else
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	MENU
+fi
+}
+
+# INSTALADOR IPTV sin ffmpeg
 installIPTV()
+{
+# Comprobamos que exista el fichero config en la carpeta epggrab
+	comprobarconfigepggrab
+# Reiniciamos variables ERROR
+	LIST_ERROR=false
+	GRABBER_ERROR=false
+	CONFIG_ERROR=false
+	SERVICE_ERROR=false
+# Pedimos lista a instalar
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###             Elección de lista IPTV a instalar/actualizar              ### $end"
+	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
+	echo -e "$blue ###     $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son       ### $end"
+	echo -e "$blue ###     de terceros y pueden dejar de funcionar en cualquier momento      ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
+		echo -e " 1) TDTChannels"
+		echo -e " 2) Pluto.TV todos los países"
+		echo -e " 3) Pluto.TV VOD español"
+		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
+		echo -n " Indica una opción: "
+		read opcioniptv
+		case $opcioniptv in
+				1) NOMBRE_LISTA=dobleM-TDT; break;;
+				2) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				v) MENU;;
+				*) echo && echo " $opcioniptv es una opción inválida" && echo;
+		esac
+	done
+# Iniciamos instalación IPTV
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###             Iniciando instalación de canales IPTV y EPG               ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
+	echo
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10+1))s"  " 1. Comprobando que el contenedor $CONTAINER_NAME está iniciado"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
+	printf "%-$(($COLUMNS-10))s"  " 2. Descargando lista y grabber para canales IPTV"
+		ERROR=false
+		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			echo -e "\nLa lista de canales IPTV no se ha podido descargar.\nPor favor, inténtalo más tarde."
+			echo
+			echo " Pulsa intro para continuar..."
+			read CAD
+			MENU
+		fi
+# Descomprimimos el tar, marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
+	printf "%-$(($COLUMNS-10))s"  " 3. Preparando lista de canales IPTV"
+		ERROR=false
+		tar -xf "$NOMBRE_LISTA.tar.xz"
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		grep -L '"epglimit": 7' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales sin ffmpeg
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi	
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+# Marcamos con dobleM????? al final todos los archivos de la carpeta /epggrab/xmltv/channels/
+	printf "%-$(($COLUMNS-10))s"  " 4. Preparando grabber para IPTV"
+		ERROR=false
+		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			GRABBER_ERROR=true
+		fi
+# Configuramos tvheadend y grabber para satelite
+	printf "%-$(($COLUMNS-10))s"  " 5. Configurando grabber en tvheadend"
+		ERROR=false
+		#Nos copiamos el fichero /epggrab/config y lo modificamos
+		docker cp $TVHEADEND_CONFIG_CONT/epggrab/config $CARPETA_DOBLEM/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		#cron y grabber config epggrab
+		sed -i -e 's/"channel_rename": .*,/"channel_rename": false,/g' -e 's/"channel_renumber": .*,/"channel_renumber": false,/g' -e 's/"channel_reicon": .*,/"channel_reicon": false,/g' -e 's/"epgdb_periodicsave": .*,/"epgdb_periodicsave": 0,/g' -e 's/"epgdb_saveafterimport": .*,/"epgdb_saveafterimport": true,/g' -e 's/"cron": .*,/"cron": "\# Todos los días a las 8:04, 14:04 y 20:04\\n4 8 * * *\\n4 14 * * *\\n4 20 * * *",/g' -e 's/"int_initial": .*,/"int_initial": true,/g' -e 's/"ota_initial": .*,/"ota_initial": false,/g' -e 's/"ota_cron": .*,/"ota_cron": "\# Configuración modificada por dobleM\\n\# Telegram: t.me\/EPG_dobleM",/g' -e 's/"ota_timeout": .*,/"ota_timeout": 600,/g' $CARPETA_DOBLEM/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "/tv_grab_EPG_$NOMBRE_LISTA\"/,/},/d" $CARPETA_DOBLEM/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		sed -i "s#\"modules\": {#\"modules\": {\n\t\t\"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\": {\n\t\t\t\"class\": \"epggrab_mod_int_xmltv\",\n\t\t\t\"dn_chnum\": 0,\n\t\t\t\"name\": \"XMLTV: EPG_$NOMBRE_LISTA\",\n\t\t\t\"type\": \"Internal\",\n\t\t\t\"enabled\": true,\n\t\t\t\"priority\": 4\n\t\t},#g" $CARPETA_DOBLEM/epggrab/config 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		CONFIG_ERROR=true
+		fi
+# Borramos configuración actual
+	printf "%-$(($COLUMNS-10+1))s"  " 6. Eliminando instalación anterior si la hubiera"
+		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
+			docker cp $TVHEADEND_CONFIG_CONT/channel/ $CARPETA_DOBLEM/channelCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channelCONT/tag/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+					cp -r $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channel/config/ 2>/dev/null
+					cp -r $CARPETA_DOBLEM/channelCONT/tag/* $CARPETA_DOBLEM/channel/tag/ 2>/dev/null
+		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>/dev/null
+			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/" 2>/dev/null
+			docker cp $TVHEADEND_CONFIG_CONT/epggrab/ $CARPETA_DOBLEM/epggrabCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $CARPETA_DOBLEM/epggrabCONT/xmltv/channels/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+					cp -r $CARPETA_DOBLEM/epggrabCONT/xmltv/channels/* $CARPETA_DOBLEM/epggrab/xmltv/channels/ 2>/dev/null
+		# Borramos resto de la instalación anterior
+		ERROR=false
+		case $opcioniptv in
+				1) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log;;
+				2) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/" 2>>$CARPETA_SCRIPT/dobleM.log;;
+				3) docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f801b3c9e6be4260665d32be03908e00/" 2>>$CARPETA_SCRIPT/dobleM.log;;
+		esac
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/channel/" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA" 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+
+
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM"
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-IPTV"
+		docker exec $CONTAINER_NAME sh -c "rm -f $TVHEADEND_GRABBER_DIR/tv_grab_EPG_dobleM-Pluto"
+
+
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 7. Deteniendo contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Instalación de canales. Copiamos los archivos nuevos al contenedor
+	printf "%-$(($COLUMNS-10))s"  " 8. Instalando lista de canales IPTV"
+		ERROR=false
+		docker cp $CARPETA_DOBLEM/channel/. $TVHEADEND_CONFIG_CONT/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/input/. $TVHEADEND_CONFIG_CONT/input/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/$NOMBRE_LISTA.ver $TVHEADEND_CONFIG_CONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			LIST_ERROR=true
+		fi
+# Instalación de grabber. Copiamos carpeta /epggrab/xmltv/channels y grabber nuevo.
+	printf "%-$(($COLUMNS-10))s"  " 9. Instalando grabber para IPTV"
+		ERROR=false
+		docker cp $CARPETA_DOBLEM/epggrab/. $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		chmod +x $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi
+		docker cp $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA $TVHEADEND_GRABBER_CONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			GRABBER_ERROR=true
+		fi
+# Borramos carpeta termporal dobleM
+	printf "%-$(($COLUMNS-10))s"  " 10. Eliminando archivos temporales"
+		rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 11. Iniciando contenedor $CONTAINER_NAME"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Fin instalación
+if [ "$LIST_ERROR" = true -o "$GRABBER_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: El proceso no se ha completado correctamente."
+	printf "$red%s$end\n" " Revisa los errores anteriores para intentar solucionarlo."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	installIPTV
+elif [ "$CONFIG_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: La configuración de tvheadend no se ha realizado de forma automática."
+	printf "$red%s$end\n" " Será necesario revisar y corregir la configuración manualmente."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	installIPTV
+elif [ "$SERVICE_ERROR" = true ]; then
+	printf "\n$red%s$end\n" " ERROR: tvheadend no se ha podido reiniciar de forma automática."
+	printf "$red%s$end\n" " Es necesario reiniciar tvheadend manualmente para aplicar los cambios."
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	installIPTV
+else
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+	echo
+	echo " La primera captura de EPG tardará unos minutos hasta que todos"
+	echo " los procesos de tvheadend se terminen de iniciar, ten paciencia."
+	echo
+	echo " Pulsa intro para continuar..."
+	read CAD
+	installIPTV
+fi
+}
+
+# INSTALADOR IPTV con ffmpeg
+installIPTVffmpeg()
 {
 # Comprobamos que esté instalado ffmpeg
 	docker exec $CONTAINER_NAME sh -c "command -v ffmpeg" >/dev/null 2>&1
@@ -614,7 +1172,7 @@ installIPTV()
 # Pedimos lista a instalar
 	clear
 	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                   Elección de lista IPTV a instalar                   ### $end"
+	echo -e "$blue ###             Elección de lista IPTV a instalar/actualizar              ### $end"
 	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
 	echo -e "$blue ###     $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son       ### $end"
 	echo -e "$blue ###     de terceros y pueden dejar de funcionar en cualquier momento      ### $end"
@@ -627,7 +1185,7 @@ installIPTV()
 	echo
 	while :
 	do
-		echo -e "$cyan Elige la lista IPTV que quieres instalar: $end"
+		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
 		echo -e " 1) TDTChannels"
 		echo -e " 2) Pluto.TV todos los países"
 		echo -e " 3) Pluto.TV VOD español"
@@ -703,6 +1261,10 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		grep -L '"epglimit": 0' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales con ffmpeg
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi	
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -1505,14 +2067,16 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 	echo _______________________________________________________________________________
 	echo
-	echo -e " 1)$green Hacer copia de seguridad de tvheadend $end"
-	echo -e " 2)$cyan Instalar lista de canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
-	echo -e " 3)$cyan Instalar lista de canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
-	echo -e " 4)$cyan Instalar grabber y configurar tvheadend $end"
-	echo -e " 5)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 6)$cyan Cambiar el formato/ruta de los picons $end"
-	echo -e " 7)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
-	echo -e " 8)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+	echo -e " 0)$green Hacer copia de seguridad de tvheadend $end"
+	echo -e " 1)$cyan Instalar   canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
+	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end(Solo actualiza canales y picons) $end"
+	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
+	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
+	echo -e " 5)$cyan Instalar grabber y configurar tvheadend $end"
+	echo -e " 6)$cyan Cambiar el formato de la guía de programación $end"
+	echo -e " 7)$cyan Cambiar el formato/ruta de los picons $end"
+	echo -e " 8)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
+	echo -e " 9)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
     echo -e " v)$magenta Volver $end"
     echo -e " s)$red Salir $end"
@@ -1523,14 +2087,16 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -n " Indica una opción: "
 	read opcionmenu
 	case $opcionmenu in
-		1) clear && backup;;
-		2) clear && install;;
+		0) clear && backup;;
+		1) clear && install;;
+		2) clear && update;;
 		3) clear && installIPTV;;
-		4) clear && installGRABBER;;
-		5) clear && cambioformatoEPG;;
-		6) clear && cambioformatoPICONS;;
-		7) clear && limpiezatotal;;
-		8) clear && resbackup;;
+		4) clear && installIPTVffmpeg;;
+		5) clear && installGRABBER;;
+		6) clear && cambioformatoEPG;;
+		7) clear && cambioformatoPICONS;;
+		8) clear && limpiezatotal;;
+		9) clear && resbackup;;
 		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
 		s) clear && echo " Gracias por usar el script dobleM" && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
