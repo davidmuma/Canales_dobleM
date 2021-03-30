@@ -876,7 +876,6 @@ installIPTV()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
-	echo -e " SATELITE      --->  Versión instalada:$red $ver_local_SAT $end $ver_menu_SAT"
 	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
 	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
 	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
@@ -1193,7 +1192,6 @@ installIPTVffmpeg()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
-	echo -e " SATELITE      --->  Versión instalada:$red $ver_local_SAT $end $ver_menu_SAT"
 	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
 	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
 	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
@@ -2192,7 +2190,7 @@ ver_menu_SAT=""
 ver_menu_TDT=""
 ver_menu_PlutoTV_ALL=""
 ver_menu_PlutoVOD_ES=""
-ver_local_SAT=`cat $TVHEADEND_CONFIG_DIR/dobleM-SAT.ver 2>/dev/null`
+ver_local_SAT=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-SAT.ver" 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local_SAT=···
 	fi
@@ -2200,7 +2198,7 @@ ver_web_SAT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 	if [ $ver_local_SAT != $ver_web_SAT ]; then
 	ver_menu_SAT="--->  Nueva versión:$green $ver_web_SAT $end"
 	fi
-ver_local_TDT=`cat $TVHEADEND_CONFIG_DIR/dobleM-TDT.ver 2>/dev/null`
+ver_local_TDT=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-TDT.ver" 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local_TDT=···
 	fi
@@ -2208,7 +2206,7 @@ ver_web_TDT=`curl https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 	if [ $ver_local_TDT != $ver_web_TDT ]; then
 	ver_menu_TDT="--->  Nueva versión:$green $ver_web_TDT $end"
 	fi
-ver_local_PlutoTV_ALL=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoTV_ALL.ver 2>/dev/null`
+ver_local_PlutoTV_ALL=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-PlutoTV_ALL.ver" 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local_PlutoTV_ALL=···
 	fi
@@ -2216,7 +2214,7 @@ ver_web_PlutoTV_ALL=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	if [ $ver_local_PlutoTV_ALL != $ver_web_PlutoTV_ALL ]; then
 	ver_menu_PlutoTV_ALL="--->  Nueva versión:$green $ver_web_PlutoTV_ALL $end"
 	fi
-ver_local_PlutoVOD_ES=`cat $TVHEADEND_CONFIG_DIR/dobleM-PlutoVOD_ES.ver 2>/dev/null`
+ver_local_PlutoVOD_ES=`docker exec $CONTAINER_NAME sh -c "cat /config/dobleM-PlutoVOD_ES.ver" 2>/dev/null`
 	if [ $? -ne 0 ]; then
 	ver_local_PlutoVOD_ES=···
 	fi
