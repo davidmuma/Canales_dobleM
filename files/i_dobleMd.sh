@@ -876,17 +876,12 @@ installIPTV()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
-	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
-	echo _______________________________________________________________________________
-	echo
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
-		echo -e " 1) TDTChannels"
-		echo -e " 2) Pluto.TV todos los países"
-		echo -e " 3) Pluto.TV VOD español"
+		echo -e " 1) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+		echo -e " 2) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
+		echo -e " 3) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
@@ -1192,11 +1187,6 @@ installIPTVffmpeg()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
-	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
-	echo _______________________________________________________________________________
-	echo
 	echo -e " Ruta binario ffmpeg:$yellow $FFMPEG_DIR $end"
 	echo -e " Comandos     ffmpeg:$yellow $FFMPEG_COMMAND $end"
 	echo _______________________________________________________________________________
@@ -1204,9 +1194,9 @@ installIPTVffmpeg()
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
-		echo -e " 1) TDTChannels"
-		echo -e " 2) Pluto.TV todos los países"
-		echo -e " 3) Pluto.TV VOD español"
+		echo -e " 1) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+		echo -e " 2) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
+		echo -e " 3) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
@@ -1525,19 +1515,13 @@ clearchannels()
 	echo -e "$blue ############################################################################# $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
-	echo -e " SATELITE      --->  Versión instalada:$red $ver_local_SAT $end $ver_menu_SAT"
-	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
-	echo _______________________________________________________________________________
-	echo
 	while :
 	do
 		echo -e "$cyan Elige la lista de canales que quieres borrar: $end"
-		echo -e " 1) Satélite"
-		echo -e " 2) TDTChannels"
-		echo -e " 3) Pluto.TV"
-		echo -e " 4) Pluto.TV VOD"
+		echo -e " 1) SATELITE		--->  Versión instalada:$red $ver_local_SAT $end"
+		echo -e " 2) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end"
+		echo -e " 3) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end"
+		echo -e " 4) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
@@ -1587,8 +1571,6 @@ clearchannels()
 							fi
 						fi
 					done
-					cp -r $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channel/config/ 2>/dev/null
-					cp -r $CARPETA_DOBLEM/channelCONT/tag/* $CARPETA_DOBLEM/channel/tag/ 2>/dev/null
 		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
 			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>/dev/null
 			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/" 2>/dev/null
@@ -1603,7 +1585,6 @@ clearchannels()
 							fi
 						fi
 					done
-					cp -r $CARPETA_DOBLEM/epggrabCONT/xmltv/channels/* $CARPETA_DOBLEM/epggrab/xmltv/channels/ 2>/dev/null
 		# Borramos resto de la instalación anterior
 		ERROR=false
 		case $opcionborrar in
@@ -1619,7 +1600,7 @@ clearchannels()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/" 2>>$CARPETA_SCRIPT/dobleM.log
+		docker exec $CONTAINER_NAME sh -c "rm -rf $TVHEADEND_CONFIG_DIR/epggrab/xmltv/" 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1635,12 +1616,12 @@ clearchannels()
 		PARAR_TVHEADEND
 # Instalación de canales. Copiamos los archivos nuevos al contenedor
 	printf "%-$(($COLUMNS-10))s"  " 5. Borrando canales"
-		ERROR=false
-		docker cp $CARPETA_DOBLEM/channel/. $TVHEADEND_CONFIG_CONT/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
+		ERROR=false	
+		docker cp $CARPETA_DOBLEM/channelCONT/. $TVHEADEND_CONFIG_CONT/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi		
-		docker cp $CARPETA_DOBLEM/epggrab/. $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
+		docker cp $CARPETA_DOBLEM/epggrabCONT/. $TVHEADEND_CONFIG_CONT/epggrab/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
