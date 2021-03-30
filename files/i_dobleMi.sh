@@ -1818,6 +1818,106 @@ else
 fi
 }
 
+# ELIMINAR CANALES
+clearchannels()
+{
+# Reiniciamos variables ERROR
+	LIST_ERROR=false
+	GRABBER_ERROR=false
+	CONFIG_ERROR=false
+	SERVICE_ERROR=false
+# Pedimos lista a borrar
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                 Elección de lista de canales a borrar                 ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
+	echo
+	while :
+	do
+		echo -e "$cyan Elige la lista de canales que quieres borrar: $end"
+		echo -e " 1) Satélite"
+		echo -e " 2) TDTChannels"
+		echo -e " 3) Pluto.TV todos los países"
+		echo -e " 4) Pluto.TV VOD español"
+		echo
+		echo -e " v)$magenta Volver al menú$end"
+		echo
+		echo -n " Indica una opción: "
+		read opcionborrar
+		case $opcionborrar in
+				1) NOMBRE_LISTA=dobleM-SAT; break;;
+				2) NOMBRE_LISTA=dobleM-TDT; break;;
+				3) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
+				4) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
+				v) MENU;;
+				*) echo && echo " $opcionborrar es una opción inválida" && echo;
+		esac
+	done
+# Iniciamos borrado
+	clear
+	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ###                    Iniciando borrado de canales                       ### $end"
+	echo -e "$blue ############################################################################# $end"
+	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
+	echo
+# Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
+	printf "%-$(($COLUMNS-10))s"  " 1. Deteniendo tvheadend"
+		cd $CARPETA_SCRIPT
+		PARAR_TVHEADEND
+# Borramos configuración actual
+	printf "%-$(($COLUMNS-10))s"  " 2. Borrando canales"
+		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+		# Borramos epggrab channels marcados, conservando canales mapeados por los usuarios
+				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
+					for fichero in $TVHEADEND_CONFIG_DIR/epggrab/xmltv/channels/*
+					do
+						if [ -f "$fichero" ]; then
+							ultima=$(tail -n 1 $fichero)
+							if [ "$ultima" = $NOMBRE_LISTA ]; then
+							rm -f $fichero
+							fi
+						fi
+					done
+		# Borramos resto de la instalación anterior
+		ERROR=false
+		case $opcionborrar in
+				1) rm -rf $TVHEADEND_CONFIG_DIR/input/dvb/networks/b59c72f4642de11bd4cda3c62fe080a8/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+				2) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/c80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+				3) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/d80013f7cb7dc75ed04b0312fa362ae1/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+				4) rm -rf $TVHEADEND_CONFIG_DIR/input/iptv/networks/f801b3c9e6be4260665d32be03908e00/ 2>>$CARPETA_SCRIPT/dobleM.log;;
+		esac
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi		
+		rm -f $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
+# Reiniciamos tvheadend
+	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
+		cd $CARPETA_SCRIPT
+		INICIAR_TVHEADEND
+# Fin instalación
+	printf "\n$green%s$end\n" " ¡Proceso completado!"
+		echo
+		echo " Pulsa intro para continuar..."
+		read CAD
+		clearchannels
+}
+
 # INSTALAR GRABBER
 installGRABBER()
 {
@@ -2291,11 +2391,13 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end(Solo actualiza canales y picons) $end"
 	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
 	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
-	echo -e " 5)$cyan Instalar grabber y configurar tvheadend $end"
-	echo -e " 6)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 7)$cyan Cambiar el formato/ruta de los picons $end"
-	echo -e " 8)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
+	echo -e " 5)$red Borrar$end$cyan lista de canales instalada $end"	
+	echo -e " 6)$cyan Instalar grabber y configurar tvheadend $end"
+	echo -e " 7)$cyan Cambiar el formato de la guía de programación $end"
+	echo -e " 8)$cyan Cambiar el formato/ruta de los picons $end"
 	echo -e " 9)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+	echo
+	echo -e " x)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
 	echo
     echo -e " v)$magenta Volver $end"
     echo -e " s)$red Salir $end"
@@ -2311,11 +2413,12 @@ ver_web_PlutoVOD_ES=`curl https://raw.githubusercontent.com/davidmuma/Canales_do
 		2) clear && update;;
 		3) clear && installIPTV;;
 		4) clear && installIPTVffmpeg;;
-		5) clear && installGRABBER;;
-		6) clear && cambioformatoEPG;;
-		7) clear && cambioformatoPICONS;;
-		8) clear && limpiezatotal;;
+		5) clear && clearchannels;;
+		6) clear && installGRABBER;;
+		7) clear && cambioformatoEPG;;
+		8) clear && cambioformatoPICONS;;
 		9) clear && resbackup;;
+		x) clear && limpiezatotal;;
 		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
 		s) clear && echo " Gracias por usar el script dobleM" && echo && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
 		a)  clear
