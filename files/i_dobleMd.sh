@@ -1544,8 +1544,17 @@ clearchannels()
 	printf "%-$(($COLUMNS-10+1))s"  " 1. Comprobando que el contenedor $CONTAINER_NAME está iniciado"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND
+# Preparamos CARPETA_DOBLEM
+	printf "%-$(($COLUMNS-10))s"  " 2. Preparando carpeta temporal"
+		ERROR=false
+		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -eq 0 ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+		else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+		fi
 # Borramos configuración actual
-	printf "%-$(($COLUMNS-10))s"  " 2. Preparando canales"
+	printf "%-$(($COLUMNS-10))s"  " 3. Preparando canales a borrar"
 		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
 			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
 			docker cp $TVHEADEND_CONFIG_CONT/channel/ $CARPETA_DOBLEM/channelCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
@@ -1602,11 +1611,11 @@ clearchannels()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
-	printf "%-$(($COLUMNS-10))s"  " 3. Deteniendo contenedor $CONTAINER_NAME"
+	printf "%-$(($COLUMNS-10))s"  " 4. Deteniendo contenedor $CONTAINER_NAME"
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Instalación de canales. Copiamos los archivos nuevos al contenedor
-	printf "%-$(($COLUMNS-10))s"  " 4. Borrando canales"
+	printf "%-$(($COLUMNS-10))s"  " 5. Borrando canales"
 		ERROR=false
 		docker cp $CARPETA_DOBLEM/channel/. $TVHEADEND_CONFIG_CONT/channel/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -1619,7 +1628,7 @@ clearchannels()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Borramos carpeta termporal dobleM
-	printf "%-$(($COLUMNS-10))s"  " 5. Eliminando archivos temporales"
+	printf "%-$(($COLUMNS-10))s"  " 6. Eliminando carpeta temporal"
 		rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -1627,7 +1636,7 @@ clearchannels()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 # Reiniciamos tvheadend
-	printf "%-$(($COLUMNS-10))s"  " 6. Iniciando contenedor $CONTAINER_NAME"
+	printf "%-$(($COLUMNS-10))s"  " 7. Iniciando contenedor $CONTAINER_NAME"
 		cd $CARPETA_SCRIPT
 		INICIAR_TVHEADEND
 # Fin limpieza
