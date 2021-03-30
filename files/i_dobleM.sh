@@ -51,7 +51,7 @@ clear
 	echo
 	echo -e " 7)$cyan Ejecutar instalador para$end$green Docker $end(solo para tvheadend 4.3)"
 	echo
-	echo -e " 8)$cyan Ejecutar instalador para$end$green Docker (sudo)$end(solo para tvheadend 4.3)"
+	echo -e " 8)$cyan Ejecutar instalador para$end$green Docker (sudo) $end(solo para tvheadend 4.3)"
 	echo
 	echo -e " 9)$cyan Ejecutar instalador para$end$green Docker en Asustor $end(solo para tvheadend 4.3)"
 	echo
