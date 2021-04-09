@@ -31,8 +31,10 @@ Ejecuta el script con el siguiente comando:
 ```
 curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh ; sh dobleM.sh
 ```
-Una vez descargado puedes volver a ejecutarlo las veces que quieras con el comando sh dobleM.sh
-
+Una vez descargado puedes volver a ejecutarlo las veces que quieras con el comando:
+```
+sh dobleM.sh
+```
 
 El script es compatible con los siguientes sistemas:
 
