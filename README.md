@@ -47,12 +47,14 @@ El script es compatible con los siguientes sistemas:
 - Docker
 - Enigma2 (Solo guía de programación con EPG-Import)
 
+#
 Notas:
 
 En Synology si no has entrado con sudo -i, pon sudo antes del curl
 
 En Docker ejecuta el script en el sistema anfitrión, no en el contenedor
 
+#
 Agradecimientos:
 
 Jungle-Team por los picons
