@@ -8,9 +8,9 @@
 | | Última actualización | Versión | |
 | -	| - | - | - |
 | Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes |
-| TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros (gracias LaQuay) |
-| Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas (gracias HelmerLuzo) |
-| Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español (gracias HelmerLuzo) |
+| TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
+| Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
+| Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas.
 
@@ -21,7 +21,7 @@ Los canales satélite de Movistar+ tienen todos su guía de programación y vien
 
 También se instala un grabber que descarga la EPG con siete días de programación, pudiendo elegir tanto el formato de la guía (Con etiquetas de colores, sin etiquetas de colores, con etiquetas de colores y título en una sola linea, sin etiquetas de colores, título en una sola linea y sin caracteres especiales), como el tipo de imagen que aparecerá en el evento mostrado (Imágenes tipo poster o imágenes tipo fanart) y también da la posibilidad de elegir tipo de picons.
 
-El script configura tvheadend con los idiomas Spanish, English, German y French (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons. (Gracias Jungle-Team por los picons)
+El script configura tvheadend con los idiomas Spanish, English, German y French (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
 
 Al hacer la instalación de cualquiera de las listas de canales(Satélite o IPTV), el script respetará los canales creados por ti anteriormente.
 
@@ -48,6 +48,12 @@ Notas:
 En Synology si no has entrado con sudo -i, pon sudo antes del curl
 
 En Docker ejecuta el script en el sistema anfitrión, no en el contenedor
+
+Agradecimientos:
+
+Jungle-Team por los picons
+
+LaQuay y HelmerLuzo por los enlaces IPTV
 
 <a href="https://www.paypal.me/EPGdobleM"><img src="https://image.flaticon.com/icons/png/128/3039/3039775.png" style="height: auto !important;width: auto !important;" ></a>  
 Si te gusta mi trabajo, apóyame con una pequeña donación.
