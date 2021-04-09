@@ -9,24 +9,10 @@
 | -	| - | - | - |
 | Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes |
 | TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros (gracias LaQuay) |
-| Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
-| Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
+| Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas (gracias HelmerLuzo) |
+| Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español (gracias HelmerLuzo) |
 
 Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas.
-
-Actualmente el script incluye las siguientes listas de canales:
-
-- Satélite
-
-Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes
-
-- IPTV
-
-TDTChannels: Más de 500 canales libres españoles y extranjeros (gracias LaQuay)
-
-Pluto.TV: Más de 600 canales libres y en varios idiomas (gracias HelmerLuzo)
-
-Pluto.TV VOD: Más de 200 péliculas libres y en español (gracias HelmerLuzo)
 
 
 En algunos sistemas es necesario tener instalado "ffmpeg" para que los canales IPTV funcionen correctamente, con el script se pueden instalar las dos opciones, con o sin ffmpeg, usa la que mejor te funcione. Algunos de éstos canales IPTV no disponen de guía de programación.
