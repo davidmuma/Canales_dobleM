@@ -17,12 +17,17 @@ Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dob
 Actualmente el script incluye las siguientes listas de canales:
 
 - Satélite
+
 Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes
 
 - IPTV
+
 TDTChannels: Más de 500 canales libres españoles y extranjeros (gracias LaQuay)
+
 Pluto.TV: Más de 600 canales libres y en varios idiomas (gracias HelmerLuzo)
+
 Pluto.TV VOD: Más de 200 péliculas libres y en español (gracias HelmerLuzo)
+
 
 En algunos sistemas es necesario tener instalado "ffmpeg" para que los canales IPTV funcionen correctamente, con el script se pueden instalar las dos opciones, con o sin ffmpeg, usa la que mejor te funcione. Algunos de éstos canales IPTV no disponen de guía de programación.
 
