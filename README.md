@@ -7,7 +7,7 @@
 
 | | Última actualización | Versión | |
 | -	| - | - | - |
-| Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes |
+| Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Parrilla Movistar+ en HD y SD + deportivos alemanes |
 | TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
 | Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
 | Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
@@ -27,9 +27,11 @@ Al hacer la instalación de cualquiera de las listas de canales(Satélite o IPTV
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
-Ejecuta el script con el siguiente comando (una vez descargado puedes volver a ejecutarlo las veces que quieras con el comando sh dobleMsh.sh:
+Ejecuta el script con el siguiente comando:
 ```
 curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh ; sh dobleM.sh
+```
+Una vez descargado puedes volver a ejecutarlo las veces que quieras con el comando sh dobleM.sh
 ```
 
 El script es compatible con los siguientes sistemas:
