@@ -6,9 +6,9 @@
 </h1>
 
 | | Última actualización | Versión |
-| -	| - | - |
+| -	| - | - | - |
 | Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Todos los canales de Movistar+ en HD y SD + canales deportivos alemanes |
-| TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | 
+| TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros (gracias LaQuay) |
 | Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 | Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | 
 
