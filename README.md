@@ -5,7 +5,7 @@
   Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">EPG dobleM</a>
 </h1>
 
-| | Última actualización | Versión | |
+| Lista | Última actualización | Versión | Descripción |
 | -	| - | - | - |
 | Satélite | 28/03/2021 | [ 2.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Parrilla Movistar+ en HD y SD + deportivos alemanes |
 | TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
