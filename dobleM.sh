@@ -10,7 +10,8 @@ echo Descargando última versión del instalador...
 sleep 1
 echo
 if [ -d /etc/enigma2 ]; then
-	curl -# -kO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMe.sh
+	curl -# -kO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMe.sh >/dev/null 2>&1
+	wget -O i_dobleMe.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMe.sh >/dev/null 2>&1
 	echo
 	sleep 1
 	echo Ejecutando instalador para enigma2...
