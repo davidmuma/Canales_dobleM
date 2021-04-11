@@ -20,7 +20,7 @@ enigma2_EPG()
    sleep 5
  else
    curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar >/dev/null 2>&1
-   wget -qO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar >/dev/null 2>&1
+   wget -O dobleM_E2.sources.tar https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar >/dev/null 2>&1
    tar xf dobleM_E2.sources.tar -C /etc/epgimport/ 2>/dev/null
    rm -r dobleM_E2.sources.tar
    rm -rf i_dobleM*.sh
