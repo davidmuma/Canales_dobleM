@@ -30,13 +30,11 @@ Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 
 - Nos descargamos el paquete de tipos de letra que admiten los caracteres especiales:
 
-(las rutas y los nombres pueden cambiar)
-
 [fonts.zip](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/fonts.zip)
 
 - Descomprimimos el archivo y copiamos los ficheros en el directorio fonts de nuestro receptor
 
-(las rutas y los nombres pueden cambiar en cada skin)
+(las rutas y los nombres pueden cambiar)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_S1.jpg)
 
@@ -64,4 +62,3 @@ Los tipos de letra disponibles son:
 - Titre.ttf
 
 - Guardamos cambios y reiniciamos el receptor
-
