@@ -58,10 +58,15 @@ y sustituimos el nombre del tipo de letra por el nombre de uno de los archivos q
 <font filename="/usr/share/fonts/NanumGothic.ttf" name="Regular" scale="95"/> 
 ```
 Los tipos de letra disponibles son:
-- NanumGothic.ttf
-- RocknRollOne.ttf
-- Rounded.ttf
-- SawarabiGothic.ttf
-- Titre.ttf
+
+NanumGothic.ttf
+
+RocknRollOne.ttf
+
+Rounded.ttf
+
+SawarabiGothic.ttf
+
+Titre.ttf
 
 - Guardamos cambios y reiniciamos el receptor
