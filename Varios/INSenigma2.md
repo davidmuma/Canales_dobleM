@@ -50,13 +50,13 @@ Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 - En el mismo buscamos:
 
 (las rutas y los nombres pueden cambiar en cada skin)
-
+```
 <font filename="/usr/share/fonts/OpenSans-Regular.ttf" name="Regular" scale="95"/>   
-
+```
 y sustituimos el nombre del tipo de letra por el nombre de uno de los archivos que hemos descargado en el paquete fonts.zip:
-
+```
 <font filename="/usr/share/fonts/NanumGothic.ttf" name="Regular" scale="95"/> 
-
+```
 Los tipos de letra disponibles son:
 - NanumGothic.ttf
 - RocknRollOne.ttf
