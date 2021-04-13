@@ -49,7 +49,7 @@ El script es compatible con los siguientes sistemas:
 - AlexELEC
 - Linux
 - Docker
-- Enigma2 - [INSTALACIÓN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
+- Enigma2 - [Instalación EPG](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
 #
 Notas:
