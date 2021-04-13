@@ -1,4 +1,4 @@
-# <b>Instalación en enigma2 </B> [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasE.md)
+# <b>Instalación en enigma2 </B> - [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasE.md)
 
 - El script se encarga de instalar los sources dobleM para EPG-Import
 
