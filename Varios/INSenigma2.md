@@ -20,32 +20,39 @@ wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I2.jpg)
 
 - Volveremos a la pantalla principal de EPG-Import, si quieres forzar la primera decarga pulsa el boton Amarillo (Manual)
-- Déjala como en la captura y luego pulsa el boton Verde (Guardar)
+Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I1.jpg)
 #
 
 # Modificación del skin para caracteres especiales y estrellas
 
-- Nos descargamos paquete de tipos de letra que admiten los caracteres especiales:
+- Nos descargamos el paquete de tipos de letra que admiten los caracteres especiales:
 
-https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/fonts.zip
+[fonts.zip](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/fonts.zip)
 
-- Descomprimimos el archivo y copiamos los ficheros en el directorio fonts de nuestra imagen
+- Descomprimimos el archivo y copiamos los ficheros en el directorio fonts de nuestro receptor
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_S1.jpg)
 
-- Ahora editamos el archivo skin.xml de nuestro skin
+- Ahora vamos al directorio de nuestro skin y editamos el archivo skin.xml
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_S2.jpg)
 
-- Y en el mismo buscamos: (las rutas y los nombres son distintos en cada skin)
+- En el mismo buscamos: (las rutas y los nombres pueden cambiar en cada skin)
 
 <font filename="/usr/share/fonts/OpenSans-Regular.ttf" name="Regular" scale="95"/>   
 
-y sustituimos el nombre del tipo de letra por el que hayamos escogido:
+y sustituimos el nombre del tipo de letra por el nombre de uno de los archivos que hemos descargado en el paquete fonts.zip:
 
 <font filename="/usr/share/fonts/NanumGothic.ttf" name="Regular" scale="95"/> 
+
+Los tipos de letra disponibles son:
+NanumGothic.ttf
+RocknRollOne.ttf
+Rounded.ttf
+SawarabiGothic.ttf
+Titre.ttf
 
 - Guardamos cambios y reiniciamos el receptor
 
