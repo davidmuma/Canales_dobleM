@@ -14,10 +14,12 @@ wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 - Una vez instalado, ves al plugin EPG-Import y pulsa el boton Azul (Fuentes)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I1.jpg)
+#
 
 - Elige la EPG dobleM que mas te guste y luego pulsa el boton Verde (Guardar)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I2.jpg)
+#
 
 - Volveremos a la pantalla principal de EPG-Import, si quieres forzar la primera decarga pulsa el boton Amarillo (Manual)
 
