@@ -30,7 +30,7 @@ Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 
 - Nos descargamos el paquete de tipos de letra que admiten los caracteres especiales:
 
-(las rutas y los nombres pueden cambiar en cada skin)
+(las rutas y los nombres pueden cambiar)
 
 [fonts.zip](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/fonts.zip)
 
@@ -57,11 +57,11 @@ y sustituimos el nombre del tipo de letra por el nombre de uno de los archivos q
 <font filename="/usr/share/fonts/NanumGothic.ttf" name="Regular" scale="95"/> 
 
 Los tipos de letra disponibles son:
-NanumGothic.ttf
-RocknRollOne.ttf
-Rounded.ttf
-SawarabiGothic.ttf
-Titre.ttf
+- NanumGothic.ttf
+- RocknRollOne.ttf
+- Rounded.ttf
+- SawarabiGothic.ttf
+- Titre.ttf
 
 - Guardamos cambios y reiniciamos el receptor
-- 
+
