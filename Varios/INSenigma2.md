@@ -13,12 +13,43 @@ wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 
 - Una vez instalado, ves al plugin EPG-Import y pulsa el boton Azul (Fuentes)
 
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_T1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_I1.jpg)
 
 - Elige la EPG dobleM que mas te guste y luego pulsa el boton Verde (Guardar)
 
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_T2.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_I2.jpg)
 
 - Volveremos a la pantalla principal de EPG-Import, déjala como en la captura y si quieres forzar la primera decarga pulsa el boton Amarillo (Manual)
 
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_T1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_I1.jpg)
+#
+
+# Modificación del skin para caracteres especiales y estrellas
+
+1. Nos descargamos paquete de tipos de letra que admiten los caracteres especiales:
+
+https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/fonts.zip)
+
+2. Descomprimimos el archivo y copiamos los ficheros en el directorio fonts de nuestra imagen
+
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_S1.jpg)
+
+3. Ahora editamos el archivo skin.xml de nuestro skin
+
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/E2_S2.jpg)
+
+4. Y en el mismo buscamos: (las rutas y los nombres son distintos en cada skin)
+
+<font filename="/usr/share/fonts/OpenSans-Regular.ttf" name="Regular" scale="95"/>   
+
+y sustituimos el nombre del tipo de letra por el que hayamos escogido:
+
+<font filename="/usr/share/fonts/NanumGothic.ttf" name="Regular" scale="95"/> 
+
+5. Guardamos cambios y reiniciamos el receptor
+
+
+
+
+
+
