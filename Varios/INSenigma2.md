@@ -10,6 +10,7 @@ Si te falla el primero prueba con este otro comando:
 ```
 wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh ; sh dobleM.sh
 ```
+#
 
 - Una vez instalado, ves al plugin EPG-Import y pulsa el boton Azul (Fuentes)
 
