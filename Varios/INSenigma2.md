@@ -20,6 +20,7 @@ wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/mas
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I2.jpg)
 
 - Volveremos a la pantalla principal de EPG-Import, si quieres forzar la primera decarga pulsa el boton Amarillo (Manual)
+
 Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I1.jpg)
@@ -29,17 +30,25 @@ Déjala como en la captura y luego pulsa el boton Verde (Guardar)
 
 - Nos descargamos el paquete de tipos de letra que admiten los caracteres especiales:
 
+(las rutas y los nombres pueden cambiar en cada skin)
+
 [fonts.zip](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/fonts.zip)
 
 - Descomprimimos el archivo y copiamos los ficheros en el directorio fonts de nuestro receptor
+
+(las rutas y los nombres pueden cambiar en cada skin)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_S1.jpg)
 
 - Ahora vamos al directorio de nuestro skin y editamos el archivo skin.xml
 
+(las rutas y los nombres pueden cambiar en cada skin)
+
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_S2.jpg)
 
-- En el mismo buscamos: (las rutas y los nombres pueden cambiar en cada skin)
+- En el mismo buscamos:
+
+(las rutas y los nombres pueden cambiar en cada skin)
 
 <font filename="/usr/share/fonts/OpenSans-Regular.ttf" name="Regular" scale="95"/>   
 
@@ -55,9 +64,4 @@ SawarabiGothic.ttf
 Titre.ttf
 
 - Guardamos cambios y reiniciamos el receptor
-
-
-
-
-
-
+- 
