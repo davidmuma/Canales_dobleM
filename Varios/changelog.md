@@ -1,3 +1,7 @@
+17/04/21
+
+Actualizada frecuencia y picon de M. LaLiga1 HD
+
 28/03/21
 
 Eliminados canales que ya no emiten, actualizadas frecuencias y añadido canal temporal M. Oscars
