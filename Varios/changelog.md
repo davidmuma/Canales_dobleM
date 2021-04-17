@@ -1,6 +1,6 @@
 17/04/21
 
-Actualizada frecuencia y picon de M. LaLiga1 HD
+Actualizada frecuencia y picon de M. LaLiga1 HD. Actualizados diales que han cambiando de numeración
 
 28/03/21
 
