@@ -27,7 +27,7 @@ Al hacer la instalación de cualquiera de las listas de canales(Satélite o IPTV
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
-Ejecuta el script con el siguiente comando:
+En putty (o el programa que estés usando) ejecuta el script con el siguiente comando:
 ```
 curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh ; sh dobleM.sh
 ```
@@ -40,7 +40,7 @@ Una vez descargado puedes volver a ejecutarlo las veces que quieras con el coman
 sh dobleM.sh
 ```
 
-El script es compatible con los siguientes sistemas:
+El script solo es compatible con tvheadend 4.3 y en los siguientes sistemas:
 
 - Synology/XPEnology
 - Qnap
