@@ -102,6 +102,8 @@ elegirSKIN()
 		echo -e " b) OpenStarHD"		
 		echo -e " c) CinoPLi-FHD"
 		echo -e " d) DarknessFHD"
+		echo -e " e) MetrixHD"
+		echo -e " e) AtileHD"		
 		echo
 		echo -e " 0)$magenta Volver al menú$end"
 		echo
@@ -114,6 +116,8 @@ elegirSKIN()
 				b) RUTASKIN=/usr/share/enigma2/OpenStarHD; break;;
 				c) RUTASKIN=/usr/share/enigma2/CinoPLi-FHD; break;;
 				d) RUTASKIN=/usr/share/enigma2/DarknessFHD; break;;
+				e) RUTASKIN=/usr/share/enigma2/MetrixHD; break;;
+				f) RUTASKIN=/usr/share/enigma2/AtileHD; break;;
 				0) MENU;;
 				1)  clear
 					echo
@@ -253,7 +257,7 @@ reiniciarGUI()
 {
 	cd $CARPETA_SCRIPT
 	clear
-	echo -e "$blue Reiniciando en $end"
+	echo -e "$blue Reiniciando en ...$end"
 	echo -e " 3"
 	sleep 1
 	echo -e " 2"
