@@ -151,6 +151,7 @@ modificarSKIN()
 		echo -e " 3) Rounded"
 		echo -e " 4) SawarabiGothic"
 		echo -e " 5) Titre"
+		echo -e " 6) setrixHD"
 		echo
 		echo -n " Indica una opción: "
 		read opcionletra
@@ -160,6 +161,7 @@ modificarSKIN()
 				3) TIPOLETRA='Rounded.ttf'; break;;
 				4) TIPOLETRA='SawarabiGothic.ttf'; break;;
 				5) TIPOLETRA='Titre.ttf'; break;;
+				6) TIPOLETRA='setrixHD.ttf'; break;;
 				*) echo && echo " $opcionletra es una opción inválida" && echo;
 		esac
 	done
