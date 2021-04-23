@@ -99,8 +99,9 @@ elegirSKIN()
 	while :
 	do
 		echo -e " a) PLi-HD"
-		echo -e " b) CinoPLi-FHD"
-		echo -e " c) DarknessFHD"
+		echo -e " b) OpenStarHD"		
+		echo -e " c) CinoPLi-FHD"
+		echo -e " d) DarknessFHD"
 		echo
 		echo -e " 0)$magenta Volver al menú$end"
 		echo
@@ -110,8 +111,9 @@ elegirSKIN()
 		read opcionskin
 		case $opcionskin in
 				a) RUTASKIN=/usr/share/enigma2/PLi-HD; break;;
-				b) RUTASKIN=/usr/share/enigma2/CinoPLi-FHD; break;;
-				c) RUTASKIN=/usr/share/enigma2/DarknessFHD; break;;
+				b) RUTASKIN=/usr/share/enigma2/OpenStarHD; break;;
+				c) RUTASKIN=/usr/share/enigma2/CinoPLi-FHD; break;;
+				d) RUTASKIN=/usr/share/enigma2/DarknessFHD; break;;
 				0) MENU;;
 				1)  clear
 					echo
