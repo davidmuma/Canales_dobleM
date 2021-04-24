@@ -184,6 +184,9 @@ modificarSKIN()
 			read CAD
 			MENU
 		fi
+			if [ $? -ne 0 ]; then
+			ERROR=true
+			fi
 	printf "%-$(($COLUMNS-10))s"  " 2. Descargando tipo de letra elegido"
 		if [ ! -d $RUTASKIN/fonts ]; then
 			mkdir $RUTASKIN/fonts 2>>$CARPETA_SCRIPT/dobleM.log
