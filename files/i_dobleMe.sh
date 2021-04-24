@@ -36,7 +36,7 @@ instalarEPG()
 		clear
 		echo -e "$blue ############################################################ $end"
 		echo -e "$blue ###       $green Comienza la instalación de los sources       $blue ### $end"
-		echo -e "$blue ############################################################ $end"	
+		echo -e "$blue ############################################################ $end"
 		echo
 		printf "%-$(($COLUMNS-10))s"  " 1. Probando descarga con curl"
 			ERROR=false
@@ -45,21 +45,21 @@ instalarEPG()
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
 				printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-			fi		
-		printf "%-$(($COLUMNS-10))s"  " 2. Probando descarga con wget"		
+			fi
+		printf "%-$(($COLUMNS-10))s"  " 2. Probando descarga con wget"
 			wget -O dobleM_E2.sources.tar https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.sources.tar 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
 				printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-			fi					
-		printf "%-$(($COLUMNS-10))s"  " 3. Copiando sources"	
+			fi
+		printf "%-$(($COLUMNS-10))s"  " 3. Copiando sources"
 			tar xf dobleM_E2.sources.tar -C /etc/epgimport/ 2>/dev/null 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
 				printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-			fi		
+			fi
 		printf "%-$(($COLUMNS-10))s"  " 4. Borrando temporales"
 			rm -r dobleM_E2.sources.tar 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
@@ -99,11 +99,11 @@ elegirSKIN()
 	while :
 	do
 		echo -e " a) PLi-HD"
-		echo -e " b) OpenStarHD"		
-		echo -e " c) CinoPLi-FHD"
+		echo -e " b) OpenStarHD"
+		echo -e " c) OctEtFHD"
 		echo -e " d) DarknessFHD"
 		echo -e " e) MetrixHD"
-		echo -e " e) AtileHD"		
+		echo -e " e) AtileHD"
 		echo
 		echo -e " 0)$magenta Volver al menú$end"
 		echo
@@ -114,7 +114,7 @@ elegirSKIN()
 		case $opcionskin in
 				a) RUTASKIN=/usr/share/enigma2/PLi-HD; break;;
 				b) RUTASKIN=/usr/share/enigma2/OpenStarHD; break;;
-				c) RUTASKIN=/usr/share/enigma2/CinoPLi-FHD; break;;
+				c) RUTASKIN=/usr/share/enigma2/OctEtFHD; break;;
 				d) RUTASKIN=/usr/share/enigma2/DarknessFHD; break;;
 				e) RUTASKIN=/usr/share/enigma2/MetrixHD; break;;
 				f) RUTASKIN=/usr/share/enigma2/AtileHD; break;;
@@ -125,15 +125,15 @@ elegirSKIN()
 					echo
 					read RUTASKIN; break;;
 				*) echo && echo " $opcionskin es una opción inválida" && echo;
-		esac	
+		esac
 	done
 			if [ "$VAR" = "restaurar" ]; then
 				echo -e " MOD"
 				restaurarSKIN
 			else
 				echo -e " RES"
-				modificarSKIN 
-			fi	
+				modificarSKIN
+			fi
 }
 
 modificarSKIN()
@@ -183,14 +183,14 @@ modificarSKIN()
 			echo " Pulsa intro para continuar..."
 			read CAD
 			MENU
-		fi	
+		fi
 	printf "%-$(($COLUMNS-10))s"  " 2. Descargando tipo de letra elegido"
 		if [ ! -d $RUTASKIN/fonts ]; then
 			mkdir $RUTASKIN/fonts 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -ne 0 ]; then
 			ERROR=true
-			fi	
-		fi	
+			fi
+		fi
 		wget -O $RUTASKIN/fonts/$TIPOLETRA https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/$TIPOLETRA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -207,7 +207,7 @@ modificarSKIN()
 		sed -i -e '/<!-- dobleM_nuevo.ttf -->/d' -e 's/<\!-- dobleM_backup //' -e 's/ dobleM_backup -->//' $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 		ERROR=true
-		fi		
+		fi
 		sed -i 's|<font.*name="Regular".*/>|<!-- dobleM_backup & dobleM_backup --> \n\t& <!-- dobleM_nuevo.ttf -->|' $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -215,8 +215,8 @@ modificarSKIN()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
 	printf "%-$(($COLUMNS-10))s"  " 4. Modificando el skin"
-		ERROR=false	
-		sed -i -e "/<!-- dobleM_nuevo.ttf -->/ s|<font.*scale|<font filename=\"$RUTASKIN/fonts/$TIPOLETRA\" name=\"Regular\" scale|" $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log		
+		ERROR=false
+		sed -i -e "/<!-- dobleM_nuevo.ttf -->/ s|<font.*scale|<font filename=\"$RUTASKIN/fonts/$TIPOLETRA\" name=\"Regular\" scale|" $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -305,4 +305,3 @@ done
 }
 MENU
 
-	
