@@ -103,7 +103,7 @@ elegirSKIN()
 		echo -e " c) OctEtFHD"
 		echo -e " d) DarknessFHD"
 		echo -e " e) MetrixHD"
-		echo -e " e) AtileHD"
+		echo -e " f) AtileHD"
 		echo
 		echo -e " 0)$magenta Volver al menú$end"
 		echo
@@ -174,8 +174,6 @@ modificarSKIN()
 	echo -e " Tipo letra :$yellow $TIPOLETRA $end"
 	echo ____________________________________________________________
 	echo
-	printf "%-$(($COLUMNS-10))s"  " 1. Comprobando que existe el skin"
-		ERROR=false
 		if [ ! -f $RUTASKIN/skin.xml ]; then
 			echo "$red No existe el skin que has seleccionado, $end"
 			echo "$red comprueba la ruta y vuelve a intentarlo $end"
@@ -184,10 +182,8 @@ modificarSKIN()
 			read CAD
 			MENU
 		fi
-			if [ $? -ne 0 ]; then
-			ERROR=true
-			fi
-	printf "%-$(($COLUMNS-10))s"  " 2. Descargando tipo de letra elegido"
+	printf "%-$(($COLUMNS-10))s"  " 1. Descargando tipo de letra elegido"
+	ERROR=false
 		if [ ! -d $RUTASKIN/fonts ]; then
 			mkdir $RUTASKIN/fonts 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -ne 0 ]; then
@@ -205,7 +201,7 @@ modificarSKIN()
 			read CAD
 			MENU
 		fi
-	printf "%-$(($COLUMNS-10))s"  " 3. Creando copia de seguridad del skin"
+	printf "%-$(($COLUMNS-10))s"  " 2. Creando copia de seguridad del skin"
 		ERROR=false
 		sed -i -e '/<!-- dobleM_nuevo.ttf -->/d' -e 's/<\!-- dobleM_backup //' -e 's/ dobleM_backup -->//' $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -217,7 +213,7 @@ modificarSKIN()
 		else
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 		fi
-	printf "%-$(($COLUMNS-10))s"  " 4. Modificando el skin"
+	printf "%-$(($COLUMNS-10))s"  " 3. Modificando el skin"
 		ERROR=false
 		sed -i -e "/<!-- dobleM_nuevo.ttf -->/ s|<font.*scale|<font filename=\"$RUTASKIN/fonts/$TIPOLETRA\" name=\"Regular\" scale|" $RUTASKIN/skin.xml 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 ]; then
@@ -270,8 +266,7 @@ reiniciarGUI()
 	echo -e " 1"
 	sleep 1
 	echo
-		reboot
-	MENU
+	reboot
 }
 
 # MENU INSTALACION
