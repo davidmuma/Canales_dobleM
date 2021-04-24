@@ -270,7 +270,7 @@ reiniciarGUI()
 	echo -e " 1"
 	sleep 1
 	echo
-		init 4 @@ init 3
+		reboot
 	MENU
 }
 
