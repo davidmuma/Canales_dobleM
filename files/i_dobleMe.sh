@@ -175,10 +175,10 @@ modificarSKIN()
 	echo ____________________________________________________________
 	echo
 		if [ ! -f $RUTASKIN/skin.xml ]; then
-			echo "$red No existe el skin que has seleccionado, $end"
-			echo "$red comprueba la ruta y vuelve a intentarlo $end"
+			echo -e "$red No existe el skin que has seleccionado, $end"
+			echo -e "$red comprueba la ruta y vuelve a intentarlo $end"
 			echo
-			echo " Pulsa intro para continuar..."
+			echo -e " Pulsa intro para continuar..."
 			read CAD
 			MENU
 		fi
