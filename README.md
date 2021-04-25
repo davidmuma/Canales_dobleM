@@ -7,7 +7,7 @@
 
 | Lista | Última actualización | Versión | Descripción |
 | -	| - | - | - |
-| Satélite | 17/04/2021 | [ 2.5 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Parrilla Movistar+ en HD y SD + deportivos alemanes |
+| Satélite | 25/04/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Parrilla Movistar+ en HD y SD + deportivos alemanes |
 | TDTChannels | 30/03/2021 | [ 2.1 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
 | Pluto.TV | 30/03/2021 | [ 2.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
 | Pluto.TV VOD | 30/03/2021 | [ 2.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
