@@ -879,9 +879,9 @@ installIPTV()
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
-		echo -e " 1) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-		echo -e " 2) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-		echo -e " 3) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
+		echo -e " 1) TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+		echo -e " 2) Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
+		echo -e " 3) Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
@@ -1194,9 +1194,9 @@ installIPTVffmpeg()
 	while :
 	do
 		echo -e "$cyan Elige la lista IPTV que quieres instalar/actualizar: $end"
-		echo -e " 1) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-		echo -e " 2) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-		echo -e " 3) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
+		echo -e " 1) TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+		echo -e " 2) Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
+		echo -e " 3) Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
@@ -1518,10 +1518,10 @@ clearchannels()
 	while :
 	do
 		echo -e "$cyan Elige la lista de canales que quieres borrar: $end"
-		echo -e " 1) SATELITE		--->  Versión instalada:$red $ver_local_SAT $end"
-		echo -e " 2) TDTChannels	--->  Versión instalada:$red $ver_local_TDT $end"
-		echo -e " 3) Pluto.TV		--->  Versión instalada:$red $ver_local_PlutoTV_ALL $end"
-		echo -e " 4) Pluto.TV VOD	--->  Versión instalada:$red $ver_local_PlutoVOD_ES $end"
+		echo -e " 1) SATELITE      --->  Versión instalada:$red $ver_local_SAT $end"
+		echo -e " 2) TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end"
+		echo -e " 3) Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end"
+		echo -e " 4) Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end"
 		echo
 		echo -e " v)$magenta Volver al menú$end"
 		echo
