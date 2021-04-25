@@ -1,3 +1,7 @@
+25/04/21
+
+Actualizadas frecuencias de M. LaLiga 1, M. LaLiga 3 y M. Liga de Campeones 2
+
 17/04/21
 
 Actualizada frecuencia y picon de M. LaLiga1 HD. Actualizados diales que han cambiando de numeración
