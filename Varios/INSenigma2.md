@@ -17,7 +17,7 @@ sh dobleM.sh
 # CAPTURAS
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/Ie2.jpg)
 
-#
+# CONFIGURACIÓN EPG-IMPORT
 - Una vez instalados los SOURCES, ves al plugin EPG-Import y pulsa el boton Azul (Fuentes)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/E2_I1.jpg)
