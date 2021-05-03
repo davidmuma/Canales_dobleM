@@ -14,7 +14,7 @@ Una vez descargado puedes volver a ejecutarlo las veces que quieras con el coman
 ```
 sh dobleM.sh
 ```
-# CAPTURAS
+# INSTALADOR
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/Ie2.jpg)
 
 # CONFIGURACIÓN EPG-IMPORT
