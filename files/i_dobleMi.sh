@@ -920,7 +920,7 @@ update()
 			
 			
 	# Mantenemos canales deshabilitados por el usuario
-		for channelenabled in $(ls $TVHEADEND_CONFIG_DIR/channel/config/);
+		for channelenabled in $(ls $TVHEADEND_CONFIG_DIR/channel/config);
 		do
 			channelchange=$(sed -n '2p' $TVHEADEND_CONFIG_DIR/channel/config/$channelenabled)
 			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled
