@@ -712,11 +712,22 @@ update()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-# Borramos configuración actual
-	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior si la hubiera"
-		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior si la hubiera"	
 			docker exec $CONTAINER_NAME sh -c "mkdir $TVHEADEND_CONFIG_DIR/channel/" 2>/dev/null
 			docker cp $TVHEADEND_CONFIG_CONT/channel/ $CARPETA_DOBLEM/channelCONT/ 2>>$CARPETA_SCRIPT/dobleM.log
+			
+			
+			
+	# Mantenemos canales deshabilitados por el usuario
+		for channelenabled in $(ls $CARPETA_DOBLEM/channelCONT/config);
+		do
+			channelchange=$(sed -n '2p' $CARPETA_DOBLEM/channelCONT/config/$channelenabled)
+			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled
+		done
+			
+					
+					
 				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 					for fichero in $CARPETA_DOBLEM/channelCONT/config/* $CARPETA_DOBLEM/channelCONT/tag/*
 					do

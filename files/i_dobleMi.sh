@@ -914,9 +914,20 @@ update()
 			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
 			LIST_ERROR=true
 		fi
-# Borramos configuración actual
-	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"
-		# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+# Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"		
+			
+			
+			
+	# Mantenemos canales deshabilitados por el usuario
+		for channelenabled in $(ls $TVHEADEND_CONFIG_DIR/channel/config/);
+		do
+			channelchange=$(sed -n '2p' $TVHEADEND_CONFIG_DIR/channel/config/$channelenabled)
+			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled
+		done
+			
+					
+				
 				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
 					do
