@@ -1,4 +1,0 @@
-#EXTM3U dobleM-PlutoTV_ALL https://t.me/EPG_dobleM
-#EXTM3U x-tvg-url="https://i.mjh.nz/PlutoTV/all.xml" url-tvg="https://i.mjh.nz/PlutoTV/all.xml" refresh="3600"
-#EXTINF:-1 tvg-id="60218baa464ef900073168c1" tvg-logo="https://images.pluto.tv/channels/60218baa464ef900073168c1/colorLogoPNG.png" group-title="Pluto_ES",Nuevo en Pluto TV: Empeños a lo bestia
-https://stitcher.pluto.tv/stitch/hls/channel/60218baa464ef900073168c1/3063648/playlist.m3u8?deviceType=web&serverSideAds=true&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=yasirProd
