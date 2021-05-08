@@ -1,6 +1,6 @@
 08/05/21
 
-Actualizadas frecuencias de Neox, Disney+, Classica y Toros. Cambiado nombre M. Oscars por M. Tolkien. Actualizados picons
+Actualizadas frecuencias de Neox, Disney+, Classica. Cambiado nombre M. Oscars por M. Tolkien. Actualizados picons
 
 25/04/21
 
