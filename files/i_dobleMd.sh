@@ -723,7 +723,7 @@ update()
 		for channelenabled in $(ls $CARPETA_DOBLEM/channelCONT/config);
 		do
 			channelchange=$(sed -n '2p' $CARPETA_DOBLEM/channelCONT/config/$channelenabled)
-			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled
+			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled 2>/dev/null
 		done
 			
 					
