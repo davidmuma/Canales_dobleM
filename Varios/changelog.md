@@ -1,3 +1,7 @@
+08/05/21
+
+Actualizadas frecuencias de Neox, Disney+, Classica y Toros SD. Cambiado nombre M. Oscars por M. Tolkien. Actualizados picons
+
 25/04/21
 
 Actualizadas frecuencias de M. LaLiga 1, M. LaLiga 3 y M. Liga de Campeones 2
