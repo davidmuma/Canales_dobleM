@@ -71,14 +71,14 @@ instalarCANALES()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 		printf "%-$(($COLUMNS-10))s"  " 4. Copiando lista de canales nueva"
-			ls $CARPETA_DOBLEM/*.tv $CARPETA_DOBLEM/*.radio $CARPETA_DOBLEM/lamedb $CARPETA_DOBLEM/blacklist $CARPETA_DOBLEM/whitelist | xargs cp -r $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			ls $CARPETA_DOBLEM/*.tv $CARPETA_DOBLEM/*.radio $CARPETA_DOBLEM/lamedb $CARPETA_DOBLEM/blacklist $CARPETA_DOBLEM/whitelist | xargs cp $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 		printf "%-$(($COLUMNS-10))s"  " 5. Copiando satellites.xml"
-			ls $CARPETA_DOBLEM/satellites.xml | xargs cp -r $CARPETA_satellites 2>>$CARPETA_SCRIPT/dobleM.log
+			ls $CARPETA_DOBLEM/satellites.xml | xargs cp $CARPETA_satellites 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
@@ -92,7 +92,10 @@ instalarCANALES()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 			
-												wget -qO - http://127.0.0.1/web/message?text="lista actualizada"&type=2
+			
+												#MSJ=$(echo ${MENSA// /+})
+												MSJ=$(echo hola)
+												wget -qO - http://127.0.0.1/web/message?text=${MSJ}&type=2
 			
 		printf "%-$(($COLUMNS-10))s"  " 7. Eliminando archivos temporales"
 			rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
