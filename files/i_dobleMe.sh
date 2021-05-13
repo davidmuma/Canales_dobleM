@@ -7,7 +7,8 @@ CARPETA_lamedb="/etc/enigma2"
 CARPETA_satellites="/etc/tuxbox"
 CARPETA_skin="/usr/share/enigma2"
 
-#CARPETA_CANALES="/mnt/c/pru/skin"
+#CARPETA_lamedb="/mnt/c/canales/e2/CAN"
+#CARPETA_satellites="/mnt/c/canales/e2/CAN"
 
 clear
 echo Cargando...
@@ -24,14 +25,39 @@ fi
 instalarCANALES()
 {
 	cd $CARPETA_SCRIPT
-	if [ ! -d /etc/enigma2/ ]; then
-		echo " No tienes instalado ???????? en tu receptor,"
-		echo " realiza la instalación y vuelve a intentarlo"
+			# 1		2		3		4		5				6		7	8	9	10	11 12	13	  14   15	   16
+			#001,LA 1 HD,La 1 HD,19.2 E,10729V 22000 2/3,Movistar+,7863,0,TV HD,1 : 0: 25: 7863 :41A : 1 : C00000:0:0:0
+		NUMCANAL='$1'
+		NOMCORTO='$2'
+		NOMLARGO='$3'
+		PROVIDER='$6'
+		REFERENCE='$13":""00"$16":"$14":""000"$15":"$12":0"'
+		clear
+		echo " ############################################################"
+		echo " ###            Selecciona la lista a intalar             ###"
+		echo " ############################################################"
 		echo
-		echo " Pulsa intro para continuar..."
-		read CAD
-		MENU
-	else
+		while :
+		do
+			echo " 1) Nombre corto"
+			echo " 2) Nombre largo"
+			echo " 3) Número canal + Nombre corto"
+			echo " 4) Número canal + Nombre largo"
+			echo
+			echo " v) Volver al menú"
+			echo
+			echo -n " Indica una opción: "
+			read opcionlista
+			case $opcionlista in
+					1) FORMATOLISTA=''"$REFERENCE"' "\n" '"$NOMCORTO"' "\n" "p:"'"$PROVIDER"''; break;;
+					2) FORMATOLISTA=''"$REFERENCE"' "\n" '"$NOMLARGO"' "\n" "p:"'"$PROVIDER"''; break;;
+					3) FORMATOLISTA=''"$REFERENCE"' "\n" '"$NUMCANAL"' " " '"$NOMCORTO"' "\n" "p:"'"$PROVIDER"''; break;;
+					4) FORMATOLISTA=''"$REFERENCE"' "\n" '"$NUMCANAL"' " " '"$NOMLARGO"' "\n" "p:"'"$PROVIDER"''; break;;
+					v) MENU;;
+					*) echo && echo " $opcionlista es una opción inválida" && echo;
+			esac
+		done
+		
 		clear
 		echo " ############################################################"
 		echo " ###    Comienza la instalación de la lista de canales    ###"
@@ -43,7 +69,7 @@ instalarCANALES()
 			if [ $? -ne 0 ]; then
 				ERROR=true
 			fi			
-			wget -O dobleM_E2.canales.tar https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.canales.tar 2>>$CARPETA_SCRIPT/dobleM.log
+			wget -qO dobleM_E2.canales.tar https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/dobleM_E2.canales.tar 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 -a $ERROR = "false" ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
@@ -63,42 +89,56 @@ instalarCANALES()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
+			
+			sed -i '/---/d' $CARPETA_DOBLEM/dobleM_export.txt
+			sed -i -e "s/_/,/g" -e "s/,19,/,25,/" $CARPETA_DOBLEM/dobleM_export.txt
+			awk -F, '{print '"$FORMATOLISTA"'}' $CARPETA_DOBLEM/dobleM_export.txt > $CARPETA_DOBLEM/dobleM_lamedb
+			cat $CARPETA_DOBLEM/dobleM_transponders > $CARPETA_DOBLEM/lamedb
+			echo "services" >> $CARPETA_DOBLEM/lamedb
+			cat $CARPETA_DOBLEM/dobleM_lamedb >> $CARPETA_DOBLEM/lamedb
+			echo "end" >> $CARPETA_DOBLEM/lamedb
+
+			
+			
 		printf "%-$(($COLUMNS-10))s"  " 3. Borrando lista de canales vieja"
-			ls $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml | xargs rm 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_lamedb/*.tv 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_lamedb/*.radio 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_lamedb/lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_lamedb/blacklist 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_lamedb/whitelist 2>>$CARPETA_SCRIPT/dobleM.log
+			rm $CARPETA_satellites/satellites.xml 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 		printf "%-$(($COLUMNS-10))s"  " 4. Copiando lista de canales nueva"
-			ls $CARPETA_DOBLEM/*.tv $CARPETA_DOBLEM/*.radio $CARPETA_DOBLEM/lamedb $CARPETA_DOBLEM/blacklist $CARPETA_DOBLEM/whitelist | xargs cp $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/*.tv $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/*.radio $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/lamedb $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/blacklist $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/whitelist $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 		printf "%-$(($COLUMNS-10))s"  " 5. Copiando satellites.xml"
-			ls $CARPETA_DOBLEM/satellites.xml | xargs cp $CARPETA_satellites 2>>$CARPETA_SCRIPT/dobleM.log
+			cp $CARPETA_DOBLEM/satellites.xml $CARPETA_satellites 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 		printf "%-$(($COLUMNS-10))s"  " 6. Recargando lista de canales"
-			wget -qO - http://127.0.0.1/web/servicelistreload?mode=0 2>>$CARPETA_SCRIPT/dobleM.log
+			wget -qO - http://127.0.0.1/web/servicelistreload?mode=0 >/dev/null 2>&1
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
-			fi
-			
-			
-												#MSJ=$(echo ${MENSA// /+})
-												MSJ=$(echo hola)
-												wget -qO - http://127.0.0.1/web/message?text=${MSJ}&type=2
-			
+			fi			
 		printf "%-$(($COLUMNS-10))s"  " 7. Eliminando archivos temporales"
-			rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+			#rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
@@ -108,7 +148,6 @@ instalarCANALES()
 		echo " Pulsa intro para continuar..."
 		read CAD
 		MENU
-	fi
 }
 
 instalarEPG()
