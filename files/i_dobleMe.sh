@@ -114,10 +114,10 @@ instalarCANALES()
 		printf "%-$(($COLUMNS-10))s"  " 3. Haciendo copia de seguridad"
 			if [ -f "$CARPETA_SCRIPT/Backup_canales_$(date +"%Y-%m-%d").tar.xz" ]; then
 				FILE="Backup_canales_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
-				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml >>$CARPETA_SCRIPT/dobleM.log
+				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml 2>>$CARPETA_SCRIPT/dobleM.log
 			else
 				FILE="Backup_canales_$(date +"%Y-%m-%d").tar.xz"
-				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml >>$CARPETA_SCRIPT/dobleM.log  2log
+				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml 2>>$CARPETA_SCRIPT/dobleM.log
 			fi
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
