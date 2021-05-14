@@ -10,6 +10,14 @@ CARPETA_skin="/usr/share/enigma2"
 #CARPETA_lamedb="/mnt/c/canales/e2/CAN"
 #CARPETA_satellites="/mnt/c/canales/e2/CAN"
 
+
+receptor="$(cat /etc/hostname)"
+arquitectura="$(uname -m)"
+imagen_version="$(cat /etc/image-version | grep imageversion | sed -e 's/imageversion=//')"
+compilacion="$(cat /etc/image-version | grep imagebuild= | sed -e 's/imagebuild=//')"
+ram=$(free | grep Mem  | awk '{ print $4 }')
+flash=$(df -h | awk 'NR == 2 {print $4}')
+
 clear
 echo Cargando...
 
@@ -90,9 +98,11 @@ instalarCANALES()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
 			
-			sed -i '/---/d' $CARPETA_DOBLEM/dobleM_export.txt
-			sed -i -e "s/_/,/g" -e "s/,19,/,25,/" $CARPETA_DOBLEM/dobleM_export.txt
-			awk -F, '{print '"$FORMATOLISTA"'}' $CARPETA_DOBLEM/dobleM_export.txt > $CARPETA_DOBLEM/dobleM_lamedb
+			
+			iconv -f windows-1252 -t utf-8 dobleM_export.txt > dobleM_export
+			sed -i '/,,,/d' $CARPETA_DOBLEM/dobleM_export
+			sed -i -e "s/_/,/g" -e "s/,19,/,25,/" $CARPETA_DOBLEM/dobleM_export
+			awk -F, '{print '"$FORMATOLISTA"'}' $CARPETA_DOBLEM/dobleM_export > $CARPETA_DOBLEM/dobleM_lamedb
 			cat $CARPETA_DOBLEM/dobleM_transponders > $CARPETA_DOBLEM/lamedb
 			echo "services" >> $CARPETA_DOBLEM/lamedb
 			cat $CARPETA_DOBLEM/dobleM_lamedb >> $CARPETA_DOBLEM/lamedb
@@ -100,7 +110,22 @@ instalarCANALES()
 
 			
 			
-		printf "%-$(($COLUMNS-10))s"  " 3. Borrando lista de canales vieja"
+			
+		printf "%-$(($COLUMNS-10))s"  " 3. Haciendo copia de seguridad"
+			tar cf $CARPETA_lamedb/dobleM_canalesuser.tar $CARPETA_lamedb/* 2>>$CARPETA_SCRIPT/dobleM.log
+
+			if [ $? -eq 0 ]; then
+				printf "%s%s%s\n" "[" "  OK  " "]"
+			else
+				printf "%s%s%s\n" "[" "FAILED" "]"
+			fi			
+			
+			
+			
+			
+			
+			
+		printf "%-$(($COLUMNS-10))s"  " 4. Borrando lista de canales vieja"
 			rm $CARPETA_lamedb/*.tv 2>>$CARPETA_SCRIPT/dobleM.log
 			rm $CARPETA_lamedb/*.radio 2>>$CARPETA_SCRIPT/dobleM.log
 			rm $CARPETA_lamedb/lamedb 2>>$CARPETA_SCRIPT/dobleM.log
@@ -112,7 +137,7 @@ instalarCANALES()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-		printf "%-$(($COLUMNS-10))s"  " 4. Copiando lista de canales nueva"
+		printf "%-$(($COLUMNS-10))s"  " 5. Copiando lista de canales nueva"
 			cp $CARPETA_DOBLEM/*.tv $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
 			cp $CARPETA_DOBLEM/*.radio $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
 			cp $CARPETA_DOBLEM/lamedb $CARPETA_lamedb 2>>$CARPETA_SCRIPT/dobleM.log
@@ -123,21 +148,21 @@ instalarCANALES()
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-		printf "%-$(($COLUMNS-10))s"  " 5. Copiando satellites.xml"
+		printf "%-$(($COLUMNS-10))s"  " 6. Copiando satellites.xml"
 			cp $CARPETA_DOBLEM/satellites.xml $CARPETA_satellites 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi
-		printf "%-$(($COLUMNS-10))s"  " 6. Recargando lista de canales"
+		printf "%-$(($COLUMNS-10))s"  " 7. Recargando lista de canales"
 			wget -qO - http://127.0.0.1/web/servicelistreload?mode=0 >/dev/null 2>&1
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi			
-		printf "%-$(($COLUMNS-10))s"  " 7. Eliminando archivos temporales"
+		printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
 			#rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -406,6 +431,15 @@ do
 	echo " ### ---------------------------------------------------- ###"
 	echo " ###           Instalador para sistema enigma2            ###"
 	echo " ############################################################"
+	
+	echo -e "Receptor: $receptor"
+	echo -e "Imagen Version: OpenATV $imagen_version"
+    echo -e "Fecha Compilacion:$compilacion"
+	echo -e "Arquitectura: $arquitectura"
+	echo -e "Ram Libre: $ram kb"
+	echo -e "Flash Libre: $flash gb"	
+	echo ____________________________________________________________	
+	
 	echo
 	echo " 1) Instalar lista de CANALES (en PRUEBAS, no usar)"
 	echo " 2) Instalar SOURCES para EPG-Import"
