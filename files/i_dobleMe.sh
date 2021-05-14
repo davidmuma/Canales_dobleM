@@ -99,7 +99,7 @@ instalarCANALES()
 			fi
 			
 			
-			iconv -f windows-1252 -t utf-8 dobleM_export.txt > dobleM_export
+			#iconv -f windows-1252 -t utf-8 dobleM_export.txt > dobleM_export
 			sed -i '/,,,/d' $CARPETA_DOBLEM/dobleM_export
 			sed -i -e "s/_/,/g" -e "s/,19,/,25,/" $CARPETA_DOBLEM/dobleM_export
 			awk -F, '{print '"$FORMATOLISTA"'}' $CARPETA_DOBLEM/dobleM_export > $CARPETA_DOBLEM/dobleM_lamedb
@@ -112,13 +112,19 @@ instalarCANALES()
 			
 			
 		printf "%-$(($COLUMNS-10))s"  " 3. Haciendo copia de seguridad"
-			tar cf $CARPETA_lamedb/dobleM_canalesuser.tar $CARPETA_lamedb/* 2>>$CARPETA_SCRIPT/dobleM.log
-
+			if [ -f "$CARPETA_SCRIPT/Backup_canales_$(date +"%Y-%m-%d").tar.xz" ]; then
+				FILE="Backup_canales_$(date +"%Y-%m-%d_%H.%M.%S").tar.xz"
+				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml >>$CARPETA_SCRIPT/dobleM.log
+			else
+				FILE="Backup_canales_$(date +"%Y-%m-%d").tar.xz"
+				tar -cjf $CARPETA_SCRIPT/$FILE $CARPETA_lamedb/*.tv $CARPETA_lamedb/*.radio $CARPETA_lamedb/lamedb $CARPETA_lamedb/blacklist $CARPETA_lamedb/whitelist $CARPETA_satellites/satellites.xml >>$CARPETA_SCRIPT/dobleM.log  2log
+			fi
 			if [ $? -eq 0 ]; then
 				printf "%s%s%s\n" "[" "  OK  " "]"
 			else
 				printf "%s%s%s\n" "[" "FAILED" "]"
-			fi			
+			fi		
+
 			
 			
 			
@@ -163,7 +169,7 @@ instalarCANALES()
 				printf "%s%s%s\n" "[" "FAILED" "]"
 			fi			
 		printf "%-$(($COLUMNS-10))s"  " 8. Eliminando archivos temporales"
-			#rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+			rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -eq 0 ]; then
 				printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 			else
