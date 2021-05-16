@@ -36,9 +36,9 @@ instalarCANALES()
 		clear
 		while :
 		do
-			echo " ┌──────────────────────────────────────────────────────────┐"
-			echo " │               Seleccione lista a instalar                │"
-			echo " └──────────────────────────────────────────────────────────┘"
+			echo " ┌─────────────────────────────────────────────────────────┐"
+			echo " │               Seleccione lista a instalar               │"
+			echo " └─────────────────────────────────────────────────────────┘"
 			echo " 1) Antena individual"
 			echo " 2) Antena comunitaría"
 			echo
@@ -48,7 +48,7 @@ instalarCANALES()
 			read opcionsat
 			case $opcionsat in
 					1) LISTASAT='sed -i -e 's/dobleM_INDIVIDUAL//''; break;;
-					2) LISTASAT='sed -i -e '/dobleM_INDIVIDUAL/d''; break;;
+					2) LISTASAT='sed -i -e 's/^.*dobleM_INDIVIDUAL/\#SERVICE 1:832:d:0:0:0:0:0:0:0:/''; break;;
 					v) MENU;;
 					*) echo && echo " $opcionsat es una opción inválida" && echo;
 			esac
@@ -63,9 +63,9 @@ instalarCANALES()
 		clear
 		while :
 		do
-			echo " ┌──────────────────────────────────────────────────────────┐"
-			echo " │              Formato de la lista a instalar              │"
-			echo " └──────────────────────────────────────────────────────────┘"
+			echo " ┌─────────────────────────────────────────────────────────┐"
+			echo " │              Formato de la lista a instalar             │"
+			echo " └─────────────────────────────────────────────────────────┘"
 			echo " 1) Nombre corto"
 			echo " 2) Nombre largo"
 			echo " 3) Número canal + Nombre corto"
@@ -87,9 +87,9 @@ instalarCANALES()
 		clear
 		while :
 		do
-			echo " ┌──────────────────────────────────────────────────────────┐"
-			echo " │                  Bouquets con categorías                 │"
-			echo " └──────────────────────────────────────────────────────────┘"
+			echo " ┌─────────────────────────────────────────────────────────┐"
+			echo " │                  Bouquets con categorías                │"
+			echo " └─────────────────────────────────────────────────────────┘"
 			echo " 1) Si"
 			echo " 2) No"
 			echo
@@ -106,9 +106,9 @@ instalarCANALES()
 		done
 		echo		
 		clear
-		echo " ┌──────────────────────────────────────────────────────────┐"
-		echo " │      Comienza la instalación de la lista de canales      │"
-		echo " └──────────────────────────────────────────────────────────┘"
+		echo " ┌─────────────────────────────────────────────────────────┐"
+		echo " │      Comienza la instalación de la lista de canales     │"
+		echo " └─────────────────────────────────────────────────────────┘"
 		echo
 			ERROR=false
 		printf "%-$(($COLUMNS-10))s"  " 1. Descargando lista de canales"
@@ -233,9 +233,9 @@ instalarEPG()
 		MENU
 	else
 		clear
-		echo " ┌──────────────────────────────────────────────────────────┐"
-		echo " │          Comienza la instalación de los sources          │"
-		echo " └──────────────────────────────────────────────────────────┘"
+		echo " ┌─────────────────────────────────────────────────────────┐"
+		echo " │          Comienza la instalación de los sources         │"
+		echo " └─────────────────────────────────────────────────────────┘"
 		echo
 			ERROR=false
 		printf "%-$(($COLUMNS-10))s"  " 1. Descargando sources"
@@ -288,9 +288,9 @@ elegirSKIN()
 	find $CARPETA_skin -name skin.xml | sed -e 's#/skin.xml##' > i_dobleMskin.sh
 	LISTADO_SKINS="$(find $CARPETA_skin -name skin.xml | nl -s ") " | sed -e 's#/skin.xml##' -e "s#$CARPETA_skin/##" -e 's#    ##')"
 	clear
-	echo " ┌──────────────────────────────────────────────────────────┐"
-	echo " │              Selecciona el skin a modificar              │"
-	echo " └──────────────────────────────────────────────────────────┘"
+	echo " ┌─────────────────────────────────────────────────────────┐"
+	echo " │              Selecciona el skin a modificar             │"
+	echo " └─────────────────────────────────────────────────────────┘"
 	echo
 	while :
 	do
@@ -344,9 +344,9 @@ modificarSKIN()
 	clear
 	while :
 	do
-		echo " ┌──────────────────────────────────────────────────────────┐"
-		echo " │            Selecciona el tipo de letra a usar            │"
-		echo " └──────────────────────────────────────────────────────────┘"
+		echo " ┌─────────────────────────────────────────────────────────┐"
+		echo " │            Selecciona el tipo de letra a usar           │"
+		echo " └─────────────────────────────────────────────────────────┘"
 		echo " 1) NanumGothic"
 		echo " 2) RocknRollOne"
 		echo " 3) Rounded"
@@ -365,12 +365,12 @@ modificarSKIN()
 		esac
 	done
 	clear
-	echo " ┌──────────────────────────────────────────────────────────┐"
-	echo " │             Comienza la modificación del skin            │"
-	echo " └──────────────────────────────────────────────────────────┘"
+	echo " ┌─────────────────────────────────────────────────────────┐"
+	echo " │             Comienza la modificación del skin           │"
+	echo " └─────────────────────────────────────────────────────────┘"
 	echo " Ruta  skin : $RUTASKIN"
 	echo " Tipo letra : $TIPOLETRA"
-	echo " ────────────────────────────────────────────────────────────"
+	echo " ───────────────────────────────────────────────────────────"
 	echo
 		ERROR=false
 	printf "%-$(($COLUMNS-10))s"  " 1. Descargando tipo de letra elegido"
@@ -426,11 +426,11 @@ restaurarSKIN()
 {
 	cd $CARPETA_SCRIPT
 	clear
-	echo " ┌──────────────────────────────────────────────────────────┐"
-	echo " │             Comienza la restauración del skin            │"
-	echo " └──────────────────────────────────────────────────────────┘"
+	echo " ┌─────────────────────────────────────────────────────────┐"
+	echo " │             Comienza la restauración del skin           │"
+	echo " └─────────────────────────────────────────────────────────┘"
 	echo " Ruta  skin : $RUTASKIN"
-	echo " ────────────────────────────────────────────────────────────"
+	echo " ───────────────────────────────────────────────────────────"
 	echo
 		ERROR=false
 	printf "%-$(($COLUMNS-10))s"  " 1. Restaurando skin"
@@ -468,10 +468,10 @@ MENU()
 while :
 do
 	clear
-	echo " ┌──────────────────────────────────────────────────────────┐"
-	echo " │                       -= dobleM =-                       │"
-	echo " │               Telegram:  t.me/EPG_dobleM                 │"
-	echo " ├──────────────────────────────────────────────────────────┘"
+	echo " ┌─────────────────────────────────────────────────────────┐"
+	echo " │                       -= dobleM =-                      │"
+	echo " │               Telegram:  t.me/EPG_dobleM                │"
+	echo " ├─────────────────────────────────────────────────────────┘"
 	echo " ├── Receptor: $receptor"
 	echo " ├── Imagen Version: OpenATV $imagen_version"
     echo " ├── Fecha Compilacion:$compilacion"
