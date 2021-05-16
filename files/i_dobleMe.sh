@@ -33,20 +33,39 @@ fi
 instalarCANALES()
 {
 	cd $CARPETA_SCRIPT
-			# 1		2		3		4		5				6		7	8	9	10	11 12	13	  14   15	   16
-			#001,LA 1 HD,La 1 HD,19.2 E,10729V 22000 2/3,Movistar+,7863,0,TV HD,1 : 0: 25: 7863 :41A : 1 : C00000:0:0:0
+		clear
+		while :
+		do
+			echo " ┌──────────────────────────────────────────────────────────┐"
+			echo " │               Seleccione lista a instalar                │"
+			echo " └──────────────────────────────────────────────────────────┘"
+			echo " 1) Antena individual"
+			echo " 2) Antena comunitaría"
+			echo
+			echo " v) Volver al menú"
+			echo
+			echo -n " Indica una opción: "
+			read opcionsat
+			case $opcionsat in
+					1) LISTASAT='sed -i -e 's/dobleM_INDIVIDUAL//''; break;;
+					2) LISTASAT='sed -i -e '/dobleM_INDIVIDUAL/d''; break;;
+					v) MENU;;
+					*) echo && echo " $opcionsat es una opción inválida" && echo;
+			esac
+		done		
+						# 1		2		3		4		5				6		7	8	9	10	11 12	13	  14   15	   16
+						#001,LA 1 HD,La 1 HD,19.2 E,10729V 22000 2/3,Movistar+,7863,0,TV HD,1 : 0: 25: 7863 :41A : 1 : C00000:0:0:0
 		NUMCANAL='$1'
 		NOMCORTO='$2'
 		NOMLARGO='$3'
 		PROVIDER='$6'
 		REFERENCE='$13":""00"$16":"$14":""000"$15":"$12":0"'
 		clear
-		echo " ############################################################"
-		echo " ###            Selecciona la lista a intalar             ###"
-		echo " ############################################################"
-		echo
 		while :
 		do
+			echo " ┌──────────────────────────────────────────────────────────┐"
+			echo " │              Formato de la lista a instalar              │"
+			echo " └──────────────────────────────────────────────────────────┘"
 			echo " 1) Nombre corto"
 			echo " 2) Nombre largo"
 			echo " 3) Número canal + Nombre corto"
@@ -65,11 +84,31 @@ instalarCANALES()
 					*) echo && echo " $opcionlista es una opción inválida" && echo;
 			esac
 		done
-		
 		clear
-		echo " ############################################################"
-		echo " ###    Comienza la instalación de la lista de canales    ###"
-		echo " ############################################################"
+		while :
+		do
+			echo " ┌──────────────────────────────────────────────────────────┐"
+			echo " │                  Bouquets con categorías                 │"
+			echo " └──────────────────────────────────────────────────────────┘"
+			echo " 1) Si"
+			echo " 2) No"
+			echo
+			echo " v) Volver al menú"
+			echo
+			echo -n " Indica una opción: "
+			read opcioncatbouquet
+			case $opcioncatbouquet in
+					1) ELIMCATBOU=; break;;
+					2) ELIMCATBOU='sed -i -e '/----/d' -e '/1:64:/d''; break;;
+					v) MENU;;
+					*) echo && echo " $opcioncatbouquet es una opción inválida" && echo;
+			esac
+		done
+		echo		
+		clear
+		echo " ┌──────────────────────────────────────────────────────────┐"
+		echo " │      Comienza la instalación de la lista de canales      │"
+		echo " └──────────────────────────────────────────────────────────┘"
 		echo
 			ERROR=false
 		printf "%-$(($COLUMNS-10))s"  " 1. Descargando lista de canales"
@@ -107,7 +146,8 @@ instalarCANALES()
 			echo "services" >> $CARPETA_DOBLEM/lamedb
 			cat $CARPETA_DOBLEM/dobleM_lamedb >> $CARPETA_DOBLEM/lamedb
 			echo "end" >> $CARPETA_DOBLEM/lamedb
-
+			$ELIMCATBOU $CARPETA_DOBLEM/*.tv
+			$LISTASAT $CARPETA_DOBLEM/*.tv
 			
 			
 			
@@ -193,9 +233,9 @@ instalarEPG()
 		MENU
 	else
 		clear
-		echo " ############################################################"
-		echo " ###        Comienza la instalación de los sources        ###"
-		echo " ############################################################"
+		echo " ┌──────────────────────────────────────────────────────────┐"
+		echo " │          Comienza la instalación de los sources          │"
+		echo " └──────────────────────────────────────────────────────────┘"
 		echo
 			ERROR=false
 		printf "%-$(($COLUMNS-10))s"  " 1. Descargando sources"
@@ -248,9 +288,9 @@ elegirSKIN()
 	find $CARPETA_skin -name skin.xml | sed -e 's#/skin.xml##' > i_dobleMskin.sh
 	LISTADO_SKINS="$(find $CARPETA_skin -name skin.xml | nl -s ") " | sed -e 's#/skin.xml##' -e "s#$CARPETA_skin/##" -e 's#    ##')"
 	clear
-	echo " ############################################################"
-	echo " ###            Selecciona el skin a modificar            ###"
-	echo " ############################################################"
+	echo " ┌──────────────────────────────────────────────────────────┐"
+	echo " │              Selecciona el skin a modificar              │"
+	echo " └──────────────────────────────────────────────────────────┘"
 	echo
 	while :
 	do
@@ -302,12 +342,11 @@ modificarSKIN()
 {
 	cd $CARPETA_SCRIPT
 	clear
-	echo " ############################################################"
-	echo " ###          Selecciona el tipo de letra a usar          ###"
-	echo " ############################################################"
-	echo
 	while :
 	do
+		echo " ┌──────────────────────────────────────────────────────────┐"
+		echo " │            Selecciona el tipo de letra a usar            │"
+		echo " └──────────────────────────────────────────────────────────┘"
 		echo " 1) NanumGothic"
 		echo " 2) RocknRollOne"
 		echo " 3) Rounded"
@@ -326,13 +365,12 @@ modificarSKIN()
 		esac
 	done
 	clear
-	echo " ############################################################"
-	echo " ###           Comienza la modificación del skin          ###"
-	echo " ############################################################"
-	echo
+	echo " ┌──────────────────────────────────────────────────────────┐"
+	echo " │             Comienza la modificación del skin            │"
+	echo " └──────────────────────────────────────────────────────────┘"
 	echo " Ruta  skin : $RUTASKIN"
 	echo " Tipo letra : $TIPOLETRA"
-	echo ____________________________________________________________
+	echo " ────────────────────────────────────────────────────────────"
 	echo
 		ERROR=false
 	printf "%-$(($COLUMNS-10))s"  " 1. Descargando tipo de letra elegido"
@@ -388,12 +426,11 @@ restaurarSKIN()
 {
 	cd $CARPETA_SCRIPT
 	clear
-	echo " ############################################################"
-	echo " ###           Comienza la restauración del skin          ###"
-	echo " ############################################################"
-	echo
+	echo " ┌──────────────────────────────────────────────────────────┐"
+	echo " │             Comienza la restauración del skin            │"
+	echo " └──────────────────────────────────────────────────────────┘"
 	echo " Ruta  skin : $RUTASKIN"
-	echo ____________________________________________________________
+	echo " ────────────────────────────────────────────────────────────"
 	echo
 		ERROR=false
 	printf "%-$(($COLUMNS-10))s"  " 1. Restaurando skin"
@@ -431,21 +468,16 @@ MENU()
 while :
 do
 	clear
-	echo " ############################################################"
-	echo " ###                     -= dobleM =-                     ###"
-	echo " ###             Telegram:  t.me/EPG_dobleM               ###"
-	echo " ### ---------------------------------------------------- ###"
-	echo " ###           Instalador para sistema enigma2            ###"
-	echo " ############################################################"
-	
-	echo -e "Receptor: $receptor"
-	echo -e "Imagen Version: OpenATV $imagen_version"
-    echo -e "Fecha Compilacion:$compilacion"
-	echo -e "Arquitectura: $arquitectura"
-	echo -e "Ram Libre: $ram kb"
-	echo -e "Flash Libre: $flash gb"	
-	echo ____________________________________________________________	
-	
+	echo " ┌──────────────────────────────────────────────────────────┐"
+	echo " │                       -= dobleM =-                       │"
+	echo " │               Telegram:  t.me/EPG_dobleM                 │"
+	echo " ├──────────────────────────────────────────────────────────┘"
+	echo " ├── Receptor: $receptor"
+	echo " ├── Imagen Version: OpenATV $imagen_version"
+    echo " ├── Fecha Compilacion:$compilacion"
+	echo " ├── Arquitectura: $arquitectura"
+	echo " ├── Ram Libre: $ram kb"
+	echo " └── Flash Libre: $flash gb"	
 	echo
 	echo " 1) Instalar lista de CANALES (en PRUEBAS, no usar)"
 	echo " 2) Instalar SOURCES para EPG-Import"
