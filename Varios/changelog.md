@@ -1,3 +1,7 @@
+21/05/21
+
+Eliminado canal Disney+ por cese de emisión
+
 08/05/21
 
 Actualizadas frecuencias de Neox, Disney+, Classica. Cambiado nombre M. Oscars por M. Tolkien. Actualizados picons
