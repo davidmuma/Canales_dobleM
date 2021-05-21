@@ -950,7 +950,7 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		grep -L '"epglimit": 7' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales sin ffmpeg
+		grep -L '"epglimit": 0' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales sin ffmpeg
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi	
@@ -1280,7 +1280,7 @@ installIPTVffmpeg()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		grep -L '"epglimit": 0' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales con ffmpeg
+		grep -L '"epglimit": 7' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales con ffmpeg
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi	
