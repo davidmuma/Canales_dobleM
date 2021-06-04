@@ -1,3 +1,7 @@
+04/06/21
+
+Cambiado canal efímero M. Tolkien por el nuevo M. VHS
+
 21/05/21
 
 Eliminado canal Disney+ por cese de emisión
