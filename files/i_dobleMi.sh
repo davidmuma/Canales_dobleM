@@ -34,7 +34,7 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)" 2>>$CARPETA_SCRIPT/dobleM.log
 	fi
 
-# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC  3-AlexELEC  4-Linux	 5-Qnap
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC  3-AlexELEC  4-Linux	 5-Qnap		7-Vitmod
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
@@ -53,6 +53,9 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	elif [ "$1" = "Qnap" ]; then
 		SISTEMA_ELEGIDO="Qnap"
 		SYSTEM=6
+	elif [ "$1" = "Vitmod" ]; then
+		SISTEMA_ELEGIDO="Vitmod"
+		SYSTEM=7
 	fi
 	case $SYSTEM in
 	1) #Synology/XPEnology
@@ -83,12 +86,12 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 		;;
 	3) #CoreELEC
-		TVHEADEND_SERVICE="service.tvheadend43.service" 2>>$CARPETA_SCRIPT/dobleM.log #"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
+		TVHEADEND_SERVICE="service.tvheadend43.service" 								#"$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)"
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
-		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin" 2>>$CARPETA_SCRIPT/dobleM.log #"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
+		TVHEADEND_CONFIG_DIR="/storage/.kodi/userdata/addon_data/service.tvheadend43"	#"/storage/.kodi/userdata/addon_data/$(ls /storage/.kodi/userdata/addon_data/ | grep tvheadend)"
+		TVHEADEND_GRABBER_DIR="/storage/.kodi/addons/service.tvheadend43/bin"			#"/storage/.kodi/addons/$(ls /storage/.kodi/addons/ | grep tvheadend)/bin"
 		FFMPEG_DIR="/storage/.kodi/addons/tools.ffmpeg-tools/bin/ffmpeg"
 		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 		;;
@@ -97,8 +100,8 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		TVHEADEND_USER="root"
 		TVHEADEND_GROUP="video"
 		TVHEADEND_PERMISSIONS="700" #"u=rwX,g=,o="
-		TVHEADEND_CONFIG_DIR="/storage/.config/tvheadend" 2>>$CARPETA_SCRIPT/dobleM.log
-		TVHEADEND_GRABBER_DIR="/storage/.config/tvheadend/bin" 2>>$CARPETA_SCRIPT/dobleM.log
+		TVHEADEND_CONFIG_DIR="/storage/.config/tvheadend"
+		TVHEADEND_GRABBER_DIR="/storage/.config/tvheadend/bin"
 		FFMPEG_DIR="/usr/bin/ffmpeg"
 		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 		;;
@@ -120,6 +123,16 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
         TVHEADEND_CONFIG_DIR="/share/CACHEDEV1_DATA/.qpkg/TVHeadend/config"
         TVHEADEND_GRABBER_DIR="/usr/bin"
 		FFMPEG_DIR="/share/CACHEDEV1_DATA/.qpkg/ffmpeg/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		;;
+	7) #Vitmod
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
+		TVHEADEND_USER="root"
+		TVHEADEND_GROUP="video"
+		TVHEADEND_PERMISSIONS="700"
+		TVHEADEND_CONFIG_DIR="/data/tvheadend"
+		TVHEADEND_GRABBER_DIR="/system/xbin"
+		FFMPEG_DIR="/usr/bin/ffmpeg"
 		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 		;;
 	esac
@@ -145,6 +158,8 @@ SERVICE_ERROR=false
 			service tvheadend stop 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend stop
 		6) #Qnap
 			/etc/init.d/TVHeadend.sh stop 2>>$CARPETA_SCRIPT/dobleM.log;;
+		7) #Vitmod
+			stop tvheadend $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -173,6 +188,8 @@ SERVICE_ERROR=false
 			service tvheadend start 1>>$CARPETA_SCRIPT/dobleM.log 2>&1;; #service tvheadend start
 		6) #Qnap
 			/etc/init.d/TVHeadend.sh start 2>>$CARPETA_SCRIPT/dobleM.log;;
+		7) #Vitmod
+			start tvheadend $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -898,7 +915,7 @@ update()
 		sed -i "\$a}\n$NOMBRE_LISTA" $CARPETA_DOBLEM/channel/tag/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -907,7 +924,7 @@ update()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log		
+		sed -i "s#\"modid\": .*#\"modid\": \"$TVHEADEND_GRABBER_DIR/tv_grab_EPG_$NOMBRE_LISTA\",#g" $CARPETA_DOBLEM/epggrab/xmltv/channels/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -915,19 +932,19 @@ update()
 			LIST_ERROR=true
 		fi
 # Borramos channels y tags marcados, conservando redes y canales mapeados por los usuarios
-	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"		
-			
-			
-			
+	printf "%-$(($COLUMNS-10+1))s"  " 4. Eliminando instalación anterior"
+
+
+
 	# Mantenemos canales deshabilitados por el usuario
 		for channelenabled in $(ls $TVHEADEND_CONFIG_DIR/channel/config);
 		do
 			channelchange=$(sed -n '2p' $TVHEADEND_CONFIG_DIR/channel/config/$channelenabled)
 			sed -i "s/.*\"enabled\":.*/$channelchange/" $CARPETA_DOBLEM/channel/config/$channelenabled 2>/dev/null
 		done
-			
-					
-				
+
+
+
 				# Recorremos los ficheros de estas carpetas para borrar solo los que tengan la marca dobleM?????
 					for fichero in $TVHEADEND_CONFIG_DIR/channel/config/* $TVHEADEND_CONFIG_DIR/channel/tag/*
 					do
@@ -1043,7 +1060,7 @@ update()
 		find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		chown -R $TVHEADEND_EPGGRAB_USER:$TVHEADEND_EPGGRAB_GROUP $TVHEADEND_CONFIG_DIR/epggrab 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -1052,7 +1069,7 @@ update()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;	
+		find $TVHEADEND_CONFIG_DIR/epggrab -type f -exec chmod $(($TVHEADEND_EPGGRAB_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
@@ -1199,7 +1216,7 @@ installIPTV()
 		grep -L '"epglimit": 0' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales sin ffmpeg
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -1567,7 +1584,7 @@ command -v ffmpeg >/dev/null 2>&1 || { printf "$red%s\n%s$end\n\n" "ERROR: Es ne
 		grep -L '"epglimit": 7' $CARPETA_DOBLEM/channel/config/* | xargs -I{} rm {} 2>>$CARPETA_SCRIPT/dobleM.log #borramos todo menos los canales con ffmpeg
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi			
+		fi
 		sed -i '/^\}$/,$d' $CARPETA_DOBLEM/channel/config/* 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -1913,7 +1930,7 @@ clearchannels()
 		esac
 		if [ $? -ne 0 ]; then
 			ERROR=true
-		fi		
+		fi
 		rm -f $TVHEADEND_CONFIG_DIR/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -eq 0 -a $ERROR = "false" ]; then
 			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -2411,7 +2428,7 @@ VERSIONES
 	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end(Solo actualiza canales y picons) $end"
 	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
 	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
-	echo -e " 5)$red Borrar$end$cyan lista de canales instalada $end"	
+	echo -e " 5)$red Borrar$end$cyan lista de canales instalada $end"
 	echo -e " 6)$cyan Instalar grabber y configurar tvheadend $end"
 	echo -e " 7)$cyan Cambiar el formato de la guía de programación $end"
 	echo -e " 8)$cyan Cambiar el formato/ruta de los picons $end"
