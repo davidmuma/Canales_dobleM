@@ -33,7 +33,6 @@ clear
 	echo -e "$blue │    tu contraseña para poder continuar con privilegios de administrador    │ $end"
 	echo -e "$blue │         Para dudas o sugerencias pásate por el grupo de telegram          │ $end"
 	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘ $end"
-	echo
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo -e " ───────────────────────────────────────────────────────────────────────────── "
 	echo

@@ -34,7 +34,7 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)" 2>>$CARPETA_SCRIPT/dobleM.log
 	fi
 
-# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC  3-AlexELEC  4-Linux	 5-Qnap		7-Vitmod
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC	3-CoreELEC   4-AlexELEC    5-Linux	  6-Qnap 	7-Vitmod
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
@@ -299,9 +299,9 @@ comprobarconfigepggrab()
 backup()
 {
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                     Iniciando copia de seguridad                      ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                       Iniciando copia de seguridad                        │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -351,9 +351,9 @@ install()
 # Pedimos lista a instalar
 	NOMBRE_LISTA=dobleM-SAT
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                 Elección de lista satélite a instalar                 ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                   Elección de lista satélite a instalar                   │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -381,9 +381,9 @@ install()
 	done
 # Pedimos el formato de la guía de programación
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │              Elección del formato de la guía de programación              │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -442,9 +442,9 @@ install()
 	done
 # Iniciamos instalación satélite
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###        Iniciando instalación de canales satélite y EPG dobleM         ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │          Iniciando instalación de canales satélite y EPG dobleM           │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -828,9 +828,9 @@ update()
 # Pedimos lista a actualizar
 	NOMBRE_LISTA=dobleM-SAT
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                Elección de lista satélite a actualizar                ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                  Elección de lista satélite a actualizar                  │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -858,9 +858,9 @@ update()
 	done
 # Iniciamos actualización satélite
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###              Iniciando actualización de canales satélite              ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                Iniciando actualización de canales satélite                │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -1142,12 +1142,12 @@ installIPTV()
 	VERSIONES
 # Pedimos lista a instalar
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###             Elección de lista IPTV a instalar/actualizar              ### $end"
-	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
-	echo -e "$blue ###     $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son       ### $end"
-	echo -e "$blue ###     de terceros y pueden dejar de funcionar en cualquier momento      ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │               Elección de lista IPTV a instalar/actualizar                │  $end"
+	echo -e "$blue ├───────────────────────────────────────────────────────────────────────────┤  $end"
+	echo -e "$blue │       $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son         │  $end"
+	echo -e "$blue │       de terceros y pueden dejar de funcionar en cualquier momento        │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -1171,9 +1171,9 @@ installIPTV()
 	done
 # Iniciamos instalación IPTV
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###             Iniciando instalación de canales IPTV y EPG               ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │               Iniciando instalación de canales IPTV y EPG                 │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -1489,17 +1489,17 @@ installIPTVffmpeg()
 	VERSIONES
 # Pedimos lista a instalar
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###             Elección de lista IPTV a instalar/actualizar              ### $end"
-	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
-	echo -e "$blue ###     $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son       ### $end"
-	echo -e "$blue ###     de terceros y pueden dejar de funcionar en cualquier momento      ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │               Elección de lista IPTV a instalar/actualizar                │  $end"
+	echo -e "$blue ├───────────────────────────────────────────────────────────────────────────┤  $end"
+	echo -e "$blue │       $green¡ IMPORTANTE! $end $blue Estas listas y sus correspondientes EPG son         │  $end"
+	echo -e "$blue │       de terceros y pueden dejar de funcionar en cualquier momento        │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	echo -e " Ruta binario ffmpeg:$yellow $FFMPEG_DIR $end"
 	echo -e " Comandos     ffmpeg:$yellow $FFMPEG_COMMAND $end"
-	echo _______________________________________________________________________________
+	echo -e " ───────────────────────────────────────────────────────────────────────────── "
 	echo
 	while :
 	do
@@ -1537,9 +1537,9 @@ installIPTVffmpeg()
 	done
 # Iniciamos instalación IPTV
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###             Iniciando instalación de canales IPTV y EPG               ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │               Iniciando instalación de canales IPTV y EPG                 │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Comprobamos que esté instalado ffmpeg
@@ -1859,9 +1859,9 @@ clearchannels()
 	VERSIONES
 # Pedimos lista a borrar
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                 Elección de lista de canales a borrar                 ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                   Elección de lista de canales a borrar                   │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -1887,9 +1887,9 @@ clearchannels()
 	done
 # Iniciamos borrado
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                    Iniciando borrado de canales                       ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                      Iniciando borrado de canales                         │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con lista$green $NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -1956,9 +1956,9 @@ installGRABBER()
 	comprobarconfigepggrab
 # Pedimos grabber a instalar
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                    Elección de grabber a instalar                     ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                      Elección de grabber a instalar                       │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -1984,9 +1984,9 @@ installGRABBER()
 	done
 # Iniciamos instalación grabber
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                   Iniciando instalación de grabber                    ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                     Iniciando instalación de grabber                      │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end con grabber$green tv_grab_EPG_$NOMBRE_LISTA$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -2094,9 +2094,9 @@ cambioformatoEPG()
 {
 	NOMBRE_LISTA=dobleM-SAT
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###            Elección del formato de la guía de programación            ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │              Elección del formato de la guía de programación              │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -2181,9 +2181,9 @@ cambioformatoEPG()
 cambioformatoPICONS()
 {
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###           Iniciando cambio del formato/ruta de los picons             ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │             Iniciando cambio del formato/ruta de los picons               │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -2254,9 +2254,9 @@ cambioformatoPICONS()
 limpiezatotal()
 {
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                 Iniciando limpieza total de tvheadend                 ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                   Iniciando limpieza total de tvheadend                   │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	while :
@@ -2311,9 +2311,9 @@ resbackup()
 	fi
 # Iniciamos restauración de la copia de seguridad
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###           Iniciando restauración de la copia de seguridad             ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │             Iniciando restauración de la copia de seguridad               │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 # Paramos tvheadend para evitar conflictos al copiar y/o borrar archivos
@@ -2405,13 +2405,13 @@ while :
 do
 VERSIONES
 	clear
-	echo -e "$blue ############################################################################# $end"
-	echo -e "$blue ###                           $green -= dobleM =- $end                             $blue ### $end"
-	echo -e "$blue ###                     Telegram: $cyan t.me/EPG_dobleM $end                      $blue ### $end"
-	echo -e "$blue ### --------------------------------------------------------------------- ### $end"
-	echo -e "$blue ###      $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios      ### $end"
-	echo -e "$blue ###      de instalación sean correctos, en caso de duda no continues      ### $end"
-	echo -e "$blue ############################################################################# $end"
+	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
+	echo -e "$blue │                             $green -= dobleM =- $end                             $blue   │  $end"
+	echo -e "$blue │                       Telegram: $cyan t.me/EPG_dobleM $end                      $blue   │  $end"
+	echo -e "$blue ├───────────────────────────────────────────────────────────────────────────┤  $end"
+	echo -e "$blue │        $red¡ PRECAUCION! $end  $blue Comprueba que el sistema y los directorios        │  $end"
+	echo -e "$blue │        de instalación sean correctos, en caso de duda no continues        │  $end"
+	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
 	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
 	echo
 	echo -e " Directorio tvheadend:$yellow $TVHEADEND_CONFIG_DIR $end"
@@ -2421,7 +2421,7 @@ VERSIONES
 	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
 	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
 	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
-	echo _______________________________________________________________________________
+	echo -e " ───────────────────────────────────────────────────────────────────────────── "
 	echo
 	echo -e " 0)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 1)$cyan Instalar   canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
