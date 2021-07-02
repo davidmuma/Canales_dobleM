@@ -1,3 +1,7 @@
+02/07/21
+
+Añadidos M. Fest HD y SD. Actualizados Movistar Liga 6, 7 y 8
+
 04/06/21
 
 Cambiado canal efímero M. Tolkien por el nuevo M. VHS
