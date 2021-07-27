@@ -479,7 +479,7 @@ do
 	echo " ├── Ram Libre: $ram kb"
 	echo " └── Flash Libre: $flash gb"	
 	echo
-	echo " 1) Instalar lista de CANALES (en PRUEBAS, no usar)"
+	echo " 1) Instalar lista de CANALES (en PRUEBAS)"
 	echo " 2) Instalar SOURCES para EPG-Import"
 	echo " 3) Modificar SKIN para caracteres especiales"
 	echo " 4) Restaurar SKIN a su estado original"
