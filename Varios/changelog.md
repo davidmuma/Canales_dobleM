@@ -1,3 +1,7 @@
+30/07/21
+
+Añadidos M. Series 2 y M. Estrenos 2
+
 16/07/21
 
 Nuevo canal Eurosport 2 HD, actualizadas frecuencias para M. Deportes 6 y 7. Regreso de M. Deportes 1
