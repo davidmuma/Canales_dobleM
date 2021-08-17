@@ -1,4 +1,4 @@
-![stack Overflow](http://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png)
+![http://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png](http://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png)
 
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png">
@@ -63,6 +63,8 @@ En Docker ejecuta el script en el sistema anfitrión, no en el contenedor
 
 #
 Agradecimientos:
+
+Manuelin por crear los cimientos
 
 Jungle-Team por los picons
 
