@@ -1,4 +1,6 @@
-![http://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png](https://github.com/davidmuma/Canales_dobleM/blob/master/README.md)
+<h1 align="center">
+  <a href="https://github.com/davidmuma/Canales_dobleM"> <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png"> </a>
+</h1>
 
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png">
