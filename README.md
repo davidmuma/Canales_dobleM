@@ -1,4 +1,4 @@
-![stack Overflow](http://https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png)
+![stack Overflow](http://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png)
 
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png">
