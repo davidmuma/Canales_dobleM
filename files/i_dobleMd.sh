@@ -528,7 +528,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod 755 $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1108,7 +1108,7 @@ installIPTV()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod 755 $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1446,7 +1446,7 @@ installIPTVffmpeg()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod 755 $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1754,7 +1754,7 @@ installGRABBER()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		chmod +x $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
+		chmod 755 $CARPETA_DOBLEM/tv_grab_EPG_$NOMBRE_LISTA 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
