@@ -15,8 +15,6 @@
 | Pluto.TV | 21/05/2021 | [ 2.7 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
 | Pluto.TV VOD | 21/05/2021 | [ 2.1 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
 
-Pásate por la pagína <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para saber mas sobre la guía de programación y ver capturas.
-
 
 En algunos sistemas es necesario tener instalado "ffmpeg" para que los canales IPTV funcionen correctamente, con el script se pueden instalar las dos opciones, con o sin ffmpeg, usa la que mejor te funcione. Algunos de éstos canales IPTV no disponen de guía de programación.
 
