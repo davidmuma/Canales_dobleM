@@ -1,3 +1,7 @@
+31/08/21
+
+Nuevo M. Clásicos, adiós a Eurosport HD y vuelta Eurosport SD
+
 05/08/21
 
 Cambiado VH1 por MTV 00s
