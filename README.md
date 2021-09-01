@@ -49,7 +49,7 @@ El script solo es compatible con tvheadend 4.3 y en los siguientes sistemas:
 - CoreELEC
 - AlexELEC
 - Linux
-- Docker
+- Docker - [Nuevo script especial para Docker](https://github.com/davidmuma/Docker_dobleM/blob/master/Varios/INSenigma2.md)
 - Enigma2 - [Instalación EPG](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
 #
