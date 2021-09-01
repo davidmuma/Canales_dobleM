@@ -36,7 +36,7 @@ clear
 	echo -e " Se ha detectado el sistema operativo:$yellow $INFO_SISTEMA $end"
 	echo -e " ───────────────────────────────────────────────────────────────────────────── "
 	echo
-	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo para tvheadend 4.3)"
+	echo -e " 1)$cyan Ejecutar instalador para$end$green Synology/XPEnology $end(solo DSM 6 y tvheadend 4.3)"
 	echo -e " 2)$cyan Ejecutar instalador para$end$green Qnap $end(solo para tvheadend 4.3)"
 	echo -e " 3)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(solo para tvheadend 4.3)"
 	echo -e " 4)$cyan Ejecutar instalador para$end$green CoreELEC $end(solo para tvheadend 4.3)"
