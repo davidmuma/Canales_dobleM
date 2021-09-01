@@ -1,3 +1,7 @@
+01/09/21
+
+Corregida numeración de varios canales con los últimos cambios de Movistar. Eliminados canales que han dejado de emitir M. LaLiga 6, M. LaLiga 7, M. LaLiga 8 y M. Deportes 7
+
 31/08/21
 
 Nuevo M. Clásicos, adiós a Eurosport HD y vuelta Eurosport SD
