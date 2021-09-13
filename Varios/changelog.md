@@ -1,3 +1,7 @@
+13/09/21
+
+Añadidos M. Liga de campeones 9 al 12, canal La Resistencia y el canal efímero M. Amenábar
+
 01/09/21
 
 Corregida numeración de varios canales con los últimos cambios de Movistar. Eliminados canales que han dejado de emitir M. LaLiga 6, M. LaLiga 7, M. LaLiga 8 y M. Deportes 7
