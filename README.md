@@ -13,7 +13,7 @@
 | Satélite | 13/09/2021 | [ 3.6 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Parrilla Movistar+ en HD y SD + deportivos alemanes |
 | TDTChannels | 29/09/2021 | [ 2.3 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
 | Pluto.TV | 29/09/2021 | [ 2.8 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
-| Pluto.TV VOD | 21/05/2021 | [ 2.1 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
+| Pluto.TV VOD | 29/09/2021 | [ 2.2 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
 
 
 En algunos sistemas es necesario tener instalado "ffmpeg" para que los canales IPTV funcionen correctamente, con el script se pueden instalar las dos opciones, con o sin ffmpeg, usa la que mejor te funcione. Algunos de éstos canales IPTV no disponen de guía de programación.
