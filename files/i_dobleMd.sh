@@ -368,6 +368,11 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
+		#Modo experto
+		sed -i 's#"uilevel":.*#"uilevel": 2,#' $CARPETA_DOBLEM/config  2>>$CARPETA_SCRIPT/dobleM.log
+		if [ $? -ne 0 ]; then
+			ERROR=true
+		fi	
 		#Idiomas EPG config tvheadend
 		sed -i 's#"language":.*#"language": [\n\t idiomas_inicio#' $CARPETA_DOBLEM/config 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
