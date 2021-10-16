@@ -1,3 +1,7 @@
+16/10/21
+
+Añadido canal para adultos Beate-Uhse TV HD. Corregidos canales que han pasado a polaridad H
+
 13/09/21
 
 Añadidos M. Liga de campeones 9 al 12, canal La Resistencia y el canal efímero M. Amenábar
