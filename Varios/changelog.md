@@ -1,3 +1,7 @@
+30/10/21
+
+Cambiado canal pop up M. Biografías. Añadidos todos los canales de la plataforma Sky Alemania
+
 16/10/21
 
 Añadido canal para adultos Beate-Uhse TV HD. Corregidos canales que han pasado a polaridad H
