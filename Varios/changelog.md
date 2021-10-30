@@ -1,6 +1,6 @@
 30/10/21
 
-Cambiado canal pop up M. Biografías. Añadidos todos los canales de la plataforma Sky Alemania
+Cambiado canal pop up M. Biografías. Añadidos todos los canales de la plataforma Sky Alemania y Canal+ Francia
 
 16/10/21
 
