@@ -1,3 +1,7 @@
+19/12/21
+
+Añadido canal M. Vacaciones, arreglados nombres MTV y quitada categoria Astra Comunitaria canales SKY Alemania y Canal+ Francia
+
 27/11/21
 
 Añadido canal M. La casa de papel
