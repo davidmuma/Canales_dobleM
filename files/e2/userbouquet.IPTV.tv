@@ -1,3 +1,17 @@
 #NAME IPTV
-#SERVICE 4097:0:1:1:0:0:0:0:0:0:https%3a//ztnr.rtve.es/ztnr/1688877.m3u8:La 1
+#SERVICE 4097:0:1:3:0:0:0:0:0:0:https%3a//ztnr.rtve.es/ztnr/1688877.m3u8:La 1
 #DESCRIPTION La 1
+#SERVICE 4097:0:1:5:0:0:0:0:0:0:https%3a//rtvelivestreamv3.akamaized.net/rtvesec/la1_bkp_dvr.m3u8:La 1
+#DESCRIPTION La 1
+#SERVICE 4097:0:1:7:0:0:0:0:0:0:https%3a//hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8:La 1
+#DESCRIPTION La 1
+#SERVICE 4097:0:1:9:0:0:0:0:0:0:https%3a//ztnr.rtve.es/ztnr/1688885.m3u8:La 2
+#DESCRIPTION La 2
+#SERVICE 4097:0:1:11:0:0:0:0:0:0:https%3a//rtvelivestreamv3.akamaized.net/rtvesec/la2_bkp_dvr.m3u8:La 2
+#DESCRIPTION La 2
+#SERVICE 4097:0:1:13:0:0:0:0:0:0:https%3a//hlsliveamdgl0-lh.akamaihd.net/i/hlsdvrlive_1@60531/master.m3u8:La 2
+#DESCRIPTION La 2
+#SERVICE 4097:0:1:15:0:0:0:0:0:0:https%3a//play.cdn.enetres.net/091DB7AFBD77442B9BA2F141DCC182F5021/live.smil/playlist.m3u8:TRECE
+#DESCRIPTION TRECE
+#SERVICE 4097:0:1:17:0:0:0:0:0:0:https%3a//live1-eltorotv.flumotion.com/playlist.m3u8:El Toro TV
+#DESCRIPTION El Toro TV
