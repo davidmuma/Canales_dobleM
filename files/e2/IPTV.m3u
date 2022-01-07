@@ -1,4 +1,6 @@
 #EXTM3U dobleM-PlutoVOD_ES https://t.me/EPG_dobleM
+#EXTINF:-1 tvg-logo="https://api.pluto.tv/v3/images/episodes/614072102b6fc0001451fb69/poster.jpg" group-title="Pluto_VOD_ES",LA 1
+http://154.62.74.12:1935/live/smil:ten/chunklist_w189559606_b3128000_sleng.m3u8
 #EXTINF:-1 tvg-logo="https://api.pluto.tv/v3/images/episodes/614072102b6fc0001451fb69/poster.jpg" group-title="Pluto_VOD_ES",Nosotros fuimos a la misión Apolo
 https://helmerluzo.github.io/PlutoTV_HL/vod/m3u8_ES/614072102b6fc0001451fb69.m3u8
 #EXTINF:-1 tvg-logo="https://api.pluto.tv/v3/images/episodes/614071ef73f7ab0013a92eb5/poster.jpg" group-title="Pluto_VOD_ES",Un valor atípico
