@@ -1,0 +1,3 @@
+#EXTM3U dobleM-IPTV https://t.me/EPG_dobleM
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/televisionten/picture?width=200&height=200" group-title="IPTV",ten
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url http://154.62.74.12:1935/live/smil:ten/chunklist_w189559606_b3128000_sleng.m3u8
