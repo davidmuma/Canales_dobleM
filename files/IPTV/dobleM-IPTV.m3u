@@ -7,3 +7,9 @@ pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://ztnr
 pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://rtvelivestreamv3.akamaized.net/rtvesec/la1_bkp_dvr.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV",La 1
 pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://ztnr.rtve.es/ztnr/1688885.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://rtvelivestreamv3.akamaized.net/rtvesec/la2_bkp_dvr.m3u8
+#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://hlsliveamdgl0-lh.akamaihd.net/i/hlsdvrlive_1@60531/master.m3u8
