@@ -2,8 +2,8 @@
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/televisionten/picture?width=200&height=200" group-title="IPTV",ten
 pipe:///usr/bin/env streamlink --stdout --default-stream best --url http://154.62.74.12:1935/live/smil:ten/chunklist_w189559606_b3128000_sleng.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas",La 1
-https://ztnr.rtve.es/ztnr/1688877.m3u8
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://ztnr.rtve.es/ztnr/1688877.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas",La 1
-https://rtvelivestreamv3.akamaized.net/rtvesec/la1_bkp_dvr.m3u8
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://rtvelivestreamv3.akamaized.net/rtvesec/la1_bkp_dvr.m3u8
 #EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="Generalistas",La 1
-https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8
+pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8
