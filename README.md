@@ -10,7 +10,7 @@
 
 | Lista | Última actualización | Versión | Descripción |
 | -	| - | - | - |
-| Satélite | 20/12/2021 | [ 4.3 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Movistar+ (HD y SD) · Sky Alemania · Canal+ Francia|
+| Satélite | 10/01/22 | [ 4.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Movistar+ (HD y SD) · Sky Alemania · Canal+ Francia|
 | TDTChannels | 29/09/2021 | [ 2.3 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
 | Pluto.TV | 29/09/2021 | [ 2.8 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
 | Pluto.TV VOD | 29/09/2021 | [ 2.2 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
