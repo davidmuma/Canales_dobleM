@@ -1,3 +1,7 @@
+10/01/22
+
+Eliminados FOX Life y Viajar por cese de emisión
+
 19/12/21
 
 Añadido canal M. Vacaciones, arreglados nombres MTV y quitada categoria Astra Comunitaria canales SKY Alemania y Canal+ Francia
