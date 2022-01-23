@@ -1,35 +1,3 @@
 #EXTM3U dobleM-IPTV https://t.me/EPG_dobleM
 #EXTINF:-1 tvg-logo="https://graph.facebook.com/televisionten/picture?width=200&height=200" group-title="IPTV",ten
 pipe:///usr/bin/env streamlink --stdout --default-stream best --url http://154.62.74.12:1935/live/smil:ten/chunklist_w189559606_b3128000_sleng.m3u8
-#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV",La 1
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://ztnr.rtve.es/ztnr/1688877.m3u8
-#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV",La 1
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://rtvelivestreamv3.akamaized.net/rtvesec/la1_bkp_dvr.m3u8
-#EXTINF:-1 tvg-logo="https://pbs.twimg.com/profile_images/899385012801470464/akSvNCqE_200x200.jpg" group-title="IPTV",La 1
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://hlsliveamdgl7-lh.akamaihd.net/i/hlsdvrlive_1@583042/master.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://ztnr.rtve.es/ztnr/1688885.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://rtvelivestreamv3.akamaized.net/rtvesec/la2_bkp_dvr.m3u8
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/la2detve/picture?width=200&height=200" group-title="IPTV",La 2
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://hlsliveamdgl0-lh.akamaihd.net/i/hlsdvrlive_1@60531/master.m3u8
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/6076c74daa05ac0007d0eb07/colorLogoPNG.png" group-title="IPTV",Tuning
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/6076c74daa05ac0007d0eb07/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/604f81a49ef73300070e554f/colorLogoPNG.png" group-title="IPTV",MTV Teen Mom
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/604f81a49ef73300070e554f/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/6130d8dc943001000708548d/colorLogoPNG.png" group-title="IPTV",MTV Realities
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/6130d8dc943001000708548d/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/5f98537a5a4341000733aefe/colorLogoPNG.png" group-title="IPTV",MTV Embarazada a los 16
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/5f98537a5a4341000733aefe/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/5f1aadf373bed3000794d1d7/colorLogoPNG.png" group-title="IPTV",MTV Originals
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/5f1aadf373bed3000794d1d7/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/600169ec77e6f70008fa9cf0/colorLogoPNG.png" group-title="IPTV",MTV Dating
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/600169ec77e6f70008fa9cf0/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/5f1ab9c6d8f1300007f54e30/colorLogoPNG.png" group-title="IPTV",MTV Cribs
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/5f1ab9c6d8f1300007f54e30/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-logo="https://images.pluto.tv/channels/60218d81873f0e0007cff614/colorLogoPNG.png" group-title="IPTV",RICH
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url https://stitcher.pluto.tv/stitch/hls/channel/60218d81873f0e0007cff614/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=4c1f4b5f-7b01-11ec-8965-0242ac110003
-#EXTINF:-1 tvg-id="604f8125c6669b00077f7699" tvg-logo="https://images.pluto.tv/channels/604f8125c6669b00077f7699/colorLogoPNG.png" group-title="IPTV",LOL: Wipeout
-pipe:///usr/bin/env streamlink --stdout --default-stream best --pluto-disable-bumpers --url https://stitcher.pluto.tv/stitch/hls/channel/604f8125c6669b00077f7699/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=afc4be5c-ad4f-11eb-a2fe-0242ac110002
-#EXTINF:-1 tvg-id="5f1abf5fafb5ee0007d4d0ca" tvg-logo="https://images.pluto.tv/channels/5f1abf5fafb5ee0007d4d0ca/colorLogoPNG.png" group-title="IPTV",LOL: FailArmy
-pipe:///usr/bin/env streamlink --stdout --default-stream best --pluto-disable-bumpers --url https://stitcher.pluto.tv/stitch/hls/channel/5f1abf5fafb5ee0007d4d0ca/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=afc4be5c-ad4f-11eb-a2fe-0242ac110002
