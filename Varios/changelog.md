@@ -1,3 +1,7 @@
+03/02/22
+
+Añadido canal Eurosport 3
+
 10/01/22
 
 Eliminados FOX Life y Viajar por cese de emisión
