@@ -1,3 +1,7 @@
+28/02/22
+
+Eliminados M. Sagas y Eurosport 3 por cese de emisión. Añadidos canales M. LaLiga y M. Deportes que faltaban
+
 03/02/22
 
 Añadido canal Eurosport 3
