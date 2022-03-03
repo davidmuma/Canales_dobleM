@@ -1,3 +1,7 @@
+03/03/22
+
+Añadido M+ Los Oscars. Corregida frecuencia Eurosport 2
+
 28/02/22
 
 Eliminados M. Sagas y Eurosport 3 por cese de emisión. Añadidos canales M. LaLiga y M. Deportes que faltaban
