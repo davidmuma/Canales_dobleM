@@ -1,8 +1,0 @@
-#EXTM3U dobleM-IPTV https://t.me/EPG_dobleM
-#EXTINF:-1 tvg-logo="https://graph.facebook.com/televisionten/picture?width=200&height=200" group-title="IPTV",ten
-pipe:///usr/bin/env streamlink --stdout --default-stream best --url http://154.62.74.12:1935/live/smil:ten/chunklist_w189559606_b3128000_sleng.m3u8
-#EXTINF:-1 tvg-id="604f8125c6669b00077f7699" tvg-logo="https://images.pluto.tv/channels/604f8125c6669b00077f7699/colorLogoPNG.png" group-title="IPTV",LOL: Wipeout
-pipe:///usr/bin/env streamlink --stdout --default-stream best --pluto-disable-bumpers --url https://stitcher.pluto.tv/stitch/hls/channel/604f8125c6669b00077f7699/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=afc4be5c-ad4f-11eb-a2fe-0242ac110002
-#EXTINF:-1 tvg-id="5f1abf5fafb5ee0007d4d0ca" tvg-logo="https://images.pluto.tv/channels/5f1abf5fafb5ee0007d4d0ca/colorLogoPNG.png" group-title="IPTV",LOL: FailArmy
-pipe:///usr/bin/env streamlink --stdout --default-stream best --pluto-disable-bumpers --url https://stitcher.pluto.tv/stitch/hls/channel/5f1abf5fafb5ee0007d4d0ca/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=afc4be5c-ad4f-11eb-a2fe-0242ac110002
-
