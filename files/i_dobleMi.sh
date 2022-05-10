@@ -34,7 +34,7 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		SYSTEM_INFO="$(sed -e '/PRETTY_NAME=/!d' -e 's/PRETTY_NAME=//g' /etc/*-release)" 2>>$CARPETA_SCRIPT/dobleM.log
 	fi
 
-# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC	3-CoreELEC   4-AlexELEC    5-Linux	  6-Qnap 	7-Vitmod
+# Sistema elegido:	 1-Synology/XPEnology   2-LibreELEC/OpenELEC	3-CoreELEC   4-AlexELEC    5-Linux	  6-Qnap 	7-Vitmod	8-e2
 	if [ "$1" = "Synology" ]; then
 		SISTEMA_ELEGIDO="Synology/XPEnology"
 		SYSTEM=1
@@ -56,7 +56,11 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 	elif [ "$1" = "Vitmod" ]; then
 		SISTEMA_ELEGIDO="Vitmod"
 		SYSTEM=7
+	elif [ "$1" = "e2" ]; then
+		SISTEMA_ELEGIDO="e2"
+		SYSTEM=8
 	fi
+
 	case $SYSTEM in
 	1) #Synology/XPEnology
 		TVHEADEND_SERVICE="$(synoservicecfg --list | grep tvheadend)" 2>>$CARPETA_SCRIPT/dobleM.log #"pkgctl-tvheadend-testing"
@@ -135,6 +139,16 @@ command -v curl >/dev/null 2>&1 || { printf "$red%s\n%s$end\n" "ERROR: Es necesa
 		FFMPEG_DIR="/usr/bin/ffmpeg"
 		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
 		;;
+	8) #e2
+		TVHEADEND_SERVICE="$(systemctl list-unit-files --type=service | grep tvheadend | tr -s ' ' | cut -d' ' -f1)" 2>>$CARPETA_SCRIPT/dobleM.log #"service.tvheadend42.service"
+		TVHEADEND_USER="root"
+		TVHEADEND_GROUP="video"
+		TVHEADEND_PERMISSIONS="700"
+		TVHEADEND_CONFIG_DIR="/home/root/.hts/tvheadend"
+		TVHEADEND_GRABBER_DIR="/home/root/.hts/tvheadend/bin"
+		FFMPEG_DIR="/usr/bin/ffmpeg"
+		FFMPEG_COMMAND='-loglevel fatal -i "$1" -vcodec copy -acodec copy -f mpegts pipe:1'
+		;;
 	esac
 
 # Parar/Iniciar tvheadend
@@ -160,6 +174,8 @@ SERVICE_ERROR=false
 			/etc/init.d/TVHeadend.sh stop 2>>$CARPETA_SCRIPT/dobleM.log;;
 		7) #Vitmod
 			stop tvheadend $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
+		8) #e2
+			systemctl stop $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
@@ -190,6 +206,9 @@ SERVICE_ERROR=false
 			/etc/init.d/TVHeadend.sh start 2>>$CARPETA_SCRIPT/dobleM.log;;
 		7) #Vitmod
 			start tvheadend $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
+		8) #e2
+			systemctl start $TVHEADEND_SERVICE 2>>$CARPETA_SCRIPT/dobleM.log;;
+
 	esac
 	if [ $? -eq 0 ]; then
 		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
