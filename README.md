@@ -35,7 +35,7 @@ curl -sO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/doble
 ```
 Si te falla el primero prueba con este otro comando:
 ```
-wget -O dobleM.sh https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh ; sh dobleM.sh
+wget -O dobleM.sh --no-check-certificate "https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/dobleM.sh" ; sh dobleM.sh
 ```
 Una vez descargado puedes volver a ejecutarlo las veces que quieras con el comando:
 ```
