@@ -11,9 +11,9 @@
 | Lista | Última actualización | Versión | Descripción |
 | -	| - | - | - |
 | Satélite | 06/06/2022 | [ 5.0 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Movistar+ (HD y SD) · Sky Alemania · Canal+ Francia|
-| TDTChannels | 29/09/2021 | [ 2.3 ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
-| Pluto.TV | 29/09/2021 | [ 2.8 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
-| Pluto.TV VOD | 29/09/2021 | [ 2.2 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
+| TDTChannels | . | [ Nota ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | Más de 500 canales libres españoles y extranjeros |
+| Pluto.TV | . | [ Nota ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 600 canales libres y en varios idiomas |
+| Pluto.TV VOD | . | [ Nota ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | Más de 200 péliculas libres y en español |
 
 NOTA: Las listas de Pluto y de TDTChannels solo se actualizarán en la versión para [Docker](https://github.com/davidmuma/Docker_dobleM/blob/main/README.md) 
 
