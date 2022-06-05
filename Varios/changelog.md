@@ -1,3 +1,7 @@
+06/06/22
+
+Cambiada numeración de diales. Corregidos todos los nombres por los nuevos M+
+
 25/04/22
 
 Nuevos nombres y picons de AMC Breay y AMC Crime
