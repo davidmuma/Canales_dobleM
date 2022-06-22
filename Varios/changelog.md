@@ -1,3 +1,7 @@
+22/06/22
+
+Añadido canal M+ VHS. Actualizadas frecuencias
+
 06/06/22
 
 Cambiada numeración de diales. Corregidos todos los nombres por los nuevos M+
