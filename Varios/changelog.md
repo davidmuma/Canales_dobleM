@@ -1,3 +1,7 @@
+14/11/22
+
+Añadidos canales Gol Mundial y Gol Mundial 2
+
 13/09/22
 
 Muchos cambios
