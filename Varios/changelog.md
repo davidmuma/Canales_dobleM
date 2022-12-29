@@ -1,10 +1,6 @@
-29/12/2
+29/12/22 Corregidos nombres de canales y añadido canal LaLigaTV 4 Bar
 
-Corregidos nombres de canales y añadido canal LaLigaTV 4 Bar
-
-14/11/22
-
-Añadidos canales Gol Mundial y Gol Mundial 2
+14/11/22 Añadidos canales Gol Mundial y Gol Mundial 2
 
 13/09/22
 
