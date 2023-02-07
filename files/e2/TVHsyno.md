@@ -1,38 +1,70 @@
-## <b>Instalar guía en Synology </B>
-#### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
-<i>Con imágenes tipo poster   </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)
-```
-sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
-```
-<i>Con imágenes tipo fanart   </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)
-```
-sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/F/tv_grab_EPG_dobleM
-```
-#### 2> Dar permisos de ejecución al grabber:
-```
-sudo chmod 755 /usr/local/bin/tv_grab_EPG_dobleM
-```
-### <b>Configuración de tvheadend </B>
+<p align="center">
+  <a href="https://github.com/davidmuma/EPG_dobleM"> <img src="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/logo_dobleM.png" width="30%" height="30%"> </a>
+  <a href="https://github.com/davidmuma/Canales_dobleM"> <img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/logo_dobleM.png" width="30%" height="30%"> </a>
+  <a href="https://github.com/davidmuma/Docker_dobleM"> <img src="https://raw.githubusercontent.com/davidmuma/Docker_dobleM/master/Images/logo_dobleM.png" width="30%" height="30%"> </a>
+</p>
 
-#### 3> Reiniciar tvheadend y habilitar el grabber:
-<i>Configuración - Canal/EPG - Módulos para Obtención de Guía - Interno: XMLTV: tv_grab_EPG_dobleM</i>
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend1.jpg)
-#### 4> Programar la descarga de la guía:
-<i>Configuración - Canal/EPG - Obtener Guía - Internal Grabber Settings - Cronología multi-línea</i>
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
-```
-# Todos los días a las 8:04, 14:04 y 20:04
-4 8 * * *
-4 14 * * *
-4 20 * * *
-```
-#### 5> Forzar una descarga de la guía de programación:
-<i>Pulsar el botón "Volver a ejecutar los capturadores de EPG internos"</i>
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
-#### 6> Configurar el formato de la guía:
-<i>Configuración - General - EPG_Settings - Idioma(s) por defecto</i>
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend4.jpg)
+<h2 align="center">
+  Grupo de telegram: <a href="https://tttttt.me/EPG_dobleM">dobleM</a>
+</h2>
 
-Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+<p align="center">
+<a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">Canales soportados</a>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/changelog.md">Listado de cambios</a>
+</p>
 
-English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+<p align="right">
+<a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/WG++LOG.txt">.</a>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/WG++old.txt">.</a>
+</p>
+
+
+La guía de programación contiene la información para siete días de los canales de Movistar+ España, además de cinco días con la programación de canales portugueses, franceses y alemanes: <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">canales</a>
+
+
+La guía está en varios formatos en función del programa/sistema que uses:
+
+### Guía sin comprimir
+```
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
+```
+### Guía sin comprimir con caracteres especiales
+```
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
+```
+### Enlaces a los distintos xml comprimidos
+- [POSTER](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasP.md)
+- [FANART](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md)
+
+### Guía para TVHeadend
+- [POSTER](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/TVHposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturastvhP.md)
+- [FANART](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/TVHfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturastvhF.md)
+
+### Guías Especiales
+- [PLEX](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLplex.md)
+- [EMBY](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLemby.md)
+- [JELLYFIN](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLjelly.md)
+
+### Enigma2
+- [INSTALACIÓN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasE.md)
+#
+
+<a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a>  
+Si te gusta mi trabajo, apóyame con una pequeña donación.
+
+
+## CAPTURAS DE DIFERENTES APLICACIONES
+### KODI con posters (skin Embuary)
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiP1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiP2.jpg)
+### KODI con fanarts (skin Embuary)
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiF1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiF2.jpg)
+### Live Channels con posters
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/LiveP.jpg)
+### Live Channels con fanarts
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/LiveF.jpg)
+### Tivimate
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/Tivimate1.jpg)
