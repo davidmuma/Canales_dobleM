@@ -1,10 +1,10 @@
 ## <b>Instalar guía en Synology </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
-<i>Con imágenes tipo poster _ </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)
+<i>Con imágenes tipo poster - </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)
 ```
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
 ```
-<i>Con imágenes tipo fanart _ </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)
+<i>Con imágenes tipo fanart - </i> ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)
 ```
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/F/tv_grab_EPG_dobleM
 ```
@@ -33,6 +33,6 @@ sudo chmod 755 /usr/local/bin/tv_grab_EPG_dobleM
 <i>Configuración - General - EPG_Settings - Idioma(s) por defecto</i>
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend4.jpg)
 
-[Spanish: Guía con etiquetas de colores](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+Spanish: Guía con etiquetas de colores | [Capturas](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 
-[English: Guía sin etiquetas de colores](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+English: Guía sin etiquetas de colores | [Capturas](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
