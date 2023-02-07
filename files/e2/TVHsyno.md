@@ -1,6 +1,11 @@
 ## <b>Instalar guía en Synology </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
-<i>Con imágenes tipo poster ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend1.jpg)</i> 
+
+<img src="https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg"
+     title="Con imágenes tipo poster">
+
+
+<i>Con imágenes tipo poster ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)</i> 
 ```
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
 ```
