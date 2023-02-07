@@ -38,9 +38,12 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 - [POSTER](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasP.md)
 - [FANART](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md)
 
-### Guía para TVHeadend
-- [POSTER](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/TVHposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturastvhP.md)
-- [FANART](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/TVHfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturastvhF.md)
+### Instalación en TVHeadend
+- [Synology](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/tvhsyno.md)
+- [Linux](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/tvhlinux.md)
+- [CoreElec](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/tvhcore.md)
+- [LibreElec / OpenElec](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/tvhlibre.md)
+- [AlexElec](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/tvhalex.md)
 
 ### Guías Especiales
 - [PLEX](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/XMLplex.md)
@@ -52,7 +55,7 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 #
 
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a>  
-Si te gusta mi trabajo, apóyame con una pequeña donación.
+Si te gusta mi trabajo invítame a un café
 
 
 ## CAPTURAS DE DIFERENTES APLICACIONES
