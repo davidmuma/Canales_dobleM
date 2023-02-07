@@ -26,11 +26,11 @@ La guía de programación contiene la información para siete días de los canal
 
 La guía está en varios formatos en función del programa/sistema que uses:
 
-### Guía sin comprimir
+#### Guía sin comprimir
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
 ```
-### Guía sin comprimir con caracteres especiales
+#### Guía sin comprimir con caracteres especiales
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 ```
@@ -57,17 +57,4 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a>  
 Si te gusta mi trabajo invítame a un café
 
-
-## CAPTURAS DE DIFERENTES APLICACIONES
-### KODI con posters (skin Embuary)
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiP1.jpg)
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiP2.jpg)
-### KODI con fanarts (skin Embuary)
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiF1.jpg)
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/KodiF2.jpg)
-### Live Channels con posters
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/LiveP.jpg)
-### Live Channels con fanarts
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/LiveF.jpg)
-### Tivimate
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/Tivimate1.jpg)
+#
