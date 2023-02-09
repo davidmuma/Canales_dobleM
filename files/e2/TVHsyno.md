@@ -43,7 +43,7 @@ Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar 
 
 #### 5> Forzar una descarga de la guía de programación:
 
-En la misma pestaña anterior clicar en ( Volver a ejecutar los capturadores de EPG internos )
+En la misma pestaña anterior clicar ( Volver a ejecutar los capturadores de EPG internos )
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
 
@@ -51,7 +51,7 @@ En la misma pestaña anterior clicar en ( Volver a ejecutar los capturadores de 
 
 <i>[ Configuración ] - [ General ] - [ Base ]</i>
 
-( EPG_Settings - Idioma(s) por defecto ) y añadir el idioma
+( EPG_Settings - Idioma(s) por defecto ), añadir el idioma y clicar ( Guardar )
 
 Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 
