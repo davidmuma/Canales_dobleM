@@ -43,7 +43,7 @@ Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar 
 
 #### 5> Forzar una descarga de la guía de programación:
 
-Pulsar el botón ( Volver a ejecutar los capturadores de EPG internos )
+Clicar en ( Volver a ejecutar los capturadores de EPG internos )
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
 
