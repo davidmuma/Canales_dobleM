@@ -18,4 +18,4 @@ sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dob
 | -	| - |
 | ```
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
-``` |
+``` | |
