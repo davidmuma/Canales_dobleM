@@ -32,7 +32,7 @@ Seleccionar - Interno: XMLTV: EPG_dobleM-SAT - marcar "Habilitado" y clicar Guar
 
 <i>Configuración - Canal / EPG - Obtener Guía</i>
   
-(Internal Grabber Settings - Cronología multi-línea)
+( Internal Grabber Settings - Cronología multi-línea: ) poner la programación y clicar Guardar
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
 ```
