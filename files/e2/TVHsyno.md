@@ -22,7 +22,7 @@ sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dob
 ### <b>Configuración de Tvheadend </B>
 
 #### 3> Reiniciar Tvheadend y habilitar el grabber:
-<i>[Configuración] - [Canal / EPG] - [Módulos para Obtención de Guía]</i>
+<i>[ Configuración ] - [ Canal / EPG ] - [ Módulos para Obtención de Guía ]</i>
 
 Seleccionar - Interno: XMLTV: EPG_dobleM-SAT - marcar "Habilitado:" y clicar Guardar
 
