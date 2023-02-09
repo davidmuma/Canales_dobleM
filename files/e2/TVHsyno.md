@@ -24,15 +24,15 @@ sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dob
 #### 3> Reiniciar Tvheadend y habilitar el grabber:
 <i>[ Configuración ] - [ Canal / EPG ] - [ Módulos para Obtención de Guía ]</i>
 
-Seleccionar (Interno: XMLTV: EPG_dobleM-SAT), marcar ("Habilitado:") y clicar (Guardar)
+Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar ( Guardar )
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend1.jpg)
 
 #### 4> Programar la descarga de la guía:
 
-<i>Configuración - Canal / EPG - Obtener Guía</i>
+<i>[ Configuración ] - [ Canal / EPG ] - [ Obtener Guía ]</i>
   
-( Internal Grabber Settings - Cronología multi-línea: ) - escribir la programación y clicar Guardar
+( Internal Grabber Settings - Cronología multi-línea: ), escribir la programación y clicar ( Guardar )
 ```
 # Todos los días a las 8:04, 14:04 y 20:04
 4 8 * * *
@@ -43,15 +43,15 @@ Seleccionar (Interno: XMLTV: EPG_dobleM-SAT), marcar ("Habilitado:") y clicar (G
 
 #### 5> Forzar una descarga de la guía de programación:
 
-Pulsar el botón "Volver a ejecutar los capturadores de EPG internos"
+Pulsar el botón ( Volver a ejecutar los capturadores de EPG internos )
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
 
 #### 6> Configurar el formato de la guía:
 
-<i>Configuración - General - Base</i>
+<i>[ Configuración ] - [ General ] - [ Base ]</i>
 
-( EPG_Settings - Idioma(s) por defecto ) - Añadir el idioma
+( EPG_Settings - Idioma(s) por defecto ) y añadir el idioma
 
 Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 
