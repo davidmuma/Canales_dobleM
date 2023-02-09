@@ -33,14 +33,14 @@ Seleccionar - Interno: XMLTV: EPG_dobleM-SAT - marcar "Habilitado" y clicar Guar
 <i>Configuración - Canal / EPG - Obtener Guía</i>
   
 ( Internal Grabber Settings - Cronología multi-línea: ) poner la programación y clicar Guardar
-
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
 ```
 # Todos los días a las 8:04, 14:04 y 20:04
 4 8 * * *
 4 14 * * *
 4 20 * * *
 ```
+![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
+
 #### 5> Forzar una descarga de la guía de programación:
 <i>Pulsar el botón "Volver a ejecutar los capturadores de EPG internos"</i>
 ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
