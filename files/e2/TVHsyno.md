@@ -1,5 +1,5 @@
 ## <b>Instalar guía en Synology </B>
-#### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
+#### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en la siguiente ruta:
 | Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)  |
 | -	| - |
 ```
