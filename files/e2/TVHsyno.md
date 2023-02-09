@@ -24,6 +24,6 @@ sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dob
 ```
 
 
-|_____________POSTER______________| ·   FANART   ·  |
+| _____________POSTER______________ | ·   FANART   ·  |
 | -	| - |
 | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
