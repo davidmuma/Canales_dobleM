@@ -69,7 +69,7 @@ LaQuay y HelmerLuzo por los enlaces IPTV
 
 #
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a>  
-Si te gusta mi trabajo, apóyame con una pequeña donación.
+Si te gusta mi trabajo puedes invitarme a un café ;-)
 
 ## CAPTURAS
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/I1.jpg)
