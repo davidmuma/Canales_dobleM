@@ -11,21 +11,14 @@
 | Lista | Última actualización | Versión | Descripción |
 | -	| - | - | - |
 | Satélite | 29/12/2022 | [ 5.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) | Movistar+ (HD y SD) · Sky Alemania · Canal+ Francia|
-| TDTChannels | [ Nota ](https://github.com/LaQuay/TDTChannels/blob/master/info_television.md) | . | Más de 500 canales libres españoles y extranjeros |
-| Pluto.TV | [ Nota ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | . | Más de 600 canales libres y en varios idiomas |
-| Pluto.TV VOD | [ Nota ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelogpluto.md) | . | Más de 200 péliculas libres y en español |
-
-NOTA: Las listas de Pluto y de TDTChannels solo se actualizarán en la versión para [Docker](https://github.com/davidmuma/Docker_dobleM/blob/main/README.md) 
-
-En algunos sistemas es necesario tener instalado "ffmpeg" para que los canales IPTV funcionen correctamente, con el script se pueden instalar las dos opciones, con o sin ffmpeg, usa la que mejor te funcione. Algunos de éstos canales IPTV no disponen de guía de programación.
 
 Los canales satélite de Movistar+ tienen todos su guía de programación y vienen exactamente con el mismo orden que tienen oficialmente en su página. Todos los canales tienen asignado su correspondiente dial, renombrados a su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, y vienen con su correspondiente logo/picon. 
 
-También se instala un grabber que descarga la EPG con siete días de programación, pudiendo elegir tanto el formato de la guía (Con etiquetas de colores, sin etiquetas de colores, con etiquetas de colores y título en una sola linea, sin etiquetas de colores, título en una sola linea y sin caracteres especiales), como el tipo de imagen que aparecerá en el evento mostrado (Imágenes tipo poster o imágenes tipo fanart) y también da la posibilidad de elegir tipo de picons.
+También se instala un grabber que descarga la EPG con siete días de programación, pudiendo elegir tanto el formato de la guía (Con etiquetas de colores y sin etiquetas de colores), como el tipo de imagen que aparecerá en el evento mostrado (Imágenes tipo poster o imágenes tipo fanart) y también da la posibilidad de elegir tipo de picons.
 
-El script configura tvheadend con los idiomas Spanish, English, German y French (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
+El script configura tvheadend con los idiomas Spanish, English (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
 
-Al hacer la instalación de cualquiera de las listas de canales(Satélite o IPTV), el script respetará los canales creados por ti anteriormente.
+Al hacer la instalación de la lista de canales satélite, el script respetará los canales creados por ti anteriormente.
 
 Solo debes descargar el script una vez, él se encargará siempre de bajar la última versión del instalador y de la lista de canales.
 
