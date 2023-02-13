@@ -16,13 +16,18 @@ Los canales satélite de Movistar+ tienen todos su guía de programación y vien
 
 También se instala un grabber que descarga la EPG con siete días de programación, pudiendo elegir:
 - el formato de la guía:
+- 
 Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
+
 - el tipo de imagen que aparecerá en el evento mostrado:
+- 
 | Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)  |
 | Con imágenes tipo fanart | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
 | -	| - |
+
 - y el tipo de picons:
+- 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/picon.png)
 
 El script configura tvheadend con los idiomas Spanish, English (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
