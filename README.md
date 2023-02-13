@@ -23,9 +23,9 @@ También se instala un grabber que descarga la EPG con siete días de programaci
 
 - el tipo de imagen que aparecerá en el evento mostrado:
 
-| POSTER	| FANART |
-| -	| - |
-| ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
+  | POSTER	| FANART |
+  | -	| - |
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
 
 - y el tipo de picons:
 
