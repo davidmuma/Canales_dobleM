@@ -27,7 +27,7 @@ También se instala un grabber que descarga la EPG con siete días de programaci
   | -	| - |
   | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
 
-- y el tipo de picons:
+- y el tipo de picon:
 
   ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/picon.png)
 
