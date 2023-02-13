@@ -41,8 +41,8 @@ clear
 	echo -e " 3)$cyan Ejecutar instalador para$end$green LibreELEC/OpenELEC $end(solo para tvheadend 4.3)"
 	echo -e " 4)$cyan Ejecutar instalador para$end$green CoreELEC $end(solo para tvheadend 4.3)"
 	echo -e " 5)$cyan Ejecutar instalador para$end$green AlexELEC $end(solo para tvheadend 4.3)"
-	echo -e " 6)$cyan Ejecutar instalador para$end$green Vitmod $end(EN PRUEBAS)"
-	echo -e " 7)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
+#	echo -e " 6)$cyan Ejecutar instalador para$end$green Vitmod $end(EN PRUEBAS)"
+	echo -e " 6)$cyan Ejecutar instalador para$end$green Linux $end(solo para tvheadend 4.3)"
 	echo
 	echo -e " Para Docker usa el nuevo script https://github.com/davidmuma/Docker_dobleM"
 	
@@ -61,8 +61,8 @@ clear
 		3) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Libreelec; break;;
 		4) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Coreelec; break;;
 		5) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Alexelec; break;;
-		6) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Vitmod; break;;
-		7) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
+#		6) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && chmod +x i_dobleMi.sh && ./i_dobleMi.sh Vitmod; break;;
+		6) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMi.sh && clear && sudo chmod +x i_dobleMi.sh && sudo ./i_dobleMi.sh Linux; break;;
 				
 #		8) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && chmod +x i_dobleMd.sh && ./i_dobleMd.sh; break;;
 #		9) curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/i_dobleMd.sh && clear && sudo chmod +x i_dobleMd.sh && sudo ./i_dobleMd.sh; break;;

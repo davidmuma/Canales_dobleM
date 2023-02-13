@@ -410,16 +410,12 @@ install()
 		echo -e "$cyan Elige el formato de la guía de programación: $end"
 		echo -e " 1) Guía con etiquetas de colores"
 		echo -e " 2) Guía sin etiquetas de colores"
-		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
-		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
-				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
-				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
-				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa"\n\t'; break;;
 				*) echo && echo " $opcion1 es una opción inválida" && echo;
 		esac
 	done
@@ -441,21 +437,23 @@ install()
 		echo
 	while :
 	do
-		echo -e "$cyan Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
-		echo -e " 1) dobleM (local)"
-		echo -e " 2) dobleM (GitHub)"
-		echo -e " 3) reflejo (GitHub)"
-		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) color (GitHub)"
+		echo -e "$cyan Elige el tipo de picon (los de github aparecen bien al exportar el m3u): $end"
+		echo -e " 1) color (local)"
+		echo -e " 2) blanco (local)"
+		echo -e " 3) reflejo (local)"
+		echo -e " 4) color (github)"
+		echo -e " 5) blanco (github)"
+		echo -e " 6) reflejo (github)"
 		echo
 		echo -n " Indica una opción: "
 		read opcion3
 		case $opcion3 in
 				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
-				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
-				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
-				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
+				2) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				3) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/color/"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/blanco/"; break;;
+				6) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/reflejo/"; break;;
 				*) echo && echo " $opcion3 es una opción inválida" && echo;
 		esac
 	done
@@ -473,9 +471,20 @@ install()
 # Preparamos CARPETA_DOBLEM y descargamos el fichero dobleM?????.tar.xz
 	printf "%-$(($COLUMNS-10+1))s"  " 2. Descargando lista y grabber para canales satélite"
 		ERROR=false
-		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+		rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/picons && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
+		fi
+		if [[ $opcion3 -le 3 ]]; then
+			case $opcion3 in
+				1) FICHERO_PICON="color";;
+				2) FICHERO_PICON="blanco";;
+				3) FICHERO_PICON="reflejo";;
+			esac
+			curl -skO https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/$FICHERO_PICON.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
 		fi
 		curl -skO https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/files/$NOMBRE_LISTA.ver 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
@@ -499,6 +508,12 @@ install()
 # Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando lista de canales satélite"
 		ERROR=false
+		if [[ $TIPO_PICON -le 3 ]]; then
+			tar -xf "$FICHERO_PICON.tar.xz" -C $CARPETA_DOBLEM/picons 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+		fi
 		tar -xf "$NOMBRE_LISTA.tar.xz"
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -2105,16 +2120,12 @@ cambioformatoEPG()
 		echo -e "$cyan Elige el formato de la guía de programación: $end"
 		echo -e " 1) Guía con etiquetas de colores"
 		echo -e " 2) Guía sin etiquetas de colores"
-		echo -e " 3) Guía con etiquetas de colores y título en una sola linea"
-		echo -e " 4) Guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales"
 		echo
 		echo -n " Indica una opción: "
 		read opcion1
 		case $opcion1 in
-				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
-				2) FORMATO_IDIOMA_EPG='\n\t\t"fre",\n\t\t"eng",\n\t\t"ger",\n\t\t"spa"\n\t'; break;;
-				3) FORMATO_IDIOMA_EPG='\n\t\t"ger",\n\t\t"eng",\n\t\t"spa",\n\t\t"fre"\n\t'; break;;
-				4) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa",\n\t\t"ger",\n\t\t"fre"\n\t'; break;;
+				1) FORMATO_IDIOMA_EPG='\n\t\t"spa",\n\t\t"eng"\n\t'; break;;
+				2) FORMATO_IDIOMA_EPG='\n\t\t"eng",\n\t\t"spa"\n\t'; break;;
 				*) echo && echo " $opcion1 es una opción inválida" && echo;
 		esac
 	done
@@ -2190,11 +2201,12 @@ cambioformatoPICONS()
 	while :
 	do
 		echo -e "$cyan Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
-		echo -e " 1) dobleM (local)"
-		echo -e " 2) dobleM (GitHub)"
-		echo -e " 3) reflejo (GitHub)"
-		echo -e " 4) transparent (GitHub)"
-		echo -e " 5) color (GitHub)"
+		echo -e " 1) color (local)"
+		echo -e " 2) blanco (local)"
+		echo -e " 3) reflejo (local)"
+		echo -e " 4) color (github)"
+		echo -e " 5) blanco (github)"
+		echo -e " 6) reflejo (github)"
 		echo
 		echo -e " a)$yellow Introducir la ruta de los picons manualmente $end"
 		echo -e "    (el nombre del picon tiene que ser: 1_0_19_18EF .... .png)"
@@ -2203,10 +2215,11 @@ cambioformatoPICONS()
 		read opcion3
 		case $opcion3 in
 				1) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
-				2) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/dobleM"; break;;
-				3) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/reflejo"; break;;
-				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/transparent"; break;;
-				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/picon/color"; break;;
+				2) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				3) RUTA_PICON="file://$TVHEADEND_CONFIG_DIR/picons"; break;;
+				4) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/color/"; break;;
+				5) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/blanco/"; break;;
+				6) RUTA_PICON="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/reflejo/"; break;;
 				a)
 					echo -e "$yellow Escribe la ruta de los picons (si es local no te olvides de file:///)$end"
 					read RUTA_PICON
@@ -2220,26 +2233,88 @@ cambioformatoPICONS()
 		cd $CARPETA_SCRIPT
 		PARAR_TVHEADEND
 # Aplicamos cambio formato picons
-	printf "%-$(($COLUMNS-10))s"  " 2. Cambiando formato/ruta picons"
 		ERROR=false
-		sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
+		if [[ $opcion3 -le 3 ]]; then
+			printf "%-$(($COLUMNS-10))s"  " 2. Descargando picons y aplicando cambios formato/ruta"
+			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/picons && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			case $opcion3 in
+				1) FICHERO_PICON="color";;
+				2) FICHERO_PICON="blanco";;
+				3) FICHERO_PICON="reflejo";;
+			esac
+			curl -skO https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/$FICHERO_PICON.tar.xz 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			tar -xf "$FICHERO_PICON.tar.xz" -C $CARPETA_DOBLEM/picons 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			cp -r $CARPETA_DOBLEM/picons/ $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			rm -rf $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i 's#"http_server_name":.*#picons_final \n\t&#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i '/picons_inicio/,/picons_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "s#\"prefer_picon\".*#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+			else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			fi	
 		fi
-		sed -i 's#"http_server_name":.*#picons_final \n\t&#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i '/picons_inicio/,/picons_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		sed -i "s#\"prefer_picon\".*#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -eq 0 -a $ERROR = "false" ]; then
-		printf "%s$green%s$end%s\n" "[" "  OK  " "]"
 		else
-		printf "%s$red%s$end%s\n" "[" "FAILED" "]"
-		fi
+			printf "%-$(($COLUMNS-10))s"  " 2. Aplicando cambios formato/ruta picons"
+			sed -i 's#"prefer_picon":.*#"prefer_picon": true,\n\t picons_inicio#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i 's#"http_server_name":.*#picons_final \n\t&#' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i '/picons_inicio/,/picons_final/d' $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -ne 0 ]; then
+				ERROR=true
+			fi
+			sed -i "s#\"prefer_picon\".*#\"prefer_picon\": true,\n\t\"chiconscheme\": 0,\n\t\"piconpath\": \"$RUTA_PICON\",\n\t\"piconscheme\": 0,#" $TVHEADEND_CONFIG_DIR/config 2>>$CARPETA_SCRIPT/dobleM.log
+			if [ $? -eq 0 -a $ERROR = "false" ]; then
+			printf "%s$green%s$end%s\n" "[" "  OK  " "]"
+			else
+			printf "%s$red%s$end%s\n" "[" "FAILED" "]"
+			fi		
+		fi				
+
 # Reiniciamos tvheadend
 	printf "%-$(($COLUMNS-10))s"  " 3. Iniciando tvheadend"
 		cd $CARPETA_SCRIPT
@@ -2419,21 +2494,21 @@ VERSIONES
 	echo -e " Directorio   grabber:$yellow $TVHEADEND_GRABBER_DIR $end"
 	echo
 	echo -e " SATELITE      --->  Versión instalada:$red $ver_local_SAT $end $ver_menu_SAT"
-	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
-	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
-	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
+#	echo -e " TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end $ver_menu_TDT"
+#	echo -e " Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end $ver_menu_PlutoTV_ALL"
+#	echo -e " Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end $ver_menu_PlutoVOD_ES"
 	echo -e " ───────────────────────────────────────────────────────────────────────────── "
 	echo
 	echo -e " 0)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 1)$cyan Instalar   canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
 	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end(Solo actualiza canales y picons) $end"
-	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
-	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
-	echo -e " 5)$red Borrar$end$cyan lista de canales instalada $end"
-	echo -e " 6)$cyan Instalar grabber y configurar tvheadend $end"
-	echo -e " 7)$cyan Cambiar el formato de la guía de programación $end"
-	echo -e " 8)$cyan Cambiar el formato/ruta de los picons $end"
-	echo -e " 9)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
+#	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
+#	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
+	echo -e " 3)$red Borrar$end$cyan lista de canales instalada $end"
+	echo -e " 4)$cyan Instalar grabber y configurar tvheadend $end"
+	echo -e " 5)$cyan Cambiar el formato de la guía de programación $end"
+	echo -e " 6)$cyan Cambiar el formato/ruta de los picons $end"
+	echo -e " 7)$green Restaurar copia de seguridad $end(Usa el fichero mas reciente que encuentre) $end"
 	echo
 	echo -e " x)$cyan Hacer una$red limpieza$end$cyan de tvheadend $end(channel, epggrab, input, bouquet, picons)"
 	echo
@@ -2449,13 +2524,13 @@ VERSIONES
 		0) clear && backup;;
 		1) clear && install;;
 		2) clear && update;;
-		3) clear && installIPTV;;
-		4) clear && installIPTVffmpeg;;
-		5) clear && clearchannels;;
-		6) clear && installGRABBER;;
-		7) clear && cambioformatoEPG;;
-		8) clear && cambioformatoPICONS;;
-		9) clear && resbackup;;
+#		3) clear && installIPTV;;
+#		4) clear && installIPTVffmpeg;;
+		3) clear && clearchannels;;
+		4) clear && installGRABBER;;
+		5) clear && cambioformatoEPG;;
+		6) clear && cambioformatoPICONS;;
+		7) clear && resbackup;;
 		x) clear && limpiezatotal;;
 		v) rm -rf $CARPETA_SCRIPT/i_dobleMi.sh && clear && cd $CARPETA_SCRIPT && ./i_dobleM.sh; break;;
 		s) clear && echo " Gracias por usar el script dobleM" && echo && rm -rf $CARPETA_SCRIPT/i_dobleM*.sh; exit;;
