@@ -9,7 +9,7 @@
 </h2>
 
 | Lista | Última actualización | Versión |
-| -	| - | - |
+| :-:	| :-: | :-: |
 | Satélite Movistar+ | 29/12/2022 | [ 5.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
 
 Los canales satélite de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen oficialmente en su página web.
@@ -20,7 +20,7 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 
   | Con etiquetas de colores | Sin etiquetas de colores |
   | :-:	| :-: |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodisincolorp.jpg) |
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodisincolorp.jpg) [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg) |
  
   Con etiquetas de colores | [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 
