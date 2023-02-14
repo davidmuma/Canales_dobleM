@@ -25,9 +25,9 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 - el tipo de imagen que aparecerá en el evento mostrado:
 
 
-  | <p align="center"> Poster	</p> | Fanart |
-  | - | - |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
+  | Lista | Última actualización | Versión |
+  | -	| - | - |
+  | Satélite Movistar+ | 29/12/2022 | [ 5.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
 
   | <p align="center"> POSTER	</p> | <p align="center"> FANART </p>|
   | -	| - |
