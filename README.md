@@ -32,7 +32,7 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 
   ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/picon.png)
 
-El script configura tvheadend con los idiomas Spanish, English (ver página <a href="https://github.com/davidmuma/EPG_dobleM">EPG dobleM</a> para mas información), modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
+El script configura tvheadend con las opciones indicadas, modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
 
 Al hacer la instalación de la lista de canales satélite, el script respetará los canales creados por ti anteriormente.
 
