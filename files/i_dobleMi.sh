@@ -1019,10 +1019,6 @@ update()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		cp -r $CARPETA_DOBLEM/picons/ $TVHEADEND_CONFIG_DIR 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
 		cp -r $CARPETA_DOBLEM/epggrab/ $TVHEADEND_CONFIG_DIR/ 2>>$CARPETA_SCRIPT/dobleM.log
 		if [ $? -ne 0 ]; then
 			ERROR=true
@@ -1070,18 +1066,6 @@ update()
 			ERROR=true
 		fi
 		find $TVHEADEND_CONFIG_DIR/input -type f -exec chmod $(($TVHEADEND_INPUT_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		chown -R $TVHEADEND_PICONS_USER:$TVHEADEND_PICONS_GROUP $TVHEADEND_CONFIG_DIR/picons 2>>$CARPETA_SCRIPT/dobleM.log
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		find $TVHEADEND_CONFIG_DIR/picons -type d -exec chmod $TVHEADEND_PICONS_PERMISSIONS 2>>$CARPETA_SCRIPT/dobleM.log {} \;
-		if [ $? -ne 0 ]; then
-			ERROR=true
-		fi
-		find $TVHEADEND_CONFIG_DIR/picons -type f -exec chmod $(($TVHEADEND_PICONS_PERMISSIONS-100)) 2>>$CARPETA_SCRIPT/dobleM.log {} \;
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
@@ -1873,35 +1857,8 @@ clearchannels()
 	CONFIG_ERROR=false
 	SERVICE_ERROR=false
 	VERSIONES
-# Pedimos lista a borrar
-	clear
-	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
-	echo -e "$blue │                   Elección de lista de canales a borrar                   │  $end"
-	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
-	echo
-	while :
-	do
-		echo -e "$cyan Elige la lista de canales que quieres borrar: $end"
-		echo -e " 1) SATELITE      --->  Versión instalada:$red $ver_local_SAT $end"
-		echo -e " 2) TDTChannels   --->  Versión instalada:$red $ver_local_TDT $end"
-		echo -e " 3) Pluto.TV      --->  Versión instalada:$red $ver_local_PlutoTV_ALL $end"
-		echo -e " 4) Pluto.TV VOD  --->  Versión instalada:$red $ver_local_PlutoVOD_ES $end"
-		echo
-		echo -e " v)$magenta Volver al menú$end"
-		echo
-		echo -n " Indica una opción: "
-		read opcionborrar
-		case $opcionborrar in
-				1) NOMBRE_LISTA=dobleM-SAT; break;;
-				2) NOMBRE_LISTA=dobleM-TDT; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
-				4) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
-				v) MENU;;
-				*) echo && echo " $opcionborrar es una opción inválida" && echo;
-		esac
-	done
 # Iniciamos borrado
+	NOMBRE_LISTA=dobleM-SAT
 	clear
 	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
 	echo -e "$blue │                      Iniciando borrado de canales                         │  $end"
@@ -1962,7 +1919,6 @@ clearchannels()
 		echo
 		echo " Pulsa intro para continuar..."
 		read CAD
-		clearchannels
 }
 
 # INSTALAR GRABBER
@@ -1970,35 +1926,8 @@ installGRABBER()
 {
 # Comprobamos que exista el fichero config en la carpeta epggrab
 	comprobarconfigepggrab
-# Pedimos grabber a instalar
-	clear
-	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
-	echo -e "$blue │                      Elección de grabber a instalar                       │  $end"
-	echo -e "$blue └───────────────────────────────────────────────────────────────────────────┘  $end"
-	echo -e " Usando script$green $SISTEMA_ELEGIDO$end en$green $SYSTEM_INFO$end"
-	echo
-	while :
-	do
-		echo -e "$cyan Elige el grabber que quieres instalar: $end"
-		echo -e " 1) Satélite"
-		echo -e " 2) TDTChannels"
-		echo -e " 3) Pluto.TV"
-		echo -e " 4) Pluto.TV VOD"
-		echo
-		echo -e " v)$magenta Volver al menú$end"
-		echo
-		echo -n " Indica una opción: "
-		read opciongrabber
-		case $opciongrabber in
-				1) NOMBRE_LISTA=dobleM-SAT; break;;
-				2) NOMBRE_LISTA=dobleM-TDT; break;;
-				3) NOMBRE_LISTA=dobleM-PlutoTV_ALL; break;;
-				4) NOMBRE_LISTA=dobleM-PlutoVOD_ES; break;;
-				v) MENU;;
-				*) echo && echo " $opciongrabber es una opción inválida" && echo;
-		esac
-	done
 # Iniciamos instalación grabber
+	NOMBRE_LISTA=dobleM-SAT
 	clear
 	echo -e "$blue ┌───────────────────────────────────────────────────────────────────────────┐  $end"
 	echo -e "$blue │                     Iniciando instalación de grabber                      │  $end"
@@ -2102,7 +2031,6 @@ installGRABBER()
 		echo
 		echo " Pulsa intro para continuar..."
 		read CAD
-		installGRABBER
 }
 
 # CAMBIAR FORMATO EPG
@@ -2200,7 +2128,7 @@ cambioformatoPICONS()
 	echo
 	while :
 	do
-		echo -e "$cyan Elige el tipo de picon (los de GitHub aparecen bien al exportar el m3u): $end"
+		echo -e "$cyan Elige el tipo de picon (los de github aparecen bien al exportar el m3u): $end"
 		echo -e " 1) color (local)"
 		echo -e " 2) blanco (local)"
 		echo -e " 3) reflejo (local)"
@@ -2501,7 +2429,7 @@ VERSIONES
 	echo
 	echo -e " 0)$green Hacer copia de seguridad de tvheadend $end"
 	echo -e " 1)$cyan Instalar   canales$yellow SATELITE $end+ picons, grabber y configurar tvheadend $end"
-	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end(Solo actualiza canales y picons) $end"
+	echo -e " 2)$cyan Actualizar canales$yellow SATELITE $end"
 #	echo -e " 3)$cyan Instalar/Actualizar canales$yellow IPTV $end(TDTChannels - Pluto.TV - Pluto.TV VOD) $end"
 #	echo -e " 4)$cyan Instalar/Actualizar canales$yellow IPTV-ffmpeg $end(Pasando la URL por ffmpeg) $end"
 	echo -e " 3)$red Borrar$end$cyan lista de canales instalada $end"
