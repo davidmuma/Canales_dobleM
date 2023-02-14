@@ -25,9 +25,9 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 - el tipo de imagen que aparecerá en el evento mostrado:
 
 
-  | Poster | Fanart |
-  | - | - |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
+  | Poster || Fanart |
+  | - | - | - |
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) || ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
 
   | <p align="center"> POSTER	</p> | <p align="center"> FANART </p>|
   | -	| - |
