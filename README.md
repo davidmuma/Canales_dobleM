@@ -10,7 +10,7 @@
 
 | Lista | Última actualización | Versión |
 | -	| - | - |
-| Movistar+ satélite | 29/12/2022 | [ 5.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
+| Satélite Movistar+ | 29/12/2022 | [ 5.4 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
 
 Los canales satélite de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen oficialmente en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, vienen con su correspondiente guía de programación y su picon. 
@@ -26,8 +26,8 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 
 
   | Poster | | Fanart |
-  | -	| - | - |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | - | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
+  | - | - |
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg) |
 
   | <p align="center"> POSTER	</p> | <p align="center"> FANART </p>|
   | -	| - |
