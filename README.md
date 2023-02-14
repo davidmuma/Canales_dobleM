@@ -22,11 +22,7 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
   | :-:	| :-: |
   | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodisincolorp.jpg) |
  
-  Con etiquetas de colores | [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
-
-  Sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
-
-- el tipo de imagen que aparecerá en el evento mostrado:
+ - el tipo de imagen que aparecerá en el evento mostrado:
 
   | Poster | Fanart |
   | :-:	| :-: |
