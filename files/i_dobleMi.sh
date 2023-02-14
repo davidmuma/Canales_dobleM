@@ -475,7 +475,7 @@ install()
 		if [ $? -ne 0 ]; then
 			ERROR=true
 		fi
-		if [[ $opcion3 -le 3 ]]; then
+		if [ $opcion3 -le 3 ]; then
 			case $opcion3 in
 				1) FICHERO_PICON="color";;
 				2) FICHERO_PICON="blanco";;
@@ -508,7 +508,7 @@ install()
 # Descomprimimos el tar, borramos canales no elegidos y marcamos con dobleM????? al final todos los archivos de la carpeta /channel/config/ , /channel/tag/
 	printf "%-$(($COLUMNS-10+1))s"  " 3. Preparando lista de canales satélite"
 		ERROR=false
-		if [[ $TIPO_PICON -le 3 ]]; then
+		if [ $opcion3 -le 3 ]; then
 			tar -xf "$FICHERO_PICON.tar.xz" -C $CARPETA_DOBLEM/picons 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -ne 0 ]; then
 				ERROR=true
@@ -2234,7 +2234,7 @@ cambioformatoPICONS()
 		PARAR_TVHEADEND
 # Aplicamos cambio formato picons
 		ERROR=false
-		if [[ $opcion3 -le 3 ]]; then
+		if [ $opcion3 -le 3 ]; then
 			printf "%-$(($COLUMNS-10))s"  " 2. Descargando picons y aplicando cambios formato/ruta"
 			rm -rf $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM && mkdir $CARPETA_DOBLEM/picons && cd $CARPETA_DOBLEM 2>>$CARPETA_SCRIPT/dobleM.log
 			if [ $? -ne 0 ]; then
