@@ -20,7 +20,8 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 
   | Con etiquetas de colores | Sin etiquetas de colores |
   | :-:	| :-: |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolorp.jpg) [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolorp.jpg) [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolorp.jpg) | [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg) | 
+ | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolorp.jpg) | [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg) |
  
   Con etiquetas de colores | [ampliar](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
 
