@@ -10,7 +10,7 @@
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en la siguiente ruta:
 | Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)  |
 | -	| - |
-```
+``` shell
 sudo wget -P /usr/local/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
 ```
 | Con imágenes tipo fanart | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
