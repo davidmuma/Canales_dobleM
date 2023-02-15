@@ -1,7 +1,17 @@
-[prueba](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/main/files/dobleMconfig.ini)
+## Pestañas {.tabset}
 
-<a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> |Si te gusta mi trabajo puedes invitarme a un café 😄 |
-| ---------- |
+Algo muy util es usar pestañas.
+
+### tabla
+
+```{r}
+knitr::kable(mtcars[1:5,, 1:5], caption = "A table caption")
+```
+### Gráficos
+
+```{r}
+hist(rnorm(125), col="red")
+```
 
 
 ## <b>Instalar guía en Synology </B>
