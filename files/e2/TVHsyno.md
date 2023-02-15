@@ -1,6 +1,10 @@
 [prueba](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/main/files/dobleMconfig.ini)
 
 
+- [x] #739
+- [ ] https://github.com/octo-org/octo-repo/issues/740
+- [ ] Add delight to the experience when all tasks are complete :tada:
+
 
 ## <b>Instalar guía en Synology </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en la siguiente ruta:
