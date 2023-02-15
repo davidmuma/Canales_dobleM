@@ -1,8 +1,8 @@
 [prueba](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/main/files/dobleMconfig.ini)
 
-
-| Invitame 😄 |
+<a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> |Si te gusta mi trabajo puedes invitarme a un café 😄 |
 | ---------- |
+
 
 ## <b>Instalar guía en Synology </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en la siguiente ruta:
