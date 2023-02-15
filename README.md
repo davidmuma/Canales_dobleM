@@ -51,7 +51,7 @@ Una vez descargado puedes volver a ejecutarlo las veces que quieras con el coman
 sh dobleM.sh
 ```
 
-El script solo es compatible con tvheadend 4.3 y en los siguientes sistemas:
+El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 
 - Synology/XPEnology
 - Qnap
