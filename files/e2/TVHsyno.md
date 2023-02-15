@@ -1,4 +1,4 @@
-[prueba] (https://raw.githubusercontent.com/davidmuma/Docker_dobleM/main/files/dobleMconfig.ini)
+[prueba](https://raw.githubusercontent.com/davidmuma/Docker_dobleM/main/files/dobleMconfig.ini)
 
 
 
