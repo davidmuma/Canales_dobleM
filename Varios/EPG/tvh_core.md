@@ -1,11 +1,11 @@
 ## <b>Instalar guía en Coreelec </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
-| Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/poster.jpg)  |
+| Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg)  |
 | -	| - |
 ```
 wget -P /storage/.kodi/addons/service.tvheadend43/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM
 ```
-| Con imágenes tipo fanart | ![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/fanart.jpg)  |
+| Con imágenes tipo fanart | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg)  |
 | -	| - |
 ```
 wget -P /storage/.kodi/addons/service.tvheadend43/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/F/tv_grab_EPG_dobleM
