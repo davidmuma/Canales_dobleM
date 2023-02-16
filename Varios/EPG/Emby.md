@@ -5,7 +5,7 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_light.xml.g
 
 - Capturas
 
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/emby1.jpg)
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/emby2.jpg)
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/emby3.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Emby1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Emby2.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Emby3.jpg)
 
