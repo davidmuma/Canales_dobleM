@@ -27,7 +27,7 @@ La guía contiene la programación para siete días de todos los canales de Movi
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
 ```
-- xml sin comprimir y compatible con la mayoria de apps (con caracteres especiales)  | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/EPG/Varios/iptvcon.jpg)
+- xml sin comprimir y compatible con la mayoria de apps (con caracteres especiales)  | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvcon.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 ```
