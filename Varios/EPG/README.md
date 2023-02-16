@@ -56,3 +56,10 @@ La guía está en varios formatos en función del programa/sistema que uses:
 <div class="pull left"><center><a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;">hooolllla</a> </center></div>
 Si te gusta mi trabajo puedes invitarme a un café ;-)
 #
+
+
+
+<div class="pull-right"><img src=IMAGEN></div> Presiona dos veces Enter y escribe el texto.
+
+
+
