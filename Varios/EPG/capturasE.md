@@ -2,10 +2,10 @@
 
 - Sin caracteres especiales
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/e2sin.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/e2sin.jpg)
 
 - Con caracteres especiales
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/e2con.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/e2con.jpg)
 
 
