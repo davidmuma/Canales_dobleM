@@ -62,9 +62,7 @@ El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 - ~~Docker~~ - [Nuevo script especial para Docker](https://github.com/davidmuma/Docker_dobleM/blob/main/README.md)
 - Enigma2 - [Configuración EPG](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
-#
 -NOTA: En Synology si no has entrado con sudo -i, pon sudo antes del curl
-
 #
 Agradecimientos:
 
@@ -73,7 +71,6 @@ Manuelin por crear los cimientos
 Jungle-Team por los picons
 
 LaQuay y HelmerLuzo por los enlaces IPTV
-
 #
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> Si te gusta mi trabajo puedes invitarme a un café :smile:
 #
