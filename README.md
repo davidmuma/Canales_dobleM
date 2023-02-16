@@ -19,11 +19,11 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 - el formato de la guía:
 
 
-<a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg"></a>
 
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
   | :-:	| :-: |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolorp.jpg) |
+  | <a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg"></a> | 
+<a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolorp.jpg"></a> |
  
  - el tipo de imagen que aparecerá en el evento mostrado:
 
