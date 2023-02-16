@@ -63,9 +63,7 @@ El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 - Enigma2 - [Configuración EPG](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
 #
-Notas:
-
-En Synology si no has entrado con sudo -i, pon sudo antes del curl
+-NOTA: En Synology si no has entrado con sudo -i, pon sudo antes del curl
 
 #
 Agradecimientos:
