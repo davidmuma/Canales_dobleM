@@ -59,7 +59,9 @@ Si te gusta mi trabajo puedes invitarme a un café ;-)
 
 
 
-<div class="pull-right"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png">Presiona dos veces Enter y escribe el texto.</div> 
+|||
+|---|---| 
+|img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;"|Si te gusta mi trabajo puedes invitarme a un café ;-)|
 
 
 
