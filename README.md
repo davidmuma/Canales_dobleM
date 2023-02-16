@@ -18,8 +18,6 @@ Todos están renombrados con su nombre oficial en lugar de mantener el nombre co
 El script incluye varios formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
 
-
-
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
   | :-:	| :-: |
   | <a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg"></a> | <a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolorp.jpg"></a> |
