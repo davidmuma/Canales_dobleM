@@ -15,7 +15,7 @@
 Los canales satélite de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen oficialmente en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, vienen con su correspondiente guía de programación y su picon. 
 
-El script incluye varios formatos de guía de programación y picon, pudiendo elegir:
+El script configura distintos formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
 
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
