@@ -40,7 +40,7 @@ La guía está en varios formatos en función del programa/sistema que uses:
 
 ### Guías especiales
 - [PLEX](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
-- [EMBY](https://github.com/davidmumaCanales_dobleM/blob/master/Varios/EPG/Emby.md)
+- [EMBY](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
 - [JELLYFIN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
 
 ### Instalación en Tvheadend
