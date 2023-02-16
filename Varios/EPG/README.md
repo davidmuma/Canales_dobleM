@@ -39,9 +39,9 @@ La guía está en varios formatos en función del programa/sistema que uses:
 - [FANART](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/XMLfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md)
 
 ### Guías especiales
-- [PLEX](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/plex.md)
-- [EMBY](https://github.com/davidmumaCanales_dobleM/blob/master/Varios/EPG/emby.md)
-- [JELLYFIN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/jelly.md)
+- [PLEX](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
+- [EMBY](https://github.com/davidmumaCanales_dobleM/blob/master/Varios/EPG/Emby.md)
+- [JELLYFIN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
 
 ### Instalación en Tvheadend
 - [Synology](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_syno.md)
