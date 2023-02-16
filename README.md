@@ -18,15 +18,15 @@ Todos están renombrados con su nombre oficial en lugar de mantener el nombre co
 El script incluye varios formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
 
-  | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
+  | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
   | :-:	| :-: |
-  | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolorp.jpg) |
+  | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolorp.jpg) |
  
  - el tipo de imagen que aparecerá en el evento mostrado:
 
    | Poster | Fanart |
    | :-:	| :-: |
-   | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/EPG/Varios/fanart.jpg) |
+   | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 
 - y el tipo de picon:
 
