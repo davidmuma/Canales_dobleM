@@ -19,7 +19,7 @@ El script incluye varios formatos de guía de programación y picon, pudiendo el
 - el formato de la guía:
 
 
-![https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorp.jpg](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg)
+<a href="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg"><img src="https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolorpjpg></a>
 
   | Con etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg) | Sin etiquetas de colores [(ampliar)](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg) |
   | :-:	| :-: |
