@@ -1,4 +1,4 @@
-## EPG_dobleM para Tivimate
+### EPG_dobleM para Tivimate
 ***
 - Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
 ```
@@ -22,5 +22,5 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor3.x
 ```
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate3.png)
 
-### Observaciones:
+#### Observaciones:
 Tivimate no soporta imágenes
