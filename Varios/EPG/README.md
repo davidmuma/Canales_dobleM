@@ -22,12 +22,13 @@
 
 
 La guía contiene la programación para siete días de todos los canales de Movistar+ España, y también la programación de algunos canales portugueses, franceses y alemanes <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">(Ver listado de canales)</a>
-#
-- xml sin comprimir y compatible con la mayoria de apps (sin caracteres especiales) | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvsin.jpg)
+
+### xml sin comprimir y compatible con la mayoria de apps
+- Sin caracteres especiales | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvsin.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
 ```
-- xml sin comprimir y compatible con la mayoria de apps (con caracteres especiales)  | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvcon.jpg)
+Con caracteres especiales  | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvcon.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 ```
@@ -51,7 +52,7 @@ La guía está en varios formatos en función del programa/sistema que uses:
 - [AlexElec](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_alex.md)
 
 ### Enigma2
-- [Instalación y configuración](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md) | [Capturas](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/capturasE.md)
+- [Instalación y configuración](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 #
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> Si te gusta mi trabajo puedes invitarme a un café :smile:
 #
