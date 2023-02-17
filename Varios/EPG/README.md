@@ -23,7 +23,7 @@
 
 La guía incluye siete días con la programación de todos los canales de Movistar+ España, y también la programación de algunos canales portugueses, franceses y alemanes <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">(Ver listado de canales)</a>
 
-### xml sin comprimir y compatible con la mayoria de aplicaciones
+### xml sin comprimir, compatible con la mayoria de aplicaciones
 - Sin caracteres especiales | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvsin.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
@@ -33,14 +33,16 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guia.xml
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 ```
 ***
+### xml comprimidos
 Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con imágenes tipo fanart:
    | Poster | Fanart |
    | :-:	| :-: |
    | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 
-### xml comprimidos
-- [POSTER](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/XMLposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasP.md)
-- [FANART](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/XMLfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md)
+- [GENERAL](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
+- [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
+- [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
+- [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 
 ### Guías especiales
 - [PLEX](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
