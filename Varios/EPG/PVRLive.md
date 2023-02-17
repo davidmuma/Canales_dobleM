@@ -1,4 +1,5 @@
-### EPG_dobleM para PVRLive
+### EPG_dobleM para PVR Live
+-NOTA: PVR Live no soporta etiquetas de colores
 ***
 - Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
 
