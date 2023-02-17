@@ -25,9 +25,9 @@ sh dobleM.sh
 
 - Elige la EPG dobleM que mas te guste y luego pulsa el boton Verde (Guardar)
 
-Sin caracteres especiales | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/e2sin.jpg)
+Sin caracteres especiales | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/e2sin.jpg)
 
-Con caracteres especiales | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/e2con.jpg)
+Con caracteres especiales | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/e2con.jpg)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/E2_I2.jpg)
 #
