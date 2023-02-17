@@ -8,13 +8,13 @@
   Grupo de telegram: <a href="https://t.me/EPG_dobleM">dobleM</a>
 </h2>
 
-<center>
+<div align="center">
   
   | Lista | Última actualización | Versión |
   | :-:	| :-: | :-: |
   | Satélite Astra | 17/02/23 | [ 5.5 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
   
-</center>
+</div>
   
 Los canales de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite y vienen con su correspondiente guía de programación y  picon. 
