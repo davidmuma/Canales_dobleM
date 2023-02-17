@@ -45,9 +45,9 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
 - [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 
 ### Guías especiales
-- [PLEX](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
-- [EMBY](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
-- [JELLYFIN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
+- [Plex](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
+- [Emby](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
+- [Jellyfin](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
 
 ### Instalación en Tvheadend
 - [Synology](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_syno.md)
