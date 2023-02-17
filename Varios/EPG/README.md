@@ -51,7 +51,7 @@ La guía está en varios formatos en función del programa/sistema que uses:
 - [AlexElec](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_alex.md)
 
 ### Enigma2
-- [INSTALACIÓN](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md) | [Capturas](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/capturasE.md)
+- [Instalación y configuración](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md) | [Capturas](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/capturasE.md)
 #
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> Si te gusta mi trabajo puedes invitarme a un café :smile:
 #
