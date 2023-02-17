@@ -1,8 +1,8 @@
 ## <b>Instalar guía en Alexelec </B>
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
-| Con imágenes tipo poster |
+| Con imágenes tipo poster ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) |
 |  :---:  |
-| ``` wget -P /storage/.config/tvheadend/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM ``` ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.png) |
+| ``` wget -P /storage/.config/tvheadend/bin/ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/P/tv_grab_EPG_dobleM ```  |
 
 
 
