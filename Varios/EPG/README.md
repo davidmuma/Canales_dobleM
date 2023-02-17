@@ -21,7 +21,7 @@
 </p>
 
 
-La guía contiene la programación para siete días de todos los canales de Movistar+ España, y también la programación de algunos canales portugueses, franceses y alemanes <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">(Ver listado de canales)</a>
+La guía incluye siete días con la programación de todos los canales de Movistar+ España, y también la programación de algunos canales portugueses, franceses y alemanes <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">(Ver listado de canales)</a>
 
 ### xml sin comprimir y compatible con la mayoria de aplicaciones
 - Sin caracteres especiales | [Capturas](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvsin.jpg)
@@ -35,7 +35,7 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 #
 La guía está en varios formatos en función del programa/sistema que uses:
 
-### Enlaces a los distintos xml comprimidos
+### xml comprimidos
 - [POSTER](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/XMLposter.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasP.md)
 - [FANART](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/XMLfanart.md) | [Capturas](https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md)
 
