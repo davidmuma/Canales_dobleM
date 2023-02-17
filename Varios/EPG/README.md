@@ -11,7 +11,7 @@
 <p align="center">
 <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">Canales soportados</a>
 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-<a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/changelog.md">Listado de cambios</a>
+<a href="https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/changelog.md">Listado de cambios</a>
 </p>
 
 <p align="right">
@@ -38,7 +38,7 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
    | :-:	| :-: |
    | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 
-- [General](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/general.md)
+- [General](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/General.md)
 - [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/KODI.md)
 - [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Tivimate.md)
 - [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/PVRLive.md)
