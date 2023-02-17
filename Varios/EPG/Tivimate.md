@@ -1,25 +1,21 @@
-# EPG_dobleM, enlaces directos al fichero XML
+### EPG_dobleM para Tivimate
 
-## <b>Guía con imágenes tipo fanart</B> - <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md">Capturas</a>
-- Con etiquetas de colores (Para addon Simple Client en KODI o aplicaciones que soporten etiquetas de colores)
+- Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz
 ```
-- Con etiquetas de colores y título en una sola linea (Por si te gusta usar la vista "Línea de tiempo")
+- Con caracteres especiales: Título del evento con "año | edad | estrellas" en descripción
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color1.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz
 ```
-- Sin etiquetas de colores (Para aplicaciones tipo Tivimate)
+- Sin caracteres especiales: Título del evento con "año | edad | valoración" en la misma linea
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor2.xml.gz
 ```
-- Sin etiquetas de colores, título en una sola linea y sin caracteres especiales (El formato más compatible de todos)
+- Sin caracteres especiales: Título del evento con "año | edad | valoración" en descripción
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor1.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor3.xml.gz
 ```
-
 
 ### Observaciones:
-Tivimate no soporta ningún tipo de imagen, da igual que uses el enlace de la guía con poster o de la guía con fanart
-
-La guía sin etiquetas de colores, título en una sola linea y sin caracteres especiales es la ideal para usarla en televisiones con la app PVR Live
+Tivimate no soporta imágenes
