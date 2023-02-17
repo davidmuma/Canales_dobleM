@@ -38,10 +38,10 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
    | :-:	| :-: |
    | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 
-- [General](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
-- [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
-- [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
-- [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
+- [General](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/general.md)
+- [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/KODI.md)
+- [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Tivimate.md)
+- [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/PVRLive.md)
 - [Plex](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
 - [Emby](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
 - [Jellyfin](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
