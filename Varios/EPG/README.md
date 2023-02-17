@@ -38,7 +38,7 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
    | :-:	| :-: |
    | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 
-- [GENERAL](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
+- [General](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 - [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 - [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 - [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
