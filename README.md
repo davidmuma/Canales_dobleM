@@ -14,13 +14,13 @@
 
 Los canales satélite de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen oficialmente en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite, vienen con su correspondiente guía de programación y su picon. 
-
+#
 El script permite elegir la lista a instalar en función de nuestra instalación de antena parabólica:
-- Instalar todo (Astra individual + comunitaria + lista de canales SD)
-- Instalar Astra individual + lista de canales SD
-- Instalar Astra comunitaria + lista de canales SD
-- Instalar Astra individual
-- Instalar Astra comunitaria
+- Todo (Astra individual + comunitaria + lista de canales SD)
+- Astra individual + lista de canales SD
+- Astra comunitaria + lista de canales SD
+- Astra individual
+- Astra comunitaria
 
 El script configura distintos formatos de guía de programación y picon, pudiendo elegir:
 - el formato de la guía:
