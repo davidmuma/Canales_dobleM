@@ -48,14 +48,14 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
 - [Plex](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
 - [Emby](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
 - [Jellyfin](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
-
+***
 ### Instalación en Tvheadend
 - [Synology](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_syno.md)
 - [Linux](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_linux.md)
 - [CoreElec](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_core.md)
 - [LibreElec / OpenElec](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_libre.md)
 - [AlexElec](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/tvh_alex.md)
-
+***
 ### Enigma2
 - [Instalación y configuración](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 #
