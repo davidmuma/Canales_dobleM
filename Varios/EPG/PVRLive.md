@@ -1,7 +1,7 @@
 ### EPG_dobleM para PVRLive
 ***
 - Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
-  >
+  
   > Imágenes tipo poster ``` https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz ```
   > 
   > Imágenes tipo fanart ``` https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz ```
