@@ -33,7 +33,7 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiaiptv.xml
 ```
 ***
 ### xml comprimidos
-Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con imágenes tipo fanart:
+Cada formato de xml comprimido tiene dos versiones, una con imágenes tipo poster y otra con imágenes tipo fanart:
    | Poster | Fanart |
    | :-:	| :-: |
    | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
