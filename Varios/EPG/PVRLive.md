@@ -9,9 +9,10 @@
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate.jpg)
 ***
 - Con caracteres especiales: Título del evento con "año | edad | estrellas" en descripción
-```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz
-```
+  > Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz`
+  > 
+  > Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor1.xml.gz`
+  > 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate1.jpg)
 ***
 - Sin caracteres especiales: Título del evento con "año | edad | valoración" en la misma linea
