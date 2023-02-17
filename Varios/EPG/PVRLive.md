@@ -1,24 +1,26 @@
-# EPG_dobleM, enlaces directos al fichero XML
-
-## <b>Guía con imágenes tipo fanart</B> - <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/capturasF.md">Capturas</a>
-- Con etiquetas de colores (Para addon Simple Client en KODI o aplicaciones que soporten etiquetas de colores)
+### EPG_dobleM para PVRLive
+***
+- Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz
 ```
-- Con etiquetas de colores y título en una sola linea (Por si te gusta usar la vista "Línea de tiempo")
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate.jpg)
+***
+- Con caracteres especiales: Título del evento con "año | edad | estrellas" en descripción
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color1.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz
 ```
-- Sin etiquetas de colores (Para aplicaciones tipo Tivimate)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate1.jpg)
+***
+- Sin caracteres especiales: Título del evento con "año | edad | valoración" en la misma linea
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor2.xml.gz
 ```
-- Sin etiquetas de colores, título en una sola linea y sin caracteres especiales (El formato más compatible de todos)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate2.jpg)
+***
+- Sin caracteres especiales: Título del evento con "año | edad | valoración" en descripción
 ```
-https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor1.xml.gz
+https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor3.xml.gz
 ```
-
-
-
-
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Images/Postercolor1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate3.jpg)
+***
