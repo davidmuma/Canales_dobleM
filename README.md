@@ -14,7 +14,7 @@
 
 Los canales de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite y vienen con su correspondiente guía de programación y  picon. 
-#
+***
 El script permite elegir la lista a instalar en función de nuestra instalación de antena parabólica:
 - Todo (Astra individual + comunitaria + lista de canales SD)
 - Astra individual + lista de canales SD
@@ -57,7 +57,7 @@ Una vez descargado puedes volver a ejecutarlo las veces que quieras con el coman
 ```
 sh dobleM.sh
 ```
-#
+***
 El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 
 - Synology/XPEnology (DSM 6)
@@ -70,7 +70,7 @@ El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 - Enigma2 - [Configuración EPG](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
 -NOTA: En Synology si no has entrado con sudo -i, pon sudo antes del curl
-#
+***
 Agradecimientos:
 
 Manuelin por crear los cimientos
@@ -78,9 +78,9 @@ Manuelin por crear los cimientos
 Jungle-Team por los picons
 
 LaQuay y HelmerLuzo por los enlaces IPTV
-#
+***
 <a href="https://www.paypal.me/EPGdobleM"><img src="http://www.webgrabplus.com/sites/default/files/styles/thumbnail/public/badges/donation.png" style="height: auto !important;width: auto !important;" ></a> Si te gusta mi trabajo puedes invitarme a un café :smile:
-#
+***
 ## CAPTURAS
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/I1.jpg)
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/I2.jpg)
