@@ -39,7 +39,7 @@ Y configura distintos formatos de guía de programación y picon, pudiendo elegi
 
   ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/picon.png)
 
-El script configura tvheadend con las opciones indicadas, modifica el cron para realizar la descarga de la EPG, configura el tipo y la ruta de los picons.
+El propio script configura tvheadend con las opciones indicadas, modifica el cron para realizar la descarga de la EPG y configura el tipo y la ruta de los picons.
 
 Al hacer la instalación de la lista de canales satélite, el script respetará los canales creados por ti anteriormente.
 
@@ -60,7 +60,7 @@ sh dobleM.sh
 #
 El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 
-- Synology/XPEnology
+- Synology/XPEnology (DSM 6)
 - Qnap
 - LibreELEC/OpenELEC
 - CoreELEC
