@@ -2,7 +2,7 @@
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
 | Con imágenes tipo poster |
 |  :---:  |
-| ```https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz ``` ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate.png) |
+| ```https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz ``` ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.png) |
 
 
 
