@@ -1,5 +1,5 @@
 ### EPG_dobleM para Tivimate
--NOTA: Tivimate no soporta imágenes
+-NOTA: Tivimate no soporta imágenes ni etiquetas de colores
 ***
 - Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
 ```
