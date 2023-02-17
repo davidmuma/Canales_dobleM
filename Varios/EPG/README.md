@@ -20,9 +20,8 @@
 <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/WG++old.txt">.</a>
 </p>
 
-
 La guía incluye siete días con la programación de todos los canales de Movistar+ España, y también la programación de algunos canales portugueses, franceses y alemanes <a href="https://github.com/davidmuma/EPG_dobleM/blob/master/Varios/Canales_soportados.txt">(Ver listado de canales)</a>
-
+***
 ### xml sin comprimir, compatible con la mayoria de aplicaciones
 - Sin caracteres especiales | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/iptvsin.jpg)
 ```
