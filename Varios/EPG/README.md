@@ -43,8 +43,6 @@ Todos los xml comprimidos tienen dos versiones, con imágenes tipo poster y con 
 - [KODI](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 - [Tivimate](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
 - [PVR Live](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/XMLgeneral.md)
-
-### Guías especiales
 - [Plex](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Plex.md)
 - [Emby](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Emby.md)
 - [Jellyfin](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/EPG/Jelly.md)
