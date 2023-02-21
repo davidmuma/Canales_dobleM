@@ -1,27 +1,22 @@
 ### EPG_dobleM para Tivimate
 -NOTA: Tivimate no soporta imágenes ni etiquetas de colores
 ***
-- Con caracteres especiales: Título del evento con "año | edad | estrellas" en la misma linea
+- Título con "año | edad | estrellas" en la misma linea (con caracteres especiales) | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate.jpg)
 ***
-- Con caracteres especiales: Título del evento con "año | edad | estrellas" en descripción
+- Título con "año | edad | estrellas" en descripción (con caracteres especiales) | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate1.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate1.jpg)
 ***
-- Sin caracteres especiales: Título del evento con "año | edad | valoración" en la misma linea
+- Título con "año | edad | valoración" en la misma linea (sin caracteres especiales) | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate2.jpg)
 ```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor2.xml.gz
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate2.jpg)
 ***
-- Sin caracteres especiales: Título del evento con "año | edad | valoración" en descripción
-```
+- Título con "año | edad | valoración" en descripción (sin caracteres especiales) | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate3.jpg)```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor3.xml.gz
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Timivate3.jpg)
 ***
