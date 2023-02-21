@@ -1,7 +1,7 @@
 ### EPG_dobleM para KODI
 
 ***
-Título con "año | edad | estrellas" en el subtítulo (con caracteres especiales)
+Título con "año | edad | estrellas" debajo del título (con caracteres especiales)
 - Con etiquetas de colores | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_color.xml.gz` 
   - Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color.xml.gz`
@@ -19,7 +19,7 @@ Título con "año | edad | estrellas" en descripción (con caracteres especiales
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor1.xml.gz` 
   - Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor1.xml.gz`
 ***
-Título con "año | edad | valoración" en el subtítulo (sin caracteres especiales)
+Título con "año | edad | valoración" debajo del título (sin caracteres especiales)
 - Con etiquetas de colores | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_color2.xml.gz` 
   - Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color2.xml.gz`
