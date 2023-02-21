@@ -1,4 +1,8 @@
 ### EPG_dobleM para KODI
+
+   | Poster | Fanart |
+   | :-:	| :-: |
+   | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg) | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/fanart.jpg) |
 ***
 Con caracteres especiales: Título con "año | edad | estrellas" en la misma linea
 - Con etiquetas de colores | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
