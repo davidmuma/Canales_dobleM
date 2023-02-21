@@ -17,6 +17,7 @@ https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor2.x
 ```
 ***
 - Título con "año | edad | valoración" en descripción (sin caracteres especiales) | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate3.jpg)```
+```
 https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor3.xml.gz
 ```
 ***
