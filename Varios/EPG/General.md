@@ -1,4 +1,4 @@
-### EPG_dobleM para KODI
+### EPG_dobleM
 
 ***
 Título con "año | edad | estrellas" debajo del título (con caracteres especiales)
