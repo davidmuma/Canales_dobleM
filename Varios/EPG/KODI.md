@@ -2,8 +2,8 @@
 ***
 Con caracteres especiales: Título con "año | edad | estrellas" en la misma linea
 - Con etiquetas de colores | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
-Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz` 
-Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz`
+  -Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz` 
+  -Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz`
   
 - Sin etiquetas de colores | [Captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODI.jpg)
    > Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz`
