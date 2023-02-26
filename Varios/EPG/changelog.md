@@ -1,4 +1,4 @@
-26/02/23 Corregido y mejorada la captura de los canales de la wed de Orange
+26/02/23 Corregida y mejorada la captura de los canales de la wed de Orange
 
 11/02/23 Reestructuración completa de xmls y reorganización de la información de los mismos
 
