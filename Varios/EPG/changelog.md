@@ -1,3 +1,5 @@
+26/02/23 Corregido y mejorada la captura de los canales de la wed de Orange
+
 11/02/23 Reestructuración completa de xmls y reorganización de la información de los mismos
 
 08/01/23 Añadida programación del canal Hit TV. Corregida captura de canales alemanes
