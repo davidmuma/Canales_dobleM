@@ -21,7 +21,7 @@ chmod 755 /storage/.kodi/addons/service.tvheadend42/bin/tv_grab_EPG_dobleM
 
 Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar ( Guardar )
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend1.jpg)
 
 #### 4> Programar la descarga de la guía:
 
@@ -34,13 +34,13 @@ Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar 
 4 14 * * *
 4 20 * * *
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend2.jpg)
 
 #### 5> Forzar una descarga de la guía de programación:
 
 En la misma pestaña anterior clicar ( Volver a ejecutar los capturadores de EPG internos )
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend3.jpg)
 
 #### 6> Configurar el formato de la guía:
 
@@ -48,8 +48,8 @@ En la misma pestaña anterior clicar ( Volver a ejecutar los capturadores de EPG
 
 ( EPG_Settings - Idioma(s) por defecto ), añadir el idioma y clicar ( Guardar )
 
-Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg)
 
-English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
+English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg)
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend4.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend4.jpg)
