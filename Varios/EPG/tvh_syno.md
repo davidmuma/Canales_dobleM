@@ -21,7 +21,7 @@ sudo chmod 755 /usr/local/bin/tv_grab_EPG_dobleM
 
 Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar ( Guardar )
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend1.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend1.jpg)
 
 #### 4> Programar la descarga de la guía:
 
@@ -34,13 +34,13 @@ Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar 
 4 14 * * *
 4 20 * * *
 ```
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend2.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend2.jpg)
 
 #### 5> Forzar una descarga de la guía de programación:
 
 En la misma pestaña anterior clicar ( Volver a ejecutar los capturadores de EPG internos )
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend3.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend3.jpg)
 
 #### 6> Configurar el formato de la guía:
 
@@ -52,4 +52,4 @@ Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubuserconten
 
 English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
 
-![alt text](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/tvheadend4.jpg)
+![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend4.jpg)
