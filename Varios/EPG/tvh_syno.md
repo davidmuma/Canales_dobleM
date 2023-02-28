@@ -48,8 +48,8 @@ En la misma pestaña anterior clicar ( Volver a ejecutar los capturadores de EPG
 
 ( EPG_Settings - Idioma(s) por defecto ), añadir el idioma y clicar ( Guardar )
 
-Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodicolor.jpg)
+Spanish: Guía con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg)
 
-English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/Varios/kodisincolor.jpg)
+English: Guía sin etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/tvheadend4.jpg)
