@@ -29,7 +29,7 @@ Seleccionar ( Interno: XMLTV: EPG_dobleM-SAT ), marcar ( Habilitado: ) y clicar 
   
 ( Internal Grabber Settings - Cronología multi-línea: ), escribir la programación y clicar ( Guardar )
 ```
-#A diario a las 5:00 | 9:00 | 13:00 |17:00 | 21:00
+# A diario a las 5:00 | 9:00 | 13:00 |17:00 | 21:00
 0 5 * * *
 0 9 * * *
 0 13 * * *
