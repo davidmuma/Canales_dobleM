@@ -1,3 +1,5 @@
+12/06/23 Muuuchos cambios
+
 16/02/23 Cambiados canales SuperCopa por los originales, añadido canal popup M+ Oscars
 
 29/12/22 Corregidos nombres de canales y añadido canal LaLigaTV 4 Bar
