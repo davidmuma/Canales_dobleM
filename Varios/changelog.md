@@ -1,6 +1,4 @@
-15/6/23 Añadido M+ Golf 2, eliminados canales que has pasado a fibra, y actualizadas frecuencias de canales internacionales
-
-12/06/23 Muuuchos cambios
+15/06/23 Añadido M+ Golf 2, eliminados canales que han pasado a fibra, y actualizadas frecuencias de canales internacionales
 
 16/02/23 Cambiados canales SuperCopa por los originales, añadido canal popup M+ Oscars
 
