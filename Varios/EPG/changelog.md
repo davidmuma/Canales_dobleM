@@ -1,3 +1,5 @@
+11/7/23 Modificados canales fútbol y cambiados iconos por los nuevos
+
 26/02/23 Corregida y mejorada la captura de los canales de la wed de Orange
 
 11/02/23 Reestructuración completa de xmls y reorganización de la información de los mismos
