@@ -1,4 +1,4 @@
-23/08/23 Arreglos diales últimos cambios Movistar. Añadida programación Sol Música
+23/08/23 Arreglo diales con los últimos cambios de Movistar. Añadida programación Sol Música
 
 11/7/23 Modificados canales fútbol y cambiados iconos por los nuevos
 
