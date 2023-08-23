@@ -1,3 +1,5 @@
+23/08/23 Arreglos diales últimos cambios Movistar. Añadida programación Sol Música
+
 11/7/23 Modificados canales fútbol y cambiados iconos por los nuevos
 
 26/02/23 Corregida y mejorada la captura de los canales de la wed de Orange
