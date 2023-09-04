@@ -1,3 +1,7 @@
+04/09/23 Añadidos canales 1ª Federación
+
+31/08/23 Añadidos canales Gol Mundial
+
 23/08/23 Arreglo diales con los últimos cambios de Movistar. Añadida programación Sol Música
 
 11/7/23 Modificados canales fútbol y cambiados iconos por los nuevos
