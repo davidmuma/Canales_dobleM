@@ -1,6 +1,8 @@
-04/09/23 Añadidos canales 1ª Federación
+15/09/23 Añadida EPG para los canales Tennis Chanel, MyPadel TV, PAC-12 Insider, USGA TV, Ski TV, EDGEsport y Motorsport TV
 
-31/08/23 Añadidos canales Gol Mundial
+04/09/23 Añadida EPG para los canales 1ª Federación
+
+31/08/23 Añadida EPG para los canales Gol Mundial
 
 23/08/23 Arreglo diales con los últimos cambios de Movistar. Añadida programación Sol Música
 
