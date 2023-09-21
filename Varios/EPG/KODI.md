@@ -2,11 +2,11 @@
 
 ***
 Título con "año | edad | estrellas" debajo del título (con caracteres especiales)
-- Con etiquetas de colores | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
+- Con etiquetas de colores | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodicolor.jpg)
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_color.xml.gz` 
   - Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_color.xml.gz`
   
-- Sin etiquetas de colores | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODI.jpg)
+- Sin etiquetas de colores | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/kodisincolor.jpg)
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz` 
   - Imágenes tipo fanart `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor.xml.gz`
 ***
