@@ -1,4 +1,4 @@
-## [<<<Volver](https://github.com/davidmuma/EPG_dobleM) - Instalación en enigma2
+## Instalación en enigma2
 
 - El script se encarga de instalar los sources dobleM para EPG-Import
 
