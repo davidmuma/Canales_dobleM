@@ -1,4 +1,4 @@
-### [<<<Volver](https://github.com/davidmuma/EPG_dobleM) - <b>Instalar guía en Libreelec / Openelec </B>
+### [<<<Volver](https://github.com/davidmuma/EPG_dobleM) - Instalar guía en Libreelec / Openelec
 #### 1> Descargar el archivo <i>"tv_grab_EPG_dobleM"</i> en en la siguiente ruta:
 | Con imágenes tipo poster | ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/poster.jpg)  |
 | -	| - |
