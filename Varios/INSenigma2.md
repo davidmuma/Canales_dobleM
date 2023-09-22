@@ -14,10 +14,10 @@ Una vez descargado puedes volver a ejecutarlo las veces que quieras con el coman
 ```
 sh dobleM.sh
 ```
-## INSTALADOR
+### INSTALADOR
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/Ie2.jpg)
 
-## CONFIGURACIÓN EPG-IMPORT
+### CONFIGURACIÓN EPG-IMPORT
 - Una vez instalados los SOURCES, ves al plugin EPG-Import y pulsa el boton Azul (Fuentes)
 
 ![alt text](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Images/E2_I1.jpg)
