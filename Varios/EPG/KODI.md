@@ -1,6 +1,6 @@
 
 
-### ["<<<Volver"](https://github.com/davidmuma/EPG_dobleM) EPG_dobleM para KODI
+### [<<<Volver](https://github.com/davidmuma/EPG_dobleM) - EPG_dobleM para KODI
 
 ***
 Título con "año | edad | estrellas" debajo del título (con caracteres especiales)
