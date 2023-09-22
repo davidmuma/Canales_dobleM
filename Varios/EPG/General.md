@@ -1,4 +1,4 @@
-<p>Volver a <a href="https://t.me/EPG_dobleM">EPG_dobleM</a></p>
+[Volver a EPG_dobleM](https://github.com/davidmuma/EPG_dobleM)
 ***
 Título con "año | edad | estrellas" debajo del título (con caracteres especiales)
 - Con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC.jpg)
