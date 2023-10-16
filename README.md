@@ -71,7 +71,7 @@ El script solo es compatible con tvheadend 4.3 y para los siguientes sistemas:
 - AlexELEC
 - Linux
 - ~~Docker~~ - [Nuevo script especial para Docker](https://github.com/davidmuma/Docker_dobleM/blob/main/README.md)
-- Enigma2 - [Instalación y configuración](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
+- Enigma2 - [En pruebas](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/INSenigma2.md)
 
 -NOTA: En Synology si no has entrado con sudo -i, pon sudo antes del curl
 ***
