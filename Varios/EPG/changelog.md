@@ -1,3 +1,5 @@
+27/03/24 Reescrito por completo el capturador de Movistar debido a los cambios realizados en su web
+
 31/10/23 Añadidos a la EPG canales Iberalia Caza, Iberalia Pesca, DBike, Global Tendencias, Global Telenovelas, Torole TV y REKTV
 
 15/09/23 Añadida EPG para los canales Tennis Chanel, MyPadel TV, PAC-12 Insider, USGA TV, Ski TV, EDGEsport y Motorsport TV
