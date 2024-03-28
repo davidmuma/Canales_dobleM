@@ -12,7 +12,7 @@
   
   | Lista | Última actualización | Versión |
   | :-----: | :-----: | :-----: |
-  | Satélite Astra | 10/08/23 | [ 5.8 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
+  | Satélite Astra | 10/08/23 -=DESCONTINUADA=- | [ 5.8 ](https://github.com/davidmuma/Canales_dobleM/blob/master/Varios/changelog.md) |
   
 </div>
   
