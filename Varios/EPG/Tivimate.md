@@ -2,7 +2,8 @@
 -NOTA: Tivimate no soporta imágenes ni etiquetas de colores
 ***
 - Con caracteres especiales
-·
+
+
   - Título con "año | edad | valoración" en la misma linea | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate.jpg)
   ```
   https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor.xml.gz
@@ -17,7 +18,8 @@
   ```
 ***
 - Sin caracteres especiales
-·
+
+
   - Título con "año | edad | valoración" en la misma linea | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate2.jpg)
   ```
   https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor2.xml.gz
