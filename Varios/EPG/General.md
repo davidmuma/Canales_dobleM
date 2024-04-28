@@ -23,7 +23,6 @@ Título con "subtítulo | año | edad | valoración" en descripción (con caract
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor4.xml.gz`
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiafanart_sincolor4.xml.gz`
 ***
-
 Título con "año | edad | valoración" debajo del título (sin caracteres especiales)
 - Con etiquetas de colores | [ejemplo](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/KODIC2.jpg)
   - Imágenes tipo poster `https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_color2.xml.gz` 
