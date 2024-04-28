@@ -16,7 +16,7 @@
   
 </div>
   
-Los canales de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen en su página web.
+· Lista de canales para tvheadend · Los canales de Movistar+ tienen asignado su correspondiente dial y están en el mismo orden en el que aparecen en su página web.
 Todos están renombrados con su nombre oficial en lugar de mantener el nombre con el que se emiten por satélite y vienen con su correspondiente guía de programación y  picon. 
 ***
 El script permite seleccionar la lista a instalar en función de nuestra instalación de antena parabólica:
