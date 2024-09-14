@@ -14,7 +14,7 @@
   ```
   - Título con "subtítulo | año | edad | valoración" en descripción | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate4.jpg)
   ```
-  https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor4.xml.gz
+  https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor0.xml.gz
   ```
 ***
 - Sin caracteres especiales
@@ -30,6 +30,6 @@
   ```
   - Título con "subtítulo | año | edad | valoración" en descripción | [captura](https://raw.githubusercontent.com/davidmuma/Canales_dobleM/master/Varios/EPG/Tivimate5.jpg)
   ```
-  https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor5.xml.gz
+  https://raw.githubusercontent.com/davidmuma/EPG_dobleM/master/guiatv_sincolor4.xml.gz
   ```
 ***
