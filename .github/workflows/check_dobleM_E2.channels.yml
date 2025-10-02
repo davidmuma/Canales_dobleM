@@ -1,0 +1,51 @@
+name: Check and Download XML
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Cada 6 horas
+  workflow_dispatch:
+
+jobs:
+  check-download-compress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create files directory
+        run: mkdir -p files
+
+      - name: Download remote file
+        run: |
+          curl -s -o files/dobleM_E2.channels.xml "https://raw.githubusercontent.com/vs09/EPG/refs/heads/master/dobleM_E2.channels.xml"
+
+      - name: Calculate new hash
+        id: hash
+        run: |
+          NEW_HASH=$(sha256sum files/dobleM_E2.channels.xml | awk '{print $1}')
+          echo "new_hash=$NEW_HASH" >> $GITHUB_OUTPUT
+
+      - name: Read old hash if exists
+        id: oldhash
+        run: |
+          if [ -f files/dobleM_E2.channels.xml.sha256 ]; then
+            OLD_HASH=$(cat files/dobleM_E2.channels.xml.sha256)
+          else
+            OLD_HASH=""
+          fi
+          echo "old_hash=$OLD_HASH" >> $GITHUB_OUTPUT
+
+      - name: Check for changes and update files
+        if: steps.hash.outputs.new_hash != steps.oldhash.outputs.old_hash
+        run: |
+          echo "Archivo cambiado. Actualizando..."
+          gzip -c files/dobleM_E2.channels.xml > files/dobleM_E2.channels.xml.gz
+          echo "${{ steps.hash.outputs.new_hash }}" > files/dobleM_E2.channels.xml.sha256
+
+      - name: Commit and push changes
+        if: steps.hash.outputs.new_hash != steps.oldhash.outputs.old_hash
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Actualiza dobleM_E2.channels.xml y dobleM_E2.channels.xml.gz por cambios detectados
+          file_pattern: files/dobleM_E2.channels.xml files/dobleM_E2.channels.xml.gz files/dobleM_E2.channels.xml.sha256
