@@ -176,7 +176,8 @@
 <!--MOVSAT149--> <channel id="M+ Liga de Campeones 11">1:0:1:7820:428:1:C00000:0:0:0</channel>
 <!--MOVSAT150--> <channel id="M+ Liga de Campeones 12">1:0:1:7821:428:1:C00000:0:0:0</channel>
 <!--MOVSAT151--> <channel id="M+ Liga de Campeones 13">1:0:1:782B:428:1:C00000:0:0:0</channel>
-
+<!--MOVSAT152--> <channel id="BBC Earth">1:0:1:76C4:40E:1:C00000:0:0:0</channel>
+<!--MOVSAT153--> <channel id="BBC Lifestyle">1:0:1:76C3:40E:1:C00000:0:0:0</channel>
 
 <!-- INFO Movistar+ FIBRA-->
 <!--MOVFIB001--> <channel id="La 1 HD">1:0:19:7863:41A:1:C00000:0:0:0</channel>
@@ -233,7 +234,6 @@
 <!--MOVFIB087--> <channel id="El Garage TV"></channel>
 <!--MOVFIB088--> <channel id="UBEAT"></channel>
 <!--MOVFIB089--> <channel id="Canal Fútbol Replay"></channel>
-<!--MOVSAT.SD--> <channel id="Disney Channel HD">1:0:1:76C3:40E:1:C00000:0:0:0</channel>
 <!--MOVFIB099--> <channel id="ETB 3"></channel>
 <!--MOVSAT113--> <channel id="BBC World News Europe HD">1:0:1:1389:3EA:1:C00000:0:0:0</channel>
 <!--MOVSAT114--> <channel id="CNN International Europe">1:0:1:1146:404:1:C00000:0:0:0</channel>
@@ -428,7 +428,6 @@
 <channel id="Ten">1:0:1:A033:9C40:22D4:EEEE0000:0:0:0:</channel><!-- TEN -->
 <channel id="XTRM">1:0:1:1965:834:A041:FFFF0000:0:0:0:</channel><!-- Extreme Sports -->
 <channel id="atreseries HD">1:0:19:65:12:22D4:EEEE0000:0:0:0</channel> <!-- atreseries HD -->
-
 
 <!-- INFO TDT COMUNIDAD VALENCIANA Y MURCIA-->
 <channel id="La 1 HD">1:0:19:23E:3F8:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
