@@ -431,8 +431,10 @@
 
 <!-- INFO TDT COMUNIDAD VALENCIANA Y MURCIA-->
 <channel id="La 1 HD">1:0:19:23E:3F8:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
+<channel id="La 1 HD">1:0:19:220:3F5:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
 <channel id="La 1 HD">1:0:1F:9C43:9C40:22D4:EEEE0000:0:0:0</channel>  <!-- La 1 UHD -->
 <channel id="La 2">1:0:19:242:3F8:22D4:EEEE0000:0:0:0</channel> <!-- La 2 HD -->
+<channel id="La 2">1:0:19:224:3F5:22D4:EEEE0000:0:0:0</channel> <!-- La 2 HD -->
 <channel id="Antena 3 HD">1:0:19:95:F:22D4:EEEE0000:0:0:0</channel> <!-- Antena 3 HD -->
 <channel id="Cuatro HD">1:0:19:BF:10:22D4:EEEE0000:0:0:0</channel> <!-- Cuatro HD -->
 <channel id="Telecinco HD">1:0:19:BE:10:22D4:EEEE0000:0:0:0</channel> <!-- Telecinco HD -->
@@ -449,6 +451,7 @@
 <channel id="Neox">1:0:1:99:F:22D4:EEEE0000:0:0:0</channel> <!-- neox HD -->
 <channel id="Nova">1:0:1:9A:F:22D4:EEEE0000:0:0:0</channel> <!-- nova HD -->
 <channel id="Teledeporte">1:0:19:23A:3F8:22D4:EEEE0000:0:0:0</channel> <!-- TDP HD -->
+<channel id="Teledeporte">1:0:19:21C:3F5:22D4:EEEE0000:0:0:0</channel> <!-- TDP HD -->
 <channel id="Veo7">1:0:1:116:E:22D4:EEEE0000:0:0:0</channel> <!-- Veo 7 -->
 <channel id="DMAX">1:0:1:115:E:22D4:EEEE0000:0:0:0</channel> <!-- DMAX -->
 <channel id="Paramount Network">1:0:1:CA:E:22D4:EEEE0000:0:0:0</channel> <!-- PARAMOUNT NETWORK -->
@@ -457,6 +460,7 @@
 <channel id="DKISS">1:0:1:A029:9C40:22D4:EEEE0000:0:0:0</channel> <!-- DKISS -->
 <channel id="Real Madrid TV">1:0:19:67:12:22D4:EEEE0000:0:0:0</channel> <!-- RealMadrid TV -->
 <channel id="24 Horas">1:0:19:23d:3f8:22d4:eeee0000:0:0:0</channel> <!-- 24h HD -->
+<channel id="24 Horas">1:0:19:21F:3f5:22d4:eeee0000:0:0:0</channel> <!-- 24h HD -->
 <channel id="La Ocho Mediterráneo">1:0:1:8E3:121:22D4:EEEE0000:0:0:0</channel> <!-- La 8 Mediterráneo HD -->
 <channel id="À Punt">1:0:19:403:121:22D4:EEEE0000:0:0:0</channel> <!-- À Punt -->
 <channel id="À Punt">1:0:1:8E1:121:22D4:EEEE0000:0:0:0</channel> <!-- À Punt HD -->
