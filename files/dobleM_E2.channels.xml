@@ -13,6 +13,8 @@
 <!--MOVSAT009--> <channel id="M+ Vamos HD">1:0:19:7508:420:1:C00000:0:0:0</channel>
 <!--MOVSAT010--> <channel id="M+ Vamos HD">1:0:19:750A:420:1:C00000:0:0:0</channel>
 <!--MOVSAT011--> <channel id="M+ Vamos HD">1:0:1:7734:416:1:C00000:0:0:0</channel>
+<!--MOVSAT022--> <channel id="M+ Vamos 2 HD">1:0:1:74A8:41C:1:C00000:0:0:0</channel>
+<!--MOVSAT023--> <channel id="M+ Vamos 2 HD">1:0:1:7579:412:1:C00000:0:0:0</channel>
 <!--MOVSAT012--> <channel id="M+ Ellas Vamos HD">1:0:19:78B5:3EC:1:C00000:0:0:0</channel>
 <!--MOVSAT013--> <channel id="M+ Ellas Vamos HD">1:0:1:7468:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT014--> <channel id="M+ Hits HD">1:0:19:78B6:3EC:1:C00000:0:0:0</channel>
@@ -46,8 +48,6 @@
 <!--MOVSAT019--> <channel id="M+ Estrenos HD">1:0:1:76C0:40E:1:C00000:0:0:0</channel>
 <!--MOVSAT020--> <channel id="Movistar Plus+ HD">1:0:1:749A:41C:1:C00000:0:0:0</channel>
 <!--MOVSAT021--> <channel id="Movistar Plus+ HD">1:0:1:7588:412:1:C00000:0:0:0</channel>
-<!--MOVSAT022--> <channel id="Movistar Plus+ 2 HD">1:0:1:74A8:41C:1:C00000:0:0:0</channel>
-<!--MOVSAT023--> <channel id="Movistar Plus+ 2 HD">1:0:1:7579:412:1:C00000:0:0:0</channel>
 <!--MOVSAT024--> <channel id="M+ Acción HD">1:0:19:7509:420:1:C00000:0:0:0</channel>
 <!--MOVSAT025--> <channel id="M+ Acción HD">1:0:1:746C:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT026--> <channel id="M+ Comedia HD">1:0:19:7537:426:1:C00000:0:0:0</channel>
