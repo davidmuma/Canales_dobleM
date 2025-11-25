@@ -205,8 +205,7 @@
 <!--MOVFIB010--> <channel id="La Otra"></channel>
 <!--MOVFIB027--> <channel id="Atreseries"></channel>
 
-	<!-- OTROS CANALES -->
-
+<!-- OTROS CANALES -->
 <!--MOVSAT.SD--> <channel id="M+ Liga de Campeones 6">1:0:1:760E:408:1:C00000:0:0:0</channel>
 <!--MOVSAT183--> <channel id="M+ Liga de Campeones 7">1:0:1:7601:408:1:C00000:0:0:0</channel>
 <!--MOVSAT184--> <channel id="M+ Liga de Campeones 8">1:0:1:760A:408:1:C00000:0:0:0</channel>
@@ -270,8 +269,6 @@
 <!--MOVFIB158--> <channel id="3 24"></channel>
 <!--MOVFIB160--> <channel id="Betevé"></channel>
 
-
-
 	<channel id="Arte HD">1:0:19:283E:3FB:1:C00000:0:0:0</channel>
 	<channel id="MTV 80s">1:0:1:6FF1:436:1:C00000:0:0:0</channel>
 	<channel id="MTV Hits HD">1:0:19:1F43:42E:1:C00000:0:0:0</channel>	
@@ -280,7 +277,6 @@
     <channel id="Somos">1:0:19:8:6:6:FED40000:0:0:0</channel>
     <channel id="XTRM">1:0:19:3:6:6:FED40000:0:0:0</channel>
 	<channel id="Canal Orange"></channel>
-
 
 	<channel id="Eurosport 1 GER">1:0:19:30D6:413:1:C00000:0:0:0</channel>
 	<channel id="Eurosport 2 GER">1:0:19:6D:B:85:C00000:0:0:0</channel>
@@ -467,6 +463,17 @@
 <channel id="La 7 Murcia">1:0:1:3EB:4BA:22D4:EEEE0000:0:0:0</channel> <!-- 7 RM HD -->
 <channel id="BOM Cine">1:0:1:8E4:121:22D4:EEEE0000:0:0:0</channel> <!-- BOM -->
 <channel id="Popular TV Región de Murcia">1:0:1:2A67:4BA:22D4:EEEE0000:0:0:0</channel> <!-- Popular TV Región de Murcia -->
+
+<!-- INFO TDT CATALUÑA -->
+<channel id="Historia">1:0:19:274:26B:22D4:EEEE0262:0:0:0</channel> <!-- HISTORIA -->
+<channel id="BuenViaje">1:0:19:281:427D:22D4:EEEE01F2:0:0:0</channel> <!-- CANAL BUEN VIAJE -->
+<channel id="Canal Cocina">1:0:19:272:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL COCINA -->
+<channel id="AMC Break">1:0:19:277:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL AMC BREAK HD -->
+<channel id="AMC Crime">1:0:19:27F:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL AMC BREAK HD -->
+<channel id="Veo7">1:0:19:116:426A:22D4:EEEE01E2:0:0:0</channel> <!-- Veo 7 -->
+<channel id="Odisea">1:0:19:270:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL ODISEA -->
+<channel id="DARK">1:0:19:286:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL DarkDorcel HD -->
+<channel id="Sundance TV">1:0:19:273:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL DE CASA HD -->
 
 <!-- INFO TDT ALMERIA -->
 <channel id="LA 1 HD">1:0:19:19E:3E8:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
