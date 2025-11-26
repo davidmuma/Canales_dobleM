@@ -466,21 +466,23 @@
 
 <!-- INFO TDT CATALUÑA GRUPO AMC-->
 <channel id="Historia">1:0:19:274:26B:22D4:EEEE0262:0:0:0</channel> <!-- HISTORIA -->
-<channel id="BuenViaje">1:0:19:281:427D:22D4:EEEE01F2:0:0:0</channel> <!-- CANAL BUEN VIAJE -->
+<channel id="BuenViaje">1:0:19:281:427D:22D4:EEEE01F2:0:0:0</channel> <!-- BUEN VIAJE -->
 <channel id="Canal Cocina">1:0:19:272:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL COCINA -->
-<channel id="AMC Break">1:0:19:277:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL AMC BREAK HD -->
-<channel id="AMC Crime">1:0:19:27F:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL AMC BREAK HD -->
+<channel id="AMC Break">1:0:19:277:426A:22D4:EEEE01EA:0:0:0</channel> <!-- AMC BREAK HD -->
+<channel id="AMC Crime">1:0:19:27F:426A:22D4:EEEE01EA:0:0:0</channel> <!-- AMC BREAK HD -->
 <channel id="Veo7">1:0:19:116:426A:22D4:EEEE01E2:0:0:0</channel> <!-- Veo 7 -->
-<channel id="Odisea">1:0:19:270:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL ODISEA -->
-<channel id="DARK">1:0:19:286:426A:22D4:EEEE01EA:0:0:0</channel> <!-- CANAL DarkDorcel HD -->
-<channel id="Sundance TV">1:0:19:273:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL DE CASA HD -->
-
+<channel id="Odisea">1:0:19:270:426B:22D4:EEEE0262:0:0:0</channel> <!-- ODISEA -->
+<channel id="DARK">1:0:19:286:426A:22D4:EEEE01EA:0:0:0</channel> <!-- DarkDorcel HD -->
+<channel id="Sundance TV">1:0:19:1EF:426A:22D4:EEEE026A:0:0:0</channel> <!-- SUNDANCE HD -->
+<channel id="VinTV">1:0:19:283:427D:22D4:EEEE01F2:0:0:0</channel> <!-- VINTV HD -->
+<channel id="Decasa">1:0:19:273:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL DE CASA HD -->
+	
 <!-- INFO TDT ALMERIA -->
 <channel id="LA 1 HD">1:0:19:19E:3E8:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
 <channel id="Canal Sur Andalucía">1:0:1:7C5:102:22D4:EEEE0000:0:0:0</channel><!-- CANAL SUR HD -->
 <channel id="Teledeporte">1:0:19:19A:3E8:22D4:EEEE0000:0:0:0</channel> <!-- TDP HD -->
 <channel id="El Toro TV">1:0:1:2:D:22D4:EEEE0000:0:0:0</channel> <!-- EL TORO TV HD -->
-
+:
 <!-- INFO HD+ España-->
 <channel id="La 1 HD">1:0:1F:2C24:3F6:1:C00000:0:0:0</channel> <!-- La 1 HD -->
 <channel id="La 2">1:0:1F:2C25:3F6:1:C00000:0:0:0</channel> <!-- La 2 HD -->
