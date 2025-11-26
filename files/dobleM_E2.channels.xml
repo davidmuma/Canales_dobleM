@@ -464,7 +464,7 @@
 <channel id="BOM Cine">1:0:1:8E4:121:22D4:EEEE0000:0:0:0</channel> <!-- BOM -->
 <channel id="Popular TV Región de Murcia">1:0:1:2A67:4BA:22D4:EEEE0000:0:0:0</channel> <!-- Popular TV Región de Murcia -->
 
-<!-- INFO TDT CATALUÑA -->
+<!-- INFO TDT CATALUÑA GRUPO AMC-->
 <channel id="Historia">1:0:19:274:26B:22D4:EEEE0262:0:0:0</channel> <!-- HISTORIA -->
 <channel id="BuenViaje">1:0:19:281:427D:22D4:EEEE01F2:0:0:0</channel> <!-- CANAL BUEN VIAJE -->
 <channel id="Canal Cocina">1:0:19:272:426B:22D4:EEEE0262:0:0:0</channel> <!-- CANAL COCINA -->
