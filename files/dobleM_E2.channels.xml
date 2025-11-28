@@ -177,7 +177,8 @@
 <!--MOVSAT150--> <channel id="M+ Liga de Campeones 12">1:0:1:7821:428:1:C00000:0:0:0</channel>
 <!--MOVSAT151--> <channel id="M+ Liga de Campeones 13">1:0:1:782B:428:1:C00000:0:0:0</channel>
 <!--MOVSAT152--> <channel id="BBC Earth">1:0:1:76C4:40E:1:C00000:0:0:0</channel>
-<!--MOVSAT153--> <channel id="BBC Lifestyle">1:0:1:76C3:40E:1:C00000:0:0:0</channel>
+<!--MOVSAT153--> <channel id="BBC Lifestyle">1:0:1:76C3:40jjE:1:C00000:0:0:0</channel>
+<!--MOVSAT154--> <channel id="M+ LaLiga 5">1:0:1:7893:414:1:C00000:0:0:0</channel>
 
 <!-- INFO Movistar+ FIBRA-->
 <!--MOVFIB001--> <channel id="La 1 HD">1:0:19:7863:41A:1:C00000:0:0:0</channel>
