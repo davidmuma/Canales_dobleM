@@ -91,7 +91,6 @@
 <!--MOVSAT064--> <channel id="STAR Channel HD">1:0:1:746F:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT065--> <channel id="AXN HD">1:0:1:7477:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT066--> <channel id="Warner TV HD">1:0:1:76CB:40E:1:C00000:0:0:0</channel>
-<!--MOVSAT067--> <channel id="Paramount Network">1:0:1:756B:412:1:C00000:0:0:0</channel>
 <!--MOVSAT068--> <channel id="SyFy HD">1:0:1:7796:424:1:C00000:0:0:0</channel>
 <!--MOVSAT069--> <channel id="Cosmo HD">1:0:1:7730:416:1:C00000:0:0:0</channel>
 <!--MOVSAT070--> <channel id="Comedy Central HD">1:0:1:76C8:40E:1:C00000:0:0:0</channel>
@@ -127,7 +126,6 @@
 <!--MOVSAT099--> <channel id="24 Horas">1:0:1:7738:416:1:C00000:0:0:0</channel>
 <!--MOVSAT100--> <channel id="Alquiler HD">1:0:19:7536:426:1:C00000:0:0:0</channel>
 <!--MOVSAT101--> <channel id="Alquiler HD">1:0:1:75B2:422:1:C00000:0:0:0</channel>
-<!--MOVSAT102--> <channel id="Alquiler 1">1:0:1:768E:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT103--> <channel id="MULTIDEPORTE">1:0:1:7692:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT104--> <channel id="M+ Deportes 2 HD">1:0:19:7532:426:1:C00000:0:0:0</channel>
 <!--MOVSAT105--> <channel id="M+ Deportes 2 HD">1:0:1:7739:416:1:C00000:0:0:0</channel>
@@ -184,6 +182,9 @@
 <!--MOVSAT156--> <channel id="DAZN Baloncesto 2">1:0:1:7568:412:1:C00000:0:0:0</channel>
 <!--MOVSAT157--> <channel id="DAZN Baloncesto 3">1:0:1:7695:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT158--> <channel id="DAZN MotoGP">1:0:1:7569:412:1:C00000:0:0:0</channel>
+<!--MOVSAT102--> <channel id="M+ Baloncesto">1:0:1:768E:41E:1:C00000:0:0:0</channel>
+<!--MOVSAT102--> <channel id="M+ Baloncesto">1:0:19:7536:426:1:C00000:0:0:0</channel>	
+<!--MOVSAT067--> <channel id="M+ Baloncesto 2">1:0:1:756B:412:1:C00000:0:0:0</channel>
 	
 <!-- INFO Movistar+ FIBRA-->
 <!--MOVFIB001--> <channel id="La 1 HD">1:0:19:7863:41A:1:C00000:0:0:0</channel>
