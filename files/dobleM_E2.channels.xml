@@ -141,8 +141,8 @@
 <!--MOVSAT115--> <channel id="M+ Liga de Campeones 3 HD">1:0:1:769F:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT116--> <channel id="M+ Liga de Campeones 4">1:0:1:77D8:40A:1:C00000:0:0:0</channel>
 <!--MOVSAT117--> <channel id="M+ Liga de Campeones 5">1:0:1:77C4:40A:1:C00000:0:0:0</channel>
-<!--MOVSAT118--> <channel id="M+ LaLiga 2 HD">1:0:19:750D:420:1:C00000:0:0:0</channel>
-<!--MOVSAT119--> <channel id="M+ LaLiga 2 HD">1:0:1:769D:41E:1:C00000:0:0:0</channel>
+<!--MOVSAT118--> <channel id="M+ fanzone">1:0:19:750D:420:1:C00000:0:0:0</channel>
+<!--MOVSAT119--> <channel id="M+ fanzone">1:0:1:769D:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT120--> <channel id="M+ LaLiga 3 HD">1:0:1:74A3:41C:1:C00000:0:0:0</channel>
 <!--MOVSAT121--> <channel id="M+ LaLiga 3 HD">1:0:1:77BD:40A:1:C00000:0:0:0</channel>
 <!--MOVSAT122--> <channel id="M+ LaLiga 4">1:0:1:7892:414:1:C00000:0:0:0</channel>
