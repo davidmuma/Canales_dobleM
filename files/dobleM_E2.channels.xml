@@ -185,7 +185,9 @@
 <!--MOVSAT102--> <channel id="M+ Baloncesto">1:0:1:768E:41E:1:C00000:0:0:0</channel>
 <!--MOVSAT102--> <channel id="M+ Baloncesto">1:0:19:7536:426:1:C00000:0:0:0</channel>	
 <!--MOVSAT067--> <channel id="M+ Baloncesto 2">1:0:1:756B:412:1:C00000:0:0:0</channel>
-	
+<!--MOVSAT068--> <channel id="DAZN Mundial 3">1:0:1:7894:414:1:C00000:0:0:0</channel>
+<!--MOVSAT069--> <channel id="DAZN Mundial 4">1:0:1:7884:414:1:C00000:0:0:0</channel>
+		
 <!-- INFO Movistar+ FIBRA-->
 <!--MOVFIB001--> <channel id="La 1 HD">1:0:19:7863:41A:1:C00000:0:0:0</channel>
 <!--MOVFIB004--> <channel id="Classica HD">1:0:19:19D5:444:1:C00000:0:0:0</channel>
