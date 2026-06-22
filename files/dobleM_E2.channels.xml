@@ -46,8 +46,8 @@
 <!-- <channel id="M+ Frank Capra">1:0:1:7696:41E:1:C00000:0:0:0</channel> -->
 <!--MOVSAT018--> <channel id="M+ Estrenos HD">1:0:19:7539:426:1:C00000:0:0:0</channel>
 <!--MOVSAT019--> <channel id="M+ Estrenos HD">1:0:1:76C0:40E:1:C00000:0:0:0</channel>
-<!--MOVSAT020--> <channel id="Movistar Plus+ HD">1:0:1:749A:41C:1:C00000:0:0:0</channel>
-<!--MOVSAT021--> <channel id="Movistar Plus+ HD">1:0:1:7588:412:1:C00000:0:0:0</channel>
+<!--MOVSAT020--> <channel id="Movistar Plus HD">1:0:1:749A:41C:1:C00000:0:0:0</channel>
+<!--MOVSAT021--> <channel id="Movistar Plus HD">1:0:1:7588:412:1:C00000:0:0:0</channel>
 <!--MOVSAT024--> <channel id="M+ Acción HD">1:0:19:7509:420:1:C00000:0:0:0</channel>
 <!--MOVSAT025--> <channel id="M+ Acción HD">1:0:1:746C:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT026--> <channel id="M+ Comedia HD">1:0:19:7537:426:1:C00000:0:0:0</channel>
