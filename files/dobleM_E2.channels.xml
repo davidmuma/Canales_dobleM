@@ -494,7 +494,9 @@
 :
 <!-- INFO HD+ España-->
 <channel id="La 1 HD">1:0:1F:2C24:3F6:1:C00000:0:0:0</channel> <!-- La 1 HD -->
+<channel id="La 1 HD">1:0:1F:2C88:41A:1:C00000:0:0:0</channel> <!-- La 1 HD -->	
 <channel id="La 2">1:0:1F:2C25:3F6:1:C00000:0:0:0</channel> <!-- La 2 HD -->
+<channel id="La 2">1:0:1F:2C89:41A:1:C00000:0:0:0</channel> <!-- La 2 HD -->	
 <channel id="Antena 3 HD">1:0:1F:2BC0:40C:1:C00000:0:0:0</channel> <!-- Antena 3 HD -->
 <channel id="Cuatro HD">1:0:1F:2BC9:40C:1:C00000:0:0:0</channel> <!-- Cuatro HD -->
 <channel id="Telecinco HD">1:0:1F:2BC6:40C:1:C00000:0:0:0</channel> <!-- Telecinco HD -->
@@ -507,14 +509,33 @@
 <channel id="Energy">1:0:1F:2BCB:40C:1:C00000:0:0:0</channel> <!-- Energy -->
 <channel id="Boing">1:0:1F:2BC8:40C:1:C00000:0:0:0</channel> <!-- Boing -->
 <channel id="Clan">1:0:1F:2C27:3F6:1:C00000:0:0:0</channel> <!-- CLAN HD -->
+<channel id="Clan">1:0:1F:2C8B:41A:1:C00000:0:0:0</channel> <!-- CLAN HD -->
 <channel id="Neox">1:0:1F:2BC1:40C:1:C00000:0:0:0</channel> <!-- neox HD -->
 <channel id="Nova">1:0:1F:2BC2:40C:1:C00000:0:0:0</channel> <!-- nova HD -->
 <channel id="Teledeporte">1:0:1F:2C28:3F6:1:C00000:0:0:0</channel> <!-- TDP HD -->
+<channel id="Teledeporte">1:0:1F:2C8C:41A:1:C00000:0:0:0</channel> <!-- TDP HD -->	
 <channel id="DKISS">1:0:1F:2C2A:3F6:1:C00000:0:0:0</channel> <!-- DKISS -->
+<channel id="DKISS">1:0:1F:2C8E:41A:1:C00000:0:0:0</channel> <!-- DKISS -->	
 <channel id="Real Madrid TV">1:0:1F:2BCD:40C:1:C00000:0:0:0</channel> <!-- RealMadrid TV -->
 <channel id="24 Horas">1:0:1F:2C26:3F6:1:C00000:0:0:0</channel> <!-- 24h HD -->
+<channel id="24 Horas">1:0:1F:2C8A:41A:1:C00000:0:0:0</channel> <!-- 24h HD -->	
 <channel id="TRECE">1:0:1F:2C29:3F6:1:C00000:0:0:0</channel> <!-- TRECE -->
-
+<channel id="TRECE">1:0:1F:2C8D:41A:1:C00000:0:0:0</channel> <!-- TRECE -->
+<channel id="À Punt">1:0:1F:2C8F:41A:1:C00000:0:0:0</channel> <!-- À Punt HD -->	
+<channel id="Aragón TV Internacional">1:0:1F:13BA:3EA:1:C00000:0:0:0</channel><!-- Aragón Televisión -->
+<channel id="Canal Sur Andalucía">1:0:1F:2C92:41A:1:C00000:0:0:0</channel><!-- CANAL SUR HD -->	
+<channel id="CMM TV">1:0:1F:109E:3EE:1:C00000:0:0:0</channel><!-- CMM TV -->		
+<channel id="etb 1">1:0:1F:2C90:41A:1:C00000:0:0:0</channel><!-- ETB1 HD -->	
+<channel id="Canal Extremadura SAT">1:0:1F:13BD:3EA:1:C00000:0:0:0</channel><!-- Canal Extremadura SAT -->	
+<channel id="TV Canaria">1:0:1F:109D:3EE:1:C00000:0:0:0</channel><!-- Televisión Canaria HD -->	
+<channel id="TVG:TV Galicia">1:0:1F:13BE:3EA:1:C00000:0:0:0</channel><!-- TVG -->	
+<channel id="Telemadrid Internacional">1:0:1F:109C:3EE:1:C00000:0:0:0</channel><!-- Telemadrid Internacional -->	
+<channel id="TV3 CAT">1:0:1F:109B:3EE:1:C00000:0:0:0</channel> <!-- TV3 -->	
+<channel id="TPA Asturias">1:0:1F:2C91:41A:1:C00000:0:0:0</channel> <!-- TPA Asturias -->		
+<channel id="IB3 RTV Illes Balears">1:0:1F:13BB:3EA:1:C00000:0:0:0</channel><!-- IB3 HD -->
+<channel id="La 7 CyL">1:0:1F:13BC:3EA:1:C00000:0:0:0</channel><!-- La 7 Castillaleon -->
+<channel id="La 7 Murcia">1:0:1F:109A:3EE:1:C00000:0:0:0</channel> <!-- La 7 HD -->	
+	
 <!-- INFO TDT IPTV-->
 <channel id="Esport 3 HD">0:0:0</channel> <!-- Esport 3 HD -->
 <channel id="Los Conciertos de Radio 3 HD">0:0:0</channel> <!-- Los Conciertos de Radio 3 HD -->
