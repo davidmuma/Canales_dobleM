@@ -91,7 +91,7 @@
 <!--MOVSAT064--> <channel id="STAR Channel HD">1:0:1:746F:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT065--> <channel id="AXN HD">1:0:1:7477:3F0:1:C00000:0:0:0</channel>
 <!--MOVSAT066--> <channel id="Warner TV HD">1:0:1:76CB:40E:1:C00000:0:0:0</channel>
-<!--MOVSAT068--> <channel id="SyFy HD">1:0:1:7796:424:1:C00000:0:0:0</channel>
+<!--MOVSAT068--> <channel id="Scifi HD">1:0:1:7796:424:1:C00000:0:0:0</channel>
 <!--MOVSAT069--> <channel id="Cosmo HD">1:0:1:7730:416:1:C00000:0:0:0</channel>
 <!--MOVSAT070--> <channel id="Comedy Central HD">1:0:1:76C8:40E:1:C00000:0:0:0</channel>
 <!--MOVSAT071--> <channel id="Discovery">1:0:1:772F:416:1:C00000:0:0:0</channel>
