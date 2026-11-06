@@ -434,7 +434,7 @@
 <channel id="Telemadrid">1:0:1:1A5:1838:22D4:EEEE0000:0:0:0:</channel><!-- Telemadrid -->
 <channel id="Ten">1:0:1:A033:9C40:22D4:EEEE0000:0:0:0:</channel><!-- TEN -->
 <channel id="XTRM">1:0:1:1965:834:A041:FFFF0000:0:0:0:</channel><!-- Extreme Sports -->
-<channel id="atreseries HD">1:0:19:65:12:22D4:EEEE0000:0:0:0</channel> <!-- atreseries HD -->
+<channel id="La Séptima">1:0:19:65:12:22D4:EEEE0000:0:0:0</channel> <!-- La Séptima -->
 
 <!-- INFO TDT COMUNIDAD VALENCIANA Y MURCIA-->
 <channel id="La 1 HD">1:0:19:23E:3F8:22D4:EEEE0000:0:0:0</channel> <!-- La 1 HD -->
@@ -449,7 +449,7 @@
 <channel id="Telecinco HD">1:0:19:BE:10:22D4:EEEE0000:0:0:0</channel> <!-- Telecinco HD -->
 <channel id="Telecinco HD">1:0:1F:A031:9C40:22D4:EEEE0000:0:0:0</channel> <!-- Telecinco UHD -->
 <channel id="La Sexta HD">1:0:19:97:F:22D4:EEEE0000:0:0:0</channel> <!-- laSexta HD -->
-<channel id="La Septima">1:0:19:65:12:22D4:EEEE0000:0:0:0</channel> <!-- La Septima -->
+<channel id="La Séptima">1:0:19:65:12:22D4:EEEE0000:0:0:0</channel> <!-- La Séptima -->
 <channel id="Mega">1:0:19:9B:11:22D4:EEEE0000:0:0:0</channel> <!-- Mega -->	
 <channel id="Factoría de Ficción">1:0:19:BC:10:22D4:EEEE0000:0:0:0</channel> <!-- FDF -->	
 <channel id="Divinity">1:0:19:BD:10:22D4:EEEE0000:0:0:0</channel> <!-- Divinity -->	
