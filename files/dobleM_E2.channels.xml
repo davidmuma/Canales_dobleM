@@ -498,48 +498,106 @@
 <channel id="El Toro TV">1:0:1:2:D:22D4:EEEE0000:0:0:0</channel> <!-- EL TORO TV HD -->
 :
 <!-- INFO HD+ España-->
-<channel id="La 1 HD">1:0:1F:2C24:3F6:1:C00000:0:0:0</channel> <!-- La 1 HD -->
-<channel id="La 1 HD">1:0:1F:2C88:41A:1:C00000:0:0:0</channel> <!-- La 1 HD -->	
-<channel id="La 2">1:0:1F:2C25:3F6:1:C00000:0:0:0</channel> <!-- La 2 HD -->
-<channel id="La 2">1:0:1F:2C89:41A:1:C00000:0:0:0</channel> <!-- La 2 HD -->	
-<channel id="Antena 3 HD">1:0:1F:2BC0:40C:1:C00000:0:0:0</channel> <!-- Antena 3 HD -->
-<channel id="Cuatro HD">1:0:1F:2BC9:40C:1:C00000:0:0:0</channel> <!-- Cuatro HD -->
-<channel id="Telecinco HD">1:0:1F:2BC6:40C:1:C00000:0:0:0</channel> <!-- Telecinco HD -->
-<channel id="La Sexta HD">1:0:1F:2BC4:40C:1:C00000:0:0:0</channel> <!-- laSexta HD -->
-<channel id="Mega">1:0:1F:2BC5:40C:1:C00000:0:0:0</channel> <!-- Mega HD -->
-<channel id="Factoría de Ficción">1:0:1F:2BC7:40C:1:C00000:0:0:0</channel> <!-- FDF -->
-<channel id="Atreseries">1:0:1F:2BC3:40C:1:C00000:0:0:0</channel> <!-- Antena 3 HD -->
-<channel id="Divinity">1:0:1F:2BCA:40C:1:C00000:0:0:0</channel> <!-- Divinity -->
-<channel id="Be Mad">1:0:1F:2BCC:40C:1:C00000:0:0:0</channel> <!-- Be Mad HD -->
-<channel id="Energy">1:0:1F:2BCB:40C:1:C00000:0:0:0</channel> <!-- Energy -->
-<channel id="Boing">1:0:1F:2BC8:40C:1:C00000:0:0:0</channel> <!-- Boing -->
-<channel id="Clan">1:0:1F:2C27:3F6:1:C00000:0:0:0</channel> <!-- CLAN HD -->
-<channel id="Clan">1:0:1F:2C8B:41A:1:C00000:0:0:0</channel> <!-- CLAN HD -->
-<channel id="Neox">1:0:1F:2BC1:40C:1:C00000:0:0:0</channel> <!-- neox HD -->
-<channel id="Nova">1:0:1F:2BC2:40C:1:C00000:0:0:0</channel> <!-- nova HD -->
-<channel id="Teledeporte">1:0:1F:2C28:3F6:1:C00000:0:0:0</channel> <!-- TDP HD -->
-<channel id="Teledeporte">1:0:1F:2C8C:41A:1:C00000:0:0:0</channel> <!-- TDP HD -->	
-<channel id="DKISS">1:0:1F:2C2A:3F6:1:C00000:0:0:0</channel> <!-- DKISS -->
-<channel id="DKISS">1:0:1F:2C8E:41A:1:C00000:0:0:0</channel> <!-- DKISS -->	
-<channel id="Real Madrid TV">1:0:1F:2BCD:40C:1:C00000:0:0:0</channel> <!-- RealMadrid TV -->
-<channel id="24 Horas">1:0:1F:2C26:3F6:1:C00000:0:0:0</channel> <!-- 24h HD -->
-<channel id="24 Horas">1:0:1F:2C8A:41A:1:C00000:0:0:0</channel> <!-- 24h HD -->	
-<channel id="TRECE">1:0:1F:2C29:3F6:1:C00000:0:0:0</channel> <!-- TRECE -->
-<channel id="TRECE">1:0:1F:2C8D:41A:1:C00000:0:0:0</channel> <!-- TRECE -->
-<channel id="À Punt">1:0:1F:2C8F:41A:1:C00000:0:0:0</channel> <!-- À Punt HD -->	
-<channel id="Aragón TV Internacional">1:0:1F:13BA:3EA:1:C00000:0:0:0</channel><!-- Aragón Televisión -->
-<channel id="Canal Sur Andalucía">1:0:1F:2C92:41A:1:C00000:0:0:0</channel><!-- CANAL SUR HD -->	
-<channel id="CMM TV">1:0:1F:109E:3EE:1:C00000:0:0:0</channel><!-- CMM TV -->		
-<channel id="etb 1">1:0:1F:2C90:41A:1:C00000:0:0:0</channel><!-- ETB1 HD -->	
-<channel id="Canal Extremadura SAT">1:0:1F:13BD:3EA:1:C00000:0:0:0</channel><!-- Canal Extremadura SAT -->	
-<channel id="TV Canaria">1:0:1F:109D:3EE:1:C00000:0:0:0</channel><!-- Televisión Canaria HD -->	
-<channel id="TVG:TV Galicia">1:0:1F:13BE:3EA:1:C00000:0:0:0</channel><!-- TVG -->	
-<channel id="Telemadrid Internacional">1:0:1F:109C:3EE:1:C00000:0:0:0</channel><!-- Telemadrid Internacional -->	
-<channel id="TV3 CAT">1:0:1F:109B:3EE:1:C00000:0:0:0</channel> <!-- TV3 -->	
-<channel id="TPA Asturias">1:0:1F:2C91:41A:1:C00000:0:0:0</channel> <!-- TPA Asturias -->		
-<channel id="IB3 RTV Illes Balears">1:0:1F:13BB:3EA:1:C00000:0:0:0</channel><!-- IB3 HD -->
-<channel id="La 7 CyL">1:0:1F:13BC:3EA:1:C00000:0:0:0</channel><!-- La 7 Castillaleon -->
-<channel id="La 7 Murcia">1:0:1F:109A:3EE:1:C00000:0:0:0</channel> <!-- La 7 HD -->	
+<channel id="La 1 UHD">1:0:1F:2C88:41A:1:C00000:0:0:0</channel>
+La 1 UHD
+<channel id="La 2">1:0:1F:2C89:41A:1:C00000:0:0:0</channel>
+La 2
+<channel id="Antena 3">1:0:1F:2BC0:40C:1:C00000:0:0:0</channel>
+Antena 3
+<channel id="Cuatro">1:0:1F:2BC9:40C:1:C00000:0:0:0</channel>
+Cuatro
+<channel id="Telecinco">1:0:1F:2BC6:40C:1:C00000:0:0:0</channel>
+Telecinco
+<channel id="laSexta">1:0:1F:2BC4:40C:1:C00000:0:0:0</channel>
+laSexta
+<channel id="24h">1:0:1F:2C8A:41A:1:C00000:0:0:0</channel>
+24h
+<channel id="Teledeporte">1:0:1F:2C8C:41A:1:C00000:0:0:0</channel>
+Teledeporte
+<channel id="Real Madrid TV">1:0:1F:2BCD:40C:1:C00000:0:0:0</channel>
+Real Madrid TV
+<channel id="TRECE">1:0:1F:2C8D:41A:1:C00000:0:0:0</channel>
+TRECE
+<channel id="Clan">1:0:1F:2C8B:41A:1:C00000:0:0:0</channel>
+Clan
+<channel id="Boing">1:0:1F:2BC8:40C:1:C00000:0:0:0</channel>
+Boing
+<channel id="Energy">1:0:1F:2BCB:40C:1:C00000:0:0:0</channel>
+Energy
+<channel id="Atreseries">1:0:1F:2BC3:40C:1:C00000:0:0:0</channel>
+Atreseries
+<channel id="FDF">1:0:1F:2BC7:40C:1:C00000:0:0:0</channel>
+FDF
+<channel id="Neox">1:0:1F:2BC1:40C:1:C00000:0:0:0</channel>
+Neox
+<channel id="Divinity">1:0:1F:2BCA:40C:1:C00000:0:0:0</channel>
+Divinity
+<channel id="Nova">1:0:1F:2BC2:40C:1:C00000:0:0:0</channel>
+Nova
+<channel id="Mega">1:0:1F:2BC5:40C:1:C00000:0:0:0</channel>
+Mega
+<channel id="Be Mad">1:0:1F:2BCC:40C:1:C00000:0:0:0</channel>
+Be Mad
+<channel id="DKISS">1:0:1F:2C8E:41A:1:C00000:0:0:0</channel>
+DKISS
+<channel id="Canal Sur">1:0:1F:2C92:41A:1:C00000:0:0:0</channel>
+Canal Sur
+<channel id="Aragon TV">1:0:1F:13BA:3EA:1:C00000:0:0:0</channel>
+Aragon TV
+<channel id="TPA Asturias HD">1:0:1F:2C91:41A:1:C00000:0:0:0</channel>
+TPA Asturias HD
+<channel id="IB3">1:0:1F:13BB:3EA:1:C00000:0:0:0</channel>
+IB3
+<channel id="Television Canaria">1:0:1F:109D:3EE:1:C00000:0:0:0</channel>
+Television Canaria
+<channel id="CMM">1:0:1F:109E:3EE:1:C00000:0:0:0</channel>
+CMM
+<channel id="La 7 Castillaleon">1:0:1F:13BC:3EA:1:C00000:0:0:0</channel>
+La 7 Castillaleon
+<channel id="TV-3 Cataluna HD">1:0:1F:109B:3EE:1:C00000:0:0:0</channel>
+TV-3 Cataluna HD
+<channel id="Extremadura TV">1:0:1F:13BD:3EA:1:C00000:0:0:0</channel>
+Extremadura TV
+<channel id="TVG1">1:0:1F:13BE:3EA:1:C00000:0:0:0</channel>
+TVG1
+<channel id="Telemadrid">1:0:1F:109C:3EE:1:C00000:0:0:0</channel>
+Telemadrid
+<channel id="La 7 HD">1:0:1F:109A:3EE:1:C00000:0:0:0</channel>
+La 7 HD
+<channel id="ETB-1 HD">1:0:1F:2C90:41A:1:C00000:0:0:0</channel>
+ETB-1 HD
+<channel id="A Punt HD">1:0:1F:2C8F:41A:1:C00000:0:0:0</channel>
+A Punt HD
+<channel id="Cubavision internacional">1:0:19:1647:42C:1:C00000:0:0:0</channel>
+Cubavision internacional
+<channel id="Telesur HD">1:0:19:7A49:410:1:C00000:0:0:0</channel>
+Telesur HD
+<channel id="BBC News">1:0:1:1389:3EA:1:C00000:0:0:0</channel>
+BBC News
+<channel id="CNN international Europe">1:0:1:164E:42C:1:C00000:0:0:0</channel>
+CNN international Europe
+<channel id="France 24">1:0:1:1AF9:3FE:1:C00000:0:0:0</channel>
+France 24
+<channel id="TV5MONDE EUROPE HD">1:0:19:1B03:3FE:1:C00000:0:0:0</channel>
+TV5MONDE EUROPE HD
+<channel id="TVMonaco">1:0:1:1645:42C:1:C00000:0:0:0</channel>
+TVMonaco
+<channel id="ZDFinfo">1:0:19:2BA2:3F2:1:C00000:0:0:0</channel>
+ZDFinfo
+<channel id="3sat HD">1:0:19:2B8E:3F2:1:C00000:0:0:0</channel>
+3sat HD
+<channel id="KIKA HD">1:0:19:2B98:3F2:1:C00000:0:0:0</channel>
+KIKA HD
+<channel id="DW English HD">1:0:19:1644:42C:1:C00000:0:0:0</channel>
+DW English HD
+<channel id="Al Jazeera English HD">1:0:19:13A7:3EA:1:C00000:0:0:0</channel>
+Al Jazeera English HD
+<channel id="CGTN HD">1:0:19:18ED:3F4:1:C00000:0:0:0</channel>
+CGTN HD
+<channel id="NHK WORLD-JPN">1:0:19:139D:3EA:1:C00000:0:0:0</channel>
+NHK WORLD-JPN
+<channel id="TRT World HD">1:0:19:1B06:3FE:1:C00000:0:0:0</channel>
+TRT World HD
 	
 <!-- INFO TDT IPTV-->
 <channel id="Esport 3 HD">0:0:0</channel> <!-- Esport 3 HD -->
